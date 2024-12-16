@@ -1,12 +1,4 @@
----
-
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 07.TransferPrivateApi
+# TransferPrivateApi
 
 <a id="opIdcreateTransferOut"></a>
 
