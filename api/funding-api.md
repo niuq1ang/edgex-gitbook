@@ -1,7 +1,3 @@
-Okay, here's the translation of the provided markdown document into English, maintaining the structure and content:
-
----
-
 # test
 
 > v1.0.0
