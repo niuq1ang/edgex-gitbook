@@ -1,12 +1,4 @@
----
-
-# Test
-
-> v1.0.0
-
-Base URLs:
-
-# 01. QuotePublicApi
+# QuotePublicApi
 
 <a id="opIdgetTicketSummary"></a>
 
