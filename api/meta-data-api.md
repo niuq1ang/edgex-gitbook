@@ -1,24 +1,4 @@
----
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
-
----
-
+```
 # test
 
 > v1.0.0
@@ -29,11 +9,11 @@ Base URLs:
 
 <a id="opIdgetServerTime"></a>
 
-## GET 获取服务器时间
+## GET Get Server Time
 
 GET /api/v1/public/meta/getServerTime
 
-> 返回示例
+> Example Response
 
 > 200 Response
 
@@ -46,19 +26,19 @@ GET /api/v1/public/meta/getServerTime
 }
 ```
 
-### 返回结果
+### Response Body
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetMetaData"></a>
 
-## GET 获取元信息数据
+## GET Get Meta Data
 
 GET /api/v1/public/meta/getMetaData
 
-> 返回示例
+> Example Response
 
 > 200 Response
 
@@ -71,13 +51,13 @@ GET /api/v1/public/meta/getMetaData
 }
 ```
 
-### 返回结果
+### Response Body
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
-# 数据模型
+# Data Models
 
 <h2 id="tocS_Result<MetaData>">Result<MetaData></h2>
 
@@ -221,20 +201,19 @@ GET /api/v1/public/meta/getMetaData
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[MetaData](#schemametadata)|false|none||全局元数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
+|data|[MetaData](#schemametadata)|false|none|Global metadata|
+|errorParam|object|false|none|Parameter information in error message|
+|» **additionalProperties**|string|false|none|Parameter information in error message|
+|requestTime|string(timestamp)|false|none|Server request receiving time|
+|responseTime|string(timestamp)|false|none|Server response returning time|
+|traceId|string|false|none|Call traceId|
 
 <h2 id="tocS_MetaData">MetaData</h2>
 
@@ -377,19 +356,18 @@ GET /api/v1/public/meta/getMetaData
     ]
   }
 }
-
 ```
 
-全局元数据
+Global metadata
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|global|[Global](#schemaglobal)|false|none||全局元信息|
-|coinList|[[Coin](#schemacoin)]|false|none||所有货币元信息|
-|contractList|[[Contract](#schemacontract)]|false|none||所有合约元信息|
-|multiChain|[MultiChain](#schemamultichain)|false|none||跨链提币相关类|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|global|[Global](#schemaglobal)|false|none|Global meta information|
+|coinList|[[Coin](#schemacoin)]|false|none|All coin meta information|
+|contractList|[[Contract](#schemacontract)]|false|none|All contract meta information|
+|multiChain|[MultiChain](#schemamultichain)|false|none|Cross-chain withdrawal related class|
 
 <h2 id="tocS_MultiChain">MultiChain</h2>
 
@@ -437,20 +415,19 @@ GET /api/v1/public/meta/getMetaData
     }
   ]
 }
-
 ```
 
-跨链提币相关类
+Cross-chain withdrawal related class
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|coinId|string(int64)|false|none||充提资产id|
-|maxWithdraw|string|false|none||最大提币量|
-|minWithdraw|string|false|none||最小提币量|
-|minDeposit|string|false|none||最小充币量|
-|chainList|[[Chain](#schemachain)]|false|none||支持的链|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|coinId|string(int64)|false|none|Asset id for deposit and withdrawal|
+|maxWithdraw|string|false|none|Maximum withdrawal amount|
+|minWithdraw|string|false|none|Minimum withdrawal amount|
+|minDeposit|string|false|none|Minimum deposit amount|
+|chainList|[[Chain](#schemachain)]|false|none|Supported chains|
 
 <h2 id="tocS_Chain">Chain</h2>
 
@@ -490,32 +467,31 @@ GET /api/v1/public/meta/getMetaData
   "blockTime": "string",
   "appRpcUrl": "string"
 }
-
 ```
 
-用于解析数据的包装类
+Wrapper class for parsing data
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|chain|string|false|none||主链名|
-|chainId|string(int64)|false|none||chainId|
-|chainIconUrl|string|false|none||主链图标url|
-|contractAddress|string|false|none||合约地址|
-|depositGasFeeLess|boolean|false|none||是否收充值手续费|
-|feeLess|boolean|false|none||是否免手续费|
-|feeRate|string|false|none||手续费率|
-|gasLess|boolean|false|none||是否收手续费|
-|gasToken|string|false|none||主链代币名|
-|minFee|string|false|none||提币最小手续费 如果gas+value*fee_rate 小于 min_fee, 就按照min_fee收取|
-|rpcUrl|string|false|none||链的线上节点服务|
-|webTxUrl|string|false|none||交易tx链接|
-|withdrawGasFeeLess|boolean|false|none||是否收提币手续费|
-|tokenList|[[MultiChainToken](#schemamultichaintoken)]|false|none||跨链相关币种类集合信息|
-|txConfirm|string(int64)|false|none||链上充值确认数|
-|blockTime|string|false|none||区块时间|
-|appRpcUrl|string|false|none||none|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|chain|string|false|none|Main chain name|
+|chainId|string(int64)|false|none|chainId|
+|chainIconUrl|string|false|none|Main chain icon url|
+|contractAddress|string|false|none|Contract address|
+|depositGasFeeLess|boolean|false|none|Whether to charge deposit fee|
+|feeLess|boolean|false|none|Whether to exempt from fees|
+|feeRate|string|false|none|Fee rate|
+|gasLess|boolean|false|none|Whether to charge gas fee|
+|gasToken|string|false|none|Main chain token name|
+|minFee|string|false|none|Minimum withdrawal fee. If gas + value*fee_rate is less than min_fee, it will be charged according to min_fee|
+|rpcUrl|string|false|none|Online node service of the chain|
+|webTxUrl|string|false|none|Transaction tx link|
+|withdrawGasFeeLess|boolean|false|none|Whether to charge withdrawal fee|
+|tokenList|[[MultiChainToken](#schemamultichaintoken)]|false|none|Collection of cross-chain related token information|
+|txConfirm|string(int64)|false|none|Number of confirmations for on-chain deposit|
+|blockTime|string|false|none|Block time|
+|appRpcUrl|string|false|none|none|
 
 <h2 id="tocS_MultiChainToken">MultiChainToken</h2>
 
@@ -535,23 +511,22 @@ GET /api/v1/public/meta/getMetaData
   "useFixedRate": true,
   "fixedRate": "string"
 }
-
 ```
 
-跨链相关币种类
+Cross-chain related token types
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|tokenAddress|string|false|none||token合约地址|
-|decimals|string(int64)|false|none||token精度|
-|iconUrl|string|false|none||token图标url|
-|token|string|false|none||token name|
-|pullOff|boolean|false|none||是否下架，默认false|
-|withdrawEnable|boolean|false|none||是否支持提现该类型资产|
-|useFixedRate|boolean|false|none||是否使用固定汇率|
-|fixedRate|string|false|none||固定汇率|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|tokenAddress|string|false|none|Token contract address|
+|decimals|string(int64)|false|none|Token precision|
+|iconUrl|string|false|none|Token icon url|
+|token|string|false|none|Token name|
+|pullOff|boolean|false|none|Whether to delist, default is false|
+|withdrawEnable|boolean|false|none|Whether to support withdrawal of this type of asset|
+|useFixedRate|boolean|false|none|Whether to use a fixed exchange rate|
+|fixedRate|string|false|none|Fixed exchange rate|
 
 <h2 id="tocS_Contract">Contract</h2>
 
@@ -611,50 +586,49 @@ GET /api/v1/public/meta/getMetaData
     "string"
   ]
 }
-
 ```
 
-永续合约元信息
+Perpetual contract meta information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||永续合约币对标识|
-|contractName|string|false|none||永续合约币对名称|
-|baseCoinId|string(int64)|false|none||例如：10000001 (BTC)|
-|quoteCoinId|string(int64)|false|none||例如：1001 (USD/USDT)|
-|tickSize|string(decimal)|false|none||最小报价单位(quoteCoinId)|
-|stepSize|string(decimal)|false|none||最小数量单位(baseCoinId)|
-|minOrderSize|string(decimal)|false|none||最小委托单数量(baseCoinId)|
-|maxOrderSize|string(decimal)|false|none||最大委托单数据(baseCoinId)|
-|maxOrderBuyPriceRatio|string(decimal)|false|none||最大委托单买价限价比例 (和预言机价格相比), decimal (quote_coin_id)|
-|minOrderSellPriceRatio|string(decimal)|false|none||最小委托单卖价限价比例 (和预言机价格相比), decimal (quote_coin_id)|
-|maxPositionSize|string(decimal)|false|none||最大仓位数量(baseCoinId)|
-|riskTierList|[[RiskTier](#schemarisktier)]|false|none||风险限额档位列表|
-|defaultTakerFeeRate|string(decimal)|false|none||合约默认的taker手续费率|
-|defaultMakerFeeRate|string(decimal)|false|none||合约默认的maker手续费率|
-|defaultLeverage|string(decimal)|false|none||用户没有设置交易杠杆时，初始的默认开仓杠杆倍数|
-|liquidateFeeRate|string(decimal)|false|none||清算费率|
-|enableTrade|boolean|false|none||是否可以交易. true: 可以交易, false: 不可交易|
-|enableDisplay|boolean|false|none||是否可以展示. true: 可以展示, false: 隐藏|
-|enableOpenPosition|boolean|false|none||是否可以开仓. true: 可以开仓和平仓，false: 不可以开仓仅可平仓|
-|fundingInterestRate|string(decimal)|false|none||综合利率默认值, 例如: 0.0003|
-|fundingImpactMarginNotional|string(decimal)|false|none||深度加权买卖价计算数量, 例如: 8000|
-|fundingMaxRate|string(decimal)|false|none||资金费率最大值, 例如: 0.000234|
-|fundingMinRate|string(decimal)|false|none||资金费率最小值, 例如: -0.000234|
-|fundingRateIntervalMin|string(decimal)|false|none||资金费率结算时间间隔(分钟，必须是60分钟的整数倍, 从UTC时间00:00开始结算) decimal|
-|displayDigitMerge|string(decimal)|false|none||深度合并. 例如: "1,0.1,0.001"|
-|displayMaxLeverage|string(decimal)|false|none||展示杠杆最大倍数, decimal. 例如: 20|
-|displayMinLeverage|string(decimal)|false|none||展示杠杆最小倍数, decimal. 例如: 1|
-|displayNewIcon|boolean|false|none||是否为新上币对|
-|displayHotIcon|boolean|false|none||是否为热门币对|
-|matchServerName|string|false|none||处理撮合服务名, 例如：xxx-match-server-a。 这个值一旦配置就不能再更改了，要是改的话得做好数据迁移。|
-|starkExSyntheticAssetId|string(int64)|false|none||当前币对对应的混合资产id, bigint for hex str.|
-|starkExResolution|string(int64)|false|none||当前币对持有数量处理精度, bigint for hex str|
-|starkExOraclePriceQuorum|string(int64)|false|none||预言机价格法定数量，bigint for hex str|
-|starkExOraclePriceSignedAssetId|[string]|false|none||bigint for hex str|
-|starkExOraclePriceSigner|[string]|false|none||bigint for hex str|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|contractId|string(int64)|false|none|Perpetual contract pair identifier|
+|contractName|string|false|none|Perpetual contract pair name|
+|baseCoinId|string(int64)|false|none|e.g., 10000001 (BTC)|
+|quoteCoinId|string(int64)|false|none|e.g., 1001 (USD/USDT)|
+|tickSize|string(decimal)|false|none|Minimum price increment (quoteCoinId)|
+|stepSize|string(decimal)|false|none|Minimum quantity increment (baseCoinId)|
+|minOrderSize|string(decimal)|false|none|Minimum order quantity (baseCoinId)|
+|maxOrderSize|string(decimal)|false|none|Maximum order quantity (baseCoinId)|
+|maxOrderBuyPriceRatio|string(decimal)|false|none|Maximum limit buy order price ratio (compared to oracle price), decimal (quote_coin_id)|
+|minOrderSellPriceRatio|string(decimal)|false|none|Minimum limit sell order price ratio (compared to oracle price), decimal (quote_coin_id)|
+|maxPositionSize|string(decimal)|false|none|Maximum position quantity (baseCoinId)|
+|riskTierList|[[RiskTier](#schemarisktier)]|false|none|List of risk limit tiers|
+|defaultTakerFeeRate|string(decimal)|false|none|Default taker fee rate for the contract|
+|defaultMakerFeeRate|string(decimal)|false|none|Default maker fee rate for the contract|
+|defaultLeverage|string(decimal)|false|none|Initial default leverage multiplier when user has not set a trading leverage|
+|liquidateFeeRate|string(decimal)|false|none|Liquidation fee rate|
+|enableTrade|boolean|false|none|Whether trading is allowed. true: allowed, false: not allowed|
+|enableDisplay|boolean|false|none|Whether to display. true: display, false: hide|
+|enableOpenPosition|boolean|false|none|Whether opening positions is allowed. true: allowed to open and close, false: only allowed to close positions|
+|fundingInterestRate|string(decimal)|false|none|Default value of overall interest rate, e.g., 0.0003|
+|fundingImpactMarginNotional|string(decimal)|false|none|Quantity for calculating depth-weighted bid/ask price, e.g., 8000|
+|fundingMaxRate|string(decimal)|false|none|Maximum funding rate, e.g., 0.000234|
+|fundingMinRate|string(decimal)|false|none|Minimum funding rate, e.g., -0.000234|
+|fundingRateIntervalMin|string(decimal)|false|none|Settlement interval of funding rate (in minutes, must be an integer multiple of 60 minutes, settlement starts from 00:00 UTC) decimal|
+|displayDigitMerge|string(decimal)|false|none|Depth merge. e.g., "1,0.1,0.001"|
+|displayMaxLeverage|string(decimal)|false|none|Maximum leverage multiplier to display, decimal. e.g., 20|
+|displayMinLeverage|string(decimal)|false|none|Minimum leverage multiplier to display, decimal. e.g., 1|
+|displayNewIcon|boolean|false|none|Whether it is a newly listed pair|
+|displayHotIcon|boolean|false|none|Whether it is a hot pair|
+|matchServerName|string|false|none|Matching service name, e.g., xxx-match-server-a. This value cannot be changed once configured, otherwise data migration is required.|
+|starkExSyntheticAssetId|string(int64)|false|none|Synthetic asset id of the current pair, bigint for hex str.|
+|starkExResolution|string(int64)|false|none|Processing precision of the quantity held by the current pair, bigint for hex str|
+|starkExOraclePriceQuorum|string(int64)|false|none|Legal number of oracle prices, bigint for hex str|
+|starkExOraclePriceSignedAssetId|[string]|false|none|bigint for hex str|
+|starkExOraclePriceSigner|[string]|false|none|bigint for hex str|
 
 <h2 id="tocS_RiskTier">RiskTier</h2>
 
@@ -672,21 +646,20 @@ GET /api/v1/public/meta/getMetaData
   "starkExRisk": "string",
   "starkExUpperBound": "string"
 }
-
 ```
 
-风险限额档位信息
+Risk limit tier information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|tier|integer(int32)|false|none||档位，从1开始|
-|positionValueUpperBound|string(decimal)|false|none||档位仓位价值上限 (包含)|
-|maxLeverage|string(decimal)|false|none||档位最高可用杠杆|
-|maintenanceMarginRate|string(decimal)|false|none||档位维持保证金率 (仅用于展示，实际使用 stark_ex_risk / 2^32 做为精确维持保证金率)，decimal|
-|starkExRisk|string(int64)|false|none||1 ≤ risk < 2^32|
-|starkExUpperBound|string(int64)|false|none||bigint. 0 ≤ upper_bound ≤ 2^128-1|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|tier|integer(int32)|false|none|Tier, starting from 1|
+|positionValueUpperBound|string(decimal)|false|none|Upper limit of position value for the tier (inclusive)|
+|maxLeverage|string(decimal)|false|none|Maximum available leverage for the tier|
+|maintenanceMarginRate|string(decimal)|false|none|Maintenance margin rate for the tier (only for display, the actual maintenance margin rate used is stark_ex_risk / 2^32 as an accurate maintenance margin rate), decimal|
+|starkExRisk|string(int64)|false|none|1 ≤ risk < 2^32|
+|starkExUpperBound|string(int64)|false|none|bigint. 0 ≤ upper_bound ≤ 2^128-1|
 
 <h2 id="tocS_Coin">Coin</h2>
 
@@ -705,22 +678,21 @@ GET /api/v1/public/meta/getMetaData
   "starkExAssetId": "string",
   "starkExResolution": "string"
 }
-
 ```
 
-货币元信息
+Coin meta information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|coinId|string(int64)|false|none||货币id|
-|coinName|string|false|none||货币名称|
-|stepSize|string(decimal)|false|none||最小数量单位|
-|showStepSize|string(decimal)|false|none||给用户显示的最小单位|
-|iconUrl|string(url)|false|none||货币图标url|
-|starkExAssetId|string(int64)|false|none||starkex资产id。如果为空，代表不存在|
-|starkExResolution|string|false|none||starkex处理精度。如果为空，代表不存在|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|coinId|string(int64)|false|none|Coin id|
+|coinName|string|false|none|Coin name|
+|stepSize|string(decimal)|false|none|Minimum quantity unit|
+|showStepSize|string(decimal)|false|none|Minimum unit displayed to the user|
+|iconUrl|string(url)|false|none|Coin icon url|
+|starkExAssetId|string(int64)|false|none|starkex asset id. If empty, it means it does not exist|
+|starkExResolution|string|false|none|starkex processing precision. If empty, it means it does not exist|
 
 <h2 id="tocS_Global">Global</h2>
 
@@ -760,35 +732,34 @@ GET /api/v1/public/meta/getMetaData
   "starkExPriceValidityPeriod": 0,
   "maintenanceReason": "string"
 }
-
 ```
 
-全局元信息
+Global meta information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|appName|string|false|none||xxx|
-|appEnv|string|false|none||dev/testnet/mainnet|
-|appOnlySignOn|string|false|none||https://xxx.exchange|
-|feeAccountId|string(int64)|false|none||手续费账户id|
-|feeAccountL2Key|string|false|none||手续费账户l2Key，bigint for hex str|
-|poolAccountId|string(int64)|false|none||资产池账户id|
-|poolAccountL2Key|string|false|none||资产池账户l2Key，bigint for hex str|
-|fastWithdrawAccountId|string(int64)|false|none||快速提币账户id|
-|fastWithdrawAccountL2Key|string|false|none||快速提币账户l2Key，bigint for hex str|
-|fastWithdrawMaxAmount|string|false|none||快速提币最大金额|
-|fastWithdrawRegistryAddress|string|false|none||快速提币账户地址|
-|starkExChainId|string|false|none||starkex 所属的 chain id. bigint for hex str|
-|starkExContractAddress|string|false|none||starkex合约地址。|
-|starkExCollateralCoin|[Coin](#schemacoin)|false|none||货币元信息|
-|starkExMaxFundingRate|integer(int32)|false|none||starkex精度处理后的每秒最大资金费率。即 stark_ex_max_funding_rate * 2^32 为实际的每秒最大资金费率。例：1120|
-|starkExOrdersTreeHeight|integer(int32)|false|none||订单merkle树高度。例：64|
-|starkExPositionsTreeHeight|integer(int32)|false|none||账户merkle树高度。例：64|
-|starkExFundingValidityPeriod|integer(int32)|false|none||资金费率提交有效期秒数。例：86400|
-|starkExPriceValidityPeriod|integer(int32)|false|none||预言机价格提交有效期秒数。例：86400|
-|maintenanceReason|string|false|none||维护原因，如果没维护就为空|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|appName|string|false|none|xxx|
+|appEnv|string|false|none|dev/testnet/mainnet|
+|appOnlySignOn|string|false|none|https://xxx.exchange|
+|feeAccountId|string(int64)|false|none|Fee account id|
+|feeAccountL2Key|string|false|none|Fee account l2Key, bigint for hex str|
+|poolAccountId|string(int64)|false|none|Asset pool account id|
+|poolAccountL2Key|string|false|none|Asset pool account l2Key, bigint for hex str|
+|fastWithdrawAccountId|string(int64)|false|none|Fast withdrawal account id|
+|fastWithdrawAccountL2Key|string|false|none|Fast withdrawal account l2Key, bigint for hex str|
+|fastWithdrawMaxAmount|string|false|none|Maximum amount for fast withdrawal|
+|fastWithdrawRegistryAddress|string|false|none|Fast withdrawal account address|
+|starkExChainId|string|false|none|Chain id of starkex. bigint for hex str|
+|starkExContractAddress|string|false|none|starkex contract address.|
+|starkExCollateralCoin|[Coin](#schemacoin)|false|none|Coin meta information|
+|starkExMaxFundingRate|integer(int32)|false|none|Maximum funding rate per second after starkex precision processing. i.e. stark_ex_max_funding_rate * 2^32 is the actual maximum funding rate per second. E.g.: 1120|
+|starkExOrdersTreeHeight|integer(int32)|false|none|Order merkle tree height. E.g.: 64|
+|starkExPositionsTreeHeight|integer(int32)|false|none|Account merkle tree height. E.g.: 64|
+|starkExFundingValidityPeriod|integer(int32)|false|none|Funding rate submission validity period in seconds. E.g.: 86400|
+|starkExPriceValidityPeriod|integer(int32)|false|none|Oracle price submission validity period in seconds. E.g.: 86400|
+|maintenanceReason|string|false|none|Maintenance reason, empty if no maintenance|
 
 <h2 id="tocS_Result<GetServerTime>">Result<GetServerTime></h2>
 
@@ -811,20 +782,19 @@ GET /api/v1/public/meta/getMetaData
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetServerTime](#schemagetservertime)|false|none||服务器时间|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
+|data|[GetServerTime](#schemagetservertime)|false|none|Server time|
+|errorParam|object|false|none|Parameter information in error message|
+|» **additionalProperties**|string|false|none|Parameter information in error message|
+|requestTime|string(timestamp)|false|none|Server request receiving time|
+|responseTime|string(timestamp)|false|none|Server response returning time|
+|traceId|string|false|none|Call traceId|
 
 <h2 id="tocS_GetServerTime">GetServerTime</h2>
 
@@ -837,16 +807,15 @@ GET /api/v1/public/meta/getMetaData
 {
   "timeMillis": "string"
 }
-
 ```
 
-服务器时间
+Server time
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|timeMillis|string(int64)|false|none||服务器时间戳，毫秒|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|timeMillis|string(int64)|false|none|Server timestamp, milliseconds|
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -862,17 +831,15 @@ GET /api/v1/public/meta/getMetaData
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+Generic return structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
-
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
+|msg|string|false|none|Detailed error message when an error occurs|
+|requestTime|string(int64)|false|none|Server request receiving time|
+|responseTime|string(int64)|false|none|Server response returning time|
