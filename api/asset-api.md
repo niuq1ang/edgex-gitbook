@@ -1,24 +1,3 @@
----
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
-
----
-
 # test
 
 > v1.0.0
@@ -29,11 +8,11 @@ Base URLs:
 
 <a id="opIdcreateNormalWithdraw"></a>
 
-## POST 创建普通提现单
+## POST Create Normal Withdrawal Order
 
 POST /api/v1/private/assets/createNormalWithdraw
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -47,13 +26,13 @@ POST /api/v1/private/assets/createNormalWithdraw
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[CreateNormalWithdrawParam](#schemacreatenormalwithdrawparam)| 否 |none|
+| Name              | Location | Type                                 | Required | Description |
+|-------------------|----------|--------------------------------------|----------|-------------|
+| body              | body     | [CreateNormalWithdrawParam](#schemacreatenormalwithdrawparam) | No       | None        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -66,19 +45,19 @@ POST /api/v1/private/assets/createNormalWithdraw
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdcreateFastWithdraw"></a>
 
-## POST 创建快速提现单
+## POST Create Fast Withdrawal Order
 
 POST /api/v1/private/assets/createFastWithdraw
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -98,13 +77,13 @@ POST /api/v1/private/assets/createFastWithdraw
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[CreateFastWithdrawRequest](#schemacreatefastwithdrawrequest)| 否 |none|
+| Name              | Location | Type                                 | Required | Description |
+|-------------------|----------|--------------------------------------|----------|-------------|
+| body              | body     | [CreateFastWithdrawRequest](#schemacreatefastwithdrawrequest) | No       | None        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -117,19 +96,19 @@ POST /api/v1/private/assets/createFastWithdraw
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdcreateCrossWithdraw"></a>
 
-## POST 创建快速提现单
+## POST Create Cross-Chain Withdrawal Order
 
 POST /api/v1/private/assets/createCrossWithdraw
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -150,13 +129,13 @@ POST /api/v1/private/assets/createCrossWithdraw
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[CreateCrossWithdrawParam](#schemacreatecrosswithdrawparam)| 否 |none|
+| Name              | Location | Type                                 | Required | Description |
+|-------------------|----------|--------------------------------------|----------|-------------|
+| body              | body     | [CreateCrossWithdrawParam](#schemacreatecrosswithdrawparam) | No       | None        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -169,25 +148,25 @@ POST /api/v1/private/assets/createCrossWithdraw
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdgetNormalWithdrawableAmount"></a>
 
-## GET 查询用户普通提现可提金额
+## GET Get User's Normal Withdrawable Amount
 
 GET /api/v1/private/assets/getNormalWithdrawableAmount
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|address|query|string| 是 |用户地址|
+| Name    | Location | Type   | Required | Description |
+|---------|----------|--------|----------|-------------|
+| address | query    | string | Yes      | User address |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -200,26 +179,26 @@ GET /api/v1/private/assets/getNormalWithdrawableAmount
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdgetNormalWithdrawById"></a>
 
-## GET 根据账户id和提现单id批量获取普通提现单
+## GET Get Normal Withdrawal Orders by Account ID and Withdrawal ID
 
 GET /api/v1/private/assets/getNormalWithdrawById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|normalWithdrawIdList|query|string| 否 |提现单id|
+| Name               | Location | Type   | Required | Description |
+|--------------------|----------|--------|----------|-------------|
+| accountId          | query    | string | No       | Account ID  |
+| normalWithdrawIdList | query    | string | No       | Withdrawal ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -232,26 +211,26 @@ GET /api/v1/private/assets/getNormalWithdrawById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdgetFastWithdrawSignInfo"></a>
 
-## GET 查询快速提现签名需要的信息
+## GET Get Information Required for Fast Withdrawal Signature
 
 GET /api/v1/private/assets/getFastWithdrawSignInfo
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|chainId|query|string| 否 |哪条链|
-|amount|query|string| 否 |提现金额|
+| Name    | Location | Type   | Required | Description |
+|---------|----------|--------|----------|-------------|
+| chainId | query    | string | No       | Which chain |
+| amount  | query    | string | No       | Withdrawal amount |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -275,28 +254,28 @@ GET /api/v1/private/assets/getFastWithdrawSignInfo
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetFastWithdrawById"></a>
 
-## GET 根据账户id和提现单id批量获取快速提现单
+## GET Get Fast Withdrawal Orders by Account ID and Withdrawal ID
 
 GET /api/v1/private/assets/getFastWithdrawById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|fastWithdrawIdList|query|string| 否 |提现单id|
+| Name               | Location | Type   | Required | Description |
+|--------------------|----------|--------|----------|-------------|
+| accountId          | query    | string | No       | Account ID  |
+| fastWithdrawIdList | query    | string | No       | Withdrawal ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -368,28 +347,28 @@ GET /api/v1/private/assets/getFastWithdrawById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetCrossWithdrawSignInfo"></a>
 
-## GET 查询跨链提现签名需要的信息
+## GET Get Information Required for Cross-Chain Withdrawal Signature
 
 GET /api/v1/private/assets/getCrossWithdrawSignInfo
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|chainId|query|string| 否 |链id|
-|amount|query|string| 否 |提现金额|
+| Name    | Location | Type   | Required | Description |
+|---------|----------|--------|----------|-------------|
+| chainId | query    | string | No       | Chain ID    |
+| amount  | query    | string | No       | Withdrawal amount  |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -402,26 +381,26 @@ GET /api/v1/private/assets/getCrossWithdrawSignInfo
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdgetCrossWithdrawById"></a>
 
-## GET 根据账户id和提现单id批量获取跨链提现单
+## GET Get Cross-Chain Withdrawal Orders by Account ID and Withdrawal ID
 
 GET /api/v1/private/assets/getCrossWithdrawById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|crossWithdrawIdList|query|string| 否 |提现单id|
+| Name                 | Location | Type   | Required | Description |
+|----------------------|----------|--------|----------|-------------|
+| accountId            | query    | string | No       | Account ID  |
+| crossWithdrawIdList  | query    | string | No       | Withdrawal ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -434,26 +413,26 @@ GET /api/v1/private/assets/getCrossWithdrawById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
 <a id="opIdgetCoinRate"></a>
 
-## GET 聚合查询所有充提币订单记录
+## GET Aggregate Query of All Deposit and Withdrawal Order Records
 
 GET /api/v1/private/assets/getCoinRate
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|chainId|query|string| 否 |链id|
-|coin|query|string| 否 |币种|
+| Name    | Location | Type   | Required | Description |
+|---------|----------|--------|----------|-------------|
+| chainId | query    | string | No       | Chain ID    |
+| coin    | query    | string | No       | Coin        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -473,33 +452,33 @@ GET /api/v1/private/assets/getCoinRate
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetAllOrdersPage"></a>
 
-## GET 聚合查询所有充提币订单记录
+## GET Aggregate Query of All Deposit and Withdrawal Order Records
 
 GET /api/v1/private/assets/getAllOrdersPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|startTime|query|string| 否 |起始时间，unix time单位为秒|
-|endTime|query|string| 否 |结束时间，unix time单位为秒|
-|chainId|query|string| 否 |链id|
-|typeList|query|string| 否 |订单类型|
-|size|query|string| 否 |每页的数量。必须大于0且小于等于100。|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
+| Name           | Location | Type   | Required | Description                                         |
+|----------------|----------|--------|----------|-----------------------------------------------------|
+| accountId      | query    | string | No       | Account ID                                          |
+| startTime      | query    | string | No       | Start time, Unix time in seconds                   |
+| endTime        | query    | string | No       | End time, Unix time in seconds                     |
+| chainId        | query    | string | No       | Chain ID                                          |
+| typeList       | query    | string | No       | Order type list                                 |
+| size           | query    | string | No       | Number of items per page. Must be > 0 and <= 100. |
+| offsetData     | query    | string | No       | Offset for page retrieval. If not provided, returns first page |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -512,13 +491,13 @@ GET /api/v1/private/assets/getAllOrdersPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description | Description      | Data Model |
+|-------------|-------------------------|------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default response | [Result](#schemaresult) |
 
-# 数据模型
+# Data Models
 
 <h2 id="tocS_Result<PageData<AssetOrder>>">Result<PageData<AssetOrder>></h2>
 
@@ -561,17 +540,17 @@ GET /api/v1/private/assets/getAllOrdersPage
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataAssetOrder](#schemapagedataassetorder)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                             | Required | Constraints | Description                  | Notes                                                                 |
+|------------------|----------------------------------|----------|-------------|------------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code               | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [PageDataAssetOrder](#schemapagedataassetorder) | false    | none        | Generic paginated return |                                                                       |
+| errorParam       | object                           | false    | none        | Error parameter information  |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information  |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time    |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time   |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID                  |                                                                       |
 
 <h2 id="tocS_PageDataAssetOrder">PageDataAssetOrder</h2>
 
@@ -604,14 +583,14 @@ GET /api/v1/private/assets/getAllOrdersPage
 
 ```
 
-通用翻页返回
+Generic paginated return
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[AssetOrder](#schemaassetorder)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name             | Type                                 | Required | Constraints | Description                   | Notes                                               |
+|------------------|--------------------------------------|----------|-------------|-------------------------------|-----------------------------------------------------|
+| dataList         | [[AssetOrder](#schemaassetorder)]    | false    | none        | List of data |                                                     |
+| nextPageOffsetData | string                                 | false    | none        | Offset for next page | Empty string when there are no further pages. |
 
 <h2 id="tocS_AssetOrder">AssetOrder</h2>
 
@@ -639,39 +618,39 @@ GET /api/v1/private/assets/getAllOrdersPage
 
 ```
 
-Asset订单信息
+Asset order information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|orderId|string(int64)|false|none||订单id|
-|time|string(int64)|false|none||订单创建时间|
-|type|string|false|none||订单类型|
-|status|integer(int32)|false|none||订单状态|
-|amount|string|false|none||订单金额|
-|fee|string|false|none||订单手续费|
-|txId|string|false|none||链上tx_id|
-|chain|string|false|none||链|
-|address|string|false|none||地址|
-|coin|string|false|none||币种|
-|chainId|string|false|none||链id|
-|transferSenderAccountId|string|false|none||transfer转出账号id|
-|transferReceiverAccountId|string|false|none||transfer转入账号id|
+| Name                  | Type            | Required | Constraints | Description                | Notes                                 |
+|-----------------------|-----------------|----------|-------------|----------------------------|---------------------------------------|
+| orderId               | string(int64)    | false    | none        | Order ID                    |                                       |
+| time                  | string(int64)    | false    | none        | Order creation time         |                                       |
+| type                  | string           | false    | none        | Order type                   |                                       |
+| status                | integer(int32)  | false    | none        | Order status                |                                       |
+| amount                | string           | false    | none        | Order amount                |                                       |
+| fee                   | string           | false    | none        | Order fee                    |                                       |
+| txId                  | string           | false    | none        | Chain tx_id                 |                                       |
+| chain                 | string           | false    | none        | Chain                        |                                       |
+| address               | string           | false    | none        | Address                      |                                       |
+| coin                  | string           | false    | none        | Coin                       |                                       |
+| chainId               | string           | false    | none        | Chain ID                  |                                       |
+| transferSenderAccountId | string           | false    | none        | Transfer out account ID     |                                       |
+| transferReceiverAccountId | string           | false    | none        | Transfer in account ID      |                                       |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|type|UNKNOWN_ORDER_TYPE|
-|type|ORDER_TYPE_NORMAL_DEPOSIT|
-|type|ORDER_TYPE_CROSS_DEPOSIT|
-|type|ORDER_TYPE_NORMAL_WITHDRAW|
-|type|ORDER_TYPE_CROSS_WITHDRAW|
-|type|ORDER_TYPE_FAST_WITHDRAW|
-|type|ORDER_TYPE_TRANSFER_IN|
-|type|ORDER_TYPE_TRANSFER_OUT|
-|type|UNRECOGNIZED|
+| Property | Value                     |
+|----------|---------------------------|
+| type     | UNKNOWN_ORDER_TYPE        |
+| type     | ORDER_TYPE_NORMAL_DEPOSIT |
+| type     | ORDER_TYPE_CROSS_DEPOSIT  |
+| type     | ORDER_TYPE_NORMAL_WITHDRAW|
+| type     | ORDER_TYPE_CROSS_WITHDRAW |
+| type     | ORDER_TYPE_FAST_WITHDRAW  |
+| type     | ORDER_TYPE_TRANSFER_IN    |
+| type     | ORDER_TYPE_TRANSFER_OUT   |
+| type     | UNRECOGNIZED            |
 
 <h2 id="tocS_Result<GetCoinRate>">Result<GetCoinRate></h2>
 
@@ -694,20 +673,19 @@ Asset订单信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetCoinRate](#schemagetcoinrate)|false|none||查询币种对USDC/USDT的汇率-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                            | Required | Constraints | Description                       | Notes                                                                 |
+|------------------|---------------------------------|----------|-------------|-----------------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code                   | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [GetCoinRate](#schemagetcoinrate) | false    | none        | Query coin exchange rate to USDC/USDT- Response    |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information   |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information   |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time     |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time    |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID                   |                                                                       |
 
 <h2 id="tocS_GetCoinRate">GetCoinRate</h2>
 
@@ -720,16 +698,15 @@ Asset订单信息
 {
   "rate": "string"
 }
-
 ```
 
-查询币种对USDC/USDT的汇率-响应
+Query coin exchange rate to USDC/USDT - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|rate|string|false|none||none|
+| Name | Type   | Required | Constraints | Description | Notes |
+|------|--------|----------|-------------|-------------|-------|
+| rate | string | false    | none        | None        |       |
 
 <h2 id="tocS_Result<List<CrossWithdraw>>">Result<List<CrossWithdraw>></h2>
 
@@ -781,7 +758,7 @@ Asset订单信息
         "blockHeight": "string"
       },
       "l1ConfirmedTime": "string",
-      "l1CompletedTx": {
+       "l1CompletedTx": {
         "hash": "string",
         "index": 0,
         "time": "string",
@@ -809,20 +786,19 @@ Asset订单信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[CrossWithdraw](#schemacrosswithdraw)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                   | Required | Constraints | Description          | Notes                                                                 |
+|------------------|----------------------------------------|----------|-------------|----------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code          | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [[CrossWithdraw](#schemacrosswithdraw)] | false    | none        | Correct response data |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information|                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information|                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time   |                                                                      |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time    |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID          |                                                                       |
 
 <h2 id="tocS_CrossWithdraw">CrossWithdraw</h2>
 
@@ -871,7 +847,7 @@ Asset订单信息
     "blockHeight": "string"
   },
   "l1ConfirmedTime": "string",
-  "l1CompletedTx": {
+   "l1CompletedTx": {
     "hash": "string",
     "index": 0,
     "time": "string",
@@ -890,77 +866,80 @@ Asset订单信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-跨链提现单
+Cross-chain withdrawal order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||提现单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||充值数量|
-|ethAddress|string|false|none||充值的eth地址，可能与账户里的eth地址不一样。|
-|erc20Address|string|false|none||提现资产在L1上ERC20合约地址|
-|lpAccountId|string(int64)|false|none||l2接收用户转账的lp账户id|
-|lpAccountL2Key|string(int64)|false|none||收款账户L2 key|
-|clientCrossWithdrawId|string|false|none||客户自定义id，用于幂等校验|
-|fee|string|false|none||手续费|
-|chainId|string|false|none||提现到哪条链|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间。unix时间的小时数，至少要比下单时间晚24个小时|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||普通提现单状态|
-|collateralTransactionId|string|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECTED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|l2HandleTime|string(int64)|false|none||l2处理时间。当 status=SUCCESS_L1_CONFIRMING/SUCCESS_L1_WITHDRAWING/SUCCESS_L1_COMPLETED/FAILED_L2_REJECTED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 status=FAILED_L2_REJECTED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 status=FAILED_L2_REJECTED 时存在|
-|l1ConfirmedTx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|l1ConfirmedTime|string(int64)|false|none||l1交易确认时间|
-|l1CompletedTx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|l1CompletedEthAddress|string|false|none||l1提现完成eth地址|
-|l1CompletedTime|string(int64)|false|none||l1提现完成时间|
-|l1RejectedReasonCode|string|false|none||l1拒绝原因代码|
-|l1RejectedReasonMsg|string|false|none||l1拒绝原因信息|
-|riskSignature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|transferOutId|string(int64)|false|none||转出单id|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                      | Type            | Required | Constraints | Description                               | Notes                                                                           |
+|---------------------------|-----------------|----------|-------------|-------------------------------------------|---------------------------------------------------------------------------------|
+| id                        | string(int64)    | false    | none        | Withdrawal order ID                         |                                                                                 |
+| userId                    | string(int64)    | false    | none        | User ID                                  |                                                                                 |
+| accountId                 | string(int64)    | false    | none        | Account ID                               |                                                                                 |
+| coinId                    | string(int64)    | false    | none        | Collateral coin ID                        |                                                                                 |
+| amount                    | string           | false    | none        | Withdrawal amount                         |                                                                                 |
+| ethAddress                | string           | false    | none        | ETH address for withdrawal, may differ from the account's ETH address.        |                                                                    |
+| erc20Address              | string           | false    | none        | L1 ERC20 contract address for the withdrawn asset |                                                                                  |
+| lpAccountId               | string(int64)    | false    | none        | LP account ID for L2 receiving user transfers |                                                                                 |
+| lpAccountL2Key            | string(int64)    | false    | none        | L2 key for the receiving account         |                                                                                 |
+| clientCrossWithdrawId     | string           | false    | none        | Client-defined ID for idempotent checks   |                                                                                 |
+| fee                       | string           | false    | none        | Transaction fee                             |                                                                                |
+| chainId                   | string           | false    | none        | Chain ID for withdrawal                   |                                                                                 |
+| l2Nonce                   | string(int64)    | false    | none        | L2 signature nonce.  First 32 bits of sha256(client_withdraw_id)|                                      |
+| l2ExpireTime              | string(int64)    | false    | none        | L2 signature expiration time. Unix time in hours, must be at least 24 hours after order creation.        |                                      |
+| l2Signature               | [L2Signature](#schemal2signature) | false    | none        | L2 signature information            |                                                                                |
+| extraType                 | string           | false    | none        | Additional type for upper-layer business usage     |                                                                                 |
+| extraDataJson             | string           | false    | none        | Extra data, JSON format, defaults to empty string.  |                                                                                 |
+| status                    | string           | false    | none        | Normal withdrawal order status            |                                                                                 |
+| collateralTransactionId    | string           | false    | none        | Related collateral detail ID.  Exists when status=SUCCESS_XXX/FAILED_L2_REJECTED|                         |
+| censorTxId                | string(int64)    | false    | none        | Censorship processing sequence number. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED |          |
+| censorTime                | string(int64)    | false    | none        | Censorship processing time. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED |                                |
+| censorFailCode             | string           | false    | none        | Censorship failure error code. Exists when status=FAILED_CENSOR_FAILURE |                             |
+| censorFailReason           | string           | false    | none        | Censorship failure reason. Exists when status=FAILED_CENSOR_FAILURE |                                       |
+| l2TxId                     | string(int64)    | false    | none        Okay, here's the continuation of the translated English API documentation:
 
-#### 枚举值
+| Name                      | Type            | Required | Constraints | Description                               | Notes                                                                           |
+|---------------------------|-----------------|----------|-------------|-------------------------------------------|---------------------------------------------------------------------------------|
+| l2TxId                     | string(int64)    | false    | none        | L2 transaction ID.  Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED |                                                                                  |
+| l2HandleTime             | string(int64)    | false    | none        | L2 processing time.  Exists when status=SUCCESS_L1_CONFIRMING/SUCCESS_L1_WITHDRAWING/SUCCESS_L1_COMPLETED/FAILED_L2_REJECTED |      |
+| l2RejectCode             | string           | false    | none        | L2 reject error code. Exists when status=FAILED_L2_REJECTED|                                        |
+| l2RejectReason           | string           | false    | none        | L2 reject reason. Exists when status=FAILED_L2_REJECTED|                                         |
+| l1ConfirmedTx              | [L1Tx](#schemal1tx) | false    | none        | L1 transaction information           |                                                                          |
+| l1ConfirmedTime            | string(int64)    | false    | none        | L1 transaction confirmation time        |                                                                       |
+| l1CompletedTx              | [L1Tx](#schemal1tx) | false    | none        | L1 transaction information           |                                                                          |
+| l1CompletedEthAddress     | string           | false    | none        | L1 withdrawal completion ETH address     |                                                                        |
+| l1CompletedTime            | string(int64)    | false    | none        | L1 withdrawal completion time           |                                                                          |
+| l1RejectedReasonCode       | string           | false    | none        | L1 rejection reason code                |                                                                          |
+| l1RejectedReasonMsg        | string           | false    | none        | L1 rejection reason message             |                                                                         |
+| riskSignature              | [L2Signature](#schemal2signature) | false    | none        | L2 signature information            |                                                                                |
+| transferOutId             | string(int64)    | false    | none        | Transfer out order ID                 |                                                                               |
+| createdTime               | string(int64)    | false    | none        | Creation time                         |                                                                        |
+| updatedTime               | string(int64)    | false    | none        | Update time                           |                                                                        |
 
-|属性|值|
-|---|---|
-|status|CROSS_WITHDRAW_UNKNOWN|
-|status|CROSS_WITHDRAW_PENDING_RISK_CHECKING|
-|status|CROSS_WITHDRAW_PENDING_CHECKING|
-|status|CROSS_WITHDRAW_SUCCESS_SUBMIT_CENSOR|
-|status|CROSS_WITHDRAW_PENDING_CENSOR_CHECKING_ACCOUNT|
-|status|CROSS_WITHDRAW_PENDING_CENSORING|
-|status|CROSS_WITHDRAW_PENDING_L2_APPROVING|
-|status|CROSS_WITHDRAW_PENDING_L1_SUBMIT|
-|status|CROSS_WITHDRAW_PENDING_L1_CONFIRMING|
-|status|CROSS_WITHDRAW_SUCCESS|
-|status|CROSS_WITHDRAW_FAILED_RISK_CHECK_FAILURE|
-|status|CROSS_WITHDRAW_FAILED_TRANSFER_REJECTED|
-|status|CROSS_WITHDRAW_FAILED_CENSOR_CHECKING_ACCOUNT_REJECTED|
-|status|CROSS_WITHDRAW_FAILED_CENSORING|
-|status|CROSS_WITHDRAW_FAILED_L2_REJECTED|
-|status|CROSS_WITHDRAW_FAILED_L1_SUBMIT_REJECTED|
-|status|CROSS_WITHDRAW_FAILED_L1_REJECTED|
-|status|CROSS_WITHDRAW_FAILED_USER_BALANCE_NOT_ENOUGH|
-|status|UNRECOGNIZED|
+#### Enum Values
+
+| Property | Value                          |
+|----------|--------------------------------|
+| status   | CROSS_WITHDRAW_UNKNOWN         |
+| status   | CROSS_WITHDRAW_PENDING_RISK_CHECKING|
+| status   | CROSS_WITHDRAW_PENDING_CHECKING |
+| status   | CROSS_WITHDRAW_SUCCESS_SUBMIT_CENSOR    |
+| status   | CROSS_WITHDRAW_PENDING_CENSOR_CHECKING_ACCOUNT |
+| status   | CROSS_WITHDRAW_PENDING_CENSORING    |
+| status   | CROSS_WITHDRAW_PENDING_L2_APPROVING |
+| status   | CROSS_WITHDRAW_PENDING_L1_SUBMIT  |
+| status   | CROSS_WITHDRAW_PENDING_L1_CONFIRMING|
+| status   | CROSS_WITHDRAW_SUCCESS            |
+| status   | CROSS_WITHDRAW_FAILED_RISK_CHECK_FAILURE    |
+| status   | CROSS_WITHDRAW_FAILED_TRANSFER_REJECTED     |
+| status   | CROSS_WITHDRAW_FAILED_CENSOR_CHECKING_ACCOUNT_REJECTED  |
+| status   | CROSS_WITHDRAW_FAILED_CENSORING    |
+| status   | CROSS_WITHDRAW_FAILED_L2_REJECTED |
+| status   | CROSS_WITHDRAW_FAILED_L1_SUBMIT_REJECTED  |
+| status   | CROSS_WITHDRAW_FAILED_L1_REJECTED |
+| status   | CROSS_WITHDRAW_FAILED_USER_BALANCE_NOT_ENOUGH |
+| status   | UNRECOGNIZED                  |
 
 <h2 id="tocS_L1Tx">L1Tx</h2>
 
@@ -976,19 +955,18 @@ Asset订单信息
   "time": "string",
   "blockHeight": "string"
 }
-
 ```
 
-L1交易信息
+L1 transaction information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|hash|string|false|none||tx hash|
-|index|integer(int32)|false|none||tx hash 所属index|
-|time|string(int64)|false|none||tx 链上时间戳，单位毫秒|
-|blockHeight|string(int64)|false|none||tx所在区块高度|
+| Name        | Type            | Required | Constraints | Description                 | Notes                                 |
+|-------------|-----------------|----------|-------------|-----------------------------|---------------------------------------|
+| hash        | string          | false    | none        | Transaction hash            |                                       |
+| index       | integer(int32)  | false    | none        | Index of the tx hash       |                                       |
+| time        | string(int64)    | false    | none        | Tx chain timestamp, in milliseconds       |                                  |
+| blockHeight | string(int64)    | false    | none        | Block height of the tx       |                                       |
 
 <h2 id="tocS_L2Signature">L2Signature</h2>
 
@@ -1003,18 +981,17 @@ L1交易信息
   "s": "string",
   "v": "string"
 }
-
 ```
 
-L2签名信息
+L2 signature information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|r|string|false|none||bigint for hex str|
-|s|string|false|none||bigint for hex str|
-|v|string|false|none||bigint for hex str|
+| Name | Type   | Required | Constraints | Description           | Notes              |
+|------|--------|----------|-------------|-----------------------|--------------------|
+| r    | string | false    | none        | Bigint for hex string |                    |
+| s    | string | false    | none        | Bigint for hex string |                    |
+| v    | string | false    | none        | Bigint for hex string |                    |
 
 <h2 id="tocS_Result<GetCrossWithdrawSignInfo>">Result<GetCrossWithdrawSignInfo></h2>
 
@@ -1040,20 +1017,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetCrossWithdrawSignInfo](#schemagetcrosswithdrawsigninfo)|false|none||查询跨链提现签名需要的信息-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                        | Required | Constraints | Description                               | Notes                                                                 |
+|------------------|---------------------------------------------|----------|-------------|-------------------------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code                               | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [GetCrossWithdrawSignInfo](#schemagetcrosswithdrawsigninfo) | false    | none        | Get information required for cross-chain withdrawal signature - Response|                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information            |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information            |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time               |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time              |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID                              |                                                                       |
 
 <h2 id="tocS_GetCrossWithdrawSignInfo">GetCrossWithdrawSignInfo</h2>
 
@@ -1069,19 +1045,18 @@ L2签名信息
   "crossWithdrawMaxAmount": "string",
   "fee": "string"
 }
-
 ```
 
-查询跨链提现签名需要的信息-响应
+Get information required for cross-chain withdrawal signature - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|lpAccountId|string|false|none||l2接收用户转账的lp账户id|
-|crossWithdrawL2Key|string|false|none||快速提现账户l2Key|
-|crossWithdrawMaxAmount|string|false|none||快速跨链最大额度|
-|fee|string|false|none||手续费|
+| Name                 | Type   | Required | Constraints | Description                                  | Notes                                  |
+|----------------------|--------|----------|-------------|----------------------------------------------|----------------------------------------|
+| lpAccountId          | string | false    | none        | LP account ID for L2 receiving user transfers |                                        |
+| crossWithdrawL2Key  | string | false    | none        | L2 key for fast withdrawal account      |                                        |
+| crossWithdrawMaxAmount| string | false    | none        | Maximum amount for fast cross-chain withdrawal|                                         |
+| fee                   | string | false    | none        | Transaction fee                                  |                                        |
 
 <h2 id="tocS_Result<List<FastWithdraw>>">Result<List<FastWithdraw>></h2>
 
@@ -1156,20 +1131,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[FastWithdraw](#schemafastwithdraw)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                | Required | Constraints | Description          | Notes                                                                 |
+|------------------|-------------------------------------|----------|-------------|----------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code          | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [[FastWithdraw](#schemafastwithdraw)] | false    | none        | Correct response data |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information|                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information|                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time   |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time    |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID          |                                                                       |
 
 <h2 id="tocS_FastWithdraw">FastWithdraw</h2>
 
@@ -1201,8 +1175,8 @@ L2签名信息
   },
   "extraType": "string",
   "extraDataJson": "string",
-  "factRegistryAddress": "string",
-  "fact": "string",
+   "factRegistryAddress": "string",
+   "fact": "string",
   "status": "FAST_WITHDRAW_UNKNOWN",
   "collateralTransactionId": "string",
   "censorTxId": "string",
@@ -1213,7 +1187,7 @@ L2签名信息
   "l2HandleTime": "string",
   "l2RejectCode": "string",
   "l2RejectReason": "string",
-  "l1ConfirmedTx": {
+   "l1ConfirmedTx": {
     "hash": "string",
     "index": 0,
     "time": "string",
@@ -1221,9 +1195,9 @@ L2签名信息
   },
   "l1ConfirmedTime": "string",
   "l1CompletedTime": "string",
-  "l1RejectedReasonCode": "string",
+   "l1RejectedReasonCode": "string",
   "l1RejectedReasonMsg": "string",
-  "riskSignature": {
+    "riskSignature": {
     "r": "string",
     "s": "string",
     "v": "string"
@@ -1232,79 +1206,78 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-快速提现单
+Fast withdrawal order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||提现单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||充值数量|
-|ethAddress|string|false|none||充值的eth地址，可能与账户里的eth地址不一样。|
-|erc20Address|string|false|none||提现资产在L1上ERC20合约地址|
-|lpAccountId|string(int64)|false|none||l2接收用户转账的lp账户id|
-|lpAccountL2Key|string(int64)|false|none||收款账户L2 key|
-|clientFastWithdrawId|string|false|none||客户自定义id，用于幂等校验|
-|fee|string|false|none||手续费|
-|chainId|string|false|none||提现到哪条链|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间。unix时间的小时数，至少要比下单时间晚24个小时|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|factRegistryAddress|string|false|none||none|
-|fact|string|false|none||none|
-|status|string|false|none||普通提现单状态|
-|collateralTransactionId|string|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECTED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED 时存在|
-|l2HandleTime|string(int64)|false|none||l2处理时间。当 status=SUCCESS_L1_CONFIRMING/SUCCESS_L1_WITHDRAWING/SUCCESS_L1_COMPLETED/FAILED_L2_REJECTED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 status=FAILED_L2_REJECTED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 status=FAILED_L2_REJECTED 时存在|
-|l1ConfirmedTx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|l1ConfirmedTime|string(int64)|false|none||l1交易确认时间|
-|l1CompletedTime|string(int64)|false|none||l1提现完成时间|
-|l1RejectedReasonCode|string|false|none||l1拒绝原因代码|
-|l1RejectedReasonMsg|string|false|none||l1拒绝原因信息|
-|riskSignature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|transferOutId|string(int64)|false|none||转出单id|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                       | Type            | Required | Constraints | Description                                  | Notes                                                                           |
+|----------------------------|-----------------|----------|-------------|----------------------------------------------|---------------------------------------------------------------------------------|
+| id                         | string(int64)    | false    | none        | Withdrawal order ID                          |                                                                                 |
+| userId                     | string(int64)    | false    | none        | User ID                                      |                                                                                 |
+| accountId                  | string(int64)    | false    | none        | Account ID                                   |                                                                                 |
+| coinId                     | string(int64)    | false    | none        | Collateral coin ID                           |                                                                                 |
+| amount                     | string           | false    | none        | Withdrawal amount                            |                                                                                 |
+| ethAddress                 | string           | false    | none        | ETH address for withdrawal, may differ from the account's ETH address.  |                                                                    |
+| erc20Address               | string           | false    | none        | L1 ERC20 contract address for the withdrawn asset |                                                                                  |
+| lpAccountId                | string(int64)    | false    | none        | LP account ID for L2 receiving user transfers |                                                                                 |
+| lpAccountL2Key             | string(int64)    | false    | none        | L2 key for the receiving account            |                                                                                 |
+| clientFastWithdrawId      | string           | false    | none        | Client-defined ID for idempotent checks     |                                                                                 |
+| fee                        | string           | false    | none        | Transaction fee                             |                                                                                  |
+| chainId                    | string           | false    | none        | Chain ID for withdrawal                      |                                                                                 |
+| l2Nonce                    | string(int64)    | false    | none        | L2 signature nonce. First 32 bits of sha256(client_withdraw_id)        |                                           |
+| l2ExpireTime               | string(int64)    | false    | none        | L2 signature expiration time. Unix time in hours, must be at least 24 hours after order creation.          |                                   |
+| l2Signature                | [L2Signature](#schemal2signature) | false    | none        | L2 signature information                 |                                                                                |
+| extraType                  | string           | false    | none        | Additional type for upper-layer business usage      |                                                                                 |
+| extraDataJson              | string           | false    | none        | Extra data, JSON format, defaults to empty string.    |                                                                                 |
+| factRegistryAddress         | string           | false    | none        | None      |                                                                                 |
+| fact                      | string           | false    | none        | None                                         |                                                                                 |
+| status                     | string           | false    | none        | Normal withdrawal order status             |                                                                                 |
+| collateralTransactionId    | string           | false    | none        | Related collateral detail ID.  Exists when status=SUCCESS_XXX/FAILED_L2_REJECTED |                             |
+| censorTxId                 | string(int64)    | false    | none        | Censorship processing sequence number. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED |          |
+| censorTime                 | string(int64)    | false    | none        | Censorship processing time. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED     |                                   |
+| censorFailCode              | string           | false    | none        | Censorship failure error code. Exists when status=FAILED_CENSOR_FAILURE |                                      |
+| censorFailReason            | string           | false    | none        | Censorship failure reason. Exists when status=FAILED_CENSOR_FAILURE       |                                         |
+| l2TxId                      | string(int64)    | false    | none        | L2 transaction ID. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECTED          |                                   |
+| l2HandleTime             | string(int64)    | false    | none        | L2 processing time. Exists when status=SUCCESS_L1_CONFIRMING/SUCCESS_L1_WITHDRAWING/SUCCESS_L1_COMPLETED/FAILED_L2_REJECTED  |      |
+| l2RejectCode             | string           | false    | none        | L2 reject error code. Exists when status=FAILED_L2_REJECTED   |                                      |
+| l2RejectReason           | string           | false    | none        | L2 reject reason. Exists when status=FAILED_L2_REJECTED   |                                       |
+| l1ConfirmedTx             | [L1Tx](#schemal1tx) | false    | none        | L1 transaction information                  |                                                                          |
+| l1ConfirmedTime           | string(int64)    | false    | none        | L1 transaction confirmation time             |                                                                       |
+| l1CompletedTime           | string(int64)    | false    | none        | L1 withdrawal completion time                |                                                                       |
+| l1RejectedReasonCode      | string           | false    | none        | L1 rejection reason code                      |                                                                       |
+| l1RejectedReasonMsg       | string           | false    | none        | L1 rejection reason message                   |                                                                       |
+| riskSignature             | [L2Signature](#schemal2signature) | false    | none        | L2 signature information                 |                                                                                |
+| transferOutId            | string(int64)    | false    | none        | Transfer out order ID                       |                                                                               |
+| createdTime                | string(int64)    | false    | none        | Creation time                              |                                                                        |
+| updatedTime                | string(int64)    | false    | none        | Update time                                |                                                                        |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|status|FAST_WITHDRAW_UNKNOWN|
-|status|FAST_WITHDRAW_PENDING_RISK_CHECKING|
-|status|FAST_WITHDRAW_PENDING_L1_TRY|
-|status|FAST_WITHDRAW_PENDING_CHECKING|
-|status|FAST_WITHDRAW_PENDING_SUBMIT|
-|status|FAST_WITHDRAW_PENDING_CHECKING_ACCOUNT|
-|status|FAST_WITHDRAW_PENDING_CENSORING|
-|status|FAST_WITHDRAW_PENDING_L1_CONFIRM|
-|status|FAST_WITHDRAW_PENDING_L1_CONFIRMING|
-|status|FAST_WITHDRAW_PENDING_CENSORING_CONFIRMING|
-|status|FAST_WITHDRAW_PENDING_L2_APPROVING|
-|status|FAST_WITHDRAW_SUCCESS|
-|status|FAST_WITHDRAW_FAILED_RISK_CHECK_FAILURE|
-|status|FAST_WITHDRAW_FAILED_L1_TRY_REJECTED|
-|status|FAST_WITHDRAW_FAILED_TRANSFER_REJECTED|
-|status|FAST_WITHDRAW_FAILED_CHECKING_ACCOUNT_REJECTED|
-|status|FAST_WITHDRAW_FAILED_CENSORING|
-|status|FAST_WITHDRAW_FAILED_L1_CONFIRM_REJECTED|
-|status|FAST_WITHDRAW_FAILED_L1_REJECTED|
-|status|FAST_WITHDRAW_FAILED_L2_REJECTED|
-|status|UNRECOGNIZED|
+| Property | Value                          |
+|----------|--------------------------------|
+| status   | FAST_WITHDRAW_UNKNOWN         |
+| status   | FAST_WITHDRAW_PENDING_RISK_CHECKING|
+| status   | FAST_WITHDRAW_PENDING_L1_TRY   |
+| status   | FAST_WITHDRAW_PENDING_CHECKING |
+| status   | FAST_WITHDRAW_PENDING_SUBMIT   |
+| status   | FAST_WITHDRAW_PENDING_CHECKING_ACCOUNT   |
+| status   | FAST_WITHDRAW_PENDING_CENSORING|
+| status   | FAST_WITHDRAW_PENDING_L1_CONFIRM  |
+| status   | FAST_WITHDRAW_PENDING_L1_CONFIRMING|
+| status   | FAST_WITHDRAW_PENDING_CENSORING_CONFIRMING |
+| status   | FAST_WITHDRAW_PENDING_L2_APPROVING|
+| status   | FAST_WITHDRAW_SUCCESS            |
+| status   | FAST_WITHDRAW_FAILED_RISK_CHECK_FAILURE    |
+| status   | FAST_WITHDRAW_FAILED_L1_TRY_REJECTED |
+| status   | FAST_WITHDRAW_FAILED_TRANSFER_REJECTED   |
+| status   | FAST_WITHDRAW_FAILED_CHECKING_ACCOUNT_REJECTED |
+| status   | FAST_WITHDRAW_FAILED_CENSORING    |
+| status   | FAST_WITHDRAW_FAILED_L1_CONFIRM_REJECTED |
+| status   | FAST_WITHDRAW_FAILED_L1_REJECTED |
+| status   | FAST_WITHDRAW_FAILED_L2_REJECTED |
+| status   | UNRECOGNIZED                  |
 
 <h2 id="tocS_Result<GetFastWithdrawSignInfo>">Result<GetFastWithdrawSignInfo></h2>
 
@@ -1331,20 +1304,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetFastWithdrawSignInfo](#schemagetfastwithdrawsigninfo)|false|none||查询快速提现签名需要的信息-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                        | Required | Constraints | Description                                 | Notes                                                                 |
+|------------------|---------------------------------------------|----------|-------------|---------------------------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code                                 | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [GetFastWithdrawSignInfo](#schemagetfastwithdrawsigninfo) | false    | none        | Get information required for fast withdrawal signature - Response |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information              |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information              |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time                |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time               |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID                                |                                                                       |
 
 <h2 id="tocS_GetFastWithdrawSignInfo">GetFastWithdrawSignInfo</h2>
 
@@ -1361,20 +1333,19 @@ L2签名信息
   "fastWithdrawMaxAmount": "string",
   "fee": "string"
 }
-
 ```
 
-查询快速提现签名需要的信息-响应
+Get information required for fast withdrawal signature - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|lpAccountId|string|false|none||l2接收用户转账的lp账户id|
-|fastWithdrawL2Key|string|false|none||快速提现账户l2Key|
-|fastWithdrawFactRegisterAddress|string|false|none||L1 Fact合约地址|
-|fastWithdrawMaxAmount|string|false|none||快速提现最大额度|
-|fee|string|false|none||快速提现手续费|
+| Name                         | Type   | Required | Constraints | Description                                  | Notes                                  |
+|------------------------------|--------|----------|-------------|----------------------------------------------|----------------------------------------|
+| lpAccountId                  | string | false    | none        | LP account ID for L2 receiving user transfers |                                        |
+| fastWithdrawL2Key           | string | false    | none        | L2 key for fast withdrawal account      |                                        |
+| fastWithdrawFactRegisterAddress | string | false    | none        | L1 Fact contract address    |                                        |
+| fastWithdrawMaxAmount        | string | false    | none        | Maximum amount for fast withdrawal    |                                        |
+| fee                           | string | false    | none        | Fast withdrawal transaction fee        |                                        |
 
 <h2 id="tocS_Result<List<NormalWithdraw>>">Result<List<NormalWithdraw>></h2>
 
@@ -1429,20 +1400,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[NormalWithdraw](#schemanormalwithdraw)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                   | Required | Constraints | Description          | Notes                                                                 |
+|------------------|----------------------------------------|----------|-------------|----------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code          | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [[NormalWithdraw](#schemanormalwithdraw)] | false    | none        | Correct response data |                                                                       |
+| errorParam       | object                           | false    | none        | Error parameter information|                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information|                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time   |                                                                      |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time    |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID          |                                                                       |
 
 <h2 id="tocS_NormalWithdraw">NormalWithdraw</h2>
 
@@ -1469,7 +1439,7 @@ L2签名信息
   },
   "status": "NORMAL_WITHDRAW_UNKNOWN",
   "tradeWithdrawId": "string",
-  "riskSignature": {
+   "riskSignature": {
     "r": "string",
     "s": "string",
     "v": "string"
@@ -1485,49 +1455,48 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-普通提现单
+Normal withdrawal order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||提现单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||充值数量|
-|ethAddress|string|false|none||充值的eth地址，可能与账户里的eth地址不一样。|
-|clientWithdrawId|string|false|none||客户自定义id，用于幂等校验|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间。unix时间的小时数，至少要比下单时间晚24个小时|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|status|string|false|none||普通提现单状态|
-|tradeWithdrawId|string(int64)|false|none||对应的交易服务withdraw单id|
-|riskSignature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|l1ConfirmedTx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|l1ConfirmedTime|string(int64)|false|none||l1交易确认时间|
-|l1CompletedTime|string(int64)|false|none||l1提现完成时间|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                | Type            | Required | Constraints | Description                                 | Notes                                                                           |
+|---------------------|-----------------|----------|-------------|---------------------------------------------|---------------------------------------------------------------------------------|
+| id                  | string(int64)    | false    | none        | Withdrawal order ID                         |                                                                                 |
+| userId              | string(int64)    | false    | none        | User ID                                     |                                                                                 |
+| accountId           | string(int64)    | false    | none        | Account ID                                   |                                                                                 |
+| coinId              | string(int64)    | false    | none        | Collateral coin ID                           |                                                                                 |
+| amount              | string           | false    | none        | Withdrawal amount                            |                                                                                 |
+| ethAddress          | string           | false    | none        | ETH address for withdrawal, may differ from the account's ETH address.  |                                                                    |
+| clientWithdrawId     | string           | false    | none        | Client-defined ID for idempotent checks     |                                                                                 |
+| l2Nonce             | string(int64)    | false    | none        | L2 signature nonce. First 32 bits of sha256(client_withdraw_id)          |                                           |
+| l2ExpireTime        | string(int64)    | false    | none        | L2 signature expiration time. Unix time in hours, must be at least 24 hours after order creation.   |                                           |
+| l2Signature         | [L2Signature](#schemal2signature) | false    | none        | L2 signature information                |                                                                                |
+| status              | string           | false    | none        | Normal withdrawal order status            |                                                                                 |
+| tradeWithdrawId       | string(int64)   | false    | none        | Corresponding trading service withdraw order ID    |                                                                                 |
+| riskSignature        | [L2Signature](#schemal2signature) | false    | none        | L2 signature information                |                                                                                |
+| l1ConfirmedTx         | [L1Tx](#schemal1tx) | false    | none        | L1 transaction information                  |                                                                          |
+| l1ConfirmedTime       | string(int64)    | false    | none        | L1 transaction confirmation time             |                                                                       |
+| l1CompletedTime       | string(int64)    | false    | none        | L1 withdrawal completion time                |                                                                       |
+| createdTime           | string(int64)    | false    | none        | Creation time                              |                                                                        |
+| updatedTime           | string(int64)    | false    | none        | Update time                                |                                                                        |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|status|NORMAL_WITHDRAW_UNKNOWN|
-|status|NORMAL_WITHDRAW_PENDING_RISK_CHECKING|
-|status|NORMAL_WITHDRAW_PENDING_TRADE_PROCESSING|
-|status|NORMAL_WITHDRAW_PENDING_L2_APPROVING|
-|status|NORMAL_WITHDRAW_PENDING_L1_CONFIRMING|
-|status|NORMAL_WITHDRAW_PENDING_L1_WITHDRAWING|
-|status|NORMAL_WITHDRAW_SUCCESS_L1_COMPLETED|
-|status|NORMAL_WITHDRAW_FAILED_RISK_CHECK_FAILURE|
-|status|NORMAL_WITHDRAW_FAILED_CENSOR_FAILURE|
-|status|NORMAL_WITHDRAW_FAILED_L2_REJECTED|
-|status|UNRECOGNIZED|
+| Property | Value                              |
+|----------|------------------------------------|
+| status   | NORMAL_WITHDRAW_UNKNOWN           |
+| status   | NORMAL_WITHDRAW_PENDING_RISK_CHECKING |
+| status   | NORMAL_WITHDRAW_PENDING_TRADE_PROCESSING |
+| status   | NORMAL_WITHDRAW_PENDING_L2_APPROVING |
+| status   | NORMAL_WITHDRAW_PENDING_L1_CONFIRMING|
+| status   | NORMAL_WITHDRAW_PENDING_L1_WITHDRAWING|
+| status   | NORMAL_WITHDRAW_SUCCESS_L1_COMPLETED |
+| status   | NORMAL_WITHDRAW_FAILED_RISK_CHECK_FAILURE   |
+| status   | NORMAL_WITHDRAW_FAILED_CENSOR_FAILURE      |
+| status   | NORMAL_WITHDRAW_FAILED_L2_REJECTED  |
+| status   | UNRECOGNIZED                    |
 
 <h2 id="tocS_Result<GetNormalWithdrawableAmount>">Result<GetNormalWithdrawableAmount></h2>
 
@@ -1550,20 +1519,21 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetNormalWithdrawableAmount](#schemagetnormalwithdrawableamount)|false|none||根据用户地址查询普通提现claim金额-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                          Okay, continuing the translated documentation:
+
+| Name             | Type                                          | Required | Constraints | Description                                 | Notes                                                                 |
+|------------------|-----------------------------------------------|----------|-------------|---------------------------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code                                 | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [GetNormalWithdrawableAmount](#schemagetnormalwithdrawableamount) | false    | none        | Query normal withdrawable claim amount by user address - Response |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information              |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information              |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time                |                                                                       |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time               |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID                                |                                                                       |
 
 <h2 id="tocS_GetNormalWithdrawableAmount">GetNormalWithdrawableAmount</h2>
 
@@ -1576,16 +1546,15 @@ L2签名信息
 {
   "amount": "string"
 }
-
 ```
 
-根据用户地址查询普通提现claim金额-响应
+Query normal withdrawable claim amount by user address - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|amount|string|false|none||可提现金额|
+| Name   | Type   | Required | Constraints | Description         | Notes    |
+|--------|--------|----------|-------------|---------------------|----------|
+| amount | string | false    | none        | Withdrawable amount |          |
 
 <h2 id="tocS_Result<CreateCrossWithdraw>">Result<CreateCrossWithdraw></h2>
 
@@ -1608,20 +1577,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateCrossWithdraw](#schemacreatecrosswithdraw)|false|none||创建跨链提现单-相应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                     | Required | Constraints | Description            | Notes                                                                 |
+|------------------|------------------------------------------|----------|-------------|------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code            | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [CreateCrossWithdraw](#schemacreatecrosswithdraw) | false    | none        | Create cross-chain withdrawal order - Response  |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information        |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information        |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time           |                                                                      |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time          |                                                                      |
+| traceId          | string                           | false    | none        | Call trace ID            |                                                                       |
 
 <h2 id="tocS_CreateCrossWithdraw">CreateCrossWithdraw</h2>
 
@@ -1634,16 +1602,15 @@ L2签名信息
 {
   "crossWithdrawId": "string"
 }
-
 ```
 
-创建跨链提现单-相应
+Create cross-chain withdrawal order - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|crossWithdrawId|string(int64)|false|none||跨链提现单Id|
+| Name            | Type           | Required | Constraints | Description            | Notes    |
+|-----------------|----------------|----------|-------------|------------------------|----------|
+| crossWithdrawId | string(int64) | false    | none        | Cross-chain withdrawal order ID |          |
 
 <h2 id="tocS_CreateCrossWithdrawParam">CreateCrossWithdrawParam</h2>
 
@@ -1665,33 +1632,32 @@ L2签名信息
   "l2Signature": "string",
   "fee": "string",
   "chainId": "string",
-  "mpcAddress": "string",
-  "mpcSignature": "string",
-  "mpcSignTime": "string"
+   "mpcAddress": "string",
+    "mpcSignature": "string",
+    "mpcSignTime": "string"
 }
-
 ```
 
-创建跨链提现单-请求
+Create cross-chain withdrawal order - Request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||币id|
-|amount|string|false|none||提现数量|
-|ethAddress|string|false|none||提现到的地址。如果为空，则提到本账号对应的地址。|
-|erc20Address|string|false|none||提现资产在L1上ERC20合约地址。|
-|lpAccountId|string|false|none||l2接收用户转账的lp账户id|
-|clientCrossWithdrawId|string|false|none||客户自定义id，用于签名&幂等校验。必须填写。|
-|expireTime|string(int64)|false|none||过期时间|
-|l2Signature|string|false|none||提交l2的签名|
-|fee|string|false|none||前端获取到的gas+手续费费|
-|chainId|string|false|none||提现到哪条链|
-|mpcAddress|string|false|none||哪个mpc地址发起的提现|
-|mpcSignature|string|false|none||mpc地址对提现字段的签名|
-|mpcSignTime|string|false|none||mpc签名时间戳,unix timestamp 单位为秒|
+| Name                | Type            | Required | Constraints | Description                                | Notes                               |
+|---------------------|-----------------|----------|-------------|--------------------------------------------|-------------------------------------|
+| accountId           | string(int64)   | false    | none        | Account ID                                 |                                     |
+| coinId              | string(int64)   | false    | none        | Coin ID                                    |                                     |
+| amount              | string          | false    | none        | Withdrawal amount                          |                                     |
+| ethAddress          | string          | false    | none        | Withdrawal address. If empty, withdraw to the corresponding address of the current account. |                                     |
+| erc20Address       | string          | false    | none        | L1 ERC20 contract address for the withdrawn asset|                                     |
+| lpAccountId         | string          | false    | none        | LP account ID for L2 receiving user transfers|                                     |
+| clientCrossWithdrawId| string          | false    | none        | Client-defined ID, used for signature & idempotent check. Must be filled.|      |
+| expireTime          | string(int64)   | false    | none        | Expiration time                         |                                     |
+| l2Signature         | string          | false    | none        | L2 signature                             |                                     |
+| fee                 | string          | false    | none        | Gas + fee obtained from front-end           |                                     |
+| chainId             | string          | false    | none        | Chain ID for withdrawal                    |                                     |
+| mpcAddress         | string          | false    | none        | Which mpc address initiated the withdraw | |
+| mpcSignature         | string          | false    | none        |  Signature of the mpc address to the withdraw field| |
+| mpcSignTime         | string          | false    | none        | mpc signature timestamp,unix timestamp in seconds     |    |
 
 <h2 id="tocS_Result<CreateFastWithdraw>">Result<CreateFastWithdraw></h2>
 
@@ -1714,20 +1680,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateFastWithdraw](#schemacreatefastwithdraw)|false|none||创建快速提现单-相应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                   | Required | Constraints | Description          | Notes                                                                 |
+|------------------|----------------------------------------|----------|-------------|----------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code          | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [CreateFastWithdraw](#schemacreatefastwithdraw) | false    | none        | Create fast withdrawal order - Response     |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information|                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information|                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time   |                                                                      |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time    |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID          |                                                                       |
 
 <h2 id="tocS_CreateFastWithdraw">CreateFastWithdraw</h2>
 
@@ -1740,16 +1705,15 @@ L2签名信息
 {
   "fastWithdrawId": "string"
 }
-
 ```
 
-创建快速提现单-相应
+Create fast withdrawal order - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|fastWithdrawId|string(int64)|false|none||快速提现单Id|
+| Name           | Type           | Required | Constraints | Description           | Notes    |
+|----------------|----------------|----------|-------------|-----------------------|----------|
+| fastWithdrawId | string(int64) | false    | none        | Fast withdrawal order ID |          |
 
 <h2 id="tocS_CreateFastWithdrawRequest">CreateFastWithdrawRequest</h2>
 
@@ -1774,28 +1738,27 @@ L2签名信息
   "fact": "string",
   "chainId": "string"
 }
-
 ```
 
-创建快速提现单-请求
+Create fast withdrawal order - Request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||币id|
-|amount|string|false|none||提现数量|
-|ethAddress|string|false|none||提现到的地址。如果为空，则提到本账号对应的地址。|
-|erc20Address|string|false|none||提现资产在L1上ERC20合约地址。|
-|lpAccountId|string|false|none||l2接收用户转账的lp账户id|
-|clientFastWithdrawId|string|false|none||客户自定义id，用于签名&幂等校验。必须填写。|
-|expireTime|string(int64)|false|none||过期时间|
-|l2Signature|string|false|none||提交l2的签名|
-|fee|string|false|none||前端获取到的gas+手续费费|
-|factRegistryAddress|string|false|none||快速提现对应的fact合约地址|
-|fact|string|false|none||快速提现对应的fact值|
-|chainId|string|false|none||提现到哪条链|
+| Name                 | Type            | Required | Constraints | Description                                 | Notes                                   |
+|----------------------|-----------------|----------|-------------|---------------------------------------------|-----------------------------------------|
+| accountId            | string(int64)   | false    | none        | Account ID                                  |                                         |
+| coinId               | string(int64)   | false    | none        | Coin ID                                     |                                         |
+| amount               | string          | false    | none        | Withdrawal amount                           |                                         |
+| ethAddress           | string          | false    | none        | Withdrawal address. If empty, withdraw to the corresponding address of the current account. | |
+| erc20Address         | string          | false    | none        | L1 ERC20 contract address for the withdrawn asset   |                                         |
+| lpAccountId          | string          | false    | none        | LP account ID for L2 receiving user transfers |                                         |
+| clientFastWithdrawId  | string          | false    | none        | Client-defined ID, used for signature & idempotent check. Must be filled.   |                                         |
+| expireTime           | string(int64)   | false    | none        | Expiration time                             |                                         |
+| l2Signature          | string          | false    | none        | L2 signature                                 |                                         |
+| fee                  | string          | false    | none        | Gas + fee obtained from front-end            |                                         |
+| factRegistryAddress   | string          | false    | none        | Fact contract address corresponding to fast withdrawal |                                          |
+| fact                | string          | false    | none        | Fact value corresponding to fast withdrawal  |                                         |
+| chainId              | string          | false    | none        | Chain ID for withdrawal                     |                                         |
 
 <h2 id="tocS_Result<CreateNormalWithdraw>">Result<CreateNormalWithdraw></h2>
 
@@ -1818,20 +1781,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateNormalWithdraw](#schemacreatenormalwithdraw)|false|none||创建普通提现单-相应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name             | Type                                    | Required | Constraints | Description              | Notes                                                                 |
+|------------------|-----------------------------------------|----------|-------------|--------------------------|-----------------------------------------------------------------------|
+| code             | string                           | false    | none        | Status code              | Returns "SUCCESS" for success, otherwise it's a failure.                |
+| data             | [CreateNormalWithdraw](#schemacreatenormalwithdraw) | false    | none        | Create normal withdrawal order - Response  |                                                                      |
+| errorParam       | object                           | false    | none        | Error parameter information          |                                                                       |
+| » **additionalProperties** | string                           | false    | none        | Error parameter information          |                                                                       |
+| requestTime      | string(timestamp)                 | false    | none        | Server request receive time             |                                                                      |
+| responseTime     | string(timestamp)                 | false    | none        | Server response return time            |                                                                       |
+| traceId          | string                           | false    | none        | Call trace ID              |                                                                       |
 
 <h2 id="tocS_CreateNormalWithdraw">CreateNormalWithdraw</h2>
 
@@ -1844,16 +1806,15 @@ L2签名信息
 {
   "withdrawId": "string"
 }
-
 ```
 
-创建普通提现单-相应
+Create normal withdrawal order - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|withdrawId|string(int64)|false|none||提现单Id|
+| Name       | Type           | Required | Constraints | Description           | Notes    |
+|------------|----------------|----------|-------------|-----------------------|----------|
+| withdrawId | string(int64) | false    | none        | Withdrawal order ID  |          |
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -1869,19 +1830,18 @@ L2签名信息
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+General response structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+| Name         | Type       | Required | Constraints | Description                                   | Notes                                 |
+|--------------|------------|----------|-------------|-----------------------------------------------|---------------------------------------|
+| code         | string     | false    | none        | Status code. Returns "SUCCESS" for success, otherwise it's a failure. |                         |
+| msg          | string     | false    | none        | Detailed error message when an error occurs     |                                       |
+| requestTime  | string(int64) | false    | none        | Server request receive time                      |                                       |
+| responseTime | string(int64) | false    | none        | Server response return time                     |                                       |
 
 <h2 id="tocS_CreateNormalWithdrawParam">CreateNormalWithdrawParam</h2>
 
@@ -1900,20 +1860,18 @@ L2签名信息
   "expireTime": "string",
   "l2Signature": "string"
 }
-
 ```
 
-创建普通提现单-请求
+Create normal withdrawal order - Request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||币id|
-|amount|string|false|none||提现数量|
-|ethAddress|string|false|none||提现到的地址。如果为空，则提到本账号对应的地址。|
-|clientWithdrawId|string|false|none||客户自定义id，用于签名&幂等校验。必须填写。|
-|expireTime|string(int64)|false|none||过期时间|
-|l2Signature|string|false|none||提交l2的签名|
-
+| Name             | Type            | Required | Constraints | Description                                | Notes                                 |
+|------------------|-----------------|----------|-------------|--------------------------------------------|---------------------------------------|
+| accountId        | string(int64)   | false    | none        | Account ID                                 |                                       |
+| coinId           | string(int64)   | false    | none        | Coin ID                                    |                                       |
+| amount           | string          | false    | none        | Withdrawal amount                          |                                       |
+| ethAddress       | string          | false    | none        | Withdrawal address. If empty, withdraw to the corresponding address of the current account.  |                                      |
+| clientWithdrawId  | string          | false    | none        | Client-defined ID, used for signature & idempotent check. Must be filled.   |                                       |
+| expireTime       | string(int64)  | false    | none        | Expiration time                           |                                       |
+| l2Signature      | string          | false    | none        | L2 signature                                |                                       |
