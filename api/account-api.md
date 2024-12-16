@@ -1,4 +1,4 @@
----
+```yaml
 title: test v1.0.0
 language_tabs:
   - shell: Shell
@@ -16,7 +16,6 @@ code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
 generator: "@tarslib/widdershins v4.0.17"
-
 ---
 
 # test
@@ -29,11 +28,11 @@ Base URLs:
 
 <a id="opIdupdateLeverageSetting"></a>
 
-## POST 更新账户交易杠杆设置
+## POST Update Account Trading Leverage Settings
 
 POST /api/v1/private/account/updateLeverageSetting
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -43,13 +42,13 @@ POST /api/v1/private/account/updateLeverageSetting
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[UpdateLeverageSettingParam](#schemaupdateleveragesettingparam)| 否 |none|
+| Name        | Location | Type                                    | Required | Description |
+| ----------- | -------- | --------------------------------------- | -------- | ----------- |
+| body        | body     | [UpdateLeverageSettingParam](#schemaupdateleveragesettingparam) | No       | none        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -67,21 +66,21 @@ POST /api/v1/private/account/updateLeverageSetting
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdupdateFeeSetting"></a>
 
-## POST 更新账户交易手续费设置
+## POST Update Account Trading Fee Settings
 
 POST /api/v1/private/account/updateFeeSetting
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -96,13 +95,13 @@ POST /api/v1/private/account/updateFeeSetting
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[UpdateFeeSettingParam](#schemaupdatefeesettingparam)| 否 |none|
+| Name        | Location | Type                                | Required | Description |
+| ----------- | -------- | ----------------------------------- | -------- | ----------- |
+| body        | body     | [UpdateFeeSettingParam](#schemaupdatefeesettingparam) | No       | none        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -120,21 +119,21 @@ POST /api/v1/private/account/updateFeeSetting
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdregisterAccount"></a>
 
-## POST 注册账户
+## POST Register Account
 
 POST /api/v1/private/account/registerAccount
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -144,13 +143,13 @@ POST /api/v1/private/account/registerAccount
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[RegisterAccountParam](#schemaregisteraccountparam)| 否 |none|
+| Name        | Location | Type                            | Required | Description |
+| ----------- | -------- | ------------------------------- | -------- | ----------- |
+| body        | body     | [RegisterAccountParam](#schemaregisteraccountparam) | No       | none        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -170,36 +169,36 @@ POST /api/v1/private/account/registerAccount
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetPositionTransactionPage"></a>
 
-## GET 翻页获取仓位流水
+## GET Get Position Transaction Page
 
 GET /api/v1/private/account/getPositionTransactionPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |获取指定币种的仓位流水，如果不填则获取所有抵押品流水|
-|filterContractIdList|query|string| 否 |获取指定合约的仓位流水，如果不填则获取所有仓位流水|
-|filterTypeList|query|string| 否 |获取指定持仓变动明细类型的仓位流水，如果不填则获取所有仓位流水|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的仓位流水 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的仓位流水 (不包含)，不填或者为0的话就到最近|
-|filterCloseOnly|query|string| 否 |是否仅返回包含平仓的仓位流水。true：只返回有平仓的流水，false：返回所有流水|
-|filterOpenOnly|query|string| 否 |是否仅返回包含开仓的仓位流水。true：只返回有开仓的流水，false：返回所有流水|
+| Name                            | Location | Type   | Required | Description                                                                                                |
+| ------------------------------- | -------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| accountId                       | query    | string | No       | Account ID                                                                                                 |
+| size                            | query    | string | No       | Number of items to retrieve. Must be greater than 0 and less than or equal to 100                             |
+| offsetData                      | query    | string | No       | Pagination offset. If empty or not provided, the first page is retrieved                                     |
+| filterCoinIdList                | query    | string | No       | Filter position transaction records by specified coin IDs. If not provided, all collateral transaction records are retrieved |
+| filterContractIdList            | query    | string | No       | Filter position transaction records by specified contract IDs. If not provided, all position transaction records are retrieved|
+| filterTypeList                  | query    | string | No       | Filter position transaction records by specified types. If not provided, all position transaction records are retrieved|
+| filterStartCreatedTimeInclusive | query    | string | No       | Filter position transaction records created after or at the specified start time (inclusive). If not provided or 0, retrieves records from the earliest time |
+| filterEndCreatedTimeExclusive   | query    | string | No       | Filter position transaction records created before the specified end time (exclusive). If not provided or 0, retrieves records up to the latest time    |
+| filterCloseOnly                 | query    | string | No       | Whether to return only position transactions that include closing positions.  `true`: only return records with closing; `false`: return all records|
+| filterOpenOnly                  | query    | string | No       | Whether to return only position transactions that include opening positions. `true`: only return records with opening; `false`: return all records|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -212,26 +211,26 @@ GET /api/v1/private/account/getPositionTransactionPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetPositionTransactionById"></a>
 
-## GET 根据账户id和仓位流水id批量获取仓位流水
+## GET Get Position Transactions By Account ID and Transaction ID
 
 GET /api/v1/private/account/getPositionTransactionById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|positionTransactionIdList|query|string| 否 |仓位流水id|
+| Name                      | Location | Type   | Required | Description         |
+| ------------------------- | -------- | ------ | -------- | ------------------- |
+| accountId                 | query    | string | No       | Account ID          |
+| positionTransactionIdList | query    | string | No       | Position Transaction IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -244,32 +243,32 @@ GET /api/v1/private/account/getPositionTransactionById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetPositionTermPage"></a>
 
-## GET 根据账号id翻页获取持仓term信息
+## GET Get Position Term Page by Account ID
 
 GET /api/v1/private/account/getPositionTermPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |获取指定币种的仓位term信息，如果不填则获取所有仓位term信息|
-|filterContractIdList|query|string| 否 |获取指定合约的仓位term信息，如果不填则获取所有仓位term信息|
-|filterIsLongPosition|query|string| 否 |获取制定方向的仓位term信息，如果不填则获取所有仓位term信息|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的抵押品流水 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的抵押品流水 (不包含)，不填或者为0的话就到最近|
+| Name                            | Location | Type   | Required | Description                                                                                               |
+| ------------------------------- | -------- | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| accountId                       | query    | string | No       | Account ID                                                                                                |
+| size                            | query    | string | No       | Number of items to retrieve. Must be greater than 0 and less than or equal to 100                             |
+| offsetData                      | query    | string | No       | Pagination offset. If empty or not provided, the first page is retrieved                                     |
+| filterCoinIdList                | query    | string | No       | Filter position term records by specified coin IDs. If not provided, all position term records are retrieved |
+| filterContractIdList            | query    | string | No       | Filter position term records by specified contract IDs. If not provided, all position term records are retrieved |
+| filterIsLongPosition            | query    | string | No       | Filter position term records by position direction. If not provided, all position term records are retrieved |
+| filterStartCreatedTimeInclusive | query    | string | No       | Filter position term records created after or at the specified start time (inclusive). If not provided or 0, retrieves records from the earliest time |
+| filterEndCreatedTimeExclusive   | query    | string | No       | Filter position term records created before the specified end time (exclusive). If not provided or 0, retrieves records up to the latest time    |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -282,26 +281,26 @@ GET /api/v1/private/account/getPositionTermPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetCollateralByCoinId"></a>
 
-## GET 根据账号id和合约id批量获取仓位
+## GET Get Position By Account ID and Contract ID
 
 GET /api/v1/private/account/getPositionByContractId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|contractIdList|query|string| 否 |指定的合约id|
+| Name           | Location | Type   | Required | Description        |
+| -------------- | -------- | ------ | -------- | ------------------ |
+| accountId      | query    | string | No       | Account ID         |
+| contractIdList | query    | string | No       | Specified contract IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -378,33 +377,33 @@ GET /api/v1/private/account/getPositionByContractId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetCollateralTransactionPage"></a>
 
-## GET 根据账户id翻页获取抵押品明细
+## GET Get Collateral Transaction Page by Account ID
 
 GET /api/v1/private/account/getCollateralTransactionPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |获取指定币种的抵押品流水，如果不填则获取所有抵押品流水|
-|filterTypeList|query|string| 否 |获取指定抵押品变动明细类型的流水，如果不填则获取所有抵押品流水|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的抵押品流水 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的抵押品流水 (不包含)，不填或者为0的话就到最近|
+| Name                            | Location | Type   | Required | Description                                                                                             |
+| ------------------------------- | -------- | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| accountId                       | query    | string | No       | Account ID                                                                                                |
+| size                            | query    | string | No       | Number of items to retrieve. Must be greater than 0 and less than or equal to 100                             |
+| offsetData                      | query    | string | No       | Pagination offset. If empty or not provided, the first page is retrieved                                     |
+| filterCoinIdList                | query    | string | No       | Filter collateral transaction records by specified coin IDs. If not provided, all collateral transaction records are retrieved |
+| filterTypeList                  | query    | string | No       | Filter collateral transaction records by specified transaction types. If not provided, all collateral transaction records are retrieved |
+| filterStartCreatedTimeInclusive | query    | string | No       | Filter collateral transaction records created after or at the specified start time (inclusive). If not provided or 0, retrieves records from the earliest time |
+| filterEndCreatedTimeExclusive   | query    | string | No       | Filter collateral transaction records created before the specified end time (exclusive). If not provided or 0, retrieves records up to the latest time    |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -479,28 +478,28 @@ GET /api/v1/private/account/getCollateralTransactionPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetCollateralTransactionById"></a>
 
-## GET 根据账户id和抵押品明细id批量获取成抵押品明细
+## GET Get Collateral Transactions By Account ID and Transaction ID
 
 GET /api/v1/private/account/getCollateralTransactionById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|collateralTransactionIdList|query|string| 否 |抵押品明细id|
+| Name                        | Location | Type   | Required | Description         |
+| --------------------------- | -------- | ------ | -------- | ------------------- |
+| accountId                   | query    | string | No       | Account ID          |
+| collateralTransactionIdList | query    | string | No       | Collateral Transaction IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -572,28 +571,28 @@ GET /api/v1/private/account/getCollateralTransactionById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetCollateralByCoinId_1"></a>
 
-## GET 根据账号id和抵押品coinId批量获取抵押品信息
+## GET Get Collateral By Account ID and Coin ID
 
 GET /api/v1/private/account/getCollateralByCoinId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|coinIdList|query|string| 否 |获取指定币种的抵押品信息，如果不填则获取所有抵押品信息|
+| Name        | Location | Type   | Required | Description                                                                                      |
+| ----------- | -------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| accountId   | query    | string | No       | Account ID                                                                                       |
+| coinIdList  | query    | string | No       | Filter collateral information by specified coin IDs. If not provided, all collateral information is retrieved |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -630,28 +629,28 @@ GET /api/v1/private/account/getCollateralByCoinId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetAccountPage"></a>
 
-## GET 根据用户id翻页获取账户信息
+## GET Get Account Page by User ID
 
 GET /api/v1/private/account/getAccountPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
+| Name       | Location | Type   | Required | Description                                                                                   |
+| ---------- | -------- | ------ | -------- | --------------------------------------------------------------------------------------------- |
+| size       | query    | string | No       | Number of items to retrieve. Must be greater than 0 and less than or equal to 100                 |
+| offsetData | query    | string | No       | Pagination offset. If empty or not provided, the first page is retrieved                       |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -664,25 +663,25 @@ GET /api/v1/private/account/getAccountPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetAccountDeleverageLight"></a>
 
-## GET 获取账户下所有仓位减仓ADL灯
+## GET Get Account Deleverage Light
 
 GET /api/v1/private/account/getAccountDeleverageLight
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
+| Name      | Location | Type   | Required | Description |
+| --------- | -------- | ------ | -------- | ----------- |
+| accountId | query    | string | No       | Account ID  |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -695,25 +694,25 @@ GET /api/v1/private/account/getAccountDeleverageLight
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetAccountById"></a>
 
-## GET 根据账户id获取账户信息
+## GET Get Account By Account ID
 
 GET /api/v1/private/account/getAccountById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
+| Name      | Location | Type   | Required | Description |
+| --------- | -------- | ------ | -------- | ----------- |
+| accountId | query    | string | No       | Account ID  |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -726,25 +725,25 @@ GET /api/v1/private/account/getAccountById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetAccountAsset"></a>
 
-## GET 获取账户资产相关数据
+## GET Get Account Asset
 
 GET /api/v1/private/account/getAccountAsset
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
+| Name      | Location | Type   | Required | Description |
+| --------- | -------- | ------ | -------- | ----------- |
+| accountId | query    | string | No       | Account ID  |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -757,31 +756,31 @@ GET /api/v1/private/account/getAccountAsset
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
 
 <a id="opIdgetAccountAssetSnapshotPage"></a>
 
-## GET 根据账号id翻页获取历史资产快照
+## GET Get Account Asset Snapshot Page by Account ID
 
 GET /api/v1/private/account/getAccountAssetSnapshotPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于1000|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|coinId|query|string| 是 |获取指定币种的资产快照|
-|filterTimeTag|query|string| 否 |指定时间tag 不填或者为0的话按小时返回快照，1按天返回快照|
-|filterStartTimeInclusive|query|string| 否 |过滤获取指定开始时间的资产快照 (包含)，不填或者为0的话就从最早开始|
-|filterEndTimeExclusive|query|string| 否 |过滤获取指定结束时间的资产快照 (不包含)，不填或者为0的话就到最近|
+| Name                       | Location | Type   | Required | Description                                                                                                   |
+| -------------------------- | -------- | ------ | -------- | --------------------------------------------------------------------------------
+| accountId                | query    | string | No       | Account ID                                                                                                    |
+| size                     | query    | string | No       | Number of items to retrieve. Must be greater than 0 and less than or equal to 1000                             |
+| offsetData               | query    | string | No       | Pagination offset. If empty or not provided, the first page is retrieved                                         |
+| coinId                   | query    | string | Yes      | Filter by the specified coin ID.                                                                               |
+| filterTimeTag            | query    | string | No       | Specifies time tag. If not provided or 0, returns snapshots by the hour. 1 returns snapshots by the day      |
+| filterStartTimeInclusive | query    | string | No       | Filter snapshots created after or at the specified start time (inclusive). If not provided or 0, retrieves records from the earliest time |
+| filterEndTimeExclusive   | query    | string | No       | Filter snapshots created before the specified end time (exclusive). If not provided or 0, retrieves records up to the latest time  |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -794,15 +793,15 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Description                                                                  | Description        | Data Model                                        |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result&lt;PageData&lt;AccountAssetSnapshot&gt;&gt;](#schemaresult<pagedata<accountassetsnapshot>>) |
 
-# 数据模型
+# Data Models
 
-<h2 id="tocS_Result<PageData<AccountAssetSnapshot>>">Result<PageData<AccountAssetSnapshot>></h2>
+<h2 id="tocS_Result<PageData<AccountAssetSnapshot>>">Result&lt;PageData&lt;AccountAssetSnapshot&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<accountassetsnapshot>>"></a>
 <a id="schema_Result<PageData<AccountAssetSnapshot>>"></a>
@@ -836,20 +835,19 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataAccountAssetSnapshot](#schemapagedataaccountassetsnapshot)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                               | Required | Constraints | Description              | Notes                                                                    |
+| -------------- | ---------------------------------- | -------- | ----------- | ------------------------ | ------------------------------------------------------------------------ |
+| code           | string                             | false    | none        | Status Code              | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
+| data           | [PageDataAccountAssetSnapshot](#schemapagedataaccountassetsnapshot) | false    | none        | Generic Paginated Response |                                                                          |
+| errorParam     | object                             | false    | none        | Error Parameters         | Error message parameter information                                       |
+| » **additionalProperties** | string                                | false    | none        | Error Parameters         | Error message parameter information                                       |
+| requestTime    | string(timestamp)                  | false    | none        | Server Request Time     | Time at which the server received the request                             |
+| responseTime   | string(timestamp)                  | false    | none        | Server Response Time    | Time at which the server sent the response                                |
+| traceId        | string                             | false    | none        | Trace ID                | Invocation trace ID                                                     |
 
 <h2 id="tocS_PageDataAccountAssetSnapshot">PageDataAccountAssetSnapshot</h2>
 
@@ -875,17 +873,16 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic Paginated Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[AccountAssetSnapshot](#schemaaccountassetsnapshot)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                               | Required | Constraints | Description                 | Notes                                                               |
+| ------------------ | ---------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
+| dataList           | [[AccountAssetSnapshot](#schemaaccountassetsnapshot)] | false    | none        | Data List                  |                                                                     |
+| nextPageOffsetData | string                             | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
 <h2 id="tocS_AccountAssetSnapshot">AccountAssetSnapshot</h2>
 
@@ -906,26 +903,25 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   "unrealizePnl": "string",
   "totalRealizePnl": "string"
 }
-
 ```
 
-账户历史资产快照信息数据
+Account historical asset snapshot information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|timeTag|integer(int32)|false|none||时间标记 1表示当前的快照时间为整天|
-|snapshotTime|string(int64)|false|none||快照时间。这个数据每小时统计一次。小时整点时间戳|
-|totalEquity|string|false|none||当前抵押品总价值|
-|termRealizePnl|string|false|none||term已实现盈亏|
-|unrealizePnl|string|false|none||未实现盈亏|
-|totalRealizePnl|string|false|none||仓位total已实现盈亏|
+| Name             | Type            | Required | Constraints | Description                         | Notes                                                                     |
+| ---------------- | --------------- | -------- | ----------- | ----------------------------------- | ------------------------------------------------------------------------- |
+| userId           | string(int64)   | false    | none        | User ID                             | ID of the owning user                                                  |
+| accountId        | string(int64)   | false    | none        | Account ID                          | ID of the owning account                                                 |
+| coinId           | string(int64)   | false    | none        | Collateral Coin ID                 | ID of the associated collateral coin                                        |
+| timeTag          | integer(int32)  | false    | none        | Time Tag                            | Time tag. 1 represents the snapshot time is for the whole day.           |
+| snapshotTime     | string(int64)   | false    | none        | Snapshot Time                       | Snapshot time, hourly timestamp at the top of the hour.                  |
+| totalEquity      | string          | false    | none        | Total Collateral Value              | Current total value of the collateral                                      |
+| termRealizePnl  | string          | false    | none        | Term Realized PnL                   | Realized PnL for the term                                               |
+| unrealizePnl     | string          | false    | none        | Unrealized PnL                      | Unrealized PnL                                                            |
+| totalRealizePnl  | string          | false    | none        | Total Realized PnL                 | Total realized PnL of the position                                          |
 
-<h2 id="tocS_Result<GetAccountAsset>">Result<GetAccountAsset></h2>
+<h2 id="tocS_Result<GetAccountAsset>">Result&lt;GetAccountAsset&gt;</h2>
 
 <a id="schemaresult<getaccountasset>"></a>
 <a id="schema_Result<GetAccountAsset>"></a>
@@ -1129,20 +1125,19 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetAccountAsset](#schemagetaccountasset)|false|none||获取账户资产相关数据-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                            | Required | Constraints | Description              | Notes                                                                  |
+| -------------- | ------------------------------- | -------- | ----------- | ------------------------ | ---------------------------------------------------------------------- |
+| code           | string                          | false    | none        | Status Code              | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [GetAccountAsset](#schemagetaccountasset) | false    | none        | Get Account Asset Response | Response structure for fetching account asset data.                       |
+| errorParam     | object                          | false    | none        | Error Parameters         | Error message parameter information                                     |
+| » **additionalProperties** | string                               | false    | none        | Error Parameters         | Error message parameter information                                     |
+| requestTime    | string(timestamp)               | false    | none        | Server Request Time     | Time at which the server received the request                           |
+| responseTime   | string(timestamp)               | false    | none        | Server Response Time    | Time at which the server sent the response                              |
+| traceId        | string                          | false    | none        | Trace ID                | Invocation trace ID                                                  |
 
 <h2 id="tocS_GetAccountAsset">GetAccountAsset</h2>
 
@@ -1325,39 +1320,38 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
       "priceType": "UNKNOWN_PRICE_TYPE",
       "priceValue": "string",
       "createdTime": "string",
-      "oraclePriceSignature": [
+       "oraclePriceSignature": [
         {
-          "contractId": "string",
-          "signer": "string",
-          "price": "string",
-          "externalAssetId": "string",
-          "signature": {
-            "r": null,
-            "s": null,
-            "v": null
-          },
-          "timestamp": "string"
+            "contractId": "string",
+            "signer": "string",
+            "price": "string",
+            "externalAssetId": "string",
+            "signature": {
+                "r": "string",
+                "s": "string",
+                "v": "string"
+            },
+            "timestamp": "string"
         }
-      ]
+    ]
     }
   ]
 }
-
 ```
 
-获取账户资产相关数据-响应
+Response structure for fetching account asset data.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|account|[Account](#schemaaccount)|false|none||账户信息数据|
-|collateralList|[[Collateral](#schemacollateral)]|false|none||抵押品信息列表|
-|positionList|[[Position](#schemaposition)]|false|none||永续合约仓位信息列表|
-|version|string(int64)|false|none||账户版本号，每更新一次都会 +1|
-|positionAssetList|[[PositionAsset](#schemapositionasset)]|false|none||仓位的资产信息|
-|collateralAssetModelList|[[CollateralAsset](#schemacollateralasset)]|false|none||账户级别资产信息|
-|oraclePriceList|[[IndexPrice](#schemaindexprice)]|false|none||计算资产时所使用的所有预言机价格(仅使用到的，不是所有的)|
+| Name                  | Type                                | Required | Constraints | Description                                                                                      | Notes                                                                                          |
+| --------------------- | ----------------------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| account               | [Account](#schemaaccount)           | false    | none        | Account Information                                                                              | Account information data.                                                                  |
+| collateralList        | [[Collateral](#schemacollateral)]   | false    | none        | Collateral Information List                                                                   | List of collateral information data.                                                           |
+| positionList          | [[Position](#schemaposition)]       | false    | none        | Perpetual Contract Position List                                                                 | List of perpetual contract position information.                                               |
+| version               | string(int64)                       | false    | none        | Account Version                                                                                | Account version number, incremented with each update.                                        |
+| positionAssetList     | [[PositionAsset](#schemapositionasset)] | false    | none        | Position Asset Information List                                                                  | List of position asset information.                                                              |
+| collateralAssetModelList | [[CollateralAsset](#schemacollateralasset)] | false    | none        | Account-Level Asset Information List                                                               | List of account-level asset information.                                                          |
+| oraclePriceList       | [[IndexPrice](#schemaindexprice)]   | false    | none        | Oracle Price List                                                  | List of all oracle prices used to calculate assets (only those used).                                                          |
 
 <h2 id="tocS_IndexPrice">IndexPrice</h2>
 
@@ -1387,33 +1381,32 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
     }
   ]
 }
-
 ```
 
-价格信息
+Price information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||合约id|
-|priceType|string|false|none||价格类型|
-|priceValue|string|false|none||价格取值|
-|createdTime|string(int64)|false|none||创建时间|
-|oraclePriceSignature|[[OraclePriceSignature](#schemaoraclepricesignature)]|false|none||预言机价格签名信息，仅当 price_type=ORACLE_PRICE 时存在|
+| Name                  | Type                  | Required | Constraints | Description                        | Notes                                                                            |
+| --------------------- | --------------------- | -------- | ----------- | ---------------------------------- | -------------------------------------------------------------------------------- |
+| contractId            | string(int64)         | false    | none        | Contract ID                        | Contract ID                                                                      |
+| priceType             | string                | false    | none        | Price Type                         |                                                                                  |
+| priceValue            | string                | false    | none        | Price Value                        | Price value                                                                      |
+| createdTime           | string(int64)         | false    | none        | Creation Time                      | Time of creation                                                                 |
+| oraclePriceSignature  | [[OraclePriceSignature](#schemaoraclepricesignature)] | false    | none        | Oracle Price Signature Information | Oracle price signature information, only exists when price_type=ORACLE_PRICE. |
 
-#### 枚举值
+#### Enumerated Values
 
-|属性|值|
-|---|---|
-|priceType|UNKNOWN_PRICE_TYPE|
-|priceType|ORACLE_PRICE|
-|priceType|INDEX_PRICE|
-|priceType|LAST_PRICE|
-|priceType|ASK1_PRICE|
-|priceType|BID1_PRICE|
-|priceType|OPEN_INTEREST|
-|priceType|UNRECOGNIZED|
+| Property  | Value                     |
+| --------- | ------------------------- |
+| priceType | UNKNOWN_PRICE_TYPE        |
+| priceType | ORACLE_PRICE            |
+| priceType | INDEX_PRICE               |
+| priceType | LAST_PRICE                |
+| priceType | ASK1_PRICE                |
+| priceType | BID1_PRICE                |
+| priceType | OPEN_INTEREST             |
+| priceType | UNRECOGNIZED              |
 
 <h2 id="tocS_OraclePriceSignature">OraclePriceSignature</h2>
 
@@ -1435,21 +1428,20 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   },
   "timestamp": "string"
 }
-
 ```
 
-预言机价格签名信息
+Oracle price signature information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||合约id|
-|signer|string|false|none||签名者标识|
-|price|string|false|none||签名价格 (按照stark ex 精度处理后的价格)|
-|externalAssetId|string|false|none||Concatenation of the asset name and the oracle name (both in hex encoding).|
-|signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|timestamp|string(int64)|false|none||The time the signature was created.|
+| Name             | Type                    | Required | Constraints | Description                                                              | Notes                                                                                                    |
+| ---------------- | ----------------------- | -------- | ----------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| contractId       | string(int64)           | false    | none        | Contract ID                                                              | Contract ID                                                                                            |
+| signer           | string                  | false    | none        | Signer ID                                                                | Signer identifier                                                                                        |
+| price            | string                  | false    | none        | Signed Price                                                             | The price signed (price after stark ex precision processing)                                                    |
+| externalAssetId  | string                  | false    | none        | Concatenated Asset and Oracle Names        | Concatenation of the asset name and the oracle name (both in hex encoding).                                               |
+| signature        | [L2Signature](#schemal2signature) | false    | none        | L2 Signature Information                                            | L2 signature information                                                                               |
+| timestamp        | string(int64)           | false    | none        | Signature Creation Time                                                | The time the signature was created.                                                                     |
 
 <h2 id="tocS_L2Signature">L2Signature</h2>
 
@@ -1464,18 +1456,17 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
   "s": "string",
   "v": "string"
 }
-
 ```
 
-L2签名信息
+L2 signature information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|r|string|false|none||bigint for hex str|
-|s|string|false|none||bigint for hex str|
-|v|string|false|none||bigint for hex str|
+| Name | Type   | Required | Constraints | Description      | Notes                  |
+| ---- | ------ | -------- | ----------- | ---------------- | ---------------------- |
+| r    | string | false    | none        | R Value          | Bigint for hex string |
+| s    | string | false    | none        | S Value          | Bigint for hex string |
+| v    | string | false    | none        | V Value          | Bigint for hex string |
 
 <h2 id="tocS_CollateralAsset">CollateralAsset</h2>
 
@@ -1498,26 +1489,25 @@ L2签名信息
   "orderFrozenAmount": "string",
   "availableAmount": "string"
 }
-
 ```
 
-抵押品资产信息
+Collateral asset information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|totalEquity|string|false|none||当前抵押品下的总价值|
-|totalPositionValueAbs|string|false|none||当前抵押品对应的仓位价值绝对值之和|
-|initialMarginRequirement|string|false|none||当前抵押品下的初始保证金|
-|starkExRiskValue|string|false|none||当前抵押品下的总 starkEx 风险金额|
-|pendingWithdrawAmount|string|false|none||当前抵押品处理中的提现金额|
-|pendingTransferOutAmount|string|false|none||当前抵押品处理中的转出金额|
-|orderFrozenAmount|string|false|none||当前抵押品所属委托单冻结金额|
-|availableAmount|string|false|none||当前抵押品可用金额|
+| Name                    | Type          | Required | Constraints | Description                                                                      | Notes                                                                              |
+| ----------------------- | ------------- | -------- | ----------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| userId                  | string(int64) | false    | none        | User ID                                                                          | ID of the owning user.                                                               |
+| accountId               | string(int64) | false    | none        | Account ID                                                                       | ID of the owning account.                                                              |
+| coinId                  | string(int64) | false    | none        | Collateral Coin ID                                                               | ID of the associated collateral coin.                                                  |
+| totalEquity             | string        | false    | none        | Total Collateral Value                                                           | Current total value of the collateral.                                                |
+| totalPositionValueAbs    | string        | false    | none        | Sum of Absolute Position Values                                                     | Sum of the absolute position values for the current collateral                        |
+| initialMarginRequirement| string        | false    | none        | Initial Margin Requirement                                                     | The initial margin requirement for the current collateral.                              |
+| starkExRiskValue        | string        | false    | none        | Total StarkEx Risk Value                                                           | The total starkEx risk amount for the current collateral.                             |
+| pendingWithdrawAmount  | string        | false    | none        | Pending Withdrawal Amount                                                      | The amount of collateral pending withdrawal.                                          |
+| pendingTransferOutAmount| string        | false    | none        | Pending Transfer Out Amount                                                     | The amount of collateral pending transfer out.                                       |
+| orderFrozenAmount       | string        | false    | none        | Order Frozen Amount                                                             | The amount of collateral frozen by orders.                                            |
+| availableAmount         | string        | false    | none        | Available Amount                                                                | The amount of collateral available for use.                                           |
 
 <h2 id="tocS_PositionAsset">PositionAsset</h2>
 
@@ -1545,31 +1535,30 @@ L2签名信息
   "termRealizePnl": "string",
   "totalRealizePnl": "string"
 }
-
 ```
 
-仓位相关的资产信息
+Asset information related to a position
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|contractId|string(int64)|false|none||所属合约id|
-|positionValue|string|false|none||仓位价值，(正数为多仓，负数为空仓)|
-|maxLeverage|string|false|none||当前合约仓位最大可开杠杆|
-|initialMarginRequirement|string|false|none||仓位初始保证金|
-|starkExRiskRate|string|false|none||结合风险档位计算出的starkEx风险率。本质类似于维持保证金率，只是精度不同|
-|starkExRiskValue|string|false|none||starkEx 风险金额，本质类似于维持保证金，只是精度不同。|
-|avgEntryPrice|string|false|none||平均入场价格|
-|liquidatePrice|string|false|none||清算价(强平价)。即当预言机价格到达此价格，必定触发清算|
-|bankruptPrice|string|false|none||破产价。即当预言机价格到达此价格，账户总价值小于0|
-|worstClosePrice|string|false|none||最差平仓价。即平仓成交价格不能劣于这个价格|
-|unrealizePnl|string|false|none||仓位未实现盈亏|
-|termRealizePnl|string|false|none||仓位term已实现盈亏|
-|totalRealizePnl|string|false|none||仓位total已实现盈亏|
+| Name                    | Type          | Required | Constraints | Description                            | Notes                                                                          |
+| ----------------------- | ------------- | -------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------ |
+| userId                  | string(int64) | false    | none        | User ID                                | ID of the owning user.                                                         |
+| accountId               | string(int64) | false    | none        | Account ID                             | ID of the owning account.                                                        |
+| coinId                  | string(int64) | false    | none        | Collateral Coin ID                     | ID of the associated collateral coin.                                             |
+| contractId              | string(int64) | false    | none        | Contract ID                             | ID of the associated contract.                                                  |
+| positionValue           | string        | false    | none        | Position Value                         | Position value, positive for long positions, negative for short positions.         |
+| maxLeverage             | string        | false    | none        | Maximum Leverage                      | The maximum leverage for current contract position.                              |
+| initialMarginRequirement| string        | false    | none        | Initial Margin Requirement            | Initial margin requirement for the position.                                   |
+| starkExRiskRate         | string        |false    | none        | StarkEx Risk Rate                      | StarkEx risk rate calculated based on risk tiers. Similar to maintenance margin rate with different precision. |
+| starkExRiskValue        | string        | false    | none        | StarkEx Risk Value                   | StarkEx risk amount, similar to maintenance margin, with different precision.     |
+| avgEntryPrice           | string        | false    | none        | Average Entry Price                   | Average entry price.                                                            |
+| liquidatePrice          | string        | false    | none        | Liquidation Price                     | Liquidation price (force liquidation price). If oracle price reaches this price, liquidation is triggered.        |
+| bankruptPrice           | string        | false    | none        | Bankruptcy Price                      | Bankruptcy price. If the oracle price reaches this level, account total value is less than 0.     |
+| worstClosePrice         | string        | false    | none        | Worst Close Price                     | The worst closing price. The closing transaction price can not be worse than this price. |
+| unrealizePnl            | string        | false    | none        | Unrealized PnL                         | Unrealized profit and loss for the position.                                     |
+| termRealizePnl          | string        | false    | none        | Term Realized PnL                    | Realized PnL for the term.                                            |
+| totalRealizePnl        | string        | false    | none        | Total Realized PnL                   | Total realized PnL of the position.                                         |
 
 <h2 id="tocS_Position">Position</h2>
 
@@ -1637,35 +1626,34 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-永续合约持仓信息
+Perpetual contract position information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|contractId|string(int64)|false|none||所属合约id|
-|openSize|string|false|none||当前开仓数量 (正数为多仓，负数为空仓)|
-|openValue|string|false|none||当前开仓价值 (开仓会累加，平仓会等比例减少)|
-|openFee|string|false|none||当前开仓均摊后的手续费 (开仓会累加，平仓会等比例减少)|
-|fundingFee|string|false|none||当前仓位均摊后的资金费用 (结算时会累加，平仓会等比例减少)|
-|longTermCount|integer(int32)|false|none||多仓term次数。从1开始，每次完全平仓后会加一。|
-|longTermStat|[PositionStat](#schemapositionstat)|false|none||仓位累计统计信息|
-|longTermCreatedTime|string|false|none||多仓term创建时间|
-|longTermUpdatedTime|string|false|none||多仓term创建时间|
-|shortTermCount|integer(int32)|false|none||空仓term次数。从1开始，每次完全平仓后会加一。|
-|shortTermStat|[PositionStat](#schemapositionstat)|false|none||仓位累计统计信息|
-|shortTermCreatedTime|string|false|none||空仓term创建时间|
-|shortTermUpdatedTime|string|false|none||空仓term创建时间|
-|longTotalStat|[PositionStat](#schemapositionstat)|false|none||仓位累计统计信息|
-|shortTotalStat|[PositionStat](#schemapositionstat)|false|none||仓位累计统计信息|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                | Type          | Required | Constraints | Description                                                         | Notes                                                                                      |
+| ------------------- | ------------- | -------- | ----------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| userId              | string(int64) | false    | none        | User ID                                                             | ID of the owning user.                                                                     |
+| accountId           | string(int64) | false    | none        | Account ID                                                          | ID of the owning account.                                                                |
+| coinId              | string(int64) | false    | none        | Collateral Coin ID                                                  | ID of the associated collateral coin.                                                       |
+| contractId          | string(int64) | false    | none        | Contract ID                                                          | ID of the associated contract.                                                              |
+| openSize            | string        | false    | none        | Current Open Size                                                   | Current open size (positive for long, negative for short).                                   |
+| openValue           | string        | false    | none        | Current Open Value                                                  | Current open value (increases upon opening, proportionally decreases upon closing).        |
+| openFee             | string        | false    | none        | Current Open Fee                                                     | Current allocated open fee (increases upon opening, proportionally decreases upon closing). |
+| fundingFee          | string        | false    | none        | Current Funding Fee                                                  | Current allocated funding fee (increases upon settlement, proportionally decreases upon closing). |
+| longTermCount       | integer(int32) | false    | none        | Long Position Term Count                                            | Long position term count. Starts from 1, increases by one upon complete closure of a position |
+| longTermStat        | [PositionStat](#schemapositionstat) | false    | none        | Long Position Cumulative Statistics | Cumulative statistics for the position.                                              |
+| longTermCreatedTime | string        | false    | none        | Long Position Term Creation Time                                            | Creation time for the long position term.                                                 |
+| longTermUpdatedTime | string        | false    | none        | Long Position Term Update Time                                            | Update time for the long position term.                                                  |
+| shortTermCount      | integer(int32) | false    | none        | Short Position Term Count                                           | Short position term count. Starts from 1, increases by one upon complete closure of a position|
+| shortTermStat        | [PositionStat](#schemapositionstat) | false    | none        | Short Position Cumulative Statistics| Cumulative statistics for the position.                                              |
+| shortTermCreatedTime| string        | false    | none        | Short Position Term Creation Time                                           | Creation time for the short position term.                                                |
+| shortTermUpdatedTime| string        | false    | none        | Short Position Term Update Time                                           | Update time for the short position term.                                                |
+| longTotalStat       | [PositionStat](#schemapositionstat) | false    | none        | Long Cumulative Statistics                | Cumulative statistics for the position.                                              |
+| shortTotalStat      | [PositionStat](#schemapositionstat) | false    | none        | Short Cumulative Statistics                | Cumulative statistics for the position.                                              |
+| createdTime         | string(int64) | false    | none        | Creation Time                                                         | Creation time.                                                                             |
+| updatedTime         | string(int64) | false    | none        | Update Time                                                        | Update time.                                                                            |
 
 <h2 id="tocS_PositionStat">PositionStat</h2>
 
@@ -1685,23 +1673,22 @@ L2签名信息
   "cumFundingFee": "string",
   "cumLiquidateFee": "string"
 }
-
 ```
 
-仓位累计统计信息
+Cumulative statistics for a position
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|cumOpenSize|string|false|none||累计开仓数量|
-|cumOpenValue|string|false|none||累计开仓价值|
-|cumOpenFee|string|false|none||累计开仓费用|
-|cumCloseSize|string|false|none||累计平仓数量|
-|cumCloseValue|string|false|none||累计平仓价值|
-|cumCloseFee|string|false|none||累计平仓费用|
-|cumFundingFee|string|false|none||累计已结算的资金费用|
-|cumLiquidateFee|string|false|none||累计清算费用|
+| Name            | Type   | Required | Constraints | Description              | Notes                                                               |
+| --------------- | ------ | -------- | ----------- | ------------------------ | ------------------------------------------------------------------- |
+| cumOpenSize     | string | false    | none        | Cumulative Open Size     | Cumulative open size.                                               |
+| cumOpenValue    | string | false    | none        | Cumulative Open Value   | Cumulative open value.                                              |
+| cumOpenFee      | string | false    | none        | Cumulative Open Fee     | Cumulative open fees.                                               |
+| cumCloseSize    | string | false    | none        | Cumulative Close Size   | Cumulative close size.                                              |
+| cumCloseValue   | string | false    | none        | Cumulative Close Value  | Cumulative close value.                                             |
+| cumCloseFee     | string | false    | none        | Cumulative Close Fee    | Cumulative close fees.                                              |
+| cumFundingFee   | string | false    | none        | Cumulative Funding Fee  | Cumulative funding fees settled.                                      |
+| cumLiquidateFee | string | false    | none        | Cumulative Liquidate Fee| Cumulative liquidation fees.                                          |
 
 <h2 id="tocS_Collateral">Collateral</h2>
 
@@ -1729,31 +1716,30 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-抵押品信息
+Collateral information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||货币id|
-|amount|string(decimal)|false|none||抵押品数额, 实际为decimal类型|
-|legacyAmount|string(decimal)|false|none||老式记账方式余额字段，仅展示不参与计算|
-|cumDepositAmount|string(decimal)|false|none||累计的充值数量|
-|cumWithdrawAmount|string(decimal)|false|none||累计的提现数量|
-|cumTransferInAmount|string(decimal)|false|none||累计的转入数量|
-|cumTransferOutAmount|string(decimal)|false|none||累计的转出数量|
-|cumPositionBuyAmount|string(decimal)|false|none||累计仓位买入扣减的抵押品数量|
-|cumPositionSellAmount|string(decimal)|false|none||累计仓位卖出增加的抵押品数量|
-|cumFillFeeAmount|string(decimal)|false|none||累计的成交手续费数量|
-|cumFundingFeeAmount|string(decimal)|false|none||累计资金费用数量|
-|cumFillFeeIncomeAmount|string(decimal)|false|none||累计的委托单手续费收入数量|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                  | Type            | Required | Constraints | Description                                   | Notes                                                                    |
+| --------------------- | --------------- | -------- | ----------- | --------------------------------------------- | ------------------------------------------------------------------------ |
+| userId                | string(int64)   | false    | none        | User ID                                       | ID of the owning user.                                                  |
+| accountId             | string(int64)   | false    | none        | Account ID                                    | ID of the owning account.                                                 |
+| coinId                | string(int64)   | false    | none        | Coin ID                                       | Collateral coin ID.                                                       |
+| amount                | string(decimal) | false    | none        | Collateral Amount                             | Collateral amount, actually of decimal type.                               |
+| legacyAmount          | string(decimal) | false    | none        | Legacy Amount                                 | Legacy balance field, for display purposes only, not for calculations.   |
+| cumDepositAmount      | string(decimal) | false    | none        | Cumulative Deposit Amount                     | Cumulative deposit amount.                                               |
+| cumWithdrawAmount     | string(decimal) | false    | none        | Cumulative Withdrawal Amount                  | Cumulative withdrawal amount.                                             |
+| cumTransferInAmount   | string(decimal) | false    | none        | Cumulative Transfer In Amount                  | Cumulative transfer in amount.                                              |
+| cumTransferOutAmount  | string(decimal) | false    | none        | Cumulative Transfer Out Amount                 | Cumulative transfer out amount.                                             |
+| cumPositionBuyAmount  | string(decimal) | false    | none        | Cumulative Position Buy Amount                | Cumulative collateral amount deducted from position buy.                     |
+| cumPositionSellAmount | string(decimal) | false    | none        | Cumulative Position Sell Amount                | Cumulative collateral amount added from position sell.                    |
+| cumFillFeeAmount      | string(decimal) | false    | none        | Cumulative Fill Fee Amount                    | Cumulative transaction fee amount.                                            |
+| cumFundingFeeAmount   | string(decimal) | false    | none        | Cumulative Funding Fee Amount                 | Cumulative funding fee amount.                                              |
+| cumFillFeeIncomeAmount| string(decimal) | false    | none        | Cumulative Order Fill Fee Income Amount       | Cumulative amount from order fill fee income.                                 |
+| createdTime           | string(int64)   | false    | none        | Creation Time                                 | Creation time.                                                               |
+| updatedTime           | string(int64)   | false    | none        | Update Time                                    | Update time.                                                                  |
 
 <h2 id="tocS_Account">Account</h2>
 
@@ -1813,45 +1799,44 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-账户信息数据
+Account information data.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||账户id。取值大于0|
-|userId|string(int64)|false|none||所属用户id|
-|ethAddress|string|false|none||钱包eth地址|
-|l2Key|string|false|none||L2上的账户key。对应starkEx中的starkKey。bigint for hex str|
-|l2KeyYCoordinate|string|false|none||只用于验证 l2Signature 是否ok。不返回给C端用户。bigint for hex str|
-|clientAccountId|string|false|none||客户端账户id, 用于幂等性校验|
-|isSystemAccount|boolean|false|none||是否为系统账号 (系统账户不受合约相关风险设置限制,使用单独的mq发送trade消息)|
-|defaultTradeSetting|[TradeSetting](#schematradesetting)|false|none||交易设置. 交易设置计算优先级：账户合约交易设置 -> 账户默认交易设置 -> 合约配置交易设置. 注意：is_set_fee_rate 和 is_set_fee_discount 只能有一个为 true|
-|contractIdToTradeSetting|object|false|none||账户合约级别交易设置|
-|» **additionalProperties**|[TradeSetting](#schematradesetting)|false|none||交易设置. 交易设置计算优先级：账户合约交易设置 -> 账户默认交易设置 -> 合约配置交易设置. 注意：is_set_fee_rate 和 is_set_fee_discount 只能有一个为 true|
-|maxLeverageLimit|string|false|none||用户可设置的最大开仓杠杆限制，如果为0则使用对应交易合约的杠杆限制|
-|createOrderPerMinuteLimit|integer(int32)|false|none||下单频率每分钟限制，如果为0使用默认频率限制，如果<0则不限制下单频率|
-|createOrderDelayMillis|integer(int32)|false|none||下单延迟毫秒，必须大于等于0|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||附加数据，json格式，默认为空串|
-|status|string|false|none||账户状态|
-|isLiquidating|boolean|false|none||是否清算中|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                    | Type                | Required | Constraints | Description                                                                                                                                  | Notes                                                                                     |
+| ----------------------- | ------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| id                      | string(int64)       | false    | none        | Account ID                                                                                                                                 | Account ID, must be greater than 0.                                                      |
+| userId                  | string(int64)       | false    | none        | User ID                                                                                                                                    | ID of the owning user.                                                                    |
+| ethAddress              | string              | false    | none        | Wallet ETH Address                                                                                                                          | Wallet ETH address.                                                                      |
+| l2Key                   | string              | false    | none        | L2 Account Key                                                                                                                              | Account key on L2. Stark key in starkEx. Bigint for hex string                             |
+| l2KeyYCoordinate        | string              | false    | none        | L2 Key Y Coordinate                                                                                                                        | Used only for verifying l2Signature. Not returned to end users. Bigint for hex string.    |
+| clientAccountId         | string              | false    | none        | Client Account ID                                                                                                                            | Client account ID for idempotency check.                                                   |
+| isSystemAccount         | boolean             | false    | none        | System Account                                                                                                                             | Whether it is a system account (system accounts are not subject to contract risk settings, use separate MQ for trade messages). |
+| defaultTradeSetting     | [TradeSetting](#schematradesetting) | false    | none        | Default Trade Setting                                                                                                    | Trade settings. Trade setting calculation priority: Account contract trade settings -> Account default trade settings -> Contract configuration trade settings. Note: Only one of `is_set_fee_rate` and `is_set_fee_discount` can be true.                                     |
+| contractIdToTradeSetting| object              | false    | none        | Contract-Level Account Trade Settings                                                                                                    | Account contract-level trade settings.                                                     |
+| » **additionalProperties**| [TradeSetting](#schematradesetting) | false    | none        | Contract-Level Account Trade Settings                                                                                                    | Trade settings. Trade setting calculation priority: Account contract trade settings -> Account default trade settings -> Contract configuration trade settings. Note: Only one of `is_set_fee_rate` and `is_set_fee_discount` can be true.                                                     |
+| maxLeverageLimit        | string              | false    | none        | Maximum Leverage Limit                                                                                                                       | User-set maximum leverage limit. If 0, uses the leverage limit of the corresponding trading contract.  |
+| createOrderPerMinuteLimit| integer(int32)     | false    | none        | Order Creation Limit per Minute                                                                                                        | Order frequency limit per minute. If 0, default limit is used; if < 0, no limit is applied. |
+| createOrderDelayMillis  | integer(int32)     | false    | none        | Order Creation Delay Milliseconds                                                                                                        | Order delay milliseconds, must be greater than or equal to 0.                         |
+| extraType               | string              | false    | none        | Extra Type                                                                                                                                 | Extra type for upper-layer use.                                                            |
+| extraDataJson           | string              | false    | none        | Extra Data                                                                                                                               | Extra data in JSON format, default is an empty string.                                     |
+| status                  | string              | false    | none        | Account Status                                                                                                                            | Account status.                                                                           |
+| isLiquidating           | boolean             | false    | none        | Is Liquidating                                                                                                                            | Whether is being liquidated.                                                              |
+| createdTime             | string(int64)       | false    | none        | Creation Time                                                                                                                              | Creation time.                                                                            |
+| updatedTime             | string(int64)       | false    | none        | Update Time                                                                                                                                 | Update time.                                                                               |
 
-#### 枚举值
+#### Enumerated Values
 
-|属性|值|
-|---|---|
-|status|UNKNOWN_ACCOUNT_STATUS|
-|status|CENSORING|
-|status|NORMAL|
-|status|DISABLED|
-|status|INVALID|
-|status|UNRECOGNIZED|
+| Property | Value                 |
+| -------- | --------------------- |
+| status   | UNKNOWN_ACCOUNT_STATUS |
+| status   | CENSORING             |
+| status   | NORMAL                |
+| status   | DISABLED              |
+| status   | INVALID               |
+| status   | UNRECOGNIZED          |
 
 <h2 id="tocS_TradeSetting">TradeSetting</h2>
 
@@ -1871,25 +1856,24 @@ L2签名信息
   "isSetMaxLeverage": true,
   "maxLeverage": "string"
 }
-
 ```
 
-交易设置. 交易设置计算优先级：账户合约交易设置 -> 账户默认交易设置 -> 合约配置交易设置. 注意：is_set_fee_rate 和 is_set_fee_discount 只能有一个为 true
+Trade settings. Trade setting calculation priority: Account contract trade settings -> Account default trade settings -> Contract configuration trade settings. Note: Only one of `is_set_fee_rate` and `is_set_fee_discount` can be true.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|isSetFeeRate|boolean|false|none||是否设置费率(具体值)|
-|takerFeeRate|string(decimal)|false|none||taker费率，取值范围 [0, 1)，仅当 is_set_fee_rate=true 时有效|
-|makerFeeRate|string(decimal)|false|none||maker费率，取值范围 [0, 1)，仅当 is_set_fee_rate=true 时有效|
-|isSetFeeDiscount|boolean|false|none||是否设置费率折扣|
-|takerFeeDiscount|string(decimal)|false|none||taker费率折扣，取值范围 [0, 1)，仅当 is_set_fee_discount=true 时有效|
-|makerFeeDiscount|string(decimal)|false|none||maker费率折扣，取值范围 [0, 1)，仅当 is_set_fee_discount=true 时有效|
-|isSetMaxLeverage|boolean|false|none||是否设置最大交易杠杆|
-|maxLeverage|string(decimal)|false|none||最大交易杠杆|
+| Name              | Type            | Required | Constraints | Description                                                                                    | Notes                                                                                          |
+| ----------------- | --------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| isSetFeeRate      | boolean         | false    | none        | Whether Fee Rate is Set                                                                        | Whether to set a specific fee rate value.                                                        |
+| takerFeeRate      | string(decimal) | false    | none        | Taker Fee Rate                                                                                 | Taker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                    |
+| makerFeeRate      | string(decimal) | false    | none        | Maker Fee Rate                                                                                 | Maker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                     |
+| isSetFeeDiscount  | boolean         | false    | none        | Whether Fee Discount is Set                                                                  | Whether to set a fee discount.                                                                   |
+| takerFeeDiscount  | string(decimal) | false    | none        | Taker Fee Discount                                                                             | Taker fee discount, range [0, 1), valid only when is_set_fee_discount=true.                      |
+| makerFeeDiscount  | string(decimal) | false    | none        | Maker Fee Discount                                                                             | Maker fee discount, range [0, 1), valid only when is_set_fee_discount=true.                       |
+| isSetMaxLeverage  | boolean         | false    | none        | Whether Maximum Leverage is Set                                                                  | Whether to set maximum trading leverage.                                                      |
+| maxLeverage       | string(decimal) | false    | none        | Maximum Leverage                                                                             | Maximum trading leverage.                                                                          |
 
-<h2 id="tocS_Result<Account>">Result<Account></h2>
+<h2 id="tocS_Result<Account>">Result&lt;Account&gt;</h2>
 
 <a id="schemaresult<account>"></a>
 <a id="schema_Result<Account>"></a>
@@ -1957,22 +1941,21 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[Account](#schemaaccount)|false|none||账户信息数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                 | Required | Constraints | Description                | Notes                                                                    |
+| -------------- | ------------------------------------ | -------- | ----------- | -------------------------- | ------------------------------------------------------------------------ |
+| code           | string                               | false    | none        | Status Code                | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
+| data           | [Account](#schemaaccount)            | false    | none        | Account Information      | Account information data.                                                 |
+| errorParam     | object                               | false    | none        | Error Parameters           | Error message parameter information                                       |
+| » **additionalProperties** | string                               | false    | none        | Error Parameters           | Error message parameter information                                       |
+| requestTime    | string(timestamp)                    | false    | none        | Server Request Time       | Time at which the server received the request                             |
+| responseTime   | string(timestamp)                    | false    | none        | Server Response Time      | Time at which the server sent the response                                |
+| traceId        | string                               | false    | none        | Trace ID                  | Invocation trace ID                                                     |
 
-<h2 id="tocS_Result<GetAccountDeleverageLight>">Result<GetAccountDeleverageLight></h2>
+<h2 id="tocS_Result<GetAccountDeleverageLight>">Result&lt;GetAccountDeleverageLight&gt;</h2>
 
 <a id="schemaresult<getaccountdeleveragelight>"></a>
 <a id="schema_Result<GetAccountDeleverageLight>"></a>
@@ -1996,20 +1979,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetAccountDeleverageLight](#schemagetaccountdeleveragelight)|false|none||获取账户下所有仓位减仓ADL灯-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                   | Required | Constraints | Description                        | Notes                                                                  |
+| -------------- | -------------------------------------- | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| code           | string                                 | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [GetAccountDeleverageLight](#schemagetaccountdeleveragelight) | false    | none        | Get Account Deleverage Light Response  | Response structure for fetching deleverage light information.         |
+| errorParam     | object                                 | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| » **additionalProperties** | string                                 | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| requestTime    | string(timestamp)                      | false    | none        | Server Request Time               | Time at which the server received the request                           |
+| responseTime   | string(timestamp)                      | false    | none        | Server Response Time              | Time at which the server sent the response                              |
+| traceId        | string                                 | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
 <h2 id="tocS_GetAccountDeleverageLight">GetAccountDeleverageLight</h2>
 
@@ -2025,19 +2007,18 @@ L2签名信息
     "property2": 0
   }
 }
-
 ```
 
-获取账户下所有仓位减仓ADL灯-响应
+Response structure for fetching deleverage light information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|positionContractIdToLightNumberMap|object|false|none||仓位合约id到灯的映射。light_number 取值 1-5，代表1-5盏灯|
-|» **additionalProperties**|integer(int32)|false|none||仓位合约id到灯的映射。light_number 取值 1-5，代表1-5盏灯|
+| Name                         | Type   | Required | Constraints | Description                                                                          | Notes                                                                         |
+| ---------------------------- | ------ | -------- | ----------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| positionContractIdToLightNumberMap | object | false    | none        | Map from Position Contract ID to Light Number                                   | Maps position contract ID to light number. `light_number` ranges from 1-5, which represent 1-5 lights. |
+| » **additionalProperties**           | integer(int32) | false    | none        | Map from Position Contract ID to Light Number  | Maps position contract ID to light number. `light_number` ranges from 1-5, which represent 1-5 lights. |
 
-<h2 id="tocS_Result<PageData<Account>>">Result<PageData<Account>></h2>
+<h2 id="tocS_Result<PageData<Account>>">Result&lt;PageData&lt;Account&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<account>>"></a>
 <a id="schema_Result<PageData<Account>>"></a>
@@ -2110,20 +2091,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataAccount](#schemapagedataaccount)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                               | Required | Constraints | Description              | Notes                                                                    |
+| -------------- | ---------------------------------- | -------- | ----------- | ------------------------ | ------------------------------------------------------------------------ |
+| code           | string                             | false    | none        | Status Code              | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
+| data           | [PageDataAccount](#schemapagedataaccount)   | false    | none        | Generic Paginated Response | Generic paginated response.                                                                     |
+| errorParam     | object                             | false    | none        | Error Parameters         | Error message parameter information                                       |
+| » **additionalProperties** | string                               | false    | none        | Error Parameters         | Error message parameter information                                       |
+| requestTime    | string(timestamp)                  | false    | none        | Server Request Time     | Time at which the server received the request                             |
+| responseTime   | string(timestamp)                  | false    | none        | Server Response Time    | Time at which the server sent the response                                |
+| traceId        | string                             | false    | none        | Trace ID                | Invocation trace ID                                                  |
 
 <h2 id="tocS_PageDataAccount">PageDataAccount</h2>
 
@@ -2188,19 +2168,18 @@ L2签名信息
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic Paginated Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[Account](#schemaaccount)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                     | Required | Constraints | Description                 | Notes                                                               |
+| ------------------ | ------------------------ | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
+| dataList           | [[Account](#schemaaccount)]       | false    | none        | Data List                  | List of account data.                                                               |
+| nextPageOffsetData | string                   | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<List<Collateral>>">Result<List<Collateral>></h2>
+<h2 id="tocS_Result<List<Collateral>>">Result&lt;List&lt;Collateral&gt;&gt;</h2>
 
 <a id="schemaresult<list<collateral>>"></a>
 <a id="schema_Result<List<Collateral>>"></a>
@@ -2238,22 +2217,21 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Collateral](#schemacollateral)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                      | Required | Constraints | Description        | Notes                                                                  |
+| -------------- | ------------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
+| code           | string                    | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [[Collateral](#schemacollateral)] | false    | none        | Response Data     | Correct response data.                                                  |
+| errorParam     | object                    | false    | none        | Error Parameters   | Error message parameter information                                     |
+| » **additionalProperties** | string                    | false    | none        | Error Parameters   | Error message parameter information                                     |
+| requestTime    | string(timestamp)         | false    | none        | Server Request Time | Time at which the server received the request                           |
+| responseTime   | string(timestamp)         | false    | none        | Server Response Time| Time at which the server sent the response                              |
+| traceId        | string                    | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_Result<List<CollateralTransaction>>">Result<List<CollateralTransaction>></h2>
+<h2 id="tocS_Result<List<CollateralTransaction>>">Result&lt;List&lt;CollateralTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<list<collateraltransaction>>"></a>
 <a id="schema_Result<List<CollateralTransaction>>"></a>
@@ -2326,20 +2304,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[CollateralTransaction](#schemacollateraltransaction)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                            | Required | Constraints | Description        | Notes                                                                  |
+| -------------- | ------------------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
+| code           | string                          | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [[CollateralTransaction](#schemacollateraltransaction)] | false    | none        | Response Data     | Correct response data.                                                  |
+| errorParam     | object                          | false    | none        | Error Parameters   | Error message parameter information                                     |
+| » **additionalProperties** | string                          | false    | none        | Error Parameters   | Error message parameter information                                     |
+| requestTime    | string(timestamp)               | false    | none        | Server Request Time | Time at which the server received the request                           |
+| responseTime   | string(timestamp)               | false    | none        | Server Response Time| Time at which the server sent the response                              |
+| traceId        | string                          | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
 <h2 id="tocS_CollateralTransaction">CollateralTransaction</h2>
 
@@ -2402,98 +2379,97 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-抵押品变动明细
+Collateral transaction details.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||唯一标识|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||货币id|
-|type|string|false|none||明细类型|
-|deltaAmount|string(decimal)|false|none||抵押品变动数量|
-|deltaLegacyAmount|string(decimal)|false|none||老式记账方式余额字段变动数量|
-|beforeAmount|string(decimal)|false|none||变动前的抵押品数量|
-|beforeLegacyAmount|string(decimal)|false|none||变动前的老式记账方式余额字段|
-|fillCloseSize|string(decimal)|false|none||成交平仓数量 (正数为买入，负数为卖出)|
-|fillCloseValue|string|false|none||成交平仓价值 (正数为买入，负数为卖出)|
-|fillCloseFee|string|false|none||成交平仓手续费 (一般为零或负数)|
-|fillOpenSize|string|false|none||成交开仓数量 (正数为买入，负数为卖出)|
-|fillOpenValue|string|false|none||成交开仓价值 (正数为买入，负数为卖出)|
-|fillOpenFee|string|false|none||成交开仓手续费 (一般为零或负数)|
-|fillPrice|string(decimal)|false|none||成交价格 (非精确值，仅展示使用)|
-|liquidateFee|string(decimal)|false|none||清算费 (强平费) (有平仓成交时存在。一般为零或负数)|
-|realizePnl|string(decimal)|false|none||平仓已实现盈亏 (有平仓成交时存在。非精确值，仅展示使用)|
-|isLiquidate|boolean|false|none||是否是强平成交|
-|isDeleverage|boolean|false|none||是否是自动减仓成交|
-|fundingTime|string(int64)|false|none||资金费率结算时间|
-|fundingRate|string(decimal)|false|none||资金费率|
-|fundingIndexPrice|string(decimal)|false|none||资金费率相关的指数价格|
-|fundingOraclePrice|string(decimal)|false|none||资金费率相关的预言机价格|
-|fundingPositionSize|string(decimal)|false|none||资金费用结算时仓位大小 (正数为多仓，负数为空仓)|
-|depositId|string(int64)|false|none||当 type=DEPOSIT 时，此字段为关联的充值单id|
-|withdrawId|string(int64)|false|none||当 type=WITHDRAW 时，此字段为关联的提现单id|
-|transferInId|string(int64)|false|none||当 type=TRANSFER_IN 时，此字段为关联的转账转入单id|
-|transferOutId|string(int64)|false|none||当 type=TRANSFER_OUT 时，此字段为关联的转账转出单id|
-|transferReason|string|false|none||当 type=TRANSFER_IN/TRANSFER_OUT 时，此字段为转账原因|
-|orderId|string(int64)|false|none||当 type=POSITION_BUY/POSITION_SELL/FILL_FEE_INCOME 时，此字段为关联的委托单id|
-|orderFillTransactionId|string(int64)|false|none||当 type=POSITION_BUY/POSITION_SELL/FILL_FEE_INCOME 时，此字段为关联的委托单成交明细id|
-|orderAccountId|string(int64)|false|none||当 type=FILL_FEE_INCOME 时，此字段为关联的委托单账户id|
-|positionContractId|string(int64)|false|none||当 type=POSITION_BUY/POSITION_SELL/POSITION_FUNDING/FILL_FEE_INCOME 时，关联的仓位合约id|
-|positionTransactionId|string(int64)|false|none||当 type=POSITION_BUY/POSITION_SELL/POSITION_FUNDING 时，此字段为关联的仓位流水id|
-|forceWithdrawId|string|false|none||当 type=WITHDRAW 时，此字段为关联的强制提现单id|
-|forceTradeId|string|false|none||当 type=POSITION_BUY/POSITION_SELL 时，此字段为关联的强制交易单id|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||附加数据，json格式，默认为空串|
-|censorStatus|string|false|none||当前审查状态|
-|censorTxId|string(int64)|false|none||审查处理序号。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 censor_status=CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 censor_status=CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 censor_status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                    | Type            | Required | Constraints | Description                                                                                    | Notes                                                                                             |
+| ----------------------- | --------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| id                      | string(int64)   | false    | none        | Unique Identifier                                                                              | Unique identifier.                                                                                |
+| userId                  | string(int64)   | false    | none        | User ID                                                                                        | ID of the owning user.                                                                           |
+| accountId               | string(int64)   | false    | none        | Account ID                                                                                     | ID of the owning account.                                                                       |
+| coinId                  | string(int64)   | false    | none        | Coin ID                                                                                        | Collateral coin ID.                                                                             |
+| type                    | string          | false    | none        | Detail Type                                                                                    | Detail type.                                                                                      |
+| deltaAmount             | string(decimal) | false    | none        | Collateral Change Amount                                                                       | Amount of the collateral change.                                                                |
+| deltaLegacyAmount       | string(decimal) | false    | none        | Legacy Balance Change Amount                                                                   | Change amount of the legacy balance field.                                                    |
+| beforeAmount            | string(decimal) | false    | none        | Collateral Amount Before Change                                                                | Collateral amount before the change.                                                             |
+| beforeLegacyAmount      | string(decimal) | false    | none        | Legacy Balance Amount Before Change                                                            | Legacy balance before the change.                                                                  |
+| fillCloseSize           | string(decimal) | false    | none        | Transaction Close Size                                                                       | Transaction close size (positive for buy, negative for sell).                                          |
+| fillCloseValue          | string          | false    | none        | Transaction Close Value                                                                       | Transaction close value (positive for buy, negative for sell).                                     |
+| fillCloseFee            | string          | false    | none        | Transaction Close Fee                                                                          | Transaction close fee (typically zero or negative).                                             |
+| fillOpenSize            | string(decimal) | false    | none        | Transaction Open Size                                                                        | Transaction open size (positive for buy, negative for sell).                                          |
+| fillOpenValue           | string          | false    | none        | Transaction Open Value                                                                        | Transaction open value (positive for buy, negative for sell).                                     |
+| fillOpenFee             | string          | false    | none        | Transaction Open Fee                                                                           | Transaction open fee (typically zero or negative).                                             |
+| fillPrice               | string(decimal) | false    | none        | Transaction Price                                                                              | Transaction price (not precise, for display).                                              |
+| liquidateFee            | string(decimal) | false    | none        | Liquidation Fee                                                                                | Liquidation fee (if close transaction is a liquidation, typically zero or negative).            |
+| realizePnl              | string(decimal) | false    | none        | Realized Profit and Loss                                                                        | Realized profit and loss from a close (if a close transaction. Not precise, for display). |
+| isLiquidate             | boolean         | false    | none        | Is Liquidation                                                                                   | Whether the transaction is a liquidation.                                                      |
+| isDeleverage            | boolean         | false    | none        | Is Auto-Deleveraging                                                                         | Whether the transaction is from auto-deleveraging.                                            |
+| fundingTime             | string(int64)   | false    | none        | Funding Settlement Time                                                                      | Funding settlement time.                                                                        |
+| fundingRate             | string(decimal) | false    | none        | Funding Rate                                                                                    | Funding rate.                                                                                    |
+| fundingIndexPrice       | string(decimal) | false    | none        | Funding Index Price                                                                           | Index price related to funding rate.                                                         |
+| fundingOraclePrice      | string(decimal) | false    | none        | Funding Oracle Price                                                                          | Oracle price related to funding rate.                                                        |
+| fundingPositionSize     | string(decimal) | false    | none        | Position Size During Funding Settlement                                                      | Position size during funding settlement (positive for long, negative for short).             |
+| depositId               | string(int64)   | false    | none        | Deposit Order ID                                                                               | Associated deposit order ID when type=DEPOSIT.                                                 |
+| withdrawId              | string(int64)   | false    | none        | Withdrawal Order ID                                                                            | Associated withdrawal order ID when type=WITHDRAW.                                              |
+| transferInId            | string(int64)   | false    | none        | Transfer In Order ID                                                                           | Associated transfer-in order ID when type=TRANSFER_IN.                                           |
+| transferOutId           | string(int64)   | false    | none        | Transfer Out Order ID                                                                          | Associated transfer-out order ID when type=TRANSFER_OUT.                                          |
+| transferReason          | string          | false    | none        | Transfer Reason                                                                               | Transfer reason when type=TRANSFER_IN/TRANSFER_OUT.                                         |
+| orderId                 | string(int64)   | false    | none        | Order ID                                                                                       | Associated order ID when type=POSITION_BUY/POSITION_SELL/FILL_FEE_INCOME.                      |
+| orderFillTransactionId  | string(int64)   | false    | none        | Order Fill Transaction ID                                                                    | Associated order fill transaction ID when type=POSITION_BUY/POSITION_SELL/FILL_FEE_INCOME.   |
+| orderAccountId          | string(int64)   | false    | none        | Order Account ID                                                                             | Associated order account ID when type=FILL_FEE_INCOME.                                         |
+| positionContractId      | string(int64)   | false    | none        | Position Contract ID                                                                           | Associated position contract ID when type=POSITION_BUY/POSITION_SELL/POSITION_FUNDING/FILL_FEE_INCOME. |
+| positionTransactionId  | string(int64)   | false    | none        | Position Transaction ID                                                                    | Associated position transaction ID when type=POSITION_BUY/POSITION_SELL/POSITION_FUNDING.     |
+| forceWithdrawId         | string          | false    | none        | Force Withdrawal Order ID                                                                      | Associated force withdrawal order ID when type=WITHDRAW.                                    |
+| forceTradeId            | string          | false    | none        | Force Trade ID                                                                                 | Associated force trade order ID when type=POSITION_BUY/POSITION_SELL.                           |
+| extraType               | string          | false    | none        | Extra Type                                                                                     | Extra type for upper-layer business use.                                                     |
+| extraDataJson           | string          | false    | none        | Extra Data                                                                                    | Extra data in JSON format, default is empty string.                                          |
+| censorStatus            | string          | false    | none        | Current Censoring Status                                                                       | Current censoring status.                                                                     |
+| censorTxId              | string(int64)   | false    | none        | Censoring Processing Sequence Number                                                       | Censoring processing sequence number, exists when censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.   |
+| censorTime              | string(int64)   | false    | none        | Censoring Processing Time                                                                    | Censoring processing time, exists when censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.   |
+| censorFailCode          | string          | false    | none        | Censoring Failure Code                                                                         | Censoring failure code, exists when censor_status=CENSOR_FAILURE.                           |
+| censorFailReason        | string          | false    | none        | Censoring Failure Reason                                                                       | Censoring failure reason, exists when censor_status=CENSOR_FAILURE.                         |
+| l2TxId                  | string(int64)   | false    | none        | L2 Push Transaction ID                                                                          | L2 push transaction ID, exists when censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.    |
+| l2RejectTime            | string(int64)   | false    | none        | L2 Rejection Time                                                                             | L2 rejection time, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.                 |
+| l2RejectCode            | string          | false    | none        | L2 Rejection Error Code                                                                        | L2 rejection error code, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.             |
+| l2RejectReason          | string          | false    | none        | L2 Rejection Reason                                                                          | L2 rejection reason, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.             |
+| l2ApprovedTime          | string(int64)   | false    | none        | L2 Batch Verification Time                                                                   | L2 batch verification time, exists when censor_status=L2_APPROVED/L2_REJECT_APPROVED.         |
+| createdTime             | string(int64)   | false    | none        | Creation Time                                                                                  | Creation time.                                                                              |
+| updatedTime             | string(int64)   | false    | none        | Update Time                                                                                   | Update time.                                                                                 |
 
-#### 枚举值
+#### Enumerated Values
 
-|属性|值|
-|---|---|
-|type|UNKNOWN_COLLATERAL_TRANSACTION_TYPE|
-|type|DEPOSIT|
-|type|WITHDRAW|
-|type|TRANSFER_IN|
-|type|TRANSFER_OUT|
-|type|POSITION_BUY|
-|type|POSITION_SELL|
-|type|POSITION_FUNDING|
-|type|FILL_FEE_INCOME|
-|type|BUG_FIX_COLLATERAL_TRANSACTION_TYPE|
-|type|UNRECOGNIZED|
-|transferReason|UNKNOWN_TRANSFER_REASON|
-|transferReason|USER_TRANSFER|
-|transferReason|FAST_WITHDRAW|
-|transferReason|CROSS_DEPOSIT|
-|transferReason|CROSS_WITHDRAW|
-|transferReason|UNRECOGNIZED|
-|censorStatus|UNKNOWN_TRANSACTION_STATUS|
-|censorStatus|INIT|
-|censorStatus|CENSOR_SUCCESS|
-|censorStatus|CENSOR_FAILURE|
-|censorStatus|L2_APPROVED|
-|censorStatus|L2_REJECT|
-|censorStatus|L2_REJECT_APPROVED|
-|censorStatus|UNRECOGNIZED|
+| Property       | Value                            |
+| -------------- | -------------------------------- |
+| type           | UNKNOWN_COLLATERAL_TRANSACTION_TYPE    |
+| type           | DEPOSIT                       |
+| type           | WITHDRAW                      |
+| type           | TRANSFER_IN                   |
+| type           | TRANSFER_OUT                  |
+| type           | POSITION_BUY                  |
+| type           | POSITION_SELL                 |
+| type           | POSITION_FUNDING             |
+| type           | FILL_FEE_INCOME               |
+| type           | BUG_FIX_COLLATERAL_TRANSACTION_TYPE  |
+| type           | UNRECOGNIZED                  |
+| transferReason | UNKNOWN_TRANSFER_REASON       |
+| transferReason | USER_TRANSFER                |
+| transferReason | FAST_WITHDRAW                  |
+| transferReason | CROSS_DEPOSIT                |
+| transferReason | CROSS_WITHDRAW              |
+| transferReason | UNRECOGNIZED                  |
+| censorStatus   | UNKNOWN_TRANSACTION_STATUS      |
+| censorStatus   | INIT                        |
+| censorStatus   | CENSOR_SUCCESS                 |
+| censorStatus   | CENSOR_FAILURE               |
+| censorStatus   | L2_APPROVED                   |
+| censorStatus   | L2_REJECT                     |
+| censorStatus   | L2_REJECT_APPROVED             |
+| censorStatus   | UNRECOGNIZED                   |
 
-<h2 id="tocS_Result<PageData<CollateralTransaction>>">Result<PageData<CollateralTransaction>></h2>
+<h2 id="tocS_Result<PageData<CollateralTransaction>>">Result&lt;PageData&lt;CollateralTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<collateraltransaction>>"></a>
 <a id="schema_Result<PageData<CollateralTransaction>>"></a>
@@ -2569,20 +2545,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataCollateralTransaction](#schemapagedatacollateraltransaction)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                     | Required | Constraints | Description                        | Notes                                                                  |
+| -------------- | ---------------------------------------- | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| code           | string                                   | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [PageDataCollateralTransaction](#schemapagedatacollateraltransaction) | false    | none        | Generic Paginated Response | Generic paginated response.                                                              |
+| errorParam     | object                                   | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| » **additionalProperties** | string                                   | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| requestTime    | string(timestamp)                        | false    | none        | Server Request Time               | Time at which the server received the request                           |
+| responseTime   | string(timestamp)                        | false    | none        | Server Response Time              | Time at which the server sent the response                              |
+| traceId        | string                                   | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
 <h2 id="tocS_PageDataCollateralTransaction">PageDataCollateralTransaction</h2>
 
@@ -2650,19 +2625,18 @@ L2签名信息
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic Paginated Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[CollateralTransaction](#schemacollateraltransaction)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                             | Required | Constraints | Description                 | Notes                                                               |
+| ------------------ | -------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
+| dataList           | [[CollateralTransaction](#schemacollateraltransaction)] | false    | none        | Data List                  | List of collateral transaction data.                                               |
+| nextPageOffsetData | string                           | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<List<Position>>">Result<List<Position>></h2>
+<h2 id="tocS_Result<List<Position>>">Result&lt;List&lt;Position&gt;&gt;</h2>
 
 <a id="schemaresult<list<position>>"></a>
 <a id="schema_Result<List<Position>>"></a>
@@ -2740,22 +2714,21 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Position](#schemaposition)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                   | Required | Constraints | Description        | Notes                                                                  |
+| -------------- | ---------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
+| code           | string                 | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [[Position](#schemaposition)] | false    | none        | Response Data     | Correct response data.                                                  |
+| errorParam     | object                 | false    | none        | Error Parameters   | Error message parameter information                                     |
+| » **additionalProperties** | string                 | false    | none        | Error Parameters   | Error message parameter information                                     |
+| requestTime    | string(timestamp)      | false    | none        | Server Request Time | Time at which the server received the request                           |
+| responseTime   | string(timestamp)      | false    | none        | Server Response Time| Time at which the server sent the response                              |
+| traceId        | string                 | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_Result<PageData<PositionTerm>>">Result<PageData<PositionTerm>></h2>
+<h2 id="tocS_Result<PageData<PositionTerm>>">Result&lt;PageData&lt;PositionTerm&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<positionterm>>"></a>
 <a id="schema_Result<PageData<PositionTerm>>"></a>
@@ -2796,20 +2769,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataPositionTerm](#schemapagedatapositionterm)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                   | Required | Constraints | Description                | Notes                                                                    |
+| -------------- | -------------------------------------- | -------- | ----------- | -------------------------- | ------------------------------------------------------------------------ |
+| code           | string                                 | false    | none        | Status Code                | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
+| data           | [PageDataPositionTerm](#schemapagedatapositionterm)  | false    | none        | Generic Paginated Response | Generic paginated response.                                                              |
+| errorParam     | object                                 | false    | none        | Error Parameters           | Error message parameter information                                       |
+| » **additionalProperties** | string                                 | false    | none        | Error Parameters           | Error message parameter information                                       |
+| requestTime    | string(timestamp)                      | false    | none        | Server Request Time       | Time at which the server received the request                           |
+| responseTime   | string(timestamp)                      | false    | none        | Server Response Time      | Time at which the server sent the response                              |
+| traceId        | string                                 | false    | none        | Trace ID                  | Invocation trace ID                                                     |
 
 <h2 id="tocS_PageDataPositionTerm">PageDataPositionTerm</h2>
 
@@ -2825,7 +2797,7 @@ L2签名信息
       "userId": "string",
       "accountId": "string",
       "coinId": "string",
-      "contractId": "string",
+      "contractId":"string",
       "termCount": 0,
       "cumOpenSize": "string",
       "cumOpenValue": "string",
@@ -2842,17 +2814,16 @@ L2签名信息
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic Paginated Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[PositionTerm](#schemapositionterm)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                           | Required | Constraints | Description                 | Notes                                                               |
+| ------------------ | ------------------------------ | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
+| dataList           | [[PositionTerm](#schemapositionterm)] | false    | none        | Data List                  | List of position term data.                                                    |
+| nextPageOffsetData | string                         | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
 <h2 id="tocS_PositionTerm">PositionTerm</h2>
 
@@ -2880,33 +2851,32 @@ L2签名信息
   "updatedTime": "string",
   "currentLeverage": "string"
 }
-
 ```
 
-仓位term信息
+Position term information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|userId|string|false|none||所属用户id|
-|accountId|string|false|none||所属账户id|
-|coinId|string|false|none||所属抵押品币种id|
-|contractId|string|false|none||所属合约id|
-|termCount|integer(int32)|false|none||term次数。从1开始，每次完全平仓后开仓会加一。|
-|cumOpenSize|string|false|none||累计开仓数量|
-|cumOpenValue|string|false|none||累计开仓价值|
-|cumOpenFee|string|false|none||累计开仓费用|
-|cumCloseSize|string|false|none||累计平仓数量|
-|cumCloseValue|string|false|none||累计平仓价值|
-|cumCloseFee|string|false|none||累计平仓费用|
-|cumFundingFee|string|false|none||累计已结算的资金费用|
-|cumLiquidateFee|string|false|none||累计清算费用|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
-|currentLeverage|string|false|none||平仓时杠杆倍数|
+| Name            | Type          | Required | Constraints | Description                         | Notes                                                                        |
+| --------------- | ------------- | -------- | ----------- | ----------------------------------- | ---------------------------------------------------------------------------- |
+| userId          | string        | false    | none        | User ID                             | ID of the owning user.                                                                     |
+| accountId       | string        | false    | none        | Account ID                          | ID of the owning account.                                                                   |
+| coinId          | string        | false    | none        | Collateral Coin ID                 | ID of the associated collateral coin.                                                 |
+| contractId      | string        | false    | none        | Contract ID                         | ID of the associated contract.                                                           |
+| termCount       | integer(int32) | false    | none        | Term Count                          | Term count. Starts from 1, increases by one each time a position is fully closed and then re-opened.        |
+| cumOpenSize     | string        | false    | none        | Cumulative Open Size                | Cumulative open size.                                                               |
+| cumOpenValue    | string        | false    | none        | Cumulative Open Value              | Cumulative open value.                                                              |
+| cumOpenFee      | string        | false    | none        | Cumulative Open Fee                | Cumulative open fees.                                                                |
+| cumCloseSize    | string        | false    | none        | Cumulative Close Size              | Cumulative close size.                                                              |
+| cumCloseValue   | string        | false    | none        | Cumulative Close Value             | Cumulative close value.                                                                |
+| cumCloseFee     | string        | false    | none        | Cumulative Close Fee               | Cumulative close fees.                                                               |
+| cumFundingFee   | string        | false    | none        | Cumulative Funding Fee            | Cumulative funding fees that have been settled.                                |
+| cumLiquidateFee | string        | false    | none        | Cumulative Liquidation Fee          | Cumulative liquidation fees.                                                       |
+| createdTime     | string(int64) | false    | none        | Creation Time                      | Creation time.                                                                      |
+| updatedTime     | string(int64) | false    | none        | Update Time                        | Update time.                                                                      |
+| currentLeverage | string        | false    | none        | Leverage at Close             | Leverage multiple at the time of close position.                                                      |
 
-<h2 id="tocS_Result<List<PositionTransaction>>">Result<List<PositionTransaction>></h2>
+<h2 id="tocS_Result<List<PositionTransaction>>">Result&lt;List&lt;PositionTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<list<positiontransaction>>"></a>
 <a id="schema_Result<List<PositionTransaction>>"></a>
@@ -2976,20 +2946,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[PositionTransaction](#schemapositiontransaction)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                 | Required | Constraints | Description        | Notes                                                                  |
+| -------------- | ------------------------------------ | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
+| code           | string                               | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [[PositionTransaction](#schemapositiontransaction)] | false    | none        | Response Data     | Correct response data.                                                  |
+| errorParam     | object                               | false    | none        | Error Parameters   | Error message parameter information                                     |
+| » **additionalProperties** | string                               | false    | none        | Error Parameters   | Error message parameter information                                     |
+| requestTime    | string(timestamp)                    | false    | none        | Server Request Time | Time at which the server received the request                           |
+| responseTime   | string(timestamp)                    | false    | none        | Server Response Time| Time at which the server sent the response                              |
+| traceId        | string                               | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
 <h2 id="tocS_PositionTransaction">PositionTransaction</h2>
 
@@ -3049,84 +3018,83 @@ L2签名信息
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-永续合约持仓变动明细
+Perpetual contract position transaction details.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||唯一标识|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|contractId|string(int64)|false|none||所属合约id|
-|type|string|false|none||明细类型|
-|deltaOpenSize|string|false|none||持有数量变动值|
-|deltaOpenValue|string|false|none||开仓价值变动值|
-|deltaOpenFee|string|false|none||开仓手续费用变动值|
-|deltaFundingFee|string|false|none||资金费用变动值|
-|beforeOpenSize|string|false|none||变动前的持有数量|
-|beforeOpenValue|string|false|none||变动前的开仓价值|
-|beforeOpenFee|string|false|none||变动前的开仓手续费用|
-|beforeFundingFee|string|false|none||变动前的资金费用|
-|fillCloseSize|string|false|none||成交平仓数量 (正数为买入，负数为卖出)|
-|fillCloseValue|string|false|none||成交平仓价值 (正数为买入，负数为卖出)|
-|fillCloseFee|string|false|none||成交平仓手续费 (一般为零或负数)|
-|fillOpenSize|string|false|none||成交开仓数量 (正数为买入，负数为卖出)|
-|fillOpenValue|string|false|none||成交开仓价值 (正数为买入，负数为卖出)|
-|fillOpenFee|string|false|none||成交开仓手续费 (一般为零或负数)|
-|fillPrice|string|false|none||成交价格 (非精确值，仅展示使用)|
-|liquidateFee|string|false|none||清算费 (强平费) (有平仓成交时存在。一般为零或负数)|
-|realizePnl|string|false|none||已实现盈亏 (有平仓成交时存在。非精确值，仅展示使用)|
-|isLiquidate|boolean|false|none||是否是强平成交|
-|isDeleverage|boolean|false|none||是否是自动减仓成交|
-|fundingTime|string(int64)|false|none||资金费率结算时间|
-|fundingRate|string|false|none||资金费率|
-|fundingIndexPrice|string|false|none||资金费率相关的指数价格|
-|fundingOraclePrice|string|false|none||资金费率相关的预言机价格|
-|fundingPositionSize|string|false|none||资金费用结算时仓位大小 (正数为多仓，负数为空仓)|
-|orderId|string(int64)|false|none||此字段为关联的委托单id|
-|orderFillTransactionId|string(int64)|false|none||此字段为关联的委托单成交交易id|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id|
-|forceTradeId|string|false|none||此字段为关联的强制交易id|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||附加数据，json格式，默认为空串|
-|censorStatus|string|false|none||当前审查状态|
-|censorTxId|string(int64)|false|none||审查处理序号。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 censor_status=CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 censor_status=CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                    | Type          | Required | Constraints | Description                                                                              | Notes                                                                                            |
+| ----------------------- | ------------- | -------- | ----------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| id                      | string(int64) | false    | none        | Unique Identifier                                                                        | Unique identifier.                                                                               |
+| userId                  | string(int64) | false    | none        | User ID                                                                                  | ID of the owning user.                                                                         |
+| accountId               | string(int64) | false    | none        | Account ID                                                                               | ID of the owning account.                                                                      |
+| coinId                  | string(int64) | false    | none        | Collateral Coin ID                                                                       | ID of the associated collateral coin.                                                            |
+| contractId              | string(int64) | false    | none        | Contract ID                                                                               | ID of the associated contract.                                                                  |
+| type                    | string        | false    | none        | Detail Type                                                                              | Detail type.                                                                                     |
+| deltaOpenSize           | string        | false    | none        | Change in Open Size                                                                    | Change in holding size.                                                                         |
+| deltaOpenValue          | string        | false    | none        | Change in Open Value                                                                   | Change in open value.                                                                          |
+| deltaOpenFee            | string        | false    | none        | Change in Open Fee                                                                      | Change in open fee.                                                                           |
+| deltaFundingFee         | string        | false    | none        | Change in Funding Fee                                                                   | Change in funding fee.                                                                        |
+| beforeOpenSize          | string        | false    | none        | Open Size Before Change                                                                | Holding size before the change.                                                                  |
+| beforeOpenValue         | string        | false    | none        | Open Value Before Change                                                               | Open value before the change.                                                                   |
+| beforeOpenFee           | string        | false    | none        | Open Fee Before Change                                                                 | Open fee before the change.                                                                    |
+| beforeFundingFee        | string        | false    | none        | Funding Fee Before Change                                                              | Funding fee before the change.                                                                  |
+| fillCloseSize           | string        | false    | none        | Transaction Close Size                                                                  | Transaction close size (positive for buy, negative for sell).                                          |
+| fillCloseValue          | string        | false    | none        | Transaction Close Value                                                                  | Transaction close value (positive for buy, negative for sell).                                      |
+| fillCloseFee            | string        | false    | none        | Transaction Close Fee                                                                     | Transaction close fee (typically zero or negative).                                            |
+| fillOpenSize            | string        | false    | none        | Transaction Open Size                                                                  | Transaction open size (positive for buy, negative for sell).                                          |
+| fillOpenValue           | string        | false    | none        | Transaction Open Value                                                                   | Transaction open value (positive for buy, negative for sell).                                      |
+| fillOpenFee             | string        | false    | none        | Transaction Open Fee                                                                      | Transaction open fee (typically zero or negative).                                            |
+| fillPrice               | string        | false    | none        | Transaction Price                                                                         | Transaction price (not precise, for display).                                              |
+| liquidateFee            | string        | false    | none        | Liquidation Fee                                                                           | Liquidation fee (if close transaction is a liquidation, typically zero or negative).          |
+| realizePnl              | string        | false    | none        | Realized Profit and Loss                                                                 | Realized profit and loss from a close (if a close transaction. Not precise, for display). |
+| isLiquidate             | boolean       | false    | none        | Is Liquidation                                                                             | Whether the transaction is a liquidation.                                                       |
+| isDeleverage            | boolean       | false    | none        | Is Auto-Deleveraging                                                                      | Whether the transaction is from auto-deleveraging.                                              |
+| fundingTime             | string(int64) | false    | none        | Funding Settlement Time                                                                  | Funding settlement time.                                                                       |
+| fundingRate             | string        | false    | none        | Funding Rate                                                                             | Funding rate.                                                                                   |
+| fundingIndexPrice       | string        | false    | none        | Funding Index Price                                                                     | Index price related to funding rate.                                                         |
+| fundingOraclePrice      | string        | false    | none        | Funding Oracle Price                                                                    | Oracle price related to funding rate.                                                        |
+| fundingPositionSize     | string        | false    | none        | Position Size During Funding Settlement                                                  | Position size during funding settlement (positive for long, negative for short).               |
+| orderId                 | string(int64) | false    | none        | Order ID                                                                                  | Associated order ID.                                                                              |
+| orderFillTransactionId  | string(int64) | false    | none        | Order Fill Transaction ID                                                               | Associated order fill transaction ID.                                                       |
+| collateralTransactionId | string(int64) | false    | none        | Collateral Transaction ID                                                             | Associated collateral transaction detail ID.                                                |
+| forceTradeId            | string        | false    | none        | Force Trade ID                                                                            | Associated force trade order ID.                                                               |
+| extraType               | string        | false    | none        | Extra Type                                                                               | Extra type for upper-layer business use.                                                     |
+| extraDataJson           | string        | false    | none        | Extra Data                                                                              | Extra data in JSON format, default is empty string.                                           |
+| censorStatus            | string        | false    | none        | Current Censoring Status                                                                  | Current censoring status.                                                                       |
+| censorTxId              | string(int64) | false    | none        | Censoring Processing Sequence Number                                                       | Censoring processing sequence number, exists when censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.   |
+| censorTime              | string(int64) | false    | none        | Censoring Processing Time                                                                   | Censoring processing time, exists when censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.   |
+| censorFailCode          | string        | false    | none        | Censoring Failure Code                                                                     | Censoring failure code, exists when censor_status=CENSOR_FAILURE.                              |
+| censorFailReason        | string        | false    | none        | Censoring Failure Reason                                                                   | Censoring failure reason, exists when censor_status=CENSOR_FAILURE.                            |
+| l2TxId                  | string(int64) | false    | none        | L2 Push Transaction ID                                                                  | L2 push transaction ID, exists when censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED.   |
+| l2RejectTime            | string(int64) | false    | none        | L2 Rejection Time                                                                        | L2 rejection time, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.                  |
+| l2RejectCode            | string        | false    | none        | L2 Rejection Error Code                                                                    | L2 rejection error code, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.               |
+| l2RejectReason          | string        | false    | none        | L2 Rejection Reason                                                                      | L2 rejection reason, exists when censor_status=L2_REJECT/L2_REJECT_APPROVED.                  |
+| l2ApprovedTime          | string(int64) | false    | none        | L2 Batch Verification Time                                                               | L2 batch verification time, exists when censor_status=L2_APPROVED/L2_REJECT_APPROVED.          |
+| createdTime             | string(int64) | false    | none        | Creation Time                                                                                | Creation time.                                                                                  |
+| updatedTime             | string(int64) | false    | none        | Update Time                                                                               | Update time.                                                                                    |
 
-#### 枚举值
+#### Enumerated Values
 
-|属性|值|
-|---|---|
-|type|UNKNOWN_POSITION_TRANSACTION_TYPE|
-|type|BUY_POSITION|
-|type|SELL_POSITION|
-|type|SETTLE_FUNDING_FEE|
-|type|BUG_FIX_POSITION_TRANSACTION_TYPE|
-|type|UNRECOGNIZED|
-|censorStatus|UNKNOWN_TRANSACTION_STATUS|
-|censorStatus|INIT|
-|censorStatus|CENSOR_SUCCESS|
-|censorStatus|CENSOR_FAILURE|
-|censorStatus|L2_APPROVED|
-|censorStatus|L2_REJECT|
-|censorStatus|L2_REJECT_APPROVED|
-|censorStatus|UNRECOGNIZED|
+| Property     | Value                         |
+| ------------ | ----------------------------- |
+| type         | UNKNOWN_POSITION_TRANSACTION_TYPE     |
+| type         | BUY_POSITION                |
+| type         | SELL_POSITION                |
+| type         | SETTLE_FUNDING_FEE            |
+| type         | BUG_FIX_POSITION_TRANSACTION_TYPE      |
+| type         | UNRECOGNIZED                 |
+| censorStatus | UNKNOWN_TRANSACTION_STATUS     |
+| censorStatus | INIT                         |
+| censorStatus | CENSOR_SUCCESS                 |
+| censorStatus | CENSOR_FAILURE               |
+| censorStatus | L2_APPROVED                    |
+| censorStatus | L2_REJECT                      |
+| censorStatus | L2_REJECT_APPROVED            |
+| censorStatus | UNRECOGNIZED                  |
 
-<h2 id="tocS_Result<PageData<PositionTransaction>>">Result<PageData<PositionTransaction>></h2>
+<h2 id="tocS_Result<PageData<PositionTransaction>>">Result&lt;PageData&lt;PositionTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<positiontransaction>>"></a>
 <a id="schema_Result<PageData<PositionTransaction>>"></a>
@@ -3199,20 +3167,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataPositionTransaction](#schemapagedatapositiontransaction)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                       | Required | Constraints | Description                        | Notes                                                                  |
+| -------------- | ------------------------------------------ | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| code           | string                                     | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [PageDataPositionTransaction](#schemapagedatapositiontransaction) | false    | none        | Generic Paginated Response         | Generic paginated response.                                                              |
+| errorParam     | object                                     | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| » **additionalProperties** | string                                     | false    | none        | Error Parameters                   | Error message parameter information                                     |
+| requestTime    | string(timestamp)                          | false    | none        | Server Request Time               | Time at which the server received the request                           |
+| responseTime   | string(timestamp)                          | false    | none        | Server Response Time              | Time at which the server sent the response                              |
+| traceId        | string                                     | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
 <h2 id="tocS_PageDataPositionTransaction">PageDataPositionTransaction</h2>
 
@@ -3277,19 +3244,18 @@ L2签名信息
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic Paginated Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[PositionTransaction](#schemapositiontransaction)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                                  | Required | Constraints | Description                 | Notes                                                               |
+| ------------------ | ------------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
+| dataList           | [[PositionTransaction](#schemapositiontransaction)] | false    | none        | Data List                  | List of position transaction data.                                          |
+| nextPageOffsetData | string                                | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<RegisterAccount>">Result<RegisterAccount></h2>
+<h2 id="tocS_Result<RegisterAccount>">Result&lt;RegisterAccount&gt;</h2>
 
 <a id="schemaresult<registeraccount>"></a>
 <a id="schema_Result<RegisterAccount>"></a>
@@ -3310,20 +3276,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[RegisterAccount](#schemaregisteraccount)|false|none||注册账户-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                      | Required | Constraints | Description          | Notes                                                                  |
+| -------------- | ------------------------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
+| code           | string                    | false    | none        | Status Code          | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
+| data           | [RegisterAccount](#schemaregisteraccount) | false    | none        | Register Account Response | Response structure for registering an account.                         |
+| errorParam     | object                    | false    | none        | Error Parameters     | Error message parameter information                                     |
+| » **additionalProperties** | string                    | false    | none        | Error Parameters     | Error message parameter information                                     |
+| requestTime    | string(timestamp)         | false    | none        | Server Request Time  | Time at which the server received the request                           |
+| responseTime   | string(timestamp)         | false    | none        | Server Response Time | Time at which the server sent the response                              |
+| traceId        | string                    | false    | none        | Trace ID             | Invocation trace ID                                                  |
 
 <h2 id="tocS_RegisterAccount">RegisterAccount</h2>
 
@@ -3336,16 +3301,15 @@ L2签名信息
 {
   "accountId": "string"
 }
-
 ```
 
-注册账户-响应
+Response structure for registering an account.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
+| Name      | Type          | Required | Constraints | Description | Notes             |
+| --------- | ------------- | -------- | ----------- | ----------- | ----------------- |
+| accountId | string(int64) | false    | none        | Account ID  | Account ID.       |
 
 <h2 id="tocS_RegisterAccountParam">RegisterAccountParam</h2>
 
@@ -3360,18 +3324,17 @@ L2签名信息
   "l2KeyYCoordinate": "string",
   "clientAccountId": "string"
 }
-
 ```
 
-注册账户-请求
+Request structure for registering an account.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|l2Key|string|false|none||L2上的账户key，保证全局唯一。对应starkEx中的starkKey。bigint for hex str|
-|l2KeyYCoordinate|string|false|none||只用于验证 l2Signature 是否ok。不返回给C端用户。bigint for hex str|
-|clientAccountId|string|false|none||客户端账户id, 用于幂等性校验|
+| Name             | Type   | Required | Constraints | Description                                                                         | Notes                                                           |
+| ---------------- | ------ | -------- | ----------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| l2Key            | string | false    | none        | L2 Account Key                                                                      | Account key on L2, globally unique. Stark key in starkEx. Bigint for hex string. |
+| l2KeyYCoordinate | string | false    | none        | L2 Key Y Coordinate                                                               | Used only for verifying l2Signature. Not returned to end users. Bigint for hex string. |
+| clientAccountId  | string | false    | none        | Client Account ID                                                                   | Client account ID for idempotency check.                         |
 
 <h2 id="tocS_UpdateFeeSettingParam">UpdateFeeSettingParam</h2>
 
@@ -3391,23 +3354,22 @@ L2签名信息
   "takerFeeDiscount": "string",
   "makerFeeDiscount": "string"
 }
-
 ```
 
-更新账户交易费率设置-请求
+Request structure for updating account trading fee settings.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|contractId|string(int64)|false|none||合约id，如果为0的话，会更改账户默认fee设置|
-|isSetFeeRate|boolean|false|none||是否设置费率(具体值)|
-|takerFeeRate|string|false|none||taker费率，取值范围 [0, 1)，仅当 is_set_fee_rate=true 时有效|
-|makerFeeRate|string|false|none||maker费率，取值范围 [0, 1)，仅当 is_set_fee_rate=true 时有效|
-|isSetFeeDiscount|boolean|false|none||是否设置费率折扣|
-|takerFeeDiscount|string|false|none||taker费率折扣|
-|makerFeeDiscount|string|false|none||maker费率折扣|
+| Name             | Type          | Required | Constraints | Description                                                                                        | Notes                                                                                             |
+| ---------------- | ------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| accountId        | string(int64) | false    | none        | Account ID                                                                                           | Account ID.                                                                                        |
+| contractId       | string(int64) | false    | none        | Contract ID                                                                                       | Contract ID, if 0, will change the default fee settings for the account.                               |
+| isSetFeeRate     | boolean       | false    | none        | Whether Fee Rate Is Set                                                                            | Whether to set a specific fee rate value.                                                                |
+| takerFeeRate     | string        | false    | none        | Taker Fee Rate                                                                                     | Taker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
+| makerFeeRate     | string        | false    | none        | Maker Fee Rate                                                                                     | Maker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
+| isSetFeeDiscount | boolean       | false    | none        | Whether Fee Discount Is Set                                                                       | Whether to set a fee discount.                                                                    |
+| takerFeeDiscount | string        | false    | none        | Taker Fee Discount                                                                                  | Taker fee discount.                                                                         |
+| makerFeeDiscount | string        | false    | none        | Maker Fee Discount                                                                                  | Maker fee discount.                                                                        |
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -3423,21 +3385,20 @@ L2签名信息
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+Generic response structure.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+| Name         | Type    | Required | Constraints | Description                                       | Notes                                                               |
+| ------------ | ------- | -------- | ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| code         | string  | false    | none        | Status Code                                       | Returns "SUCCESS" on success; otherwise, it indicates failure.        |
+| msg          | string  | false    | none        | Detailed Error Message                            | Detailed error message when an error occurs.                            |
+| requestTime  | string(int64) | false    | none        | Server Request Time                             | Time at which the server received the request.                             |
+| responseTime | string(int64) | false    | none        | Server Response Time                            | Time at which the server sent the response.                            |
 
-<h2 id="tocS_Result<Void>">Result<Void></h2>
+<h2 id="tocS_Result<Void>">Result&lt;Void&gt;</h2>
 
 <a id="schemaresult<void>"></a>
 <a id="schema_Result<Void>"></a>
@@ -3456,20 +3417,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|object|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type     | Required | Constraints | Description          | Notes                                                                  |
+| -------------- | -------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
+| code           | string   | false    | none        | Status Code          | Returns "SUCCESS" onsuccess; otherwise, it indicates failure.          |
+| data           | object   | false    | none        | Response Data        | Correct response data.                                                  |
+| errorParam     | object   | false    | none        | Error Parameters     | Error message parameter information                                     |
+| » **additionalProperties** | string   | false    | none        | Error Parameters     | Error message parameter information                                     |
+| requestTime    | string(timestamp) | false    | none        | Server Request Time  | Time at which the server received the request                           |
+| responseTime   | string(timestamp) | false    | none        | Server Response Time | Time at which the server sent the response                              |
+| traceId        | string   | false    | none        | Trace ID             | Invocation trace ID                                                  |
 
 <h2 id="tocS_UpdateLeverageSettingParam">UpdateLeverageSettingParam</h2>
 
@@ -3484,16 +3444,14 @@ L2签名信息
   "contractId": "string",
   "leverage": "string"
 }
-
 ```
 
-更新账户交易杠杆设置-请求
+Request structure for updating account trading leverage settings.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|contractId|string(int64)|false|none||合约id，如果为0的话，会更改账户默认fee设置|
-|leverage|string|false|none||杠杆倍数|
-
+| Name       | Type          | Required | Constraints | Description                                                                    | Notes                                                                                    |
+| ---------- | ------------- | -------- | ----------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| accountId  | string(int64) | false    | none        | Account ID                                                                      | Account ID.                                                                              |
+| contractId | string(int64) | false    | none        | Contract ID                                                                   | Contract ID, if 0, will change the default leverage settings for the account.                     |
+| leverage   | string        | false    | none        | Leverage Multiple                                                                    | Leverage multiple.                                                      |
