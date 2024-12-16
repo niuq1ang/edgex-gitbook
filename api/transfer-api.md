@@ -1,23 +1,4 @@
 ---
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
-
----
 
 # test
 
@@ -29,11 +10,11 @@ Base URLs:
 
 <a id="opIdcreateTransferOut"></a>
 
-## POST 创建委托单
+## POST Create Transfer Out Order
 
 POST /api/v1/private/transfer/createTransferOut
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -52,13 +33,13 @@ POST /api/v1/private/transfer/createTransferOut
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|body|body|[CreateTransferOutParam](#schemacreatetransferoutparam)| 否 |none|
+| body | body | [CreateTransferOutParam](#schemacreatetransferoutparam) | No | none |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -71,26 +52,26 @@ POST /api/v1/private/transfer/createTransferOut
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetTransferOutById"></a>
 
-## GET 根据充值单id批量获取转出单
+## GET Get Transfer Out Orders by ID
 
 GET /api/v1/private/transfer/getTransferOutById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|transferOutIdList|query|string| 否 |转出单id|
+| accountId | query | string | No | Account ID |
+| transferOutIdList | query | string | No | Transfer out ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -148,28 +129,28 @@ GET /api/v1/private/transfer/getTransferOutById
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetWithdrawAvailableAmount_1"></a>
 
-## GET 翻页获取提现单
+## GET Get Available Withdrawal Amount
 
 GET /api/v1/private/transfer/getTransferOutAvailableAmount
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|coinId|query|string| 否 |币id|
+| accountId | query | string | No | Account ID |
+| coinId | query | string | No | Coin ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -182,26 +163,26 @@ GET /api/v1/private/transfer/getTransferOutAvailableAmount
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetTransferInById"></a>
 
-## GET 根据充值单id批量获取转入单
+## GET Get Transfer In Orders by ID
 
 GET /api/v1/private/transfer/getTransferInById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|transferInIdList|query|string| 否 |转入单id|
+| accountId | query | string | No | Account ID |
+| transferInIdList | query | string | No | Transfer In ID |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -252,34 +233,34 @@ GET /api/v1/private/transfer/getTransferInById
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetActiveTransferOut"></a>
 
-## GET 翻页获取转出单
+## GET Get Paginated Transfer Out Orders
 
 GET /api/v1/private/transfer/getActiveTransferOut
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的转入单，如果为空则获取所有抵押品coinId的转入单|
-|filterStatusList|query|string| 否 |过滤获取指定状态的转入单，不填的话所有状态转入单|
-|filterTransferReasonList|query|string| 否 |过滤获取指定转账原因的转入单，不填的话所有转账原因转入单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的转入单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的转入单 (不包含)，不填或者为0的话就到最近|
+| accountId | query | string | No | Account ID |
+| size | query | string | No | Number of records per page. Must be greater than 0 and less than or equal to 100 |
+| offsetData | query | string | No | Pagination offset. If empty or not provided, it retrieves the first page. |
+| filterCoinIdList | query | string | No | Filter by coin IDs, if empty return all |
+| filterStatusList | query | string | No | Filter by transfer status, if empty return all |
+| filterTransferReasonList | query | string | No | Filter by transfer reason, if empty return all |
+| filterStartCreatedTimeInclusive | query | string | No | Filter by start time (inclusive), if 0 it will return the earliest transfer in time |
+| filterEndCreatedTimeExclusive | query | string | No | Filter by end time (exclusive), if 0 it will return the latest transfer in time |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -292,32 +273,32 @@ GET /api/v1/private/transfer/getActiveTransferOut
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetActiveTransferIn"></a>
 
-## GET 翻页获取转入单
+## GET Get Paginated Transfer In Orders
 
 GET /api/v1/private/transfer/getActiveTransferIn
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+| Name | Location | Type | Required | Description |
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的转出单，如果为空则获取所有抵押品coinId的转入单|
-|filterStatusList|query|string| 否 |过滤获取指定状态的转入单，不填的话所有状态转出单|
-|filterTransferReasonList|query|string| 否 |过滤获取指定转账原因的转入单，不填的话所有转账原因转出单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的转出单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的转出单 (不包含)，不填或者为0的话就到最近|
+| accountId | query | string | No | Account ID |
+| size | query | string | No | Number of records per page. Must be greater than 0 and less than or equal to 100 |
+| offsetData | query | string | No | Pagination offset. If empty or not provided, it retrieves the first page. |
+| filterCoinIdList | query | string | No | Filter by coin IDs, if empty return all |
+| filterStatusList | query | string | No | Filter by transfer status, if empty return all |
+| filterTransferReasonList | query | string | No | Filter by transfer reason, if empty return all |
+| filterStartCreatedTimeInclusive | query | string | No | Filter by start time (inclusive), if 0 it will return the earliest transfer in time |
+| filterEndCreatedTimeExclusive | query | string | No | Filter by end time (exclusive), if 0 it will return the latest transfer in time |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -371,15 +352,15 @@ GET /api/v1/private/transfer/getActiveTransferIn
 }
 ```
 
-### 返回结果
+### Response Codes
 
-|状态码|状态码含义|说明|数据模型|
+| Status Code | Description | Notes | Schema |
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
-# 数据模型
+# Data Models
 
 <h2 id="tocS_Result<PageData<TransferIn>>">Result<PageData<TransferIn>></h2>
 
@@ -436,20 +417,19 @@ GET /api/v1/private/transfer/getActiveTransferIn
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataTransferIn](#schemapagedatatransferin)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [PageDataTransferIn](#schemapagedatatransferin) | false | none | Generic paginated response data |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_PageDataTransferIn">PageDataTransferIn</h2>
 
@@ -496,17 +476,16 @@ GET /api/v1/private/transfer/getActiveTransferIn
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic paginated response data
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[TransferIn](#schematransferin)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| dataList | [[TransferIn](#schematransferin)] | false | none | Data list |
+| nextPageOffsetData | string | false | none | Offset to retrieve the next page. If no next page data, the value will be an empty string |
 
 <h2 id="tocS_TransferIn">TransferIn</h2>
 
@@ -548,66 +527,65 @@ GET /api/v1/private/transfer/getActiveTransferIn
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-转账转入单
+Transfer In Order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||转账转出单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||转账数量|
-|senderAccountId|string(int64)|false|none||发款方账户id|
-|senderL2Key|string|false|none||发款方账户L2 key. bigint for hex str|
-|senderTransferOutId|string(int64)|false|none||发款方转账转出单id|
-|clientTransferId|string|false|none||客户自定义id，用于幂等校验和生成签名nonce|
-|isConditionTransfer|boolean|false|none||是否为条件转账|
-|conditionFactRegistryAddress|string|false|none||条件转账 fact注册合约地址，当is_condition_transfer=true时必填。|
-|conditionFactErc20Address|string|false|none||条件转账fact生成所使用的erc20地址，当is_conditional_transfer=true时必填。|
-|conditionFactAmount|string|false|none||条件转账fact生成所使用的amount，当is_conditional_transfer=true时必填。|
-|conditionFact|string|false|none||条件转账 fact，当is_condition_transfer=true时必填。|
-|transferReason|string|false|none||转账原因|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||转账状态|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| id | string(int64) | false | none | Transfer In order ID |
+| userId | string(int64) | false | none | User ID |
+| accountId | string(int64) | false | none | Account ID |
+| coinId | string(int64) | false | none | Coin ID |
+| amount | string | false | none | Transfer amount |
+| senderAccountId | string(int64) | false | none | Sender Account ID |
+| senderL2Key | string | false | none | Sender account L2 key. bigint for hex str |
+| senderTransferOutId | string(int64) | false | none | Sender transfer out order ID |
+| clientTransferId | string | false | none | Client defined ID. Used for idempotent checks and signature generation nonce |
+| isConditionTransfer | boolean | false | none | Whether it is a conditional transfer |
+| conditionFactRegistryAddress | string | false | none | Address of condition fact registry contract. Required when is_condition_transfer=true |
+| conditionFactErc20Address | string | false | none | ERC20 address used to generate the condition fact. Required when is_conditional_transfer=true |
+| conditionFactAmount | string | false | none | Amount used to generate condition fact. Required when is_conditional_transfer=true. |
+| conditionFact | string | false | none | The conditional transfer fact. Required when is_condition_transfer=true |
+| transferReason | string | false | none | Transfer reason |
+| extraType | string | false | none | Additional type. Used by upper layer business |
+| extraDataJson | string | false | none | Additional data in JSON format. Defaults to empty string |
+| status | string | false | none | Transfer status |
+| collateralTransactionId | string(int64) | false | none | ID of related collateral detail. Exists when status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorTxId | string(int64) | false | none | Censor processing sequence. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorTime | string(int64) | false | none | Censor processing time. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorFailCode | string | false | none | Censor failure error code. Exists when status=FAILED_CENSOR_FAILURE |
+| censorFailReason | string | false | none | Censor failure reason. Exists when status=FAILED_CENSOR_FAILURE |
+| l2TxId | string(int64) | false | none | L2 push transaction ID. Exists when censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectTime | string(int64) | false | none | L2 rejection time. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectCode | string | false | none | L2 rejection error code. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectReason | string | false | none | L2 rejection reason. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2ApprovedTime | string(int64) | false | none | L2 batch verification time. Exists when status=L2_APPROVED/L2_REJECT_APPROVED |
+| createdTime | string(int64) | false | none | Creation time |
+| updatedTime | string(int64) | false | none | Update time |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+| Property | Value |
 |---|---|
-|transferReason|UNKNOWN_TRANSFER_REASON|
-|transferReason|USER_TRANSFER|
-|transferReason|FAST_WITHDRAW|
-|transferReason|CROSS_DEPOSIT|
-|transferReason|CROSS_WITHDRAW|
-|transferReason|UNRECOGNIZED|
-|status|UNKNOWN_TRANSFER_STATUS|
-|status|PENDING_CHECKING|
-|status|PENDING_CENSORING|
-|status|SUCCESS_CENSOR_SUCCESS|
-|status|SUCCESS_L2_APPROVED|
-|status|FAILED_CHECK_INVALID|
-|status|FAILED_CENSOR_FAILURE|
-|status|FAILED_L2_REJECT|
-|status|FAILED_L2_REJECT_APPROVED|
-|status|UNRECOGNIZED|
+| transferReason | UNKNOWN_TRANSFER_REASON |
+| transferReason | USER_TRANSFER |
+| transferReason | FAST_WITHDRAW |
+| transferReason | CROSS_DEPOSIT |
+| transferReason | CROSS_WITHDRAW |
+| transferReason | UNRECOGNIZED |
+| status | UNKNOWN_TRANSFER_STATUS |
+| status | PENDING_CHECKING |
+| status | PENDING_CENSORING |
+| status | SUCCESS_CENSOR_SUCCESS |
+| status | SUCCESS_L2_APPROVED |
+| status | FAILED_CHECK_INVALID |
+| status | FAILED_CENSOR_FAILURE |
+| status | FAILED_L2_REJECT |
+| status | FAILED_L2_REJECT_APPROVED |
+| status | UNRECOGNIZED |
 
 <h2 id="tocS_Result<PageData<TransferOut>>">Result<PageData<TransferOut>></h2>
 
@@ -671,20 +649,19 @@ GET /api/v1/private/transfer/getActiveTransferIn
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataTransferOut](#schemapagedatatransferout)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [PageDataTransferOut](#schemapagedatatransferout) | false | none | Generic paginated response data |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_PageDataTransferOut">PageDataTransferOut</h2>
 
@@ -738,17 +715,16 @@ GET /api/v1/private/transfer/getActiveTransferIn
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic paginated response data
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[TransferOut](#schematransferout)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| dataList | [[TransferOut](#schematransferout)] | false | none | Data list |
+| nextPageOffsetData | string | false | none | Offset to retrieve the next page. If no next page data, the value will be an empty string |
 
 <h2 id="tocS_TransferOut">TransferOut</h2>
 
@@ -797,69 +773,68 @@ GET /api/v1/private/transfer/getActiveTransferIn
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-转账转出单
+Transfer Out Order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||转账转出单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||转账数量|
-|receiverAccountId|string(int64)|false|none||收款账户id|
-|receiverL2Key|string|false|none||收款账户L2 key. bigint for hex str|
-|clientTransferId|string|false|none||客户自定义id，用于幂等校验和生成签名nonce|
-|isConditionTransfer|boolean|false|none||是否为条件转账|
-|conditionFactRegistryAddress|string|false|none||条件转账 fact注册合约地址，当is_conditional_transfer=true时必填。|
-|conditionFactErc20Address|string|false|none||条件转账fact生成所使用的erc20地址，当is_conditional_transfer=true时必填。|
-|conditionFactAmount|string|false|none||条件转账fact生成所使用的amount，当is_conditional_transfer=true时必填。|
-|conditionFact|string|false|none||条件转账 fact，当is_conditional_transfer=true时必填。|
-|transferReason|string|false|none||转账原因|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_transfer_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||转账状态|
-|receiverTransferInId|string(int64)|false|none||收款方转账转入单id|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| id | string(int64) | false | none | Transfer out order ID |
+| userId | string(int64) | false | none | User ID |
+| accountId | string(int64) | false | none | Account ID |
+| coinId | string(int64) | false | none | Coin ID |
+| amount | string | false | none | Transfer amount |
+| receiverAccountId | string(int64) | false | none | Receiver Account ID |
+| receiverL2Key | string | false | none | Receiver account L2 key. bigint for hex str |
+| clientTransferId | string | false | none | Client defined ID. Used for idempotent checks and signature generation nonce |
+| isConditionTransfer | boolean | false | none | Whether it is a conditional transfer |
+| conditionFactRegistryAddress | string | false | none | Address of condition fact registry contract. Required when is_conditional_transfer=true |
+| conditionFactErc20Address | string | false | none | ERC20 address used to generate the condition fact. Required when is_conditional_transfer=true |
+| conditionFactAmount | string | false | none | Amount used to generate condition fact. Required when is_conditional_transfer=true. |
+| conditionFact | string | false | none | The conditional transfer fact. Required when is_conditional_transfer=true |
+| transferReason | string | false | none | Transfer reason |
+| l2Nonce | string(int64) | false | none | L2 signature nonce. Take the first 32 bits of sha256(client_transfer_id) |
+| l2ExpireTime | string(int64) | false | none | L2 signature expiration time in milliseconds. When generating/verifying the signature, the hour should be used: l2_expire_time / 3600000 |
+| l2Signature | [L2Signature](#schemal2signature) | false | none | L2 signature information |
+| extraType | string | false | none | Additional type. Used by upper layer business |
+| extraDataJson | string | false | none | Additional data in JSON format. Defaults to empty string |
+| status | string | false | none | Transfer status |
+| receiverTransferInId | string(int64) | false | none | ID of receiver transfer in order. |
+| collateralTransactionId | string(int64) | false | none | ID of related collateral detail. Exists when status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorTxId | string(int64) | false | none | Censor processing sequence. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorTime | string(int64) | false | none | Censor processing time. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |
+| censorFailCode | string | false | none | Censor failure error code. Exists when status=FAILED_CENSOR_FAILURE |
+| censorFailReason | string | false | none | Censor failure reason. Exists when status=FAILED_CENSOR_FAILURE |
+| l2TxId | string(int64) | false | none | L2 push transaction ID. Exists when censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectTime | string(int64) | false | none | L2 rejection time. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectCode | string | false | none | L2 rejection error code. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2RejectReason | string | false | none | L2 rejection reason. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED |
+| l2ApprovedTime | string(int64) | false | none | L2 batch verification time. Exists when status=L2_APPROVED/L2_REJECT_APPROVED |
+| createdTime | string(int64) | false | none | Creation time |
+| updatedTime | string(int64) | false | none | Update time |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+| Property | Value |
 |---|---|
-|transferReason|UNKNOWN_TRANSFER_REASON|
-|transferReason|USER_TRANSFER|
-|transferReason|FAST_WITHDRAW|
-|transferReason|CROSS_DEPOSIT|
-|transferReason|CROSS_WITHDRAW|
-|transferReason|UNRECOGNIZED|
-|status|UNKNOWN_TRANSFER_STATUS|
-|status|PENDING_CHECKING|
-|status|PENDING_CENSORING|
-|status|SUCCESS_CENSOR_SUCCESS|
-|status|SUCCESS_L2_APPROVED|
-|status|FAILED_CHECK_INVALID|
-|status|FAILED_CENSOR_FAILURE|
-|status|FAILED_L2_REJECT|
-|status|FAILED_L2_REJECT_APPROVED|
-|status|UNRECOGNIZED|
+| transferReason | UNKNOWN_TRANSFER_REASON |
+| transferReason | USER_TRANSFER |
+| transferReason | FAST_WITHDRAW |
+| transferReason | CROSS_DEPOSIT |
+| transferReason | CROSS_WITHDRAW |
+| transferReason | UNRECOGNIZED |
+| status | UNKNOWN_TRANSFER_STATUS |
+| status | PENDING_CHECKING |
+| status | PENDING_CENSORING |
+| status | SUCCESS_CENSOR_SUCCESS |
+| status | SUCCESS_L2_APPROVED |
+| status | FAILED_CHECK_INVALID |
+| status | FAILED_CENSOR_FAILURE |
+| status | FAILED_L2_REJECT |
+| status | FAILED_L2_REJECT_APPROVED |
+| status | UNRECOGNIZED |
 
 <h2 id="tocS_L2Signature">L2Signature</h2>
 
@@ -874,18 +849,17 @@ GET /api/v1/private/transfer/getActiveTransferIn
   "s": "string",
   "v": "string"
 }
-
 ```
 
-L2签名信息
+L2 signature information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|r|string|false|none||bigint for hex str|
-|s|string|false|none||bigint for hex str|
-|v|string|false|none||bigint for hex str|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| r | string | false | none | bigint for hex str |
+| s | string | false | none | bigint for hex str |
+| v | string | false | none | bigint for hex str |
 
 <h2 id="tocS_Result<List<TransferIn>>">Result<List<TransferIn>></h2>
 
@@ -939,20 +913,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[TransferIn](#schematransferin)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [[TransferIn](#schematransferin)] | false | none | Correct response data |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_Result<GetTransferOutAvailableAmount>">Result<GetTransferOutAvailableAmount></h2>
 
@@ -975,20 +948,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetTransferAvailableAmount](#schemagettransferavailableamount)|false|none||获取转账可用数量-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [GetTransferAvailableAmount](#schemagettransferavailableamount) | false | none | Get Transfer Available Amount - Response |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_GetTransferAvailableAmount">GetTransferAvailableAmount</h2>
 
@@ -1001,16 +973,15 @@ L2签名信息
 {
   "availableAmount": "string"
 }
-
 ```
 
-获取转账可用数量-响应
+Get Transfer Available Amount - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|availableAmount|string(decimal)|false|none||可用数量|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| availableAmount | string(decimal) | false | none | Available amount |
 
 <h2 id="tocS_Result<List<TransferOut>>">Result<List<TransferOut>></h2>
 
@@ -1071,20 +1042,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[TransferOut](#schematransferout)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [[TransferOut](#schematransferout)] | false | none | Correct response data |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_Result<CreateTransferOut>">Result<CreateTransferOut></h2>
 
@@ -1107,20 +1077,19 @@ L2签名信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateTransferOut](#schemacreatetransferout)|false|none||创建转出单-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| data | [CreateTransferOut](#schemacreatetransferout) | false | none | Create Transfer Out Order - Response |
+| errorParam | object | false | none | Parameter information in error messages |
+| » **additionalProperties** | string | false | none | Parameter information in error messages |
+| requestTime | string(timestamp) | false | none | Server request receiving timestamp |
+| responseTime | string(timestamp) | false | none | Server response returning timestamp |
+| traceId | string | false | none | Call trace ID |
 
 <h2 id="tocS_CreateTransferOut">CreateTransferOut</h2>
 
@@ -1133,16 +1102,15 @@ L2签名信息
 {
   "transferOutId": "string"
 }
-
 ```
 
-创建转出单-响应
+Create Transfer Out Order - Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|transferOutId|string(int64)|false|none||转出单id|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| transferOutId | string(int64) | false | none | Transfer out order ID |
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -1158,19 +1126,18 @@ L2签名信息
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+Generic response structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
+| msg | string | false | none | Detailed error message if an error occurs |
+| requestTime | string(int64) | false | none | Server request receiving timestamp |
+| responseTime | string(int64) | false | none | Server response returning timestamp |
 
 <h2 id="tocS_CreateTransferOutParam">CreateTransferOutParam</h2>
 
@@ -1194,36 +1161,34 @@ L2签名信息
   "extraType": "string",
   "extraDataJson": "string"
 }
-
 ```
 
-创建转出单请求参数
+Create Transfer Out Order request parameters
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||充提资产id|
-|amount|string|false|none||转账数量|
-|receiverAccountId|string|false|none||收款账户id|
-|receiverL2Key|string|false|none||收款账户L2 key. bigint for hex str|
-|clientTransferId|string|false|none||客户自定义id，用于幂等校验和生成签名nonce|
-|transferReason|string|false|none||转账原因|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000|
-|l2Signature|string|false|none||提交l2的签名|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||附加数据，json格式，默认为空串|
+| Name | Type | Required | Constraints | Description |
+|---|---|---|---|---|
+| accountId | string(int64) | false | none | Account ID |
+| coinId | string(int64) | false | none | Asset ID |
+| amount | string | false | none | Transfer amount |
+| receiverAccountId | string | false | none | Receiver account ID |
+| receiverL2Key | string | false | none | Receiver account L2 key. bigint for hex str |
+| clientTransferId | string | false | none | Client defined ID. Used for idempotent checks and signature generation nonce |
+| transferReason | string | false | none | Transfer reason |
+| l2Nonce | string(int64) | false | none | L2 signature nonce. Take the first 32 bits of sha256(client_withdraw_id) |
+| l2ExpireTime | string(int64) | false | none | L2 signature expiration time in milliseconds. When generating/verifying the signature, the hour should be used: l2_expire_time / 3600000 |
+| l2Signature | string | false | none | L2 signature |
+| extraType | string | false | none | Additional type. Used by upper layer business |
+| extraDataJson | string | false | none | Additional data in JSON format. Defaults to empty string |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+| Property | Value |
 |---|---|
-|transferReason|UNKNOWN_TRANSFER_REASON|
-|transferReason|USER_TRANSFER|
-|transferReason|FAST_WITHDRAW|
-|transferReason|CROSS_DEPOSIT|
-|transferReason|CROSS_WITHDRAW|
-|transferReason|UNRECOGNIZED|
-
+| transferReason | UNKNOWN_TRANSFER_REASON |
+| transferReason | USER_TRANSFER |
+| transferReason | FAST_WITHDRAW |
+| transferReason | CROSS_DEPOSIT |
+| transferReason | CROSS_WITHDRAW |
+| transferReason | UNRECOGNIZED |
