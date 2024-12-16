@@ -1,24 +1,24 @@
 # User Authentication
 
-
 ## Domain
+
 ```text
 https://pro.edgex.exchange
 ```
 
 ## Private API Auth Header
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|x-edgex-api-key|header|string|must|none|
-|x-edgex-passphrase|header|string|must|none|
-|x-edgex-signature|header|string|must|none|
-|x-edgex-timestamp|header|number|must|none|
+| Name               | Location | Type    | Required | Description              |
+| ------------------ | -------- | ------- | -------- | ------------------------ |
+| x-edgex-api-key    | header   | string  | must     | None                     |
+| x-edgex-passphrase | header   | string  | must     | None                     |
+| x-edgex-signature  | header   | string  | must     | None                     |
+| x-edgex-timestamp  | header   | number  | must     | None                     |
 
-> Login to [Edgex](https://pro.edgex.exchange/trade/BTCUSDT) cody 4 request header and <strong>Request The Administrator</strong> to configure the user list to access the API interface.
+> Login to [Edgex](https://pro.edgex.exchange/trade/BTCUSDT), copy the 4 request headers, and **Request The Administrator** to configure the user list to access the API interface.
 
-## Public API 
+## Public API
 
 ```text
-No authentication is required for public interfaces
+No authentication is required for public interfaces.
 ```
