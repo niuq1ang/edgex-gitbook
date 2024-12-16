@@ -1,10 +1,4 @@
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 09.AssetsPrivateApi
+# AssetsPrivateApi
 
 <a id="opIdcreateNormalWithdraw"></a>
 
