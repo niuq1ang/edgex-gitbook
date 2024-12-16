@@ -1,45 +1,26 @@
 ---
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
 
----
-
-# test
+# Test
 
 > v1.0.0
 
 Base URLs:
 
-# 01.QuotePublicApi
+# 01. QuotePublicApi
 
 <a id="opIdgetTicketSummary"></a>
 
-## GET 获取行情汇总
+## GET Get Quote Summary
 
 GET /api/v1/public/quote/getTicketSummary
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|period|query|string| 否 |汇总周期|
+| Name | Location | Type   | Required | Description   |
+|------|----------|--------|----------|---------------|
+| period | query    | string | No       | Summary period |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -52,25 +33,25 @@ GET /api/v1/public/quote/getTicketSummary
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning     | Description       | Data Model      |
+|-------------|-------------------------|-------------------|-----------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetTicker"></a>
 
-## GET 查询24小时行情
+## GET Query 24-Hour Quotes
 
 GET /api/v1/public/quote/getTicker
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|contractId|query|string| 否 |合约id|
+| Name       | Location | Type   | Required | Description   |
+|------------|----------|--------|----------|---------------|
+| contractId | query    | string | No       | Contract ID   |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -113,28 +94,28 @@ GET /api/v1/public/quote/getTicker
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Meaning     | Description       | Data Model |
+|-------------|-------------------------|-------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetStatDayTrade"></a>
 
-## GET 获取日交易统计
+## GET Get Daily Trading Statistics
 
 GET /api/v1/public/quote/getStatDayTrade
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|startDayTimeInclusive|query|string| 否 |过滤获取指定开始时间的交易统计信息|
-|endDayTimeExclusive|query|string| 否 | 过滤获取指定结束时间的日交易统计信息|
+| Name                    | Location | Type   | Required | Description                                 |
+|-------------------------|----------|--------|----------|---------------------------------------------|
+| startDayTimeInclusive   | query    | string | No       | Filter to get trade statistics from the specified start time |
+| endDayTimeExclusive     | query    | string | No       | Filter to get daily trade statistics up to the specified end time |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -147,30 +128,30 @@ GET /api/v1/public/quote/getStatDayTrade
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning     | Description       | Data Model      |
+|-------------|-------------------------|-------------------|-----------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetMultiContractKline"></a>
 
-## GET 查询多合约定量K线
+## GET Query Multi-Contract Quantitative K-Line
 
 GET /api/v1/public/quote/getMultiContractKline
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|contractIdList|query|string| 否 |合约id集合|
-|priceType|query|string| 否 |价格类型|
-|klineType|query|string| 否 |K线类型|
-|size|query|string| 否 |获取数量。必须大于0且小于等于200|
-|filterBeginKlineTimeInclusive|query|string| 否 |查询开始时间（如果为0表示从当前时间）按照时间倒序向前查询返回|
-|filterEndKlineTimeExclusive|query|string| 否 |查询结束时间|
+| Name                       | Location | Type   | Required | Description                             |
+|----------------------------|----------|--------|----------|-----------------------------------------|
+| contractIdList             | query    | string | No       | Collection of Contract IDs              |
+| priceType                  | query    | string | No       | Price type                             |
+| klineType                  | query    | string | No       | K-line type                            |
+| size                       | query    | string | No       | Number to retrieve. Must be greater than 0 and less than or equal to 200 |
+| filterBeginKlineTimeInclusive | query    | string | No       | Query start time (if 0, means from current time). Returns in descending order by time |
+| filterEndKlineTimeExclusive   | query    | string | No       | Query end time                           |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -211,33 +192,33 @@ GET /api/v1/public/quote/getMultiContractKline
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Meaning     | Description       | Data Model |
+|-------------|-------------------------|-------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetKline"></a>
 
-## GET 查询K线
+## GET Query K-Line
 
 GET /api/v1/public/quote/getKline
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|contractId|query|string| 否 |合约id|
-|priceType|query|string| 否 |价格类型|
-|klineType|query|string| 否 |K线类型|
-|size|query|string| 否 |获取数量。必须大于0且小于等于1000|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterBeginKlineTimeInclusive|query|string| 否 |查询开始时间（如果为0表示从当前时间）按照时间倒序向前查询返回|
-|filterEndKlineTimeExclusive|query|string| 否 |查询结束时间|
+| Name                       | Location | Type   | Required | Description                             |
+|----------------------------|----------|--------|----------|-----------------------------------------|
+| contractId                 | query    | string | No       | Contract ID                             |
+| priceType                  | query    | string | No       | Price type                             |
+| klineType                  | query    | string | No       | K-line type                            |
+| size                       | query    | string | No       | Number to retrieve. Must be greater than 0 and less than or equal to 1000 |
+| offsetData                 | query    | string | No       | Pagination offset. If empty, get the first page |
+| filterBeginKlineTimeInclusive | query    | string | No       | Query start time (if 0, means from current time). Returns in descending order by time |
+| filterEndKlineTimeExclusive   | query    | string | No       | Query end time                           |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -250,27 +231,27 @@ GET /api/v1/public/quote/getKline
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning     | Description       | Data Model      |
+|-------------|-------------------------|-------------------|-----------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetExchangeLongShortRatio"></a>
 
-## GET 获取日交易统计
+## GET Get Exchange Long Short Ratio
 
 GET /api/v1/public/quote/getExchangeLongShortRatio
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|range|query|string| 否 |如果为空的话，默认返回 range 最小的数据|
-|filterContractIdList|query|string| 否 |如果为空的话，默认返回所有合约数据|
-|filterExchangeList|query|string| 否 |如果为空的话，默认返回所有交易所数据|
+| Name                 | Location | Type   | Required | Description                                          |
+|----------------------|----------|--------|----------|------------------------------------------------------|
+| range                | query    | string | No       | If empty, return data with the smallest range     |
+| filterContractIdList | query    | string | No       | If empty, return data for all contracts               |
+| filterExchangeList   | query    | string | No       | If empty, return data for all exchanges               |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -283,26 +264,26 @@ GET /api/v1/public/quote/getExchangeLongShortRatio
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning     | Description       | Data Model      |
+|-------------|-------------------------|-------------------|-----------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetDepth"></a>
 
-## GET 查询盘口深度
+## GET Query Order Book Depth
 
 GET /api/v1/public/quote/getDepth
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|contractId|query|string| 否 |合约id|
-|level|query|string| 否 |深度档位 目前有15档和200档|
+| Name       | Location | Type   | Required | Description                   |
+|------------|----------|--------|----------|-------------------------------|
+| contractId | query    | string | No       | Contract ID                   |
+| level      | query    | string | No       | Depth level. Currently 15 and 200 levels available |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -341,27 +322,27 @@ GET /api/v1/public/quote/getDepth
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Meaning     | Description       | Data Model |
+|-------------|-------------------------|-------------------|------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetAccurateOpenInterest"></a>
 
-## GET 获取精确OpenInterest
+## GET Get Accurate Open Interest
 
 GET /api/v1/public/quote/getAccurateOpenInterest
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|contractIdList|query|string| 否 |合约id集合|
+| Name           | Location | Type   | Required | Description           |
+|----------------|----------|--------|----------|-----------------------|
+| contractIdList | query    | string | No       | Collection of Contract IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -374,13 +355,13 @@ GET /api/v1/public/quote/getAccurateOpenInterest
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning     | Description       | Data Model      |
+|-------------|-------------------------|-------------------|-----------------|
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
-# 数据模型
+# Data Models
 
 <h2 id="tocS_Result<List<OpenInterest>>">Result<List<OpenInterest>></h2>
 
@@ -407,20 +388,19 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[OpenInterest](#schemaopeninterest)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
+|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
+| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
+| data        | [[OpenInterest](#schemaopeninterest)] | false    | none        |              |  Correct response data                          |
+| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
+| traceId     | string                 | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_OpenInterest">OpenInterest</h2>
 
@@ -435,18 +415,17 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "timestamp": "string",
   "size": "string"
 }
-
 ```
 
-持仓量
+Open Interest
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||合约ID|
-|timestamp|string|false|none||统计时间戳|
-|size|string(int64)|false|none||持仓量|
+| Name        | Type                | Required | Constraints | Chinese Name | Description        |
+|-------------|---------------------|----------|-------------|--------------|--------------------|
+| contractId  | string(int64)        | false    | none        |              | Contract ID        |
+| timestamp   | string              | false    | none        |              | Statistical timestamp|
+| size        | string(int64)        | false    | none        |              | Open Interest      |
 
 <h2 id="tocS_Result<List<Depth>>">Result<List<Depth>></h2>
 
@@ -488,20 +467,19 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Depth](#schemadepth)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
+|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
+| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
+| data        | [[Depth](#schemadepth)] | false    | none        |              | Correct response data                           |
+| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
+| traceId     | string                 | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_Depth">Depth</h2>
 
@@ -531,32 +509,31 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   ],
   "depthType": "UNKNOWN_DEPTH_TYPE"
 }
-
 ```
 
-深度
+Depth
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|startVersion|string(int64)|false|none||开始订单簿版本号|
-|endVersion|string(int64)|false|none||结束订单簿版本号|
-|level|integer(int32)|false|none||深度档位|
-|contractId|string(int64)|false|none||合约id|
-|contractName|string|false|none||合约名称|
-|asks|[[BookOrder](#schemabookorder)]|false|none||ask列表|
-|bids|[[BookOrder](#schemabookorder)]|false|none||bid列表|
-|depthType|string|false|none||盘口深度类型|
+| Name        | Type                | Required | Constraints | Chinese Name | Description          |
+|-------------|---------------------|----------|-------------|--------------|----------------------|
+| startVersion | string(int64)        | false    | none        |              | Start order book version number  |
+| endVersion  | string(int64)        | false    | none        |              | End order book version number   |
+| level       | integer(int32)      | false    | none        |              | Depth level         |
+| contractId  | string(int64)        | false    | none        |              | Contract ID          |
+| contractName | string              | false    | none        |              | Contract name        |
+| asks        | [[BookOrder](#schemabookorder)]| false    | none        |              | Ask list             |
+| bids        | [[BookOrder](#schemabookorder)]| false    | none        |              | Bid list             |
+| depthType   | string              | false    | none        |              | Depth type           |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|depthType|UNKNOWN_DEPTH_TYPE|
-|depthType|SNAPSHOT|
-|depthType|CHANGED|
-|depthType|UNRECOGNIZED|
+| Property  | Value               |
+|-----------|---------------------|
+| depthType | UNKNOWN_DEPTH_TYPE  |
+| depthType | SNAPSHOT            |
+| depthType | CHANGED             |
+| depthType | UNRECOGNIZED       |
 
 <h2 id="tocS_BookOrder">BookOrder</h2>
 
@@ -570,17 +547,16 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "price": "string",
   "size": "string"
 }
-
 ```
 
-订单簿信息
+Order Book Information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|price|string(decimal)|false|none||价格|
-|size|string(decimal)|false|none||数量|
+| Name  | Type           | Required | Constraints | Chinese Name | Description |
+|-------|----------------|----------|-------------|--------------|-------------|
+| price | string(decimal)| false    | none        |              | Price       |
+| size  | string(decimal)| false    | none        |              | Quantity    |
 
 <h2 id="tocS_Result<PageData<Kline>>">Result<PageData<Kline>></h2>
 
@@ -622,20 +598,19 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataKline](#schemapagedatakline)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                 | Required | Constraints | Chinese Name | Description                                  |
+|-------------|----------------------|----------|-------------|--------------|----------------------------------------------|
+| code        | string               | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
+| data        | [PageDataKline](#schemapagedatakline) | false    | none        |              | Generic paginated response                       |
+| errorParam  | object               | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string            | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)    | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)    | false    | none        |              | Server response return time                  |
+| traceId     | string               | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_PageDataKline">PageDataKline</h2>
 
@@ -667,17 +642,16 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic paginated response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[Kline](#schemakline)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type             | Required | Constraints | Chinese Name | Description                          |
+|--------------------|------------------|----------|-------------|--------------|--------------------------------------|
+| dataList           | [[Kline](#schemakline)]| false    | none        |              | Data list                            |
+| nextPageOffsetData | string           | false    | none        |              | Offset for the next page. If there is no next page, it's an empty string |
 
 <h2 id="tocS_Kline">Kline</h2>
 
@@ -704,58 +678,57 @@ GET /api/v1/public/quote/getAccurateOpenInterest
   "makerBuySize": "string",
   "makerBuyValue": "string"
 }
-
 ```
 
-K线
+K-Line
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|klineId|string(int64)|false|none||K线ID|
-|contractId|string(int64)|false|none||永续合约id|
-|contractName|string|false|none||永续合约名称|
-|klineType|string|false|none||K线类型|
-|klineTime|string(int64)|false|none||K线时间|
-|priceType|string|false|none||K线的价格类型|
-|trades|string(int64)|false|none||成交笔数|
-|size|string(decimal)|false|none||成交量|
-|value|string(decimal)|false|none||成交额|
-|high|string(decimal)|false|none||最高价|
-|low|string(decimal)|false|none||最低价|
-|open|string(decimal)|false|none||内开盘价|
-|close|string(decimal)|false|none||内收盘价|
-|makerBuySize|string(decimal)|false|none||Maker买入成交量|
-|makerBuyValue|string(decimal)|false|none||Maker买入成交额|
+| Name        | Type                | Required | Constraints | Chinese Name | Description            |
+|-------------|---------------------|----------|-------------|--------------|------------------------|
+| klineId     | string(int64)        | false    | none        |              | K-Line ID              |
+| contractId  | string(int64)        | false    | none        |              | Perpetual contract ID  |
+| contractName | string              | false    | none        |              | Perpetual contract name |
+| klineType   | string              | false    | none        |              | K-Line type            |
+| klineTime   | string(int64)        | false    | none        |              | K-Line time            |
+| priceType   | string              | false    | none        |              | Price type of the K-line    |
+| trades      | string(int64)        | false    | none        |              | Number of trades        |
+| size        | string(decimal)      | false    | none        |              | Volume                 |
+| value       | string(decimal)      | false    | none        |              | Value                  |
+| high        | string(decimal)      | false    | none        |              | High price              |
+| low         | string(decimal)      | false    | none        |              | Low price               |
+| open        | string(decimal)      | false    | none        |              | Opening price          |
+| close       | string(decimal)      | false    | none        |              | Closing price          |
+| makerBuySize| string(decimal)     | false    | none        |              | Maker buy volume |
+| makerBuyValue | string(decimal)     | false    | none        |              | Maker buy value |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|klineType|UNKNOWN_KLINE_TYPE|
-|klineType|MINUTE_1|
-|klineType|MINUTE_5|
-|klineType|MINUTE_15|
-|klineType|MINUTE_30|
-|klineType|HOUR_1|
-|klineType|HOUR_2|
-|klineType|HOUR_4|
-|klineType|HOUR_6|
-|klineType|HOUR_8|
-|klineType|HOUR_12|
-|klineType|DAY_1|
-|klineType|WEEK_1|
-|klineType|MONTH_1|
-|klineType|UNRECOGNIZED|
-|priceType|UNKNOWN_PRICE_TYPE|
-|priceType|ORACLE_PRICE|
-|priceType|INDEX_PRICE|
-|priceType|LAST_PRICE|
-|priceType|ASK1_PRICE|
-|priceType|BID1_PRICE|
-|priceType|OPEN_INTEREST|
-|priceType|UNRECOGNIZED|
+| Property  | Value              |
+|-----------|--------------------|
+| klineType | UNKNOWN_KLINE_TYPE  |
+| klineType | MINUTE_1            |
+| klineType | MINUTE_5            |
+| klineType | MINUTE_15           |
+| klineType | MINUTE_30           |
+| klineType | HOUR_1              |
+| klineType | HOUR_2              |
+| klineType | HOUR_4              |
+| klineType | HOUR_6              |
+| klineType | HOUR_8              |
+| klineType | HOUR_12             |
+| klineType | DAY_1               |
+| klineType | WEEK_1              |
+| klineType | MONTH_1             |
+| klineType | UNRECOGNIZED       |
+| priceType | UNKNOWN_PRICE_TYPE |
+| priceType | ORACLE_PRICE       |
+| priceType | INDEX_PRICE        |
+| priceType | LAST_PRICE         |
+| priceType | ASK1_PRICE        |
+| priceType | BID1_PRICE        |
+| priceType | OPEN_INTEREST        |
+| priceType | UNRECOGNIZED       |
 
 <h2 id="tocS_Result<List<ContractKline>>">Result<List<ContractKline>></h2>
 
@@ -799,20 +772,19 @@ K线
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[ContractMultiKline](#schemacontractmultikline)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                  | Required | Constraints | Chinese Name | Description                                   |
+|-------------|-----------------------|----------|-------------|--------------|-----------------------------------------------|
+| code        | string                | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
+| data        | [[ContractMultiKline](#schemacontractmultikline)]| false    | none        |              | Correct response data                           |
+| errorParam  | object                | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string             | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)     | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)     | false    | none        |              | Server response return time                  |
+| traceId     | string                | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_ContractMultiKline">ContractMultiKline</h2>
 
@@ -839,22 +811,21 @@ K线
       "low": "string",
       "open": "string",
       "close": "string",
-      "makerBuySize": "string",
+       "makerBuySize": "string",
       "makerBuyValue": "string"
     }
   ]
 }
-
 ```
 
-合约多条K线
+Multiple K-Lines for a Contract
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||永续合约id|
-|klineList|[[Kline](#schemakline)]|false|none||kline数据集合|
+| Name        | Type                | Required | Constraints | Chinese Name | Description               |
+|-------------|---------------------|----------|-------------|--------------|---------------------------|
+| contractId  | string(int64)        | false    | none        |              | Perpetual contract ID     |
+| klineList   | [[Kline](#schemakline)]  | false    | none        |              | Collection of kline data |
 
 <h2 id="tocS_Result<List<StatDayTrade>>">Result<List<StatDayTrade>></h2>
 
@@ -882,20 +853,19 @@ K线
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[StatDayTrade](#schemastatdaytrade)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
+|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
+| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
+| data        | [[StatDayTrade](#schemastatdaytrade)]| false    | none        |              | Correct response data                           |
+| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
+| traceId     | string                 | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_StatDayTrade">StatDayTrade</h2>
 
@@ -911,19 +881,18 @@ K线
   "totalValue": "string",
   "createTime": "string"
 }
-
 ```
 
-日交易信息
+Daily Trading Information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dayTime|string(int64)|false|none||日期|
-|totalTrades|string(int64)|false|none||总交易笔数|
-|totalValue|string|false|none||总交易额|
-|createTime|string(int64)|false|none||创建时间|
+| Name        | Type                | Required | Constraints | Chinese Name | Description        |
+|-------------|---------------------|----------|-------------|--------------|--------------------|
+| dayTime     | string(int64)        | false    | none        |              | Date             |
+| totalTrades | string(int64)        | false    | none        |              | Total number of trades  |
+| totalValue  | string              | false    | none        |              | Total trading value   |
+| createTime  | string(int64)        | false    | none        |              | Creation time     |
 
 <h2 id="tocS_Result<List<Ticker>>">Result<List<Ticker>></h2>
 
@@ -948,7 +917,7 @@ K线
       "low": "string",
       "open": "string",
       "close": "string",
-      "highTime": "string",
+      "highTime": "```json
       "lowTime": "string",
       "startTime": "string",
       "endTime": "string",
@@ -969,20 +938,19 @@ K线
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Ticker](#schematicker)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
+|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
+| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
+| data        | [[Ticker](#schematicker)] | false    | none        |              | Correct response data                           |
+| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
+| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
+| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
+| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
+| traceId     | string                 | false    | none        |              | Call trace ID                              |
 
 <h2 id="tocS_Ticker">Ticker</h2>
 
@@ -1016,37 +984,36 @@ K线
   "fundingTime": "string",
   "nextFundingTime": "string"
 }
-
 ```
 
-24小时行情
+24-Hour Quotes
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|contractId|string(int64)|false|none||合约ID|
-|contractName|string|false|none||合约名称|
-|priceChange|string(decimal)|false|none||价格涨跌幅|
-|priceChangePercent|string(decimal)|false|none||价格涨跌幅百分比|
-|trades|string(int64)|false|none||24小时成交笔数|
-|size|string(decimal)|false|none||24小时成交量|
-|value|string(decimal)|false|none||24小时成交额|
-|high|string(decimal)|false|none||24小时最高价|
-|low|string(decimal)|false|none||24小时最低价|
-|open|string(decimal)|false|none||24小时内开盘价|
-|close|string(decimal)|false|none||24小时内收盘价|
-|highTime|string(int64)|false|none||24小时最高价时间|
-|lowTime|string(int64)|false|none||24小时最低价时间|
-|startTime|string(int64)|false|none||24小时行情开始时间|
-|endTime|string(int64)|false|none||24小时行情结束时间|
-|lastPrice|string(decimal)|false|none||最新成交价|
-|indexPrice|string(decimal)|false|none||当前指数价格|
-|oraclePrice|string(decimal)|false|none||当前预言机价格|
-|openInterest|string(decimal)|false|none||未平仓持仓量|
-|fundingRate|string|false|none||当前已经结算的资金费率|
-|fundingTime|string(int64)|false|none||资金费率结算时间|
-|nextFundingTime|string(int64)|false|none||下次资金费率结算时间|
+| Name            | Type           | Required | Constraints | Chinese Name | Description                    |
+|-----------------|----------------|----------|-------------|--------------|--------------------------------|
+| contractId      | string(int64)   | false    | none        |              | Contract ID                    |
+| contractName    | string         | false    | none        |              | Contract Name                  |
+| priceChange     | string(decimal) | false    | none        |              | Price change                   |
+| priceChangePercent | string(decimal)| false    | none        |              | Price change percentage         |
+| trades          | string(int64)   | false    | none        |              | 24-hour number of trades      |
+| size            | string(decimal) | false    | none        |              | 24-hour trading volume         |
+| value           | string(decimal) | false    | none        |              | 24-hour trading value          |
+| high            | string(decimal) | false    | none        |              | 24-hour high price              |
+| low             | string(decimal) | false    | none        |              | 24-hour low price              |
+| open            | string(decimal) | false    | none        |              | 24-hour opening price          |
+| close           | string(decimal) | false    | none        |              | 24-hour closing price          |
+| highTime        | string(int64)   | false    | none        |              | 24-hour high price time        |
+| lowTime         | string(int64)   | false    | none        |              | 24-hour low price time        |
+| startTime       | string(int64)   | false    | none        |              | 24-hour quote start time       |
+| endTime         | string(int64)   | false    | none        |              | 24-hour quote end time         |
+| lastPrice       | string(decimal) | false    | none        |              | Latest trade price            |
+| indexPrice      | string(decimal) | false    | none        |              | Current index price            |
+| oraclePrice     | string(decimal) | false    | none        |              | Current oracle price         |
+| openInterest    | string(decimal) | false    | none        |              | Open Interest                |
+| fundingRate     | string         | false    | none        |              | Current already settled funding rate    |
+| fundingTime     | string(int64)   | false    | none        |              | Funding rate settlement time   |
+| nextFundingTime | string(int64)   | false    | none        |              | Next funding rate settlement time|
 
 <h2 id="tocS_Result<GetTickerSummaryModel>">Result<GetTickerSummaryModel></h2>
 
@@ -1074,20 +1041,19 @@ K线
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetTickerSummary](#schemagettickersummary)|false|none||获取行情汇总响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name        | Type                      | Required | Constraints | Chinese Name | Description                               |
+|-------------|---------------------------|----------|-------------|--------------|-------------------------------------------|
+| code        | string                    | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
+| data        | [GetTickerSummary](#schemagettickersummary)  | false    | none        |              | Get quote summary response                |
+| errorParam  | object                    | false    | none        |              | Parameter information in error messages         |
+| » **additionalProperties** | string               | false    | none        |              | Parameter information in error messages|
+| requestTime | string(timestamp)         | false    | none        |              | Server request reception time            |
+| responseTime| string(timestamp)         | false    | none        |              | Server response return time                |
+| traceId     | string                    | false    | none        |              | Call trace ID                           |
 
 <h2 id="tocS_GetTickerSummary">GetTickerSummary</h2>
 
@@ -1105,16 +1071,15 @@ K线
     "openInterest": "string"
   }
 }
-
 ```
 
-获取行情汇总响应
+Get Quote Summary Response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|tickerSummary|[TickerSummary](#schematickersummary)|false|none||行情汇总|
+| Name          | Type                 | Required | Constraints | Chinese Name | Description      |
+|---------------|----------------------|----------|-------------|--------------|------------------|
+| tickerSummary | [TickerSummary](#schematickersummary) | false    | none        |              | Quote summary  |
 
 <h2 id="tocS_TickerSummary">TickerSummary</h2>
 
@@ -1130,29 +1095,28 @@ K线
   "value": "string",
   "openInterest": "string"
 }
-
 ```
 
-行情汇总
+Quote Summary
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|period|string|false|none||汇总周期|
-|trades|string|false|none||交易所总交易笔数|
-|value|string|false|none||总成交金额|
-|openInterest|string|false|none||当前总未平仓额|
+| Name         | Type   | Required | Constraints | Chinese Name | Description              |
+|--------------|--------|----------|-------------|--------------|--------------------------|
+| period       | string | false    | none        |              | Summary period             |
+| trades       | string | false    | none        |              | Total exchange number of trades  |
+| value        | string | false    | none        |              | Total traded value         |
+| openInterest | string | false    | none        |              | Current total open interest |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|period|UNKNOWN_PERIOD|
-|period|LAST_DAY_1|
-|period|LAST_DAY_7|
-|period|LAST_DAY_30|
-|period|UNRECOGNIZED|
+| Property | Value            |
+|----------|------------------|
+| period   | UNKNOWN_PERIOD   |
+| period   | LAST_DAY_1        |
+| period   | LAST_DAY_7        |
+| period   | LAST_DAY_30       |
+| period   | UNRECOGNIZED     |
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -1168,17 +1132,15 @@ K线
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+Generic Response Structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
-
+| Name         | Type             | Required | Constraints | Chinese Name | Description                          |
+|--------------|------------------|----------|-------------|--------------|--------------------------------------|
+| code         | string           | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
+| msg          | string           | false    | none        |              | Detailed error message when an error occurs |
+| requestTime  | string(int64)     | false    | none        |              | Server request reception time          |
+| responseTime | string(int64)    | false    | none        |              | Server response return time              |
