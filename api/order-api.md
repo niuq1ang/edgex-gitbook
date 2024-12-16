@@ -1,5 +1,3 @@
-Okay, here's the English translation of the provided API documentation, keeping the original structure and formatting as much as possible.
-
 # test
 
 > v1.0.0
