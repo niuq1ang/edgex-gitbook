@@ -1,23 +1,4 @@
----
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
-
----
+Okay, here's the English translation of the provided API documentation, keeping the original structure and formatting as much as possible.
 
 # test
 
@@ -29,11 +10,11 @@ Base URLs:
 
 <a id="opIdgetMaxCreateOrderSize"></a>
 
-## POST 获取最大下单数量
+## POST Get Maximum Order Creation Size
 
 POST /api/v1/private/order/getMaxCreateOrderSize
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -43,13 +24,13 @@ POST /api/v1/private/order/getMaxCreateOrderSize
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[GetMaxCreateOrderSizeParam](#schemagetmaxcreateordersizeparam)| 否 |none|
+|body|body|[GetMaxCreateOrderSizeParam](#schemagetmaxcreateordersizeparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -62,19 +43,19 @@ POST /api/v1/private/order/getMaxCreateOrderSize
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdcreateOrder"></a>
 
-## POST 创建委托单
+## POST Create Order
 
 POST /api/v1/private/order/createOrder
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -136,13 +117,13 @@ POST /api/v1/private/order/createOrder
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CreateOrderParam](#schemacreateorderparam)| 否 |none|
+|body|body|[CreateOrderParam](#schemacreateorderparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -162,21 +143,21 @@ POST /api/v1/private/order/createOrder
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdcancelOrderById"></a>
 
-## POST 根据委托单id取消委托单
+## POST Cancel Order by Order ID
 
 POST /api/v1/private/order/cancelOrderById
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -187,13 +168,13 @@ POST /api/v1/private/order/cancelOrderById
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CancelOrderByIdParam](#schemacancelorderbyidparam)| 否 |none|
+|body|body|[CancelOrderByIdParam](#schemacancelorderbyidparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -216,21 +197,21 @@ POST /api/v1/private/order/cancelOrderById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdcancelOrderByClientOrderId"></a>
 
-## POST 根据clientId取消委托单
+## POST Cancel Order by Client Order ID
 
 POST /api/v1/private/order/cancelOrderByClientOrderId
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -241,13 +222,13 @@ POST /api/v1/private/order/cancelOrderByClientOrderId
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CancelOrderByClientOrderIdParam](#schemacancelorderbyclientorderidparam)| 否 |none|
+|body|body|[CancelOrderByClientOrderIdParam](#schemacancelorderbyclientorderidparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -260,19 +241,19 @@ POST /api/v1/private/order/cancelOrderByClientOrderId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdcancelAllOrder"></a>
 
-## POST 取消账户下所有委托单
+## POST Cancel All Orders under Account
 
 POST /api/v1/private/order/cancelAllOrder
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -295,13 +276,13 @@ POST /api/v1/private/order/cancelAllOrder
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CancelAllOrderParam](#schemacancelallorderparam)| 否 |none|
+|body|body|[CancelAllOrderParam](#schemacancelallorderparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -324,28 +305,28 @@ POST /api/v1/private/order/cancelAllOrder
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetOrderById"></a>
 
-## GET 根据账户id和委托单id批量获取委托单
+## GET Get Orders by Account ID and Order IDs (Batch)
 
 GET /api/v1/private/order/getOrderById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|orderIdList|query|string| 否 |委托单id|
+|accountId|query|string| No |Account ID|
+|orderIdList|query|string| No |Order IDs|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -473,28 +454,28 @@ GET /api/v1/private/order/getOrderById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetOrderByClientOrderId"></a>
 
-## GET 根据客户id批量获取委托单
+## GET Get Orders by Client Order IDs (Batch)
 
 GET /api/v1/private/order/getOrderByClientOrderId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|clientOrderIdList|query|string| 否 |客户端自定义委托单id|
+|accountId|query|string| No |Account ID|
+|clientOrderIdList|query|string| No |Client-defined order IDs|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -622,38 +603,38 @@ GET /api/v1/private/order/getOrderByClientOrderId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetHistoryOrderPage"></a>
 
-## GET 根据账户id翻页获取委托单
+## GET Get Historical Orders (Paginated)
 
 GET /api/v1/private/order/getHistoryOrderPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的委托单，如果为空则获取所有抵押品coinId的委托单|
-|filterContractIdList|query|string| 否 |过滤获取指定合约的委托单；如果为空的话获取所有合约委托单|
-|filterTypeList|query|string| 否 |过滤获取指定类型的委托单，不填的话所有类型委托单|
-|filterStatusList|query|string| 否 |过滤获取指定状态的委托单，不填的话所有状态委托单|
-|filterIsLiquidateList|query|string| 否 |过滤获取指定是否为清算的委托单，不填的话所有委托单|
-|filterIsDeleverageList|query|string| 否 |过滤获取指定是否为减仓的委托单，不填的话所有委托单|
-|filterIsPositionTpslList|query|string| 否 |过滤获取指定是否为仓位止盈止损单，不填的话所有委托单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的委托单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 | 过滤获取指定结束时间创建的委托单 (不包含)，不填或者为0的话就到最近|
+|accountId|query|string| No |Account ID|
+|size|query|string| No |Number of items to fetch. Must be greater than 0 and less than or equal to 100.|
+|offsetData|query|string| No |Pagination offset. If not provided or empty, retrieves the first page.|
+|filterCoinIdList|query|string| No |Filters by collateral coin IDs. If empty, fetches orders for all collateral coin IDs.|
+|filterContractIdList|query|string| No |Filters by contract IDs. If empty, fetches orders for all contracts.|
+|filterTypeList|query|string| No |Filters by order types. If empty, fetches orders of all types.|
+|filterStatusList|query|string| No |Filters by order status. If empty, fetches orders of all statuses.|
+|filterIsLiquidateList|query|string| No |Filters by liquidate orders. If empty, fetches all orders|
+|filterIsDeleverageList|query|string| No |Filters by deleverage orders. If empty, fetches all orders|
+|filterIsPositionTpslList|query|string| No |Filters by position TP/SL orders. If empty, fetches all orders|
+|filterStartCreatedTimeInclusive|query|string| No |Filters orders created after or on this time (inclusive). If empty or 0, retrieves from the earliest.|
+|filterEndCreatedTimeExclusive|query|string| No |Filters orders created before this time (exclusive). If empty or 0, retrieves to the latest.|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -666,35 +647,35 @@ GET /api/v1/private/order/getHistoryOrderPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetHistoryOrderFillTransactionPage"></a>
 
-## GET 根据账户id和委托单ids批量获取成交单
+## GET Get Historical Order Fill Transactions (Paginated)
 
 GET /api/v1/private/order/getHistoryOrderFillTransactionPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的成交明细，如果为空则获取所有抵押品coinId的成交明细|
-|filterContractIdList|query|string| 否 |过滤获取指定合约的委托成交明细；如果为空的话获取所有合约委托成交明细|
-|filterOrderIdList|query|string| 否 |过滤获取指定委托单的成交明细；如果为空的话获取所有委托单的委托成交明细|
-|filterIsLiquidateList|query|string| 否 |过滤获取指定是否为清算的委托单，不填的话所有委托单|
-|filterIsDeleverageList|query|string| 否 |过滤获取指定是否为减仓的委托单，不填的话所有委托单|
-|filterIsPositionTpslList|query|string| 否 |过滤获取指定是否为仓位止盈止损单，不填的话所有委托单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的委托单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 | 过滤获取指定结束时间创建的委托单 (不包含)，不填或者为0的话就到最近|
+|accountId|query|string| No |Account ID|
+|size|query|string| No |Number of items to fetch. Must be greater than 0 and less than or equal to 100.|
+|offsetData|query|string| No |Pagination offset. If not provided or empty, retrieves the first page.|
+|filterCoinIdList|query|string| No |Filters by collateral coin IDs. If empty, fetches order fill transactions for all collateral coin IDs.|
+|filterContractIdList|query|string| No |Filters by contract IDs. If empty, fetches order fill transactions for all contracts.|
+|filterOrderIdList|query|string| No |Filters by order IDs. If empty, fetches order fill transactions for all orders.|
+|filterIsLiquidateList|query|string| No |Filters by liquidate orders. If empty, fetches all orders|
+|filterIsDeleverageList|query|string| No |Filters by deleverage orders. If empty, fetches all orders|
+|filterIsPositionTpslList|query|string| No |Filters by position TP/SL orders. If empty, fetches all orders|
+|filterStartCreatedTimeInclusive|query|string| No |Filters order fill transactions created after or on this time (inclusive). If empty or 0, retrieves from the earliest.|
+|filterEndCreatedTimeExclusive|query|string| No |Filters order fill transactions created before this time (exclusive). If empty or 0, retrieves to the latest.|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -707,26 +688,26 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetHistoryOrderFillTransactionById"></a>
 
-## GET 根据账户id和委托成交明细id批量获取委托成交明细
+## GET Get Historical Order Fill Transactions by ID (Batch)
 
 GET /api/v1/private/order/getHistoryOrderFillTransactionById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|orderFillTransactionIdList|query|string| 否 |委托成交明细id|
+|accountId|query|string| No |Account ID|
+|orderFillTransactionIdList|query|string| No |Order fill transaction IDs|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -739,26 +720,26 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetHistoryOrderById"></a>
 
-## GET 根据账户id和委托单id批量获取委托单
+## GET Get Historical Orders by ID (Batch)
 
 GET /api/v1/private/order/getHistoryOrderById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|orderIdList|query|string| 否 |委托单id|
+|accountId|query|string| No |Account ID|
+|orderIdList|query|string| No |Order IDs|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -886,28 +867,28 @@ GET /api/v1/private/order/getHistoryOrderById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetHistoryOrderByClientOrderId"></a>
 
-## GET 根据账户id和委托单id批量获取委托单
+## GET Get Historical Orders by Client Order IDs (Batch)
 
 GET /api/v1/private/order/getHistoryOrderByClientOrderId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|clientOrderIdList|query|string| 否 |委托单 client order id|
+|accountId|query|string| No |Account ID|
+|clientOrderIdList|query|string| No |Order client order id|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -1020,7 +1001,7 @@ GET /api/v1/private/order/getHistoryOrderByClientOrderId
       "cumFailFee": "string",
       "cumApprovedSize": "string",
       "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
+      "cumApprovedFee": "string```json
       "createdTime": "string",
       "updatedTime": "string"
     }
@@ -1035,38 +1016,38 @@ GET /api/v1/private/order/getHistoryOrderByClientOrderId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetActiveOrderPage"></a>
 
-## GET 分页获取账户下活动的委托单
+## GET Get Active Orders (Paginated)
 
 GET /api/v1/private/order/getActiveOrderPage
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于200|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的活动委托单，如果为空则获取所有抵押品coinId的活动委托单|
-|filterContractIdList|query|string| 否 |过滤获取对应合约的活动委托单，如果为空则获取所有合约的活动委托单|
-|filterTypeList|query|string| 否 |过滤获取指定类型的委托单，不填的话所有类型委托单|
-|filterStatusList|query|string| 否 |过滤获取指定状态的委托单，不填的话所有状态委托单|
-|filterIsLiquidateList|query|string| 否 |过滤获取指定是否为清算的委托单，不填的话所有委托单|
-|filterIsDeleverageList|query|string| 否 |过滤获取指定是否为减仓的委托单，不填的话所有委托单|
-|filterIsPositionTpslList|query|string| 否 |过滤获取指定是否为仓位止盈止损单，不填的话所有委托单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的委托单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的委托单 (不包含)，不填或者为0的话就到最近|
+|accountId|query|string| No |Account ID|
+|size|query|string| No |Number of items to fetch. Must be greater than 0 and less than or equal to 200.|
+|offsetData|query|string| No |Pagination offset. If not provided or empty, retrieves the first page.|
+|filterCoinIdList|query|string| No |Filters by collateral coin IDs. If empty, fetches active orders for all collateral coin IDs.|
+|filterContractIdList|query|string| No |Filters by contract IDs. If empty, fetches active orders for all contracts.|
+|filterTypeList|query|string| No |Filters by order types. If empty, fetches orders of all types.|
+|filterStatusList|query|string| No |Filters by order status. If empty, fetches orders of all statuses.|
+|filterIsLiquidateList|query|string| No |Filters by liquidate orders. If empty, fetches all orders|
+|filterIsDeleverageList|query|string| No |Filters by deleverage orders. If empty, fetches all orders|
+|filterIsPositionTpslList|query|string| No |Filters by position TP/SL orders. If empty, fetches all orders|
+|filterStartCreatedTimeInclusive|query|string| No |Filters orders created after or on this time (inclusive). If empty or 0, retrieves from the earliest.|
+|filterEndCreatedTimeExclusive|query|string| No |Filters orders created before this time (exclusive). If empty or 0, retrieves to the latest.|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -1079,15 +1060,15 @@ GET /api/v1/private/order/getActiveOrderPage
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
-# 数据模型
+# Data Models
 
-<h2 id="tocS_Result<List<OrderFillTransaction>>">Result<List<OrderFillTransaction>></h2>
+<h2 id="tocS_Result<List<OrderFillTransaction>>">Result&lt;List&lt;OrderFillTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<list<orderfilltransaction>>"></a>
 <a id="schema_Result<List<OrderFillTransaction>>"></a>
@@ -1152,17 +1133,17 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none|Successful response data.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_OrderFillTransaction">OrderFillTransaction</h2>
 
@@ -1217,56 +1198,56 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-委托单成交明细
+Order fill transaction details
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||唯一标识|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|contractId|string(int64)|false|none||所属合约id|
-|orderId|string(int64)|false|none||所属委托单id|
-|orderSide|string|false|none||买卖方向|
-|fillSize|string|false|none||实际成交数量|
-|fillValue|string|false|none||实际成交价值|
-|fillFee|string|false|none||实际成交费用|
-|fillPrice|string|false|none||成交价格 (非精确值，仅展示使用)|
-|liquidateFee|string|false|none||如果是清算(强平)成交，此字段为清算费用|
-|realizePnl|string|false|none||实际已实现盈亏(成交包含平仓才会有值)|
-|direction|string|false|none||实际成交方向|
-|isPositionTpsl|boolean|false|none||是否为仓位止盈止损单|
-|isLiquidate|boolean|false|none||是否是清算(强平)单成交|
-|isDeleverage|boolean|false|none||是否是自动减仓单成交|
-|isWithoutMatch|boolean|false|none||是否为不经过撮合直接成交的委托单|
-|matchSequenceId|string(int64)|false|none||提交撮合处理后的顺序id|
-|matchIndex|integer(int32)|false|none||提交撮合处理后多次成交的index|
-|matchTime|string(int64)|false|none||提交撮合处理后的时间|
-|matchAccountId|string(int64)|false|none||成交对手账户id|
-|matchOrderId|string(int64)|false|none||成交对手委托单id|
-|matchFillId|string|false|none||撮合引擎返回的成交id|
-|positionTransactionId|string(int64)|false|none||关联的仓位明细id。|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id。|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|censorStatus|string|false|none||当前审查状态|
-|censorTxId|string(int64)|false|none||审查处理序号。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 censor_status=CENSOR_SUCCESS/CENSOR_FAILURE/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 censor_status=CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 censor_status=CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|id|string(int64)|false|none|Unique identifier.|
+|userId|string(int64)|false|none|User ID.|
+|accountId|string(int64)|false|none|Account ID.|
+|coinId|string(int64)|false|none|Collateral coin ID.|
+|contractId|string(int64)|false|none|Contract ID.|
+|orderId|string(int64)|false|none|Order ID.|
+|orderSide|string|false|none|Buy/Sell direction.|
+|fillSize|string|false|none|Actual filled quantity.|
+|fillValue|string|false|none|Actual filled value.|
+|fillFee|string|false|none|Actual filled fee.|
+|fillPrice|string|false|none|Fill price (not precise, for display purposes only).|
+|liquidateFee|string|false|none|Liquidation fee if it's a liquidation (forced liquidation) transaction.|
+|realizePnl|string|false|none|Realized profit and loss (only available if the fill includes closing a position).|
+|direction|string|false|none|Actual fill direction.|
+|isPositionTpsl|boolean|false|none|Whether this is a position take-profit/stop-loss order.|
+|isLiquidate|boolean|false|none|Whether this is a liquidation (forced liquidation) fill.|
+|isDeleverage|boolean|false|none|Whether this is an auto-deleverage fill.|
+|isWithoutMatch|boolean|false|none|Whether this order was filled directly without matching.|
+|matchSequenceId|string(int64)|false|none|Sequence ID after submitting to the matching engine.|
+|matchIndex|integer(int32)|false|none|Index for multiple fills after submitting to the matching engine.|
+|matchTime|string(int64)|false|none|Time after submitting to the matching engine.|
+|matchAccountId|string(int64)|false|none|Counterparty account ID.|
+|matchOrderId|string(int64)|false|none|Counterparty order ID.|
+|matchFillId|string|false|none|Fill ID returned by the matching engine.|
+|positionTransactionId|string(int64)|false|none|Associated position transaction ID.|
+|collateralTransactionId|string(int64)|false|none|Associated collateral transaction ID.|
+|extraType|string|false|none|Additional type for upper-layer business use.|
+|extraDataJson|string|false|none|Additional data in JSON format. Defaults to an empty string.|
+|censorStatus|string|false|none|Current censorship status.|
+|censorTxId|string(int64)|false|none|Censorship processing sequence ID. Exists when `censor_status` is `CENSOR_SUCCESS`/`CENSOR_FAILURE`/`L2_APPROVED`/`L2_REJECT`/`L2_REJECT_APPROVED`.|
+|censorTime|string(int64)|false|none|Censorship processing time. Exists when `censor_status` is `CENSOR_SUCCESS`/`CENSOR_FAILURE`/`L2_APPROVED`/`L2_REJECT`/`L2_REJECT_APPROVED`.|
+|censorFailCode|string|false|none|Censorship failure error code. Exists when `censor_status` is `CENSOR_FAILURE`.|
+|censorFailReason|string|false|none|Censorship failure reason. Exists when `censor_status` is `CENSOR_FAILURE`.|
+|l2TxId|string(int64)|false|none|L2 push transaction ID. Exists when `censor_status` is `CENSOR_SUCCESS`/`L2_APPROVED`/`L2_REJECT`/`L2_REJECT_APPROVED`.|
+|l2RejectTime|string(int64)|false|none|L2 rejection time. Exists when `censor_status` is `L2_REJECT`/`L2_REJECT_APPROVED`.|
+|l2RejectCode|string|false|none|L2 rejection error code. Exists when `censor_status` is `L2_REJECT`/`L2_REJECT_APPROVED`.|
+|l2RejectReason|string|false|none|L2 rejection reason. Exists when `censor_status` is `L2_REJECT`/`L2_REJECT_APPROVED`.|
+|l2ApprovedTime|string(int64)|false|none|L2 batch verification time. Exists when `status` is `L2_APPROVED`/`L2_REJECT_APPROVED`.|
+|createdTime|string(int64)|false|none|Creation time.|
+|updatedTime|string(int64)|false|none|Update time.|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |orderSide|UNKNOWN_ORDER_SIDE|
 |orderSide|BUY|
@@ -1285,7 +1266,7 @@ GET /api/v1/private/order/getActiveOrderPage
 |censorStatus|L2_REJECT_APPROVED|
 |censorStatus|UNRECOGNIZED|
 
-<h2 id="tocS_Result<PageData<OrderFillTransaction>>">Result<PageData<OrderFillTransaction>></h2>
+<h2 id="tocS_Result<PageData<OrderFillTransaction>>">Result&lt;PageData&lt;OrderFillTransaction&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<orderfilltransaction>>"></a>
 <a id="schema_Result<PageData<OrderFillTransaction>>"></a>
@@ -1353,17 +1334,17 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataOrderFillTransaction](#schemapagedataorderfilltransaction)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[PageDataOrderFillTransaction](#schemapagedataorderfilltransaction)|false|none|Generic paginated response.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_PageDataOrderFillTransaction">PageDataOrderFillTransaction</h2>
 
@@ -1423,16 +1404,16 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-通用翻页返回
+Generic paginated response.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|dataList|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none|Data list.|
+|nextPageOffsetData|string|false|none|Offset for retrieving the next page. Empty string if no more data available.|
 
-<h2 id="tocS_Result<PageData<Order>>">Result<PageData<Order>></h2>
+<h2 id="tocS_Result<PageData<Order>>">Result&lt;PageData&lt;Order&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<order>>"></a>
 <a id="schema_Result<PageData<Order>>"></a>
@@ -1559,17 +1540,17 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataOrder](#schemapagedataorder)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[PageDataOrder](#schemapagedataorder)|false|none|Generic paginated response.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_PageDataOrder">PageDataOrder</h2>
 
@@ -1696,14 +1677,14 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-通用翻页返回
+Generic paginated response.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[Order](#schemaorder)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|dataList|[[Order](#schemaorder)]|false|none|Data list.|
+|nextPageOffsetData|string|false|none|Offset for retrieving the next page. Empty string if no more data available.|
 
 <h2 id="tocS_Order">Order</h2>
 
@@ -1825,83 +1806,83 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```
 
-永续合约委托单信息
+Perpetual contract order information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||委托单id。取值大于0|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||所属账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|contractId|string(int64)|false|none||所属合约id|
-|side|string|false|none||买卖方向|
-|price|string|false|none||委托价格(最差可接受的价格), 实际为decimal类型。|
-|size|string|false|none||委托数量, 实际为decimal类型|
-|clientOrderId|string|false|none||客户自定义id，用于幂等校验|
-|type|string|false|none||委托单类型|
-|timeInForce|string|false|none||委托单执行策略。type为 LIMIT/STOP_LIMIT/TAKE_PROFIT_LIMIT 时有意义。|
-|reduceOnly|boolean|false|none||是否是只减仓委托|
-|triggerPrice|string|false|none||触发价格。type为 STOP_LIMIT/STOP_MARKET/TAKE_PROFIT_LIMIT/TAKE_PROFIT_MARKET 时有意义。如果为0代表字段为空。实际为decimal类型|
-|triggerPriceType|string|false|none||价格类型。最新市价[默认],标记价格。。type为 STOP_LIMIT/STOP_MARKET/TAKE_PROFIT_LIMIT/TAKE_PROFIT_MARKET 时有意义。|
-|expireTime|string(int64)|false|none||过期时间。|
-|sourceKey|string|false|none||来源key，uuid|
-|isPositionTpsl|boolean|false|none||是否为仓位止盈止损单|
-|isLiquidate|boolean|false|none||是否是强平单|
-|isDeleverage|boolean|false|none||是否是自动减仓单|
-|openTpslParentOrderId|string(int64)|false|none||开仓止盈单，止损单的开仓单orderId|
-|isSetOpenTp|boolean|false|none||是否设置开仓止盈|
-|openTp|[OpenTpSl](#schemaopentpsl)|false|none||开仓止盈止损参数|
-|isSetOpenSl|boolean|false|none||是否设置开仓止损|
-|openSl|[OpenTpSl](#schemaopentpsl)|false|none||开仓止盈止损参数|
-|isWithoutMatch|boolean|false|none||是否为不经过撮合直接场外成交的委托单|
-|withoutMatchFillSize|string|false|none||场外交易成交数量 (仅当 is_without_match 为 true 时有效)|
-|withoutMatchFillValue|string|false|none||场外交易成交价值 (仅当 is_without_match 为 true 时有效)|
-|withoutMatchPeerAccountId|string(int64)|false|none||场外交易对手accountId (仅当 is_without_match 为 true 时有效)|
-|withoutMatchPeerOrderId|string(int64)|false|none||场外交易对手orderId (仅当 is_without_match 为 true 时有效)|
-|maxLeverage|string|false|none||下单时开仓杠杆倍数, 实际为decimal类型|
-|takerFeeRate|string|false|none||下单时taker手续费率, 实际为decimal类型|
-|makerFeeRate|string|false|none||下单时maker手续费率, 实际为decimal类型|
-|liquidateFeeRate|string|false|none||下单时清算手续费率, 实际为decimal类型|
-|marketLimitPrice|string|false|none||市价单提交撮合的限价 (仅市价单存在,其他情况为0), 实际为decimal类型|
-|marketLimitValue|string|false|none||市价单提交撮合的限定成交价值 (仅市价单存在,其他情况为0), 实际为decimal类型|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_order_id) 前32个bit|
-|l2Value|string|false|none||l2签名委托价值(实际成交价必须等于或优于 l2_value / l2_size), 与 price x size 的值可能不一样。实际为decimal类型|
-|l2Size|string|false|none||l2签名委托数量, 与size字段可能不一样。实际为decimal类型|
-|l2LimitFee|string|false|none||l2签名最高可以接受的下单费用|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000。注意此字段必须要大于等于 expire_time + 8 * 24 * 60 * 60 * 1000(8天)|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||委托单状态|
-|matchSequenceId|string(int64)|false|none||撮合引擎已处理序号id|
-|triggerTime|string(int64)|false|none||条件单触发时间|
-|triggerPriceTime|string(int64)|false|none||条件单触发价格时间|
-|triggerPriceValue|string|false|none||条件单触发价格值|
-|cancelReason|string|false|none||委托单取消原因|
-|cumFillSize|string(decimal)|false|none||累计审查通过后的成交数量, 实际为decimal类型|
-|cumFillValue|string(decimal)|false|none||累计审查通过后的成交价值, 实际为decimal类型|
-|cumFillFee|string(decimal)|false|none||累计审查通过后的成交手续费, 实际为decimal类型|
-|maxFillPrice|string(decimal)|false|none||当前委托单审查通过后的最高成交价格, 实际为decimal类型|
-|minFillPrice|string(decimal)|false|none||当前委托单审查通过后的最低成交价格, 实际为decimal类型|
-|cumLiquidateFee|string(decimal)|false|none||累计查通过后的强平清算费, 实际为decimal类型|
-|cumRealizePnl|string(decimal)|false|none||累计查通过后的已实现盈亏, 实际为decimal类型|
-|cumMatchSize|string(decimal)|false|none||累计撮合数量,实际为decimal类型|
-|cumMatchValue|string(decimal)|false|none||累计撮合价值,实际为decimal类型|
-|cumMatchFee|string(decimal)|false|none||累计撮合手续费，实际为decimal类型|
-|cumFailSize|string|false|none||累计审查失败/L2拒绝的数量, 实际为decimal类型|
-|cumFailValue|string|false|none||累计审查失败/L2拒绝的价值, 实际为decimal类型|
-|cumFailFee|string|false|none||累计审查失败/L2拒绝的手续费, 实际为decimal类型|
-|cumApprovedSize|string|false|none||累计L2确认的数量|
-|cumApprovedValue|string|false|none||累计L2确认的价值|
-|cumApprovedFee|string|false|none||累计L2确认的手续费|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|id|string(int64)|false|none|Order ID. Value greater than 0.|
+|userId|string(int64)|false|none|User ID.|
+|accountId|string(int64)|false|none|Account ID.|
+|coinId|string(int64)|false|none|Collateral coin ID.|
+|contractId|string(int64)|false|none|Contract ID.|
+|side|string|false|none|Buy/Sell direction.|
+|price|string|false|none|Order price (worst acceptable price), actual type is decimal.|
+|size|string|false|none|Order quantity, actual type is decimal.|
+|clientOrderId|string|false|none|Client-defined ID for idempotency checks.|
+|type|string|false|none|Order type.|
+|timeInForce|string|false|none|Order execution policy. Relevant when `type` is `LIMIT`/`STOP_LIMIT`/`TAKE_PROFIT_LIMIT`.|
+|reduceOnly|boolean|false|none|Whether this is a reduce-only order.|
+|triggerPrice|string|false|none|Trigger price. Relevant when `type` is `STOP_LIMIT`/`STOP_MARKET`/`TAKE_PROFIT_LIMIT`/`TAKE_PROFIT_MARKET`. If 0, the field is empty. Actual type is decimal.|
+|triggerPriceType|string|false|none|Price type: Last price, Mark price, etc. Relevant when `type` is `STOP_LIMIT`/`STOP_MARKET`/`TAKE_PROFIT_LIMIT`/`TAKE_PROFIT_MARKET`.|
+|expireTime|string(int64)|false|none|Expiration time.|
+|sourceKey|string|false|none|Source key, UUID.|
+|isPositionTpsl|boolean|false|none|Whether this is a position take-profit/stop-loss order.|
+|isLiquidate|boolean|false|none|Whether this is a liquidation (forced liquidation) order.|
+|isDeleverage|boolean|false|none|Whether this is an auto-deleverage order.|
+|openTpslParentOrderId|string(int64)|false|none|Order ID of the opening order for a take-profit or stop-loss order.|
+|isSetOpenTp|boolean|false|none|Whether take-profit is set for opening order.|
+|openTp|[OpenTpSl](#schemaopentpsl)|false|none|Take-profit/stop-loss parameters for opening order.|
+|isSetOpenSl|boolean|false|none|Whether stop-loss is set for opening order.|
+|openSl|[OpenTpSl](#schemaopentpsl)|false|none|Take-profit/stop-loss parameters for opening order.|
+|isWithoutMatch|boolean|false|none|Whether this order is directly filled without matching.|
+|withoutMatchFillSize|string|false|none|Off-exchange fill quantity (valid only when `is_without_match` is true).|
+|withoutMatchFillValue|string|false|none|Off-exchange fill value (valid only when `is_without_match` is true).|
+|withoutMatchPeerAccountId|string(int64)|false|none|Off-exchange counterparty account ID (valid only when `is_without_match` is true).|
+|withoutMatchPeerOrderId|string(int64)|false|none|Off-exchange counterparty order ID (valid only when `is_without_match` is true).|
+|maxLeverage|string|false|none|Leverage used when placing the order. Actual type is decimal.|
+|takerFeeRate|string|false|none|Taker fee rate when placing the order. Actual type is decimal.|
+|makerFeeRate|string|false|none|Maker fee rate when placing the order. Actual type is decimal.|
+|liquidateFeeRate|string|false|none|Liquidation fee rate when placing the order. Actual type is decimal.|
+|marketLimitPrice|string|false|none|Limit price for submitting market orders to the matching engine (only exists for market orders, 0 otherwise). Actual type is decimal.|
+|marketLimitValue|string|false|none|Limit value for submitting market orders to the matching engine (only exists for market orders, 0 otherwise). Actual type is decimal.|
+|l2Nonce|string(int64)|false|none|L2 signature nonce. Takes the first 32 bits of sha256(`client_order_id`).|
+|l2Value|string|false|none|L2 signature order value (the actual filled price must be equal to or better than `l2_value` / `l2_size`). May differ from `price` x `size`. Actual type is decimal.|
+|l2Size|string|false|none|L2 signature order quantity. May differ from the `size` field. Actual type is decimal.|
+|l2LimitFee|string|false|none|Maximum acceptable fee for L2 signature.|
+|l2ExpireTime|string(int64)|false|none|L2 signature expiration time in milliseconds. The hour value should be used when generating/verifying the signature, i.e. `l2_expire_time` / 3600000. Note that this value must be greater or equal to `expire_time` + 8 * 24 * 60 * 60 * 1000 (8 days).|
+|l2Signature|[L2Signature](#schemal2signature)|false|none|L2 signature information.|
+|extraType|string|false|none|Additional type for upper-layer business use.|
+|extraDataJson|string|false|none|Additional data in JSON format. Defaults to an empty string.|
+|status|string|false|none|Order status.|
+|matchSequenceId|string(int64)|false|none|Sequence ID handled by the matching engine.|
+|triggerTime|string(int64)|false|none|Conditional order trigger time.|
+|triggerPriceTime|string(int64)|false|none|Conditional order trigger price time.|
+|triggerPriceValue|string|false|none|Conditional order trigger price value.|
+|cancelReason|string|false|none|Order cancellation reason.|
+|cumFillSize|string(decimal)|false|none|Cumulative filled quantity after censorship. Actual type is decimal.|
+|cumFillValue|string(decimal)|false|none|Cumulative filled value after censorship. Actual type is decimal.|
+|cumFillFee|string(decimal)|false|none|Cumulative filled fee after censorship. Actual type is decimal.|
+|maxFillPrice|string(decimal)|false|none|Maximum filled price for the current order after censorship. Actual type is decimal.|
+|minFillPrice|string(decimal)|false|none|Minimum filled price for the current order after censorship. Actual type is decimal.|
+|cumLiquidateFee|string(decimal)|false|none|Cumulative liquidation fee after censorship. Actual type is decimal.|
+|cumRealizePnl|string(decimal)|false|none|Cumulative realized PnL after censorship. Actual type is decimal.|
+|cumMatchSize|string(decimal)|false|none|Cumulative matched quantity. Actual type is decimal.|
+|cumMatchValue|string(decimal)|false|none|Cumulative matched value. Actual type is decimal.|
+|cumMatchFee|string(decimal)|false|none|Cumulative matched fee. Actual type is decimal.|
+|cumFailSize|string|false|none|Cumulative failed/L2 rejected quantity. Actual type is decimal.|
+|cumFailValue|string|false|none|Cumulative failed/L2 rejected value. Actual type is decimal.|
+|cumFailFee|string|false|none|Cumulative failed/L2 rejected fee. Actual type is decimal.|
+|cumApprovedSize|string|false|none|Cumulative quantity approved by L2.|
+|cumApprovedValue|string|false|none|Cumulative value approved by L2.|
+|cumApprovedFee|string|false|none|Cumulative fee approved by L2.|
+|createdTime|string(int64)|false|none|Creation time.|
+|updatedTime|string(int64)|false|none|Update time.|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |side|UNKNOWN_ORDER_SIDE|
 |side|BUY|
@@ -1962,18 +1943,17 @@ GET /api/v1/private/order/getActiveOrderPage
   "s": "string",
   "v": "string"
 }
-
 ```
 
-L2签名信息
+L2 signature information.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|r|string|false|none||bigint for hex str|
-|s|string|false|none||bigint for hex str|
-|v|string|false|none||bigint for hex str|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|r|string|false|none|Big integer as a hex string.|
+|s|string|false|none|Big integer as a hex string.|
+|v|string|false|none|Big integer as a hex string.|
 
 <h2 id="tocS_OpenTpSl">OpenTpSl</h2>
 
@@ -2005,29 +1985,29 @@ L2签名信息
 
 ```
 
-开仓止盈止损参数
+Opening order take-profit/stop-loss parameters.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|side|string|false|none||买卖方向,此字段必填|
-|price|string|false|none||委托价格(最差可接受的价格), 实际为decimal类型。此字段必填，市价单时填0|
-|size|string|false|none||委托数量, 实际为decimal类型。此字段必填|
-|clientOrderId|string|false|none||客户自定义id，用于签名&幂等校验。此字段必填|
-|triggerPrice|string|false|none||触发价格。此字段必填|
-|triggerPriceType|string|false|none||价格类型。最新市价[默认],标记价格。此字段必填。|
-|expireTime|string(int64)|false|none||过期时间。|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_order_id) 前32个bit|
-|l2Value|string|false|none||l2签名委托价值(实际成交价必须等于或优于 l2_value / l2_price), 与 price x size 的值可能不一样。实际为decimal类型|
-|l2Size|string|false|none||l2签名委托数量, 与size字段可能不一样。实际为decimal类型|
-|l2LimitFee|string|false|none||l2签名最高可以接受的下单费用|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间. unix时间的小时数，至少要比 expire_time 晚10个小时|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|side|string|false|none|Buy/sell direction. This field is required.|
+|price|string|false|none|Order price (worst acceptable price), actual type is decimal. Required, enter 0 for market orders.|
+|size|string|false|none|Order quantity, actual type is decimal. Required.|
+|clientOrderId|string|false|none|Client-defined ID for signature and idempotency checks. This field is required.|
+|triggerPrice|string|false|none|Trigger price. This field is required.|
+|triggerPriceType|string|false|none|Price type: Last price, Mark price, etc. This field is required.|
+|expireTime|string(int64)|false|none|Expiration time.|
+|l2Nonce|string(int64)|false|none|L2 signature nonce. Takes the first 32 bits of sha256(`client_order_id`).|
+|l2Value|string|false|none|L2 signature order value (the actual filled price must be equal to or better than `l2_value` / `l2_price`). May differ from `price` x `size`. Actual type is decimal.|
+|l2Size|string|false|none|L2 signature order quantity. May differ from the `size` field. Actual type is decimal.|
+|l2LimitFee|string|false|none|Maximum acceptable fee for L2 signature.|
+|l2ExpireTime|string(int64)|false|none|L2 signature expiration time in unix hour. Must be at least 10 hours after `expire_time`.|
+|l2Signature|[L2Signature](#schemal2signature)|false|none|L2 signature information.|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |side|UNKNOWN_ORDER_SIDE|
 |side|BUY|
@@ -2042,7 +2022,7 @@ L2签名信息
 |triggerPriceType|OPEN_INTEREST|
 |triggerPriceType|UNRECOGNIZED|
 
-<h2 id="tocS_Result<List<Order>>">Result<List<Order>></h2>
+<h2 id="tocS_Result<List<Order>>">Result&lt;List&lt;Order&gt;&gt;</h2>
 
 <a id="schemaresult<list<order>>"></a>
 <a id="schema_Result<List<Order>>"></a>
@@ -2174,17 +2154,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Order](#schemaorder)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[[Order](#schemaorder)]|false|none|Successful response data.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_CancelAllOrderParam">CancelAllOrderParam</h2>
 
@@ -2215,20 +2195,20 @@ L2签名信息
 
 ```
 
-取消账户下所有委托单请求参数
+Request parameters for canceling all orders under an account.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|filterCoinIdList|[string]|false|none||过滤取消对应抵押品coinId对应的活动委托单，如果为空则取消所有抵押品coinId的活动委托单|
-|filterContractIdList|[string]|false|none||过滤取消对应合约的活动委托单，如果为空则取消所有合约的活动委托单|
-|filterOrderTypeList|[string]|false|none||过滤取消指定类型的委托单，不填的话所有类型委托单|
-|filterOrderStatusList|[string]|false|none||过滤取消指定状态的委托单，不填的话所有状态委托单|
-|filterIsPositionTpsl|[boolean]|false|none||过滤只取消对应的仓位止盈止损单，如果为空的话会取消所有合约委托单|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|accountId|string(int64)|false|none|Account ID.|
+|filterCoinIdList|[string]|false|none|Filter to cancel active orders for specific collateral coin IDs. If empty, cancels all.|
+|filterContractIdList|[string]|false|none|Filter to cancel active orders for specific contract IDs. If empty, cancels all.|
+|filterOrderTypeList|[string]|false|none|Filter to cancel orders of specific types. If empty, cancels all types.|
+|filterOrderStatusList|[string]|false|none|Filter to cancel orders of specific statuses. If empty, cancels all statuses.|
+|filterIsPositionTpsl|[boolean]|false|none|Filter to cancel only corresponding position take-profit/stop-loss orders. If empty, cancels all contract orders.|
 
-<h2 id="tocS_Result<CancelOrderByClientOrderId>">Result<CancelOrderByClientOrderId></h2>
+<h2 id="tocS_Result<CancelOrderByClientOrderId>">Result&lt;CancelOrderByClientOrderId&gt;</h2>
 
 <a id="schemaresult<cancelorderbyclientorderid>"></a>
 <a id="schema_Result<CancelOrderByClientOrderId>"></a>
@@ -2255,17 +2235,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CancelOrderByClientOrderId](#schemacancelorderbyclientorderid)|false|none||根据ClientOrderId撤销订单响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[CancelOrderByClientOrderId](#schemacancelorderbyclientorderid)|false|none|Response for canceling orders by client order IDs.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_CancelOrderByClientOrderId">CancelOrderByClientOrderId</h2>
 
@@ -2281,21 +2261,20 @@ L2签名信息
     "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
   }
 }
-
 ```
 
-根据ClientOrderId撤销订单响应
+Response for canceling orders by client order IDs.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|cancelResultMap|object|false|none||none|
-|» **additionalProperties**|string|false|none||none|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|cancelResultMap|object|false|none|None|
+|» **additionalProperties**|string|false|none|None|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |**additionalProperties**|UNKNOWN_ORDER_CANCEL_RESULT|
 |**additionalProperties**|SUCCESS|
@@ -2320,19 +2299,18 @@ L2签名信息
     "string"
   ]
 }
-
 ```
 
-根据clientId取消委托单请求参数
+Request parameters for canceling orders by client ID.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|clientOrderIdList|[string]|true|none||委托单 client order id|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|accountId|string(int64)|false|none|Account ID.|
+|clientOrderIdList|[string]|true|none|Order client order ID.|
 
-<h2 id="tocS_Result<CancelOrder>">Result<CancelOrder></h2>
+<h2 id="tocS_Result<CancelOrder>">Result&lt;CancelOrder&gt;</h2>
 
 <a id="schemaresult<cancelorder>"></a>
 <a id="schema_Result<CancelOrder>"></a>
@@ -2359,17 +2337,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CancelOrder](#schemacancelorder)|false|none||撤销订单响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[CancelOrder](#schemacancelorder)|false|none|Response for canceling orders.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_CancelOrder">CancelOrder</h2>
 
@@ -2385,21 +2363,20 @@ L2签名信息
     "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
   }
 }
-
 ```
 
-撤销订单响应
+Response for canceling orders.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|cancelResultMap|object|false|none||none|
-|» **additionalProperties**|string|false|none||none|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|cancelResultMap|object|false|none|None|
+|» **additionalProperties**|string|false|none|None|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |**additionalProperties**|UNKNOWN_ORDER_CANCEL_RESULT|
 |**additionalProperties**|SUCCESS|
@@ -2424,19 +2401,18 @@ L2签名信息
     "string"
   ]
 }
-
 ```
 
-取消委托单-请求
+Request parameters for canceling an order.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|orderIdList|[string]|true|none||委托单id|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|accountId|string(int64)|false|none|Account ID.|
+|orderIdList|[string]|true|none|Order ID.|
 
-<h2 id="tocS_Result<CreateOrder>">Result<CreateOrder></h2>
+<h2 id="tocS_Result<CreateOrder>>">Result&lt;CreateOrder&gt;</h2>
 
 <a id="schemaresult<createorder>"></a>
 <a id="schema_Result<CreateOrder>"></a>
@@ -2460,17 +2436,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateOrder](#schemacreateorder)|false|none||创建订单响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[CreateOrder](#schemacreateorder)|false|none|Response for creating orders.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_CreateOrder">CreateOrder</h2>
 
@@ -2486,13 +2462,13 @@ L2签名信息
 
 ```
 
-创建订单响应
+Response for creating orders.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|orderId|string(int64)|false|none||委托单Id|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|orderId|string(int64)|false|none|Order ID.|
 
 <h2 id="tocS_CreateOrderParam">CreateOrderParam</h2>
 
@@ -2559,46 +2535,44 @@ L2签名信息
   "extraType": "string",
   "extraDataJson": "string"
 }
-
 ```
 
-创建委托单-请求
+Request parameters for creating an order.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|contractId|string(int64)|false|none||所属合约id|
-|side|string|false|none||买卖方向。此字段必填|
-|size|string|false|none||委托数量, 实际为decimal类型。此字段必填|
-|price|string|false|none||委托价格(最差可接受的价格), 实际为decimal类型。此字段必填，市价单填0即可。|
-|clientOrderId|string|false|none||客户自定义id，用于幂等校验。此字段必填|
-|type|string|false|none||委托单类型。此字段必填|
-|timeInForce|string|false|none||委托单执行策略。type为 LIMIT/STOP_LIMIT/TAKE_PROFIT_LIMIT 时有意义。此字段必填，市价单必为IMMEDIATE_OR_CANCEL。|
-|reduceOnly|boolean|false|none||是否是只减仓委托。此字段必填|
-|triggerPrice|string|false|none||触发价格。type为 STOP_LIMIT/STOP_MARKET/TAKE_PROFIT_LIMIT/TAKE_PROFIT_MARKET 时有意义。如果为0代表字段为空。实际为decimal类型。当为条件单时必填。|
-|triggerPriceType|string|false|none||价格类型。最新市价[默认],标记价格。type为条件单时有意义。当为条件单时必填。|
-|expireTime|string(int64)|false|none||过期时间。|
-|sourceKey|string|false|none||来源key，uuid|
-|isPositionTpsl|boolean|false|none||是否为仓位止盈止损单。此字段必填，默认为false|
-|openTpslParentOrderId|string(int64)|false|none||开仓止盈单，止损单的开仓单orderId|
-|isSetOpenTp|boolean|false|none||是否设置开仓止盈。此字段必填|
-|openTp|[OpenTpSlParam](#schemaopentpslparam)|false|none||开仓止盈止损参数|
-|isSetOpenSl|boolean|false|none||是否设置开仓止损。此字段必填|
-|openSl|[OpenTpSlParam](#schemaopentpslparam)|false|none||开仓止盈止损参数|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_order_id) 前32个bit|
-|l2Value|string|false|none||l2签名委托价值(实际成交价必须等于或优于 l2_value / l2_price), 与 price x size 的值可能不一样。实际为decimal类型|
-|l2Size|string|false|none||l2签名委托数量, 与size字段可能不一样。实际为decimal类型|
-|l2LimitFee|string|false|none||l2签名最高可以接受的下单费用|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000。注意此字段必须要大于等于 expire_time + 8 * 24 * 60 * 60 * 1000(8天)|
-|l2Signature|string|false|none||l2签名|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|accountId|string(int64)|false|none|Account ID.|
+|contractId|string(int64)|false|none|Contract ID.|
+|side|string|false|none|Buy/sell direction. This field is required.|
+|size|string|false|none|Order quantity. Actual type is decimal. This field is required.|
+|price|string|false|none|Order price (worst acceptable price). Actual type is decimal. This field is required, enter 0 for market orders.|
+|clientOrderId|string|false|none|Client-defined ID for idempotency checks. This field is required.|
+|type|string|false|none|Order type. This field is required.|
+|timeInForce|string|false|none|Order execution policy. Relevant when `type` is `LIMIT`/`STOP_LIMIT`/`TAKE_PROFIT_LIMIT`. This field is required, and should be `IMMEDIATE_OR_CANCEL` for market orders.|
+|reduceOnly|boolean|false|none|Whether this is a reduce-only order. This field is required.|
+|triggerPrice|string|false|none|Trigger price. Relevant when `type` is `STOP_LIMIT`/`STOP_MARKET`/`TAKE_PROFIT_LIMIT`/`TAKE_PROFIT_MARKET`. If 0, the field is empty. Actual type is decimal. Required for conditional orders.|
+|triggerPriceType|string|false|none|Price type: Last price, Mark price, etc. Relevant when the order is conditional. Required for conditional orders.|
+|expireTime|string(int64)|false|none|Expiration time.|
+|sourceKey|string|false|none|Source key, UUID.|
+|isPositionTpsl|boolean|false|none|Whether this is a position take-profit/stop-loss order. This field is required, defaults to false.|
+|openTpslParentOrderId|string(int64)|false|none|Order ID of the opening order for a take-profit or stop-loss order.|
+|isSetOpenTp|boolean|false|none|Whether to set take-profit for the opening order. This field is required.|
+|openTp|[OpenTpSlParam](#schemaopentpslparam)|false|none|Take-profit/stop-loss parameters for the opening order.||isSetOpenSl|boolean|false|none|Whether to set stop-loss for the opening order. This field is required.|
+|openSl|[OpenTpSlParam](#schemaopentpslparam)|false|none|Take-profit/stop-loss parameters for the opening order.|
+|l2Nonce|string(int64)|false|none|L2 signature nonce. Takes the first 32 bits of sha256(`client_order_id`).|
+|l2Value|string|false|none|L2 signature order value (the actual filled price must be equal to or better than `l2_value` / `l2_price`). May differ from `price` x `size`. Actual type is decimal.|
+|l2Size|string|false|none|L2 signature order quantity. May differ from the `size` field. Actual type is decimal.|
+|l2LimitFee|string|false|none|Maximum acceptable fee for L2 signature.|
+|l2ExpireTime|string(int64)|false|none|L2 signature expiration time in milliseconds. The hour value should be used when generating/verifying the signature, i.e. `l2_expire_time` / 3600000. Note that this value must be greater or equal to `expire_time` + 8 * 24 * 60 * 60 * 1000 (8 days).|
+|l2Signature|string|false|none|L2 signature.|
+|extraType|string|false|none|Additional type for upper-layer business use.|
+|extraDataJson|string|false|none|Additional data in JSON format. Defaults to an empty string.|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |side|UNKNOWN_ORDER_SIDE|
 |side|BUY|
@@ -2653,29 +2627,29 @@ L2签名信息
 
 ```
 
-开仓止盈止损参数
+Take-profit/stop-loss parameters for opening order.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|side|string|false|none||买卖方向,此字段必填|
-|price|string|false|none||委托价格(最差可接受的价格), 实际为decimal类型。此字段必填，市价单时填0|
-|size|string|false|none||委托数量, 实际为decimal类型。此字段必填|
-|clientOrderId|string|false|none||客户自定义id，用于签名&幂等校验。此字段必填|
-|triggerPrice|string|false|none||触发价格。此字段必填|
-|triggerPriceType|string|false|none||价格类型。最新市价[默认],标记价格。此字段必填。|
-|expireTime|string(int64)|false|none||过期时间。|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_order_id) 前32个bit|
-|l2Value|string|false|none||l2签名委托价值(实际成交价必须等于或优于 l2_value / l2_price), 与 price x size 的值可能不一样。实际为decimal类型|
-|l2Size|string|false|none||l2签名委托数量, 与size字段可能不一样。实际为decimal类型|
-|l2LimitFee|string|false|none||l2签名最高可以接受的下单费用|
-|l2ExpireTime|string|false|none||l2签名过期时间. unix时间的小时数，至少要比 expire_time 晚10个小时|
-|l2Signature|string|false|none||l2签名|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|side|string|false|none|Buy/sell direction. This field is required.|
+|price|string|false|none|Order price (worst acceptable price). Actual type is decimal. This field is required, enter 0 for market orders.|
+|size|string|false|none|Order quantity. Actual type is decimal. This field is required.|
+|clientOrderId|string|false|none|Client-defined ID for signature and idempotency checks. This field is required.|
+|triggerPrice|string|false|none|Trigger price. This field is required.|
+|triggerPriceType|string|false|none|Price type: Last price, Mark price, etc. This field is required.|
+|expireTime|string(int64)|false|none|Expiration time.|
+|l2Nonce|string(int64)|false|none|L2 signature nonce. Takes the first 32 bits of sha256(`client_order_id`).|
+|l2Value|string|false|none|L2 signature order value (the actual filled price must be equal to or better than `l2_value` / `l2_price`). May differ from `price` x `size`. Actual type is decimal.|
+|l2Size|string|false|none|L2 signature order quantity. May differ from the `size` field. Actual type is decimal.|
+|l2LimitFee|string|false|none|Maximum acceptable fee for L2 signature.|
+|l2ExpireTime|string|false|none|L2 signature expiration time in unix hour. Must be at least 10 hours after `expire_time`.|
+|l2Signature|string|false|none|L2 signature.|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |side|UNKNOWN_ORDER_SIDE|
 |side|BUY|
@@ -2690,7 +2664,7 @@ L2签名信息
 |triggerPriceType|OPEN_INTEREST|
 |triggerPriceType|UNRECOGNIZED|
 
-<h2 id="tocS_Result<GetMaxCreateOrderSize>">Result<GetMaxCreateOrderSize></h2>
+<h2 id="tocS_Result<GetMaxCreateOrderSize>>">Result&lt;GetMaxCreateOrderSize&gt;</h2>
 
 <a id="schemaresult<getmaxcreateordersize>"></a>
 <a id="schema_Result<GetMaxCreateOrderSize>"></a>
@@ -2717,17 +2691,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetMaxCreateOrderSize](#schemagetmaxcreateordersize)|false|none||获取最大下单数量-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|data|[GetMaxCreateOrderSize](#schemagetmaxcreateordersize)|false|none|Response for getting the maximum order size.|
+|errorParam|object|false|none|Parameter information in error messages.|
+|» **additionalProperties**|string|false|none|Parameter information in error messages.|
+|requestTime|string(timestamp)|false|none|Server request receive time.|
+|responseTime|string(timestamp)|false|none|Server response return time.|
+|traceId|string|false|none|Call trace ID.|
 
 <h2 id="tocS_GetMaxCreateOrderSize">GetMaxCreateOrderSize</h2>
 
@@ -2746,16 +2720,16 @@ L2签名信息
 
 ```
 
-获取最大下单数量-响应
+Response for getting the maximum order size.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|maxBuySize|string(decimal)|false|none||最大买入size|
-|maxSellSize|string(decimal)|false|none||最大卖出size|
-|ask1Price|string(decimal)|false|none||最优askPrice|
-|bid1Price|string(decimal)|false|none||最优bidPrice|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|maxBuySize|string(decimal)|false|none|Maximum buy size.|
+|maxSellSize|string(decimal)|false|none|Maximum sell size.|
+|ask1Price|string(decimal)|false|none|Best ask price.|
+|bid1Price|string(decimal)|false|none|Best bid price.|
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -2774,16 +2748,16 @@ L2签名信息
 
 ```
 
-通用返回结构体
+Generic response structure.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
+|msg|string|false|none|Detailed error message when an error occurs.|
+|requestTime|string(int64)|false|none|Server request receive time.|
+|responseTime|string(int64)|false|none|Server response return time.|
 
 <h2 id="tocS_GetMaxCreateOrderSizeParam">GetMaxCreateOrderSizeParam</h2>
 
@@ -2798,16 +2772,14 @@ L2签名信息
   "contractId": "string",
   "price": "string"
 }
-
 ```
 
-获取最大下单数量-请求
+Request parameters for getting the maximum order size.
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|contractId|string(int64)|false|none||所属合约id|
-|price|string|false|none||下单价格|
-
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|accountId|string(int64)|false|none|Account ID.|
+|contractId|string(int64)|false|none|Contract ID.|
+|price|string|false|none|Order price.|
