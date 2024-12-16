@@ -1,11 +1,4 @@
-```
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 06.WithdrawPrivateApi
+# WithdrawPrivateApi
 
 <a id="opIdcreateWithdraw"></a>
 
