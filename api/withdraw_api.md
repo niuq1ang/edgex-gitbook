@@ -1,24 +1,4 @@
----
-title: test v1.0.0
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.17"
-
----
-
+```
 # test
 
 > v1.0.0
@@ -29,11 +9,11 @@ Base URLs:
 
 <a id="opIdcreateWithdraw"></a>
 
-## POST 创建提现单
+## POST Create Withdrawal Order
 
 POST /api/v1/private/withdraw/createWithdraw
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -52,13 +32,13 @@ POST /api/v1/private/withdraw/createWithdraw
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CreateWithdrawParam](#schemacreatewithdrawparam)| 否 |none|
+|body|body|[CreateWithdrawParam](#schemacreatewithdrawparam)| No |none|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -71,26 +51,26 @@ POST /api/v1/private/withdraw/createWithdraw
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetWithdrawById"></a>
 
-## GET 根据充值单id批量获取提现单
+## GET Get Withdrawal Orders in Batch by ID
 
 GET /api/v1/private/withdraw/getWithdrawById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|withdrawIdList|query|string| 否 |提现单id|
+|accountId|query|string| No |Account ID|
+|withdrawIdList|query|string| No |Withdrawal order ID|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -146,28 +126,28 @@ GET /api/v1/private/withdraw/getWithdrawById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetWithdrawByClientWithdrawId"></a>
 
-## GET 根据充值单id批量获取提现单
+## GET Get Withdrawal Orders in Batch by Client ID
 
 GET /api/v1/private/withdraw/getWithdrawByClientWithdrawId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|clientWithdrawIdList|query|string| 否 |提现单id|
+|accountId|query|string| No |Account ID|
+|clientWithdrawIdList|query|string| No |Withdrawal order ID|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -223,28 +203,28 @@ GET /api/v1/private/withdraw/getWithdrawByClientWithdrawId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
 <a id="opIdgetWithdrawAvailableAmount"></a>
 
-## GET 翻页获取提现单
+## GET Get Available Withdrawal Amount
 
 GET /api/v1/private/withdraw/getWithdrawAvailableAmount
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|coinId|query|string| 否 |币id|
+|accountId|query|string| No |Account ID|
+|coinId|query|string| No |Coin ID|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -257,31 +237,31 @@ GET /api/v1/private/withdraw/getWithdrawAvailableAmount
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
 
 <a id="opIdgetActiveWithdraw"></a>
 
-## GET 翻页获取提现单
+## GET Get Active Withdrawal Orders with Pagination
 
 GET /api/v1/private/withdraw/getActiveWithdraw
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
-|filterCoinIdList|query|string| 否 |过滤获取对应抵押品coinId对应的提现单，如果为空则获取所有抵押品coinId的提现单|
-|filterStatusList|query|string| 否 |过滤获取指定状态的提现单，不填的话所有状态提现单|
-|filterStartCreatedTimeInclusive|query|string| 否 |过滤获取指定开始时间创建的提现单 (包含)，不填或者为0的话就从最早开始|
-|filterEndCreatedTimeExclusive|query|string| 否 |过滤获取指定结束时间创建的提现单 (不包含)，不填或者为0的话就到最近|
+|accountId|query|string| No |Account ID|
+|size|query|string| No |Number of items to get. Must be greater than 0 and less than or equal to 100|
+|offsetData|query|string| No |Pagination offset. If empty, get the first page|
+|filterCoinIdList|query|string| No |Filter by withdrawal order with the corresponding collateral coinId, if empty, get all coinIds' withdrawal orders|
+|filterStatusList|query|string| No |Filter by withdrawal order with the specified status, if empty, get all status' withdrawal orders|
+|filterStartCreatedTimeInclusive|query|string| No |Filter by withdrawal order created after this time (inclusive), if empty or 0, start from the earliest|
+|filterEndCreatedTimeExclusive|query|string| No |Filter by withdrawal order created before this time (exclusive), if empty or 0, end with the latest|
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -340,15 +320,15 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
+|Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### 返回数据结构
+### Response Data Structure
 
-# 数据模型
+# Data Models
 
 <h2 id="tocS_Result<PageData<Withdraw>>">Result<PageData<Withdraw>></h2>
 
@@ -413,17 +393,17 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataWithdraw](#schemapagedatawithdraw)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
+|data|[PageDataWithdraw](#schemapagedatawithdraw)|false|none||Generic pagination response|
+|errorParam|object|false|none||Parameter information in the error message|
+|» **additionalProperties**|string|false|none||Parameter information in the error message|
+|requestTime|string(timestamp)|false|none||Server request receiving time|
+|responseTime|string(timestamp)|false|none||Server response return time|
+|traceId|string|false|none||Call traceId|
 
 <h2 id="tocS_PageDataWithdraw">PageDataWithdraw</h2>
 
@@ -478,14 +458,14 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 
 ```
 
-通用翻页返回
+Generic pagination response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|dataList|[[Withdraw](#schemawithdraw)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+|dataList|[[Withdraw](#schemawithdraw)]|false|none||Data list|
+|nextPageOffsetData|string|false|none||Offset for getting the next page. Empty string if there is no next page|
 
 <h2 id="tocS_Withdraw">Withdraw</h2>
 
@@ -535,43 +515,43 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 
 ```
 
-提现单
+Withdrawal Order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|id|string(int64)|false|none||提现单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||提现数量|
-|ethAddress|string|false|none||提现到的地址。|
-|erc20Address|string|false|none||提现的币种合约地址|
-|clientWithdrawId|string|false|none||客户自定义id，用于幂等校验|
-|riskSignature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000|
-|l2Signature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||提现单状态|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 censor_status=L2_REJECT/L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=L2_APPROVED/L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+|id|string(int64)|false|none||Withdrawal order ID|
+|userId|string(int64)|false|none||User ID|
+|accountId|string(int64)|false|none||Account ID|
+|coinId|string(int64)|false|none||Collateral coin ID|
+|amount|string|false|none||Withdrawal amount|
+|ethAddress|string|false|none||Withdrawal address.|
+|erc20Address|string|false|none||Withdrawal coin contract address|
+|clientWithdrawId|string|false|none||Client defined ID, used for idempotent verification|
+|riskSignature|[L2Signature](#schemal2signature)|false|none||L2 signature information|
+|l2Nonce|string(int64)|false|none||L2 signature nonce. Take the first 32 bits of sha256(client_withdraw_id)|
+|l2ExpireTime|string(int64)|false|none||L2 signature expiration time, in milliseconds. When generating/verifying the signature, the number of hours should be taken, i.e., l2_expire_time / 3600000|
+|l2Signature|[L2Signature](#schemal2signature)|false|none||L2 signature information|
+|extraType|string|false|none||Additional type, for use by upper-level services|
+|extraDataJson|string|false|none||Additional data, JSON format, default is empty string|
+|status|string|false|none||Withdrawal order status|
+|collateralTransactionId|string(int64)|false|none||Associated collateral transaction ID. Exists when status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED|
+|censorTxId|string(int64)|false|none||Censor processing sequence number. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED|
+|censorTime|string(int64)|false|none||Censor processing time. Exists when status=SUCCESS_XXX/FAILED_CENSOR_FAILURE/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED|
+|censorFailCode|string|false|none||Censor failure error code. Exists when status=FAILED_CENSOR_FAILURE|
+|censorFailReason|string|false|none||Censor failure reason. Exists when status=FAILED_CENSOR_FAILURE|
+|l2TxId|string(int64)|false|none||L2 push transaction ID. Exists when censor_status=CENSOR_SUCCESS/L2_APPROVED/L2_REJECT/L2_REJECT_APPROVED|
+|l2RejectTime|string(int64)|false|none||L2 rejection time. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED|
+|l2RejectCode|string|false|none||L2 rejection error code. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED|
+|l2RejectReason|string|false|none||L2 rejection reason. Exists when censor_status=L2_REJECT/L2_REJECT_APPROVED|
+|l2ApprovedTime|string(int64)|false|none||L2 batch verification time. Exists when status=L2_APPROVED/L2_REJECT_APPROVED|
+|createdTime|string(int64)|false|none||Creation time|
+|updatedTime|string(int64)|false|none||Update time|
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
+|Property|Value|
 |---|---|
 |status|UNKNOWN_WITHDRAW_STATUS|
 |status|PENDING_CENSORING|
@@ -598,11 +578,11 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 
 ```
 
-L2签名信息
+L2 signature information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |r|string|false|none||bigint for hex str|
 |s|string|false|none||bigint for hex str|
@@ -632,17 +612,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[GetWithdrawAvailableAmount](#schemagetwithdrawavailableamount)|false|none||获取提现可用数量-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
+|data|[GetWithdrawAvailableAmount](#schemagetwithdrawavailableamount)|false|none||Get available withdrawal amount - response|
+|errorParam|object|false|none||Parameter information in the error message|
+|» **additionalProperties**|string|false|none||Parameter information in the error message|
+|requestTime|string(timestamp)|false|none||Server request receiving time|
+|responseTime|string(timestamp)|false|none||Server response return time|
+|traceId|string|false|none||Call traceId|
 
 <h2 id="tocS_GetWithdrawAvailableAmount">GetWithdrawAvailableAmount</h2>
 
@@ -658,13 +638,13 @@ L2签名信息
 
 ```
 
-获取提现可用数量-响应
+Get available withdrawal amount - response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|availableAmount|string(decimal)|false|none||可用数量|
+|availableAmount|string(decimal)|false|none||Available amount|
 
 <h2 id="tocS_Result<List<Withdraw>>">Result<List<Withdraw>></h2>
 
@@ -726,17 +706,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Withdraw](#schemawithdraw)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
+|data|[[Withdraw](#schemawithdraw)]|false|none||Correct response data|
+|errorParam|object|false|none||Parameter information in the error message|
+|» **additionalProperties**|string|false|none||Parameter information in the error message|
+|requestTime|string(timestamp)|false|none||Server request receiving time|
+|responseTime|string(timestamp)|false|none||Server response return time|
+|traceId|string|false|none||Call traceId|
 
 <h2 id="tocS_Result<CreateWithdraw>">Result<CreateWithdraw></h2>
 
@@ -762,17 +742,17 @@ L2签名信息
 
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateWithdraw](#schemacreatewithdraw)|false|none||创建提现单-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
+|data|[CreateWithdraw](#schemacreatewithdraw)|false|none||Create withdrawal order - response|
+|errorParam|object|false|none||Parameter information in the error message|
+|» **additionalProperties**|string|false|none||Parameter information in the error message|
+|requestTime|string(timestamp)|false|none||Server request receiving time|
+|responseTime|string(timestamp)|false|none||Server response return time|
+|traceId|string|false|none||Call traceId|
 
 <h2 id="tocS_CreateWithdraw">CreateWithdraw</h2>
 
@@ -788,13 +768,13 @@ L2签名信息
 
 ```
 
-创建提现单-响应
+Create withdrawal order - response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|withdrawId|string(int64)|false|none||提现单id|
+|withdrawId|string(int64)|false|none||Withdrawal order ID|
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -813,16 +793,16 @@ L2签名信息
 
 ```
 
-通用返回结构体
+Generic return structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
+|msg|string|false|none||Detailed error message when an error occurs|
+|requestTime|string(int64)|false|none||Server request receiving time|
+|responseTime|string(int64)|false|none||Server response return time|
 
 <h2 id="tocS_CreateWithdrawParam">CreateWithdrawParam</h2>
 
@@ -849,22 +829,22 @@ L2签名信息
 
 ```
 
-创建提现单-请求
+Create withdrawal order - request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||币id|
-|amount|string(decimal)|false|none||提现数量|
-|ethAddress|string|false|none||提现到的地址。|
-|erc20Address|string|false|none||提现的币种合约地址|
-|clientWithdrawId|string|false|none||客户自定义id，用于幂等校验|
-|riskSignature|string|false|none||风控签名|
-|l2Nonce|string(int64)|false|none||l2签名nonce。取sha256(client_withdraw_id) 前32个bit|
-|l2ExpireTime|string(int64)|false|none||l2签名过期时间，单位毫秒。参与签名生成/校验时要取小时数，即 l2_expire_time / 3600000|
-|l2Signature|string|false|none||提交l2的签名|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-
+|accountId|string(int64)|false|none||Account ID|
+|coinId|string(int64)|false|none||Coin ID|
+|amount|string(decimal)|false|none||Withdrawal amount|
+|ethAddress|string|false|none||Withdrawal address.|
+|erc20Address|string|false|none||Withdrawal coin contract address|
+|clientWithdrawId|string|false|none||Client defined ID, used for idempotent verification|
+|riskSignature|string|false|none||Risk control signature|
+|l2Nonce|string(int64)|false|none||L2 signature nonce. Take the first 32 bits of sha256(client_withdraw_id)|
+|l2ExpireTime|string(int64)|false|none||L2 signature expiration time, in milliseconds. When generating/verifying the signature, the number of hours should be taken, i.e., l2_expire_time / 3600000|
+|l2Signature|string|false|none||L2 signature|
+|extraType|string|false|none||Additional type, for use by upper-level services|
+|extraDataJson|string|false|none||Additional data, JSON format, default is empty string|
+```
