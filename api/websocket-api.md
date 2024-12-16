@@ -1,77 +1,78 @@
-# websocket接口
+## WebSocket API Documentation
 
-## (Private WebSocket) 用户账户信息websocket接口
+This document outlines the WebSocket API for both private (user account) and public (market data) information.
 
-### 说明
+## (Private WebSocket) User Account Information WebSocket Interface
 
-> + 01. Private WebSocket 不用订阅，连接之后自动推送数据。包含交易消息和自定义消息。
-> + 02. 交易消息的type规定为`type-event`；其他消息另行定义
-> + 03. 交易消息的消息体中的`event`包括 `Snapshot`/`ACCOUNT_UPDATE`/`DEPOSIT_UPDATE`/`WITHDRAW_UPDATE`/`TRANSFER_IN_UPDATE`/`TRANSFER_OUT_UPDATE`/`ORDER_UPDATE`/`FORCE_WITHDRAW_UPDATE`/`FORCE_TRADE_UPDATE`/`FUNDING_SETTLEMENT`/`ORDER_FILL_FEE_INCOME`/`START_LIQUIDATING`/`FINISH_LIQUIDATING`/`UNRECOGNIZED`
-> + 04. Ping-Pong机制
-> > - 服务端 `Ping`(用于心跳)
-> > > WebSocket连接成功之后，Server端会以固定频率向Client端发送Ping消息，消息体如下：`{"type":"ping","time":"1693208170000"}`
-，其中time标示的是Server端Ping时刻的时间戳。此时Client端在收到消息后，请回复服务端Pong消息，消息体内容为 `{"type":"pong","time":"1693208170000"}`
-。超过5次不回应，服务端会主动断开当前连接。
-> > - 客户端 `Ping`(用于测速)
-> > > WebSocket连接成功后，Client端也可以自己发起一个Ping消息，消息体如下：`{"type":"ping","time":"1693208170000"}`
-> > > ，其中time为Client端发起Ping消息的时间戳，照此消息格式，服务端在收到消息之后，会即刻回复Pong消息，消息体内容为 `{"type":"pong","time":"1693208170000"}`
-> > > ，其中的`time`字段还是Client端Ping消息的`time`。
-> + 05. 鉴权
-> > - WEB
-> > > + 由于浏览器不允许在WebSocket链接时候使用自定义Header，所以需要特殊处理一下。
-> > > + 使用和Http一样的鉴权逻辑，把本该放在Header中的`X-Edgex-Api-Key`/`X-Edgex-Passphrase`/`X-Edgex-Signature`/`X-Edgex-Timestamp`中的四个Key和Value组成一个json字符串`{"X-Edgex-Api-Key": "ff072a89-78a9-b4e8-27b2-32bd774c0786", "X-Edgex-Passphrase": "BEomwWBDjPqj7yifePhY2Q", "X-Edgex-Signature": "69ce1a38fd65afc49ae81eaccca81bfddb6a73cb3936b7d53abf48003514c253", "X-Edgex-Timestamp": "1705720068228"}`
-> > > + 对json字符串做一次 base64 编码
-> > > + WebSocket请求的时候，使用 Header: `SEC_WEBSOCKET_PROTOCOL`将base64编码后的值传递到服务端即可
-> > - APP
-> > > APP的WebSocket链接可以自定义Header，所以APP可以继续使用和HTTP一样的鉴权逻辑，或者也可以使用上面描述的Web的WebSocket鉴权逻辑
+### Description
+
+*   **01.** Private WebSocket connections do not require subscriptions; data is automatically pushed after a successful connection. This includes both trading messages and custom messages.
+*   **02.** Trading messages are identified with the type `type-event`. Other message types will be defined separately.
+*   **03.** The `event` field within the body of a trading message can be one of the following: `Snapshot`, `ACCOUNT_UPDATE`, `DEPOSIT_UPDATE`, `WITHDRAW_UPDATE`, `TRANSFER_IN_UPDATE`, `TRANSFER_OUT_UPDATE`, `ORDER_UPDATE`, `FORCE_WITHDRAW_UPDATE`, `FORCE_TRADE_UPDATE`, `FUNDING_SETTLEMENT`, `ORDER_FILL_FEE_INCOME`, `START_LIQUIDATING`, `FINISH_LIQUIDATING`, or `UNRECOGNIZED`.
+*   **04.** Ping-Pong Mechanism:
+    *   **Server Ping (Heartbeat):**
+        *   After a successful WebSocket connection, the server sends a Ping message at a fixed interval. The message body looks like: `{"type":"ping","time":"1693208170000"}`. The `time` field is the server's timestamp when the Ping was sent.
+        *   The client must respond with a Pong message upon receipt, with a body like: `{"type":"pong","time":"1693208170000"}`.
+        *   If the server doesn't receive a Pong response after 5 consecutive Pings, the server will terminate the connection.
+    *   **Client Ping (Latency Measurement):**
+        *   After a successful WebSocket connection, the client can also initiate a Ping message with a body like: `{"type":"ping","time":"1693208170000"}`. The `time` field is the client's timestamp when the Ping was sent.
+        *   The server will immediately respond with a Pong message, with a body like: `{"type":"pong","time":"1693208170000"}`.  The `time` field in the Pong will match the `time` field in the client's Ping.
+*   **05.** Authentication:
+    *   **Web:**
+        *   Browsers don't allow custom headers during WebSocket connections, so special handling is required.
+        *   Use the same authentication logic as HTTP. Create a JSON string using the `X-Edgex-Api-Key`, `X-Edgex-Passphrase`, `X-Edgex-Signature`, and `X-Edgex-Timestamp` key-value pairs, for example: `{"X-Edgex-Api-Key": "ff072a89-78a9-b4e8-27b2-32bd774c0786", "X-Edgex-Passphrase": "BEomwWBDjPqj7yifePhY2Q", "X-Edgex-Signature": "69ce1a38fd65afc49ae81eaccca81bfddb6a73cb3936b7d53abf48003514c253", "X-Edgex-Timestamp": "1705720068228"}`.
+        *   Base64 encode this JSON string.
+        *   During the WebSocket request, pass the base64 encoded value in the `SEC_WEBSOCKET_PROTOCOL` header.
+    *   **App:**
+        *   App WebSocket connections can use custom headers. Therefore, Apps can continue using the same authentication logic as HTTP, or they can use the Web authentication method described above.
 
 ### URL: `/api/v1/private/ws`
 
-#### payload
+#### Payload
 
-```json5
+```json
 {
-  // 交易消息的type为type-event，自定义消息的type单独定义，error表示是服务端推送的错误消息
+  // The type for trading messages is "trade-event". Custom messages have their own defined type. "error" indicates an error message sent by the server.
   "type": "trade-event",
-  // 交易消息的消息体结构如下。自定义消息的消息结构体由使用方单独定义
+  // The body of a trading message has the structure below. The message structure for custom messages will be defined separately by the user.
   "content": {
-    // 引起数据变更的事件
+    // The event that triggered the data update
     "event": "ACCOUNT_UPDATE",
-    // 数据变更version
+    // Data update version
     "version": "1000",
-    // 数据
+    // Data
     "data": {
-      // 账户信息
+      // Account information
       "account": [
       ],
-      // 抵押品
+      // Collateral information
       "collateral": [
       ],
-      // 抵押品变动明细
+      // Collateral transaction details
       "collateralTransaction": [
       ],
-      // 持仓信息
+      // Position information
       "position": [
       ],
-      // 持仓变动明细
+      // Position transaction details
       "positionTransaction": [
       ],
-      // 充值单
+       // Deposit records
       "deposit": [
       ],
-      // 提现单
+      // Withdrawal records
       "withdraw": [
       ],
-      // 转入单
+      // Transfer in records
       "transferIn": [
       ],
-      // 转出单
+      // Transfer out records
       "transferOut": [
       ],
-      // 委托单
+      // Order information
       "order": [
       ],
-      // 成交明细
+      // Trade details
       "orderFillTransaction": [
       ]
     }
@@ -79,47 +80,46 @@
 }
 ```
 
-## (Public WebSocket)行情websocket接口
+## (Public WebSocket) Market Data WebSocket Interface
 
-### URL: ``/api/v1/public/ws``
+### URL: `/api/v1/public/ws`
 
-### 说明
+### Description
 
-> + 01. 订阅和取消订阅，服务端都会校验channel，对于不合法的channel，服务端会响应error消息，例如： `{"type":"error","content":{"code":"INVALID_CONTRACT_ID""msg":"invalid contractId:100000001"}}`
-> + 02. 消息的订阅和取消订阅结构体: {"type": "subscribe", "channel": "ticker.10000001"}.
-> + 03. Ping-Pong机制
-> > - 服务端 `Ping`(用于心跳)
-> > > WebSocket连接成功之后，Server端会以固定频率向Client端发送Ping消息，消息体如下：`{"type":"ping","time":"1693208170000"}`
-，其中time标示的是Server端Ping时刻的时间戳。此时Client端在收到消息后，请回复服务端Pong消息，消息体内容为 `{"type":"pong","time":"1693208170000"}`
-。超过5次不回应，服务端会主动断开当前连接。
-> > - 客户端 `Ping`(用于测速)
-> > > WebSocket连接成功后，Client端也可以自己发起一个Ping消息，消息体如下：`{"type":"ping","time":"1693208170000"}`
-> > > ，其中time为Client端发起Ping消息的时间戳，照此消息格式，服务端在收到消息之后，会即刻回复Pong消息，消息体内容为 `{"type":"pong","time":"1693208170000"}`
-> > > ，其中的`time`字段还是Client端Ping消息的`time`。
+*   **01.** When subscribing or unsubscribing, the server will validate the channel. For invalid channels, the server will respond with an error message, for example: `{"type":"error","content":{"code":"INVALID_CONTRACT_ID""msg":"invalid contractId:100000001"}}`
+*   **02.** The message structure for subscribing and unsubscribing is: `{"type": "subscribe", "channel": "ticker.10000001"}`.
+*   **03.** Ping-Pong Mechanism:
+    *   **Server Ping (Heartbeat):**
+        *   After a successful WebSocket connection, the server sends a Ping message at a fixed interval. The message body looks like: `{"type":"ping","time":"1693208170000"}`. The `time` field is the server's timestamp when the Ping was sent.
+        *   The client must respond with a Pong message upon receipt, with a body like: `{"type":"pong","time":"1693208170000"}`.
+        *   If the server doesn't receive a Pong response after 5 consecutive Pings, the server will terminate the connection.
+    *   **Client Ping (Latency Measurement):**
+        *   After a successful WebSocket connection, the client can also initiate a Ping message with a body like: `{"type":"ping","time":"1693208170000"}`. The `time` field is the client's timestamp when the Ping was sent.
+        *   The server will immediately respond with a Pong message, with a body like: `{"type":"pong","time":"1693208170000"}`. The `time` field in the Pong will match the `time` field in the client's Ping.
 
-### 订阅metadata
+### Subscription Metadata
 
-#### request
+#### Request
 
-```json5
+```json
 {
   "type": "subscribe",
   "channel": "metadata"
 }
 ```
 
-#### response
+#### Response
 
-```json5
+```json
 {
   "type": "subscribed",
   "channel": "metadata"
 }
 ```
 
-#### payload
+#### Payload
 
-```json lines
+```json
 {
   // error
   "type":  "quote-event",
@@ -131,10 +131,10 @@
     "channel": "metadata",
     "data": [
       {
-        // 币信息
+        // Coin information
         "coin": [
         ],
-        // 合约信息
+        // Contract information
         "contract": [
         ]
       }
@@ -143,37 +143,37 @@
 }
 ```
 
-### 订阅24小时行情
+### Subscribe to 24-Hour Market Ticker
 
-#### channel说明
+#### Channel Explanation
 
-| channel             | 备注                  |
-|---------------------|---------------------|
-| ticker.{contractId} | 订阅合约contractId的行情信息 |
-| ticker.all          | 订阅所有合约的行情信息         |
-| ticker.all.1s       | 订阅所有合约的行情信息 (定时推送)  |
+| Channel             | Description                          |
+|---------------------|--------------------------------------|
+| ticker.{contractId} | Subscribe to the ticker of contract `contractId`|
+| ticker.all          | Subscribe to the ticker of all contracts       |
+| ticker.all.1s       | Subscribe to the ticker of all contracts (periodic push)|
 
-#### request
+#### Request
 
-```json5
+```json
 {
   "type": "subscribe",
   "channel": "ticker.10000001"
 }
 ```
 
-#### response
+#### Response
 
-```json5
+```json
 {
   "type": "subscribed",
   "channel": "ticker.10000001"
 }
 ```
 
-#### payload
+#### Payload
 
-```json lines
+```json
 {
   "type": "payload",
   "channel": "ticker.10000001",
@@ -196,67 +196,67 @@
         "lowTime": "string",
         "startTime": "string",
         "endTime": "string",
-        "lastPrice": "string",
+        "lastPrice": "string"
       }
     ]
-  },
+  }
 }
 ```
 
-### 订阅K线
+### Subscribe to K-Line Data
 
-#### channel说明
+#### Channel Explanation
 
-| channel                                   | 备注                                        |
-|-------------------------------------------|-------------------------------------------|
-| kline.{priceType}.{contractId}.{interval} | 订阅合约contractId的价格类型为priceType的interval K线 |
+| Channel                                   | Description                                        |
+|-------------------------------------------|----------------------------------------------------|
+| kline.{priceType}.{contractId}.{interval} | Subscribe to the `interval` K-Line of contract `contractId` based on `priceType`|
 
-#### priceType 参数
+#### `priceType` Parameter
 
-> | value      | description |
-> |------------|-------------|
-> | LAST_PRICE | 最新价格K线      |
-> | MARK_PRICE | 标价价格K线      |
+| Value      | Description   |
+|------------|---------------|
+| LAST_PRICE | Last Price K-Line |
+| MARK_PRICE | Mark Price K-Line |
 
-#### interval 参数
+#### `interval` Parameter
 
-> | value     | description |
-> |:----------|-------------|
-> | MINUTE_1  | 1分钟线        |
-> | MINUTE_5  | 5分钟线        |
-> | MINUTE_15 | 15分钟线       |
-> | MINUTE_30 | 30分钟线       |
-> | HOUR_1    | 1小时线        |
-> | HOUR_2    | 2小时线        |
-> | HOUR_4    | 4小时线        |
-> | HOUR_6    | 6小时线        |
-> | HOUR_8    | 8小时线        |
-> | HOUR_12   | 12小时线       |
-> | DAY_1     | 天线          |
-> | WEEK_1    | 周线          |
-> | MONTH_1   | 月线          |
+| Value     | Description |
+|:----------|-------------|
+| MINUTE_1  | 1-Minute K-Line   |
+| MINUTE_5  | 5-Minute K-Line   |
+| MINUTE_15 | 15-Minute K-Line |
+| MINUTE_30 | 30-Minute K-Line |
+| HOUR_1    | 1-Hour K-Line     |
+| HOUR_2    | 2-Hour K-Line     |
+| HOUR_4    | 4-Hour K-Line     |
+| HOUR_6    | 6-Hour K-Line     |
+| HOUR_8    | 8-Hour K-Line     |
+| HOUR_12   | 12-Hour K-Line    |
+| DAY_1     | Daily K-Line     |
+| WEEK_1    | Weekly K-Line    |
+| MONTH_1   | Monthly K-Line   |
 
-#### request
+#### Request
 
-```json5
+```json
 {
   "type": "subscribe",
   "channel": "kline.LAST_PRICE.10000001.MINUTE_1"
 }
 ```
 
-#### response
+#### Response
 
-```json5
+```json
 {
   "type": "subscribed",
   "channel": "kline.LAST_PRICE.10000001.MINUTE_1"
 }
 ```
 
-#### payload
+#### Payload
 
-```json5
+```json
 {
   "type": "payload",
   "channel": "kline.LAST_PRICE.10000001.MINUTE_1",
@@ -280,50 +280,50 @@
         "makerBuyValue": "150000"
       }
     ]
-  },
+  }
 }
 ```
 
-### 订阅订单薄
+### Subscribe to Order Book
 
-#### 使用说明
+#### Usage Instructions
 
-> 订阅成功后，会直接推送一次全量数据(depthType=SNAPSHOT)，后续推送为增量数据(depthType=CHANGED)
+> After a successful subscription, a full dataset is pushed once initially (`depthType=SNAPSHOT`), and subsequent pushes will be incremental updates (`depthType=CHANGED`).
 
-#### channel说明
+#### Channel Explanation
 
-| channel                    | 备注                          |
-|----------------------------|-----------------------------|
-| depth.{contractId}.{depth} | 订阅合约contractId的深度为depth的订单簿 |
+| Channel                    | Description                                 |
+|----------------------------|---------------------------------------------|
+| depth.{contractId}.{depth} | Subscribe to the order book of contract `contractId` with a depth of `depth` |
 
-#### depth 参数
+#### `depth` Parameter
 
-> | value | description |
-> |-------|-------------|
-> | 15    | 15档         |
-> | 200   | 200档        |
+| Value | Description |
+|-------|-------------|
+| 15    | 15 levels   |
+| 200   | 200 levels  |
 
-#### request
+#### Request
 
-```json5
+```json
 {
   "type": "subscribe",
   "channel": "depth.10000001.15"
 }
 ```
 
-#### response
+#### Response
 
-```json5
+```json
 {
   "type": "subscribed",
   "channel": "depth.10000001.15"
 }
 ```
 
-#### payload
+#### Payload
 
-```json5
+```json
 {
   "type": "payload",
   "channel": "depth.10000001.15",
@@ -336,14 +336,13 @@
         "endVersion": "string",
         "level": 0,
         "contractId": "10000001",
-        "depthType": "Snapshot",
-        // 数据类型 SNAPSHOT 全量数据 SNAPSHOT 增量数据
+        "depthType": "Snapshot", // Data type: SNAPSHOT for full data, CHANGED for incremental data
         "bids": [
           [
             "26092",
-            // 价格
+            // Price
             "0.9014"
-            // 数量 数量为0表示删除该价格 正数表示增加 负数表示减少
+            // Size. A size of 0 indicates a deletion. Positive numbers mean increase. Negative numbers mean decrease.
           ],
           [
             "26091",
@@ -366,35 +365,35 @@
 }
 ```
 
-### 订阅最新成交
+### Subscribe to Latest Trades
 
-#### channel说明
+#### Channel Explanation
 
-| channel             | 备注                  |
-|---------------------|---------------------|
-| trades.{contractId} | 订阅合约contractId的最新成交 |
+| Channel             | Description                           |
+|---------------------|---------------------------------------|
+| trades.{contractId} | Subscribe to the latest trades of contract `contractId` |
 
-#### request
+#### Request
 
-```json5
+```json
 {
   "type": "subscribe",
   "channel": "trades.10000001"
 }
 ```
 
-#### response
+#### Response
 
-```json5
+```json
 {
   "type": "subscribed",
   "channel": "trades.10000001"
 }
 ```
 
-#### payload
+#### Payload
 
-```json5
+```json
 {
   "type": "payload",
   "channel": "trades.10000001",
@@ -420,4 +419,3 @@
   }
 }
 ```
-
