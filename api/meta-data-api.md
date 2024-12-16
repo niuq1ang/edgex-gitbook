@@ -1,11 +1,4 @@
-```
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 00.MetaDataPublicApi
+# MetaDataPublicApi
 
 <a id="opIdgetServerTime"></a>
 
