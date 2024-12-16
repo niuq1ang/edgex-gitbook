@@ -1,10 +1,4 @@
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 01.FundingPublicApi
+# FundingPublicApi
 
 <a id="opIdgetLatestFundingRate"></a>
 
