@@ -1,4 +1,4 @@
----
+```yaml
 title: test v1.0.0
 language_tabs:
   - shell: Shell
@@ -16,7 +16,6 @@ code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
 generator: "@tarslib/widdershins v4.0.17"
-
 ---
 
 # test
@@ -29,11 +28,11 @@ Base URLs:
 
 <a id="opIdrequestRelayerSignAndBroadcast"></a>
 
-## POST 创建 Relayer 充值单
+## POST Create Relayer Deposit Order
 
 POST /api/v1/private/deposit/requestRelayerSignAndBroadcast
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -51,13 +50,13 @@ POST /api/v1/private/deposit/requestRelayerSignAndBroadcast
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[RequestRelayerSignAndBroadcastParam](#schemarequestrelayersignandbroadcastparam)| 否 |none|
+| Name        | Location | Type                                  | Required | Description |
+| ----------- | -------- | ------------------------------------- | -------- | ----------- |
+| body        | body     | [RequestRelayerSignAndBroadcastParam](#schemarequestrelayersignandbroadcastparam) | No       | none        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -70,19 +69,19 @@ POST /api/v1/private/deposit/requestRelayerSignAndBroadcast
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning                                                                       | Description     | Data Model     |
+| ----------- | ----------------------------------------------------------------------------------------- | --------------- | -------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdcreateDeposit"></a>
 
-## POST 创建充值单
+## POST Create Deposit Order
 
 POST /api/v1/private/deposit/createDeposit
 
-> Body 请求参数
+> Body Request Parameters
 
 ```json
 {
@@ -105,13 +104,13 @@ POST /api/v1/private/deposit/createDeposit
 }
 ```
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|[CreateDepositParam](#schemacreatedepositparam)| 否 |none|
+| Name            | Location | Type                      | Required | Description |
+| --------------- | -------- | ------------------------- | -------- | ----------- |
+| body            | body     | [CreateDepositParam](#schemacreatedepositparam) | No       | none        |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -124,26 +123,26 @@ POST /api/v1/private/deposit/createDeposit
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning                                                                       | Description     | Data Model     |
+| ----------- | ----------------------------------------------------------------------------------------- | --------------- | -------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetDepositById"></a>
 
-## GET 根据充值单id批量获取充值单
+## GET Get Deposit Orders by ID in Batch
 
 GET /api/v1/private/deposit/getDepositById
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|depositIdList|query|string| 否 |充值单id|
+| Name            | Location | Type   | Required | Description      |
+| --------------- | -------- | ------ | -------- | ---------------- |
+| accountId       | query    | string | No       | Account ID       |
+| depositIdList   | query    | string | No       | Deposit Order IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -156,26 +155,26 @@ GET /api/v1/private/deposit/getDepositById
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning                                                                       | Description     | Data Model     |
+| ----------- | ----------------------------------------------------------------------------------------- | --------------- | -------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetDepositByClientDepositId"></a>
 
-## GET 根据账户id和充值单clientId批量获取充值单
+## GET Get Deposit Orders by Account ID and Client Deposit ID in Batch
 
 GET /api/v1/private/deposit/getDepositByClientDepositId
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|clientDepositIdList|query|string| 否 |客户自定义id|
+| Name                | Location | Type   | Required | Description             |
+| ------------------- | -------- | ------ | -------- | ----------------------- |
+| accountId           | query    | string | No       | Account ID              |
+| clientDepositIdList | query    | string | No       | Client-defined Deposit IDs |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -188,27 +187,27 @@ GET /api/v1/private/deposit/getDepositByClientDepositId
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+| Status Code | Status Code Meaning                                                                       | Description     | Data Model     |
+| ----------- | ----------------------------------------------------------------------------------------- | --------------- | -------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
 
 <a id="opIdgetActiveDeposit"></a>
 
-## GET 翻页获取充值单
+## GET Get Paged Deposit Orders
 
 GET /api/v1/private/deposit/getActiveDeposit
 
-### 请求参数
+### Request Parameters
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|accountId|query|string| 否 |账户id|
-|size|query|string| 否 |获取数量。必须大于0且小于等于100|
-|offsetData|query|string| 否 |翻页获取偏移。如果不填或者为空串，则获取第一页|
+| Name         | Location | Type   | Required | Description                                                 |
+| ------------ | -------- | ------ | -------- | ----------------------------------------------------------- |
+| accountId    | query    | string | No       | Account ID                                                  |
+| size         | query    | string | No       | Number of records to retrieve. Must be greater than 0 and less than or equal to 100 |
+| offsetData   | query    | string | No       | Offset for pagination. If empty or not provided, retrieves the first page |
 
-> 返回示例
+> Response Example
 
 > 200 Response
 
@@ -267,17 +266,17 @@ GET /api/v1/private/deposit/getActiveDeposit
 }
 ```
 
-### 返回结果
+### Response
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+| Status Code | Status Code Meaning                                                                       | Description     | Data Model     |
+| ----------- | ----------------------------------------------------------------------------------------- | --------------- | -------------- |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
 
-### 返回数据结构
+### Response Structure
 
-# 数据模型
+# Data Models
 
-<h2 id="tocS_Result<PageData<Deposit>>">Result<PageData<Deposit>></h2>
+<h2 id="tocS_Result<PageData<Deposit>>">Result&lt;PageData&lt;Deposit&gt;&gt;</h2>
 
 <a id="schemaresult<pagedata<deposit>>"></a>
 <a id="schema_Result<PageData<Deposit>>"></a>
@@ -337,20 +336,19 @@ GET /api/v1/private/deposit/getActiveDeposit
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[PageDataDeposit](#schemapagedatadeposit)|false|none||通用翻页返回|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                  | Required | Constraints | Description     | Notes                                 |
+| -------------- | ------------------------------------- | -------- | ----------- | --------------- | ------------------------------------- |
+| code           | string                                | false    | none        |                 | Status code. "SUCCESS" if successful, otherwise failure |
+| data           | [PageDataDeposit](#schemapagedatadeposit) | false    | none        |                 | Generic paged response                |
+| errorParam     | object                                | false    | none        |                 | Parameter information in the error message |
+| » **additionalProperties** | string                                | false    | none        |                 | Parameter information in the error message |
+| requestTime    | string(timestamp)                     | false    | none        |                 | Server request receive time           |
+| responseTime   | string(timestamp)                     | false    | none        |                 | Server response return time           |
+| traceId        | string                                | false    | none        |                 | Invocation trace ID                  |
 
 <h2 id="tocS_PageDataDeposit">PageDataDeposit</h2>
 
@@ -402,17 +400,16 @@ GET /api/v1/private/deposit/getActiveDeposit
   ],
   "nextPageOffsetData": "string"
 }
-
 ```
 
-通用翻页返回
+Generic paged response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|dataList|[[Deposit](#schemadeposit)]|false|none||数据列表|
-|nextPageOffsetData|string|false|none||获取下一页偏移。如果没有下一页数据，则为空串|
+| Name               | Type                        | Required | Constraints | Description                       | Notes                                |
+| ------------------ | --------------------------- | -------- | ----------- | --------------------------------- | ------------------------------------ |
+| dataList           | [[Deposit](#schemadeposit)] | false    | none        | List of data                      |                                      |
+| nextPageOffsetData | string                      | false    | none        | Offset for next page. Empty string if no more data | |
 
 <h2 id="tocS_Deposit">Deposit</h2>
 
@@ -459,54 +456,53 @@ GET /api/v1/private/deposit/getActiveDeposit
   "createdTime": "string",
   "updatedTime": "string"
 }
-
 ```
 
-充值单
+Deposit Order
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|id|string(int64)|false|none||充值单id|
-|userId|string(int64)|false|none||所属用户id|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||所属抵押品币种id|
-|amount|string|false|none||充值数量|
-|ethAddress|string|false|none||充值的eth地址，可能与账户里的eth地址不一样|
-|erc20Address|string|false|none||充值的币种合约地址|
-|clientDepositId|string|false|none||客户自定义id，用于幂等校验|
-|l1Tx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|riskSignature|[L2Signature](#schemal2signature)|false|none||L2签名信息|
-|l2Key|string|false|none||L2上的收款账户key|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
-|status|string|false|none||充值单状态|
-|collateralTransactionId|string(int64)|false|none||关联的抵押品明细id。当 status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|censorTxId|string(int64)|false|none||审查处理序号。当 status=SUCCESS_XXX/FAILED_XXX 时存在|
-|censorTime|string(int64)|false|none||审查处理时间。当 status=SUCCESS_XXX/FAILED_XXX|
-|censorFailCode|string|false|none||审查失败错误码。当 status=FAILED_CENSOR_FAILURE 时存在|
-|censorFailReason|string|false|none||审查失败原因。当 status=FAILED_CENSOR_FAILURE 时存在|
-|l2TxId|string(int64)|false|none||l2推送交易id。当 status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|l2RejectTime|string(int64)|false|none||l2拒绝时间。当 status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|l2RejectCode|string|false|none||l2拒绝错误码。当 status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|l2RejectReason|string|false|none||l2拒绝原因。当 status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED 时存在|
-|l2ApprovedTime|string(int64)|false|none||l2批次验证时间。当 status=SUCCESS_L2_APPROVED/FAILED_L2_REJECT_APPROVED 时存在|
-|createdTime|string(int64)|false|none||创建时间|
-|updatedTime|string(int64)|false|none||更新时间|
+| Name                     | Type                               | Required | Constraints | Description                                                              | Notes                                                                                   |
+| ------------------------ | ---------------------------------- | -------- | ----------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| id                       | string(int64)                      | false    | none        | Deposit order ID                                                       |                                                                                         |
+| userId                   | string(int64)                      | false    | none        | User ID                                                                  |                                                                                         |
+| accountId                | string(int64)                      | false    | none        | Account ID                                                               |                                                                                         |
+| coinId                   | string(int64)                      | false    | none        | Collateral coin ID                                                       |                                                                                         |
+| amount                   | string                             | false    | none        | Deposit amount                                                           |                                                                                         |
+| ethAddress               | string                             | false    | none        | Deposit ETH address. Might be different from the address in the account  |                                                                                         |
+| erc20Address             | string                             | false    | none        | Deposit coin contract address                                            |                                                                                         |
+| clientDepositId          | string                             | false    | none        | Client-defined ID for idempotency                                        |                                                                                         |
+| l1Tx                     | [L1Tx](#schemal1tx)                | false    | none        | L1 transaction information                                             |                                                                                         |
+| riskSignature            | [L2Signature](#schemal2signature)  | false    | none        | L2 signature information                                                 |                                                                                         |
+| l2Key                    | string                             | false    | none        | L2 recipient account key                                                 |                                                                                         |
+| extraType                | string                             | false    | none        | Additional type for upper-layer business usage                            |                                                                                         |
+| extraDataJson            | string                             | false    | none        | Extra data in JSON format, default is empty string                      |                                                                                         |
+| status                   | string                             | false    | none        | Deposit order status                                                     |                                                                                         |
+| collateralTransactionId  | string(int64)                      | false    | none        | Associated collateral detail ID. Present when status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED | |
+| censorTxId               | string(int64)                      | false    | none        | Censor processing sequence number. Present when status=SUCCESS_XXX/FAILED_XXX |                                                                                         |
+| censorTime               | string(int64)                      | false    | none        | Censor processing time. Present when status=SUCCESS_XXX/FAILED_XXX      |                                                                                         |
+| censorFailCode           | string                             | false    | none        | Censor failure error code. Present when status=FAILED_CENSOR_FAILURE    |                                                                                         |
+| censorFailReason         | string                             | false    | none        | Censor failure reason. Present when status=FAILED_CENSOR_FAILURE      |                                                                                         |
+| l2TxId                   | string(int64)                      | false    | none        | L2 push transaction ID. Present when status=SUCCESS_XXX/FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |                                                                                         |
+| l2RejectTime             | string(int64)                      | false    | none        | L2 rejection time. Present when status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |                                                                                         |
+| l2RejectCode             | string                             | false    | none        | L2 rejection error code. Present when status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |                                                                                         |
+| l2RejectReason           | string                             | false    | none        | L2 rejection reason. Present when status=FAILED_L2_REJECT/FAILED_L2_REJECT_APPROVED |                                                                                         |
+| l2ApprovedTime           | string(int64)                      | false    | none        | L2 batch validation time. Present when status=SUCCESS_L2_APPROVED/FAILED_L2_REJECT_APPROVED |                                                                                         |
+| createdTime              | string(int64)                      | false    | none        | Creation time                                                           |                                                                                         |
+| updatedTime              | string(int64)                      | false    | none        | Update time                                                             |                                                                                         |
 
-#### 枚举值
+#### Enum Values
 
-|属性|值|
-|---|---|
-|status|UNKNOWN_DEPOSIT_STATUS|
-|status|PENDING_CENSORING|
-|status|SUCCESS_CENSOR_SUCCESS|
-|status|SUCCESS_L2_APPROVED|
-|status|FAILED_CENSOR_FAILURE|
-|status|FAILED_L2_REJECT|
-|status|FAILED_L2_REJECT_APPROVED|
-|status|UNRECOGNIZED|
+| Property | Value                    |
+| -------- | ------------------------ |
+| status   | UNKNOWN_DEPOSIT_STATUS  |
+| status   | PENDING_CENSORING       |
+| status   | SUCCESS_CENSOR_SUCCESS    |
+| status   | SUCCESS_L2_APPROVED     |
+| status   | FAILED_CENSOR_FAILURE    |
+| status   | FAILED_L2_REJECT         |
+| status   | FAILED_L2_REJECT_APPROVED |
+| status   | UNRECOGNIZED             |
 
 <h2 id="tocS_L2Signature">L2Signature</h2>
 
@@ -521,18 +517,17 @@ GET /api/v1/private/deposit/getActiveDeposit
   "s": "string",
   "v": "string"
 }
-
 ```
 
-L2签名信息
+L2 signature information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|r|string|false|none||bigint for hex str|
-|s|string|false|none||bigint for hex str|
-|v|string|false|none||bigint for hex str|
+| Name | Type   | Required | Constraints | Description        | Notes                  |
+| ---- | ------ | -------- | ----------- | ------------------ | ---------------------- |
+| r    | string | false    | none        |                    | BigInt as hex string   |
+| s    | string | false    | none        |                    | BigInt as hex string   |
+| v    | string | false    | none        |                    | BigInt as hex string   |
 
 <h2 id="tocS_L1Tx">L1Tx</h2>
 
@@ -548,21 +543,20 @@ L2签名信息
   "time": "string",
   "blockHeight": "string"
 }
-
 ```
 
-L1交易信息
+L1 transaction information
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|hash|string|false|none||tx hash|
-|index|integer(int32)|false|none||tx hash 所属index|
-|time|string(int64)|false|none||tx 链上时间戳，单位毫秒|
-|blockHeight|string(int64)|false|none||tx所在区块高度|
+| Name        | Type            | Required | Constraints | Description       | Notes                     |
+| ----------- | --------------- | -------- | ----------- | ----------------- | ------------------------- |
+| hash        | string          | false    | none        | TX hash           |                           |
+| index       | integer(int32)  | false    | none        | TX hash index     |                           |
+| time        | string(int64)   | false    | none        | TX timestamp (milliseconds) |                     |
+| blockHeight | string(int64)   | false    | none        | TX block height   |                           |
 
-<h2 id="tocS_Result<List<Deposit>>">Result<List<Deposit>></h2>
+<h2 id="tocS_Result<List<Deposit>>">Result&lt;List&lt;Deposit&gt;&gt;</h2>
 
 <a id="schemaresult<list<deposit>>"></a>
 <a id="schema_Result<List<Deposit>>"></a>
@@ -619,22 +613,21 @@ L1交易信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[[Deposit](#schemadeposit)]|false|none||正确响应数据|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                        | Required | Constraints | Description     | Notes                                 |
+| -------------- | --------------------------- | -------- | ----------- | --------------- | ------------------------------------- |
+| code           | string                      | false    | none        |                 | Status code. "SUCCESS" if successful, otherwise failure |
+| data           | [[Deposit](#schemadeposit)] | false    | none        |                 | Correct response data                 |
+| errorParam     | object                      | false    | none        |                 | Parameter information in the error message |
+| » **additionalProperties** | string                      | false    | none        |                 | Parameter information in the error message |
+| requestTime    | string(timestamp)           | false    | none        |                 | Server request receive time           |
+| responseTime   | string(timestamp)           | false    | none        |                 | Server response return time           |
+| traceId        | string                      | false    | none        |                 | Invocation trace ID                  |
 
-<h2 id="tocS_Result<CreateDeposit>">Result<CreateDeposit></h2>
+<h2 id="tocS_Result<CreateDeposit>">Result&lt;CreateDeposit&gt;</h2>
 
 <a id="schemaresult<createdeposit>"></a>
 <a id="schema_Result<CreateDeposit>"></a>
@@ -655,20 +648,19 @@ L1交易信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[CreateDeposit](#schemacreatedeposit)|false|none||创建充值单-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                   | Required | Constraints | Description     | Notes                                 |
+| -------------- | -------------------------------------- | -------- | ----------- | --------------- | ------------------------------------- |
+| code           | string                                 | false    | none        |                 | Status code. "SUCCESS" if successful, otherwise failure |
+| data           | [CreateDeposit](#schemacreatedeposit) | false    | none        |                 | Create deposit order - response       |
+| errorParam     | object                                 | false    | none        |                 | Parameter information in the error message |
+| » **additionalProperties** | string                                 | false    | none        |                 | Parameter information in the error message |
+| requestTime    | string(timestamp)                      | false    | none        |                 | Server request receive time           |
+| responseTime   | string(timestamp)                      | false    | none        |                 | Server response return time           |
+| traceId        | string                                 | false    | none        |                 | Invocation trace ID                  |
 
 <h2 id="tocS_CreateDeposit">CreateDeposit</h2>
 
@@ -681,16 +673,15 @@ L1交易信息
 {
   "depositId": "string"
 }
-
 ```
 
-创建充值单-响应
+Create deposit order - response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|depositId|string(int64)|false|none||充值单id|
+| Name      | Type          | Required | Constraints | Description     | Notes            |
+| --------- | ------------- | -------- | ----------- | --------------- | ---------------- |
+| depositId | string(int64) | false    | none        |                 | Deposit order ID |
 
 <h2 id="tocS_CreateDepositParam">CreateDepositParam</h2>
 
@@ -718,28 +709,27 @@ L1交易信息
   "extraType": "string",
   "extraDataJson": "string"
 }
-
 ```
 
-创建充值单-请求
+Create deposit order - request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|accountId|string(int64)|false|none||账户id|
-|coinId|string(int64)|false|none||货币id|
-|amount|string(decimal)|false|none||充值数量|
-|ethAddress|string|false|none||提现到的地址。|
-|erc20Address|string|false|none||提现的币种合约地址|
-|clientDepositId|string|false|none||客户自定义id，用于幂等校验|
-|l1Tx|[L1Tx](#schemal1tx)|false|none||L1交易信息|
-|riskSignature|string|false|none||风控签名|
-|l2Key|string|false|none||L2上的收款账户key|
-|extraType|string|false|none||附加类型，供上层业务使用|
-|extraDataJson|string|false|none||额外数据，json格式，默认为空串|
+| Name            | Type           | Required | Constraints | Description                                                   | Notes                                |
+| --------------- | -------------- | -------- | ----------- | ------------------------------------------------------------- | ------------------------------------ |
+| accountId       | string(int64)  | false    | none        | Account ID                                                    |                                      |
+| coinId          | string(int64)  | false    | none        | Coin ID                                                       |                                      |
+| amount          | string(decimal)| false    | none        | Deposit amount                                                |                                      |
+| ethAddress      | string         | false    | none        | Withdrawal address                                              |                                      |
+| erc20Address    | string         | false    | none        | Withdrawal coin contract address                              |                                      |
+| clientDepositId | string         | false    | none        | Client-defined ID for idempotency                              |                                      |
+| l1Tx            | [L1Tx](#schemal1tx)          | false    | none        | L1 transaction information                                      |                                      |
+| riskSignature   | string         | false    | none        | Risk control signature                                        |                                      |
+| l2Key           | string         | false    | none        | L2 recipient account key                                        |                                      |
+| extraType       | string         | false    | none        | Additional type for upper-layer business usage                    |                                      |
+| extraDataJson   | string         | false    | none        | Extra data in JSON format, default is empty string              |                                      |
 
-<h2 id="tocS_Result<ResultRequestRelayerSignAndBroadcast>">Result<ResultRequestRelayerSignAndBroadcast></h2>
+<h2 id="tocS_Result<ResultRequestRelayerSignAndBroadcast>">Result&lt;ResultRequestRelayerSignAndBroadcast&gt;</h2>
 
 <a id="schemaresult<resultrequestrelayersignandbroadcast>"></a>
 <a id="schema_Result<ResultRequestRelayerSignAndBroadcast>"></a>
@@ -760,20 +750,19 @@ L1交易信息
   "responseTime": "string",
   "traceId": "string"
 }
-
 ```
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|data|[RequestRelayerSignAndBroadcast](#schemarequestrelayersignandbroadcast)|false|none||创建 Relayer 充值单-响应|
-|errorParam|object|false|none||错误消息中的参数信息|
-|» **additionalProperties**|string|false|none||错误消息中的参数信息|
-|requestTime|string(timestamp)|false|none||服务器请求接收时间|
-|responseTime|string(timestamp)|false|none||服务器响应返回时间|
-|traceId|string|false|none||调用traceId|
+| Name           | Type                                                  | Required | Constraints | Description     | Notes                                 |
+| -------------- | ----------------------------------------------------- | -------- | ----------- | --------------- | ------------------------------------- |
+| code           | string                                                | false    | none        |                 | Status code. "SUCCESS" if successful, otherwise failure |
+| data           | [RequestRelayerSignAndBroadcast](#schemarequestrelayersignandbroadcast) | false    | none        |                 | Create Relayer deposit order - response |
+| errorParam     | object                                                | false    | none        |                 | Parameter information in the error message |
+| » **additionalProperties** | string                                                | false    | none        |                 | Parameter information in the error message |
+| requestTime    | string(timestamp)                                     | false    | none        |                 | Server request receive time           |
+| responseTime   | string(timestamp)                                     | false    | none        |                 | Server response return time           |
+| traceId        | string                                                | false    | none        |                 | Invocation trace ID                  |
 
 <h2 id="tocS_RequestRelayerSignAndBroadcast">RequestRelayerSignAndBroadcast</h2>
 
@@ -786,16 +775,15 @@ L1交易信息
 {
   "success": true
 }
-
 ```
 
-创建 Relayer 充值单-响应
+Create Relayer deposit order - response
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|success|boolean(boolean)|false|none||是否成功|
+| Name    | Type            | Required | Constraints | Description | Notes         |
+| ------- | --------------- | -------- | ----------- | ----------- | ------------- |
+| success | boolean(boolean) | false    | none        |             | Whether it's successful |
 
 <h2 id="tocS_Result">Result</h2>
 
@@ -811,19 +799,18 @@ L1交易信息
   "requestTime": "string",
   "responseTime": "string"
 }
-
 ```
 
-通用返回结构体
+General response structure
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|code|string|false|none||状态码.成功返回为"SUCCESS",其他都为失败|
-|msg|string|false|none||当发生错误时的详细错误信息|
-|requestTime|string(int64)|false|none||服务器请求接收时间|
-|responseTime|string(int64)|false|none||服务器响应返回时间|
+| Name         | Type         | Required | Constraints | Description                                    | Notes                    |
+| ------------ | ------------ | -------- | ----------- | ---------------------------------------------- | ------------------------ |
+| code         | string       | false    | none        |                                                | Status code. "SUCCESS" if successful, otherwise failure |
+| msg          | string       | false    | none        | Detailed error message when an error occurs    |                          |
+| requestTime  | string(int64) | false    | none        | Server request receive time                    |                          |
+| responseTime | string(int64) | false    | none        | Server response return time                    |                          |
 
 <h2 id="tocS_RequestRelayerSignAndBroadcastParam">RequestRelayerSignAndBroadcastParam</h2>
 
@@ -846,24 +833,22 @@ L1交易信息
   "chainId": "string",
   "mpcSignature": "string"
 }
-
 ```
 
-创建 Relayer 充值单-请求
+Create Relayer deposit order - request
 
-### 属性
+### Properties
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|deadline|string(int64)|false|none||deadline|
-|r|string|false|none||client signature r|
-|s|string|false|none||client signature s|
-|v|string|false|none||client signature v|
-|type|string|false|none||type|
-|amount|string|false|none||amount|
-|owner|string|false|none||owner|
-|starkKey|string|false|none||stark key|
-|positionId|string(int64)|false|none||position id|
-|chainId|string(int64)|false|none||chain id|
-|mpcSignature|string|false|none||mpc signature|
-
+| Name         |Type          | Required | Constraints | Description            | Notes                      |
+| ------------ | ------------- | -------- | ----------- | ---------------------- | -------------------------- |
+| deadline     | string(int64) | false    | none        | deadline               |                            |
+| r            | string        | false    | none        | Client signature r      |                            |
+| s            | string        | false    | none        | Client signature s      |                            |
+| v            | string        | false    | none        | Client signature v      |                            |
+| type         | string        | false    | none        | type                   |                            |
+| amount       | string        | false    | none        | amount                 |                            |
+| owner        | string        | false    | none        | owner                  |                            |
+| starkKey     | string        | false    | none        | Stark key             |                            |
+| positionId   | string(int64) | false    | none        | Position ID             |                            |
+| chainId      | string(int64) | false    | none        | Chain ID              |                            |
+| mpcSignature | string        | false    | none        | MPC signature          |                            |
