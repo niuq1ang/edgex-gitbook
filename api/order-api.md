@@ -1,10 +1,4 @@
-# test
-
-> v1.0.0
-
-Base URLs:
-
-# 04.OrderPrivateApi
+# OrderPrivateApi
 
 <a id="opIdgetMaxCreateOrderSize"></a>
 
