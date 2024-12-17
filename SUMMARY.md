@@ -38,8 +38,8 @@
     * [Order API](api/order-api.md)
     * [Deposit API](api/deposit-api.md)
     * [Withdraw API](api/withdraw-api.md)
-    * [Transfer API](api/transfer.md)
-    * [Asset API](api/asstet-api.md)
+    * [Transfer API](api/transfer-api.md)
+    * [Asset API](api/asset-api.md)
   * [Websocket API](api/websocket-api.md)
 
 
