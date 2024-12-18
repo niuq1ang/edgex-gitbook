@@ -15,7 +15,7 @@ https://pro.edgex.exchange
 | x-edgex-signature  | header   | string  | must     | None                     |
 | x-edgex-timestamp  | header   | number  | must     | None                     |
 
-> Login to [Edgex](https://pro.edgex.exchange/trade/BTCUSDT), copy the 4 request headers, and **Request The Administrator** to configure the user list to access the API interface.
+> Login to [edgeX](https://pro.edgex.exchange/trade/BTCUSDT), copy the 4 request headers, and **Request The Administrator** to configure the user list to access the API interface.
 
 <figure><img src="../.gitbook/assets/request_header.png" alt=""><figcaption><p><strong>How To GET Your Request Header</strong></p></figcaption></figure>
 
