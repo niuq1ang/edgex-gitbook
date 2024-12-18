@@ -28,3 +28,19 @@
   * [Official Links](about/official-links.md)
   * [Terms of Use](about/terms-of-use.md)
   * [Privacy Policy](about/privacy-policy.md)
+* [API Doc](api/README.md)
+  * [Public API](api/README.md)
+    * [Meta Data API](api/meta-data-api.md)
+    * [Quote API](api/quote-api.md)
+    * [Funding API](api/funding-api.md)
+  * [Private API](api/README.md)
+    * [Account API](api/account-api.md)
+    * [Order API](api/order-api.md)
+    * [Deposit API](api/deposit-api.md)
+    * [Withdraw API](api/withdraw-api.md)
+    * [Transfer API](api/transfer-api.md)
+    * [Asset API](api/asset-api.md)
+  * [Websocket API](api/websocket-api.md)
+
+
+
