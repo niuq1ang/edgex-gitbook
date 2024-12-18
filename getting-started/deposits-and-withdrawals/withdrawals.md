@@ -2,15 +2,7 @@
 
 **Ethereum Withdrawals:**
 
-There are two types of withdrawals on edgeX via the Ethereum network: Standard Withdrawals and Premium Withdrawals.
-
-Ethereum Standard Withdrawals:
-
-Standard withdrawals involve two steps: the user first requests a standard withdrawal. Once the next Layer 2 block is mined, the user must send a Layer 1 Ethereum transaction to claim their funds. Users need to wait for Layer 2 blocks to be mined before processing. These blocks are mined roughly every 4 hours, although this can vary up to 8 hours depending on blockchain network conditions.
-
-Ethereum Premium Withdrawals:
-
-Premium withdrawals utilize a liquidity provider to send funds immediately, eliminating the need for users to wait for Layer 2 blocks to be mined. Users do not need to send a Layer 1 transaction for a premium withdrawal. The liquidity provider will immediately send a transaction to Ethereum, which, once mined, will transfer the funds to the user.
+For maximum security, all transactions are batched, verified rigorously, and then settled on Ethereum L1. The process could take up to 12 hours.
 
 
 
@@ -29,25 +21,24 @@ For ETH standard withdrawals, users just need to cover the gas fees themselves.
 For non-ETH withdrawals, the fee is equal to the gas fee paid by the provider (1 USDT base fee+ 0.1% of withdraw amount).
 
 
+
 **Quick Guide**
 
 For Wallet Users:
 
-You can select the chain for withdrawal from Ethereum, BNB Chain, or Arbitrum&#x20;
+You can select the chain for withdrawal from Ethereum, BNB Chain, or Arbitrum
 
-➡️ Enter the withdrawal amount&#x20;
+➡️ Enter the withdrawal amount
 
-➡️ Click "Withdraw"&#x20;
+➡️ Click "Withdraw"
 
-➡️ Confirm in the approval pop-up page&#x20;
+➡️ Confirm in the approval pop-up page
 
 ➡️ Complete the withdrawal.
 
-
-
 For MPC Account Users:
 
-Withdrawals can only be made via Arbitrum.&#x20;
+Withdrawals can only be made via Arbitrum.
 
 ➡️ Enter the withdrawal amount.
 
