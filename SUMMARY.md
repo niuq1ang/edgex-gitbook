@@ -21,13 +21,6 @@
   * [Order Types](trading/order-types.md)
   * [Take Profit & Stop Loss](trading/take-profit-and-stop-loss.md)
   * [Liquidation Logic](trading/liquidation-logic.md)
-* [Vision & Roadmap](vision-and-roadmap.md)
-* [Brand Kit](brand-kit.md)
-* [Audits](audits.md)
-* [About](about/README.md)
-  * [Official Links](about/official-links.md)
-  * [Terms of Use](about/terms-of-use.md)
-  * [Privacy Policy](about/privacy-policy.md)
 * [API Doc](api/README.md)
   * [Public API](api/README.md)
     * [Meta Data API](api/meta-data-api.md)
@@ -41,6 +34,13 @@
     * [Transfer API](api/transfer-api.md)
     * [Asset API](api/asset-api.md)
   * [Websocket API](api/websocket-api.md)
+* [Vision & Roadmap](vision-and-roadmap.md)
+* [Brand Kit](brand-kit.md)
+* [Audits](audits.md)
+* [About](about/README.md)
+  * [Official Links](about/official-links.md)
+  * [Terms of Use](about/terms-of-use.md)
+  * [Privacy Policy](about/privacy-policy.md)
 
 
 
