@@ -2,7 +2,7 @@
 
 <a id="opIdgetServerTime"></a>
 
-## GET Get Server Time
+## GET Server Time
 
 GET /api/v1/public/meta/getServerTime
 
@@ -23,11 +23,11 @@ GET /api/v1/public/meta/getServerTime
 
 |Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#getservertime)|
 
 <a id="opIdgetMetaData"></a>
 
-## GET Get Meta Data
+## GET Meta Data
 
 GET /api/v1/public/meta/getMetaData
 
@@ -48,312 +48,27 @@ GET /api/v1/public/meta/getMetaData
 
 |Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#MetadataResult)|
 
 # Data Models
 
-<h2 id="tocS_Result<MetaData>">Result<MetaData></h2>
 
-<a id="schemaresult<metadata>"></a>
-<a id="schema_Result<MetaData>"></a>
-<a id="tocSresult<metadata>"></a>
-<a id="tocsresult<metadata>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "global": {
-      "appName": "string",
-      "appEnv": "string",
-      "appOnlySignOn": "string",
-      "feeAccountId": "string",
-      "feeAccountL2Key": "string",
-      "poolAccountId": "string",
-      "poolAccountL2Key": "string",
-      "fastWithdrawAccountId": "string",
-      "fastWithdrawAccountL2Key": "string",
-      "fastWithdrawMaxAmount": "string",
-      "fastWithdrawRegistryAddress": "string",
-      "starkExChainId": "string",
-      "starkExContractAddress": "string",
-      "starkExCollateralCoin": {
-        "coinId": "string",
-        "coinName": "string",
-        "stepSize": "string",
-        "showStepSize": "string",
-        "iconUrl": "string",
-        "starkExAssetId": "string",
-        "starkExResolution": "string"
-      },
-      "starkExMaxFundingRate": 0,
-      "starkExOrdersTreeHeight": 0,
-      "starkExPositionsTreeHeight": 0,
-      "starkExFundingValidityPeriod": 0,
-      "starkExPriceValidityPeriod": 0,
-      "maintenanceReason": "string"
-    },
-    "coinList": [
-      {
-        "coinId": "string",
-        "coinName": "string",
-        "stepSize": "string",
-        "showStepSize": "string",
-        "iconUrl": "string",
-        "starkExAssetId": "string",
-        "starkExResolution": "string"
-      }
-    ],
-    "contractList": [
-      {
-        "contractId": "string",
-        "contractName": "string",
-        "baseCoinId": "string",
-        "quoteCoinId": "string",
-        "tickSize": "string",
-        "stepSize": "string",
-        "minOrderSize": "string",
-        "maxOrderSize": "string",
-        "maxOrderBuyPriceRatio": "string",
-        "minOrderSellPriceRatio": "string",
-        "maxPositionSize": "string",
-        "riskTierList": [
-          {
-            "tier": null,
-            "positionValueUpperBound": null,
-            "maxLeverage": null,
-            "maintenanceMarginRate": null,
-            "starkExRisk": null,
-            "starkExUpperBound": null
-          }
-        ],
-        "defaultTakerFeeRate": "string",
-        "defaultMakerFeeRate": "string",
-        "defaultLeverage": "string",
-        "liquidateFeeRate": "string",
-        "enableTrade": true,
-        "enableDisplay": true,
-        "enableOpenPosition": true,
-        "fundingInterestRate": "string",
-        "fundingImpactMarginNotional": "string",
-        "fundingMaxRate": "string",
-        "fundingMinRate": "string",
-        "fundingRateIntervalMin": "string",
-        "displayDigitMerge": "string",
-        "displayMaxLeverage": "string",
-        "displayMinLeverage": "string",
-        "displayNewIcon": true,
-        "displayHotIcon": true,
-        "matchServerName": "string",
-        "starkExSyntheticAssetId": "string",
-        "starkExResolution": "string",
-        "starkExOraclePriceQuorum": "string",
-        "starkExOraclePriceSignedAssetId": [
-          "string"
-        ],
-        "starkExOraclePriceSigner": [
-          "string"
-        ]
-      }
-    ],
-    "multiChain": {
-      "coinId": "string",
-      "maxWithdraw": "string",
-      "minWithdraw": "string",
-      "minDeposit": "string",
-      "chainList": [
-        {
-          "chain": "string",
-          "chainId": "string",
-          "chainIconUrl": "string",
-          "contractAddress": "string",
-          "depositGasFeeLess": true,
-          "feeLess": true,
-          "feeRate": "string",
-          "gasLess": true,
-          "gasToken": "string",
-          "minFee": "string",
-          "rpcUrl": "string",
-          "webTxUrl": "string",
-          "withdrawGasFeeLess": true,
-          "tokenList": [
-            null
-          ],
-          "txConfirm": "string",
-          "blockTime": "string",
-          "appRpcUrl": "string"
-        }
-      ]
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="MetadataResult"></a>
+### MetadataResult
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
 |data|[MetaData](#schemametadata)|false|none|Global metadata|
 |errorParam|object|false|none|Parameter information in error message|
-|» **additionalProperties**|string|false|none|Parameter information in error message|
 |requestTime|string(timestamp)|false|none|Server request receiving time|
 |responseTime|string(timestamp)|false|none|Server response returning time|
 |traceId|string|false|none|Call traceId|
 
-<h2 id="tocS_MetaData">MetaData</h2>
+
 
 <a id="schemametadata"></a>
-<a id="schema_MetaData"></a>
-<a id="tocSmetadata"></a>
-<a id="tocsmetadata"></a>
-
-```json
-{
-  "global": {
-    "appName": "string",
-    "appEnv": "string",
-    "appOnlySignOn": "string",
-    "feeAccountId": "string",
-    "feeAccountL2Key": "string",
-    "poolAccountId": "string",
-    "poolAccountL2Key": "string",
-    "fastWithdrawAccountId": "string",
-    "fastWithdrawAccountL2Key": "string",
-    "fastWithdrawMaxAmount": "string",
-    "fastWithdrawRegistryAddress": "string",
-    "starkExChainId": "string",
-    "starkExContractAddress": "string",
-    "starkExCollateralCoin": {
-      "coinId": "string",
-      "coinName": "string",
-      "stepSize": "string",
-      "showStepSize": "string",
-      "iconUrl": "string",
-      "starkExAssetId": "string",
-      "starkExResolution": "string"
-    },
-    "starkExMaxFundingRate": 0,
-    "starkExOrdersTreeHeight": 0,
-    "starkExPositionsTreeHeight": 0,
-    "starkExFundingValidityPeriod": 0,
-    "starkExPriceValidityPeriod": 0,
-    "maintenanceReason": "string"
-  },
-  "coinList": [
-    {
-      "coinId": "string",
-      "coinName": "string",
-      "stepSize": "string",
-      "showStepSize": "string",
-      "iconUrl": "string",
-      "starkExAssetId": "string",
-      "starkExResolution": "string"
-    }
-  ],
-  "contractList": [
-    {
-      "contractId": "string",
-      "contractName": "string",
-      "baseCoinId": "string",
-      "quoteCoinId": "string",
-      "tickSize": "string",
-      "stepSize": "string",
-      "minOrderSize": "string",
-      "maxOrderSize": "string",
-      "maxOrderBuyPriceRatio": "string",
-      "minOrderSellPriceRatio": "string",
-      "maxPositionSize": "string",
-      "riskTierList": [
-        {
-          "tier": 0,
-          "positionValueUpperBound": "string",
-          "maxLeverage": "string",
-          "maintenanceMarginRate": "string",
-          "starkExRisk": "string",
-          "starkExUpperBound": "string"
-        }
-      ],
-      "defaultTakerFeeRate": "string",
-      "defaultMakerFeeRate": "string",
-      "defaultLeverage": "string",
-      "liquidateFeeRate": "string",
-      "enableTrade": true,
-      "enableDisplay": true,
-      "enableOpenPosition": true,
-      "fundingInterestRate": "string",
-      "fundingImpactMarginNotional": "string",
-      "fundingMaxRate": "string",
-      "fundingMinRate": "string",
-      "fundingRateIntervalMin": "string",
-      "displayDigitMerge": "string",
-      "displayMaxLeverage": "string",
-      "displayMinLeverage": "string",
-      "displayNewIcon": true,
-      "displayHotIcon": true,
-      "matchServerName": "string",
-      "starkExSyntheticAssetId": "string",
-      "starkExResolution": "string",
-      "starkExOraclePriceQuorum": "string",
-      "starkExOraclePriceSignedAssetId": [
-        "string"
-      ],
-      "starkExOraclePriceSigner": [
-        "string"
-      ]
-    }
-  ],
-  "multiChain": {
-    "coinId": "string",
-    "maxWithdraw": "string",
-    "minWithdraw": "string",
-    "minDeposit": "string",
-    "chainList": [
-      {
-        "chain": "string",
-        "chainId": "string",
-        "chainIconUrl": "string",
-        "contractAddress": "string",
-        "depositGasFeeLess": true,
-        "feeLess": true,
-        "feeRate": "string",
-        "gasLess": true,
-        "gasToken": "string",
-        "minFee": "string",
-        "rpcUrl": "string",
-        "webTxUrl": "string",
-        "withdrawGasFeeLess": true,
-        "tokenList": [
-          {
-            "tokenAddress": null,
-            "decimals": null,
-            "iconUrl": null,
-            "token": null,
-            "pullOff": null,
-            "withdrawEnable": null,
-            "useFixedRate": null,
-            "fixedRate": null
-          }
-        ],
-        "txConfirm": "string",
-        "blockTime": "string",
-        "appRpcUrl": "string"
-      }
-    ]
-  }
-}
-```
-
-Global metadata
-
-### Properties
+### Global metadata
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -362,57 +77,10 @@ Global metadata
 |contractList|[[Contract](#schemacontract)]|false|none|All contract meta information|
 |multiChain|[MultiChain](#schemamultichain)|false|none|Cross-chain withdrawal related class|
 
-<h2 id="tocS_MultiChain">MultiChain</h2>
+
 
 <a id="schemamultichain"></a>
-<a id="schema_MultiChain"></a>
-<a id="tocSmultichain"></a>
-<a id="tocsmultichain"></a>
-
-```json
-{
-  "coinId": "string",
-  "maxWithdraw": "string",
-  "minWithdraw": "string",
-  "minDeposit": "string",
-  "chainList": [
-    {
-      "chain": "string",
-      "chainId": "string",
-      "chainIconUrl": "string",
-      "contractAddress": "string",
-      "depositGasFeeLess": true,
-      "feeLess": true,
-      "feeRate": "string",
-      "gasLess": true,
-      "gasToken": "string",
-      "minFee": "string",
-      "rpcUrl": "string",
-      "webTxUrl": "string",
-      "withdrawGasFeeLess": true,
-      "tokenList": [
-        {
-          "tokenAddress": "string",
-          "decimals": "string",
-          "iconUrl": "string",
-          "token": "string",
-          "pullOff": true,
-          "withdrawEnable": true,
-          "useFixedRate": true,
-          "fixedRate": "string"
-        }
-      ],
-      "txConfirm": "string",
-      "blockTime": "string",
-      "appRpcUrl": "string"
-    }
-  ]
-}
-```
-
-Cross-chain withdrawal related class
-
-### Properties
+### Cross-chain withdrawal related class
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -422,49 +90,9 @@ Cross-chain withdrawal related class
 |minDeposit|string|false|none|Minimum deposit amount|
 |chainList|[[Chain](#schemachain)]|false|none|Supported chains|
 
-<h2 id="tocS_Chain">Chain</h2>
 
 <a id="schemachain"></a>
-<a id="schema_Chain"></a>
-<a id="tocSchain"></a>
-<a id="tocschain"></a>
-
-```json
-{
-  "chain": "string",
-  "chainId": "string",
-  "chainIconUrl": "string",
-  "contractAddress": "string",
-  "depositGasFeeLess": true,
-  "feeLess": true,
-  "feeRate": "string",
-  "gasLess": true,
-  "gasToken": "string",
-  "minFee": "string",
-  "rpcUrl": "string",
-  "webTxUrl": "string",
-  "withdrawGasFeeLess": true,
-  "tokenList": [
-    {
-      "tokenAddress": "string",
-      "decimals": "string",
-      "iconUrl": "string",
-      "token": "string",
-      "pullOff": true,
-      "withdrawEnable": true,
-      "useFixedRate": true,
-      "fixedRate": "string"
-    }
-  ],
-  "txConfirm": "string",
-  "blockTime": "string",
-  "appRpcUrl": "string"
-}
-```
-
-Wrapper class for parsing data
-
-### Properties
+### Wrapper class for parsing data
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -486,29 +114,9 @@ Wrapper class for parsing data
 |blockTime|string|false|none|Block time|
 |appRpcUrl|string|false|none|none|
 
-<h2 id="tocS_MultiChainToken">MultiChainToken</h2>
 
 <a id="schemamultichaintoken"></a>
-<a id="schema_MultiChainToken"></a>
-<a id="tocSmultichaintoken"></a>
-<a id="tocsmultichaintoken"></a>
-
-```json
-{
-  "tokenAddress": "string",
-  "decimals": "string",
-  "iconUrl": "string",
-  "token": "string",
-  "pullOff": true,
-  "withdrawEnable": true,
-  "useFixedRate": true,
-  "fixedRate": "string"
-}
-```
-
-Cross-chain related token types
-
-### Properties
+### Cross-chain related token types
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -521,69 +129,10 @@ Cross-chain related token types
 |useFixedRate|boolean|false|none|Whether to use a fixed exchange rate|
 |fixedRate|string|false|none|Fixed exchange rate|
 
-<h2 id="tocS_Contract">Contract</h2>
+
 
 <a id="schemacontract"></a>
-<a id="schema_Contract"></a>
-<a id="tocScontract"></a>
-<a id="tocscontract"></a>
-
-```json
-{
-  "contractId": "string",
-  "contractName": "string",
-  "baseCoinId": "string",
-  "quoteCoinId": "string",
-  "tickSize": "string",
-  "stepSize": "string",
-  "minOrderSize": "string",
-  "maxOrderSize": "string",
-  "maxOrderBuyPriceRatio": "string",
-  "minOrderSellPriceRatio": "string",
-  "maxPositionSize": "string",
-  "riskTierList": [
-    {
-      "tier": 0,
-      "positionValueUpperBound": "string",
-      "maxLeverage": "string",
-      "maintenanceMarginRate": "string",
-      "starkExRisk": "string",
-      "starkExUpperBound": "string"
-    }
-  ],
-  "defaultTakerFeeRate": "string",
-  "defaultMakerFeeRate": "string",
-  "defaultLeverage": "string",
-  "liquidateFeeRate": "string",
-  "enableTrade": true,
-  "enableDisplay": true,
-  "enableOpenPosition": true,
-  "fundingInterestRate": "string",
-  "fundingImpactMarginNotional": "string",
-  "fundingMaxRate": "string",
-  "fundingMinRate": "string",
-  "fundingRateIntervalMin": "string",
-  "displayDigitMerge": "string",
-  "displayMaxLeverage": "string",
-  "displayMinLeverage": "string",
-  "displayNewIcon": true,
-  "displayHotIcon": true,
-  "matchServerName": "string",
-  "starkExSyntheticAssetId": "string",
-  "starkExResolution": "string",
-  "starkExOraclePriceQuorum": "string",
-  "starkExOraclePriceSignedAssetId": [
-    "string"
-  ],
-  "starkExOraclePriceSigner": [
-    "string"
-  ]
-}
-```
-
-Perpetual contract meta information
-
-### Properties
+### Perpetual contract meta information
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -623,27 +172,9 @@ Perpetual contract meta information
 |starkExOraclePriceSignedAssetId|[string]|false|none|bigint for hex str|
 |starkExOraclePriceSigner|[string]|false|none|bigint for hex str|
 
-<h2 id="tocS_RiskTier">RiskTier</h2>
 
 <a id="schemarisktier"></a>
-<a id="schema_RiskTier"></a>
-<a id="tocSrisktier"></a>
-<a id="tocsrisktier"></a>
-
-```json
-{
-  "tier": 0,
-  "positionValueUpperBound": "string",
-  "maxLeverage": "string",
-  "maintenanceMarginRate": "string",
-  "starkExRisk": "string",
-  "starkExUpperBound": "string"
-}
-```
-
-Risk limit tier information
-
-### Properties
+### Risk limit tier information
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -654,28 +185,10 @@ Risk limit tier information
 |starkExRisk|string(int64)|false|none|1 ≤ risk < 2^32|
 |starkExUpperBound|string(int64)|false|none|bigint. 0 ≤ upper_bound ≤ 2^128-1|
 
-<h2 id="tocS_Coin">Coin</h2>
+
 
 <a id="schemacoin"></a>
-<a id="schema_Coin"></a>
-<a id="tocScoin"></a>
-<a id="tocscoin"></a>
-
-```json
-{
-  "coinId": "string",
-  "coinName": "string",
-  "stepSize": "string",
-  "showStepSize": "string",
-  "iconUrl": "string",
-  "starkExAssetId": "string",
-  "starkExResolution": "string"
-}
-```
-
-Coin meta information
-
-### Properties
+### Coin meta information
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -687,49 +200,8 @@ Coin meta information
 |starkExAssetId|string(int64)|false|none|starkex asset id. If empty, it means it does not exist|
 |starkExResolution|string|false|none|starkex processing precision. If empty, it means it does not exist|
 
-<h2 id="tocS_Global">Global</h2>
-
 <a id="schemaglobal"></a>
-<a id="schema_Global"></a>
-<a id="tocSglobal"></a>
-<a id="tocsglobal"></a>
-
-```json
-{
-  "appName": "string",
-  "appEnv": "string",
-  "appOnlySignOn": "string",
-  "feeAccountId": "string",
-  "feeAccountL2Key": "string",
-  "poolAccountId": "string",
-  "poolAccountL2Key": "string",
-  "fastWithdrawAccountId": "string",
-  "fastWithdrawAccountL2Key": "string",
-  "fastWithdrawMaxAmount": "string",
-  "fastWithdrawRegistryAddress": "string",
-  "starkExChainId": "string",
-  "starkExContractAddress": "string",
-  "starkExCollateralCoin": {
-    "coinId": "string",
-    "coinName": "string",
-    "stepSize": "string",
-    "showStepSize": "string",
-    "iconUrl": "string",
-    "starkExAssetId": "string",
-    "starkExResolution": "string"
-  },
-  "starkExMaxFundingRate": 0,
-  "starkExOrdersTreeHeight": 0,
-  "starkExPositionsTreeHeight": 0,
-  "starkExFundingValidityPeriod": 0,
-  "starkExPriceValidityPeriod": 0,
-  "maintenanceReason": "string"
-}
-```
-
-Global meta information
-
-### Properties
+### Global meta information
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -754,85 +226,25 @@ Global meta information
 |starkExPriceValidityPeriod|integer(int32)|false|none|Oracle price submission validity period in seconds. E.g.: 86400|
 |maintenanceReason|string|false|none|Maintenance reason, empty if no maintenance|
 
-<h2 id="tocS_Result<GetServerTime>">Result<GetServerTime></h2>
 
-<a id="schemaresult<getservertime>"></a>
-<a id="schema_Result<GetServerTime>"></a>
-<a id="tocSresult<getservertime>"></a>
-<a id="tocsresult<getservertime>"></a>
 
-```json
-{
-  "code": "string",
-  "data": {
-    "timeMillis": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="getservertime"></a>
+### GetServerTime
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
 |data|[GetServerTime](#schemagetservertime)|false|none|Server time|
 |errorParam|object|false|none|Parameter information in error message|
-|» **additionalProperties**|string|false|none|Parameter information in error message|
 |requestTime|string(timestamp)|false|none|Server request receiving time|
 |responseTime|string(timestamp)|false|none|Server response returning time|
 |traceId|string|false|none|Call traceId|
 
-<h2 id="tocS_GetServerTime">GetServerTime</h2>
 
-<a id="schemagetservertime"></a>
-<a id="schema_GetServerTime"></a>
-<a id="tocSgetservertime"></a>
-<a id="tocsgetservertime"></a>
-
-```json
-{
-  "timeMillis": "string"
-}
-```
-
-Server time
-
-### Properties
+### Server time
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |timeMillis|string(int64)|false|none|Server timestamp, milliseconds|
 
-<h2 id="tocS_Result">Result</h2>
 
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-Generic return structure
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|code|string|false|none|Status code. "SUCCESS" for success, others for failure.|
-|msg|string|false|none|Detailed error message when an error occurs|
-|requestTime|string(int64)|false|none|Server request receiving time|
-|responseTime|string(int64)|false|none|Server response returning time|
