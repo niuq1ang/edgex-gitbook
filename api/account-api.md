@@ -1,156 +1,5 @@
 # AccountPrivateApi
 
-<a id="opIdupdateLeverageSetting"></a>
-
-## POST Update Account Trading Leverage Settings
-
-POST /api/v1/private/account/updateLeverageSetting
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "leverage": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                                    | Required | Description |
-| ----------- | -------- | --------------------------------------- | -------- | ----------- |
-| body        | body     | [UpdateLeverageSettingParam](#schemaupdateleveragesettingparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {},
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
-<a id="opIdupdateFeeSetting"></a>
-
-## POST Update Account Trading Fee Settings
-
-POST /api/v1/private/account/updateFeeSetting
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "isSetFeeRate": true,
-  "takerFeeRate": "string",
-  "makerFeeRate": "string",
-  "isSetFeeDiscount": true,
-  "takerFeeDiscount": "string",
-  "makerFeeDiscount": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                                | Required | Description |
-| ----------- | -------- | ----------------------------------- | -------- | ----------- |
-| body        | body     | [UpdateFeeSettingParam](#schemaupdatefeesettingparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {},
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
-<a id="opIdregisterAccount"></a>
-
-## POST Register Account
-
-POST /api/v1/private/account/registerAccount
-
-> Body Request Parameters
-
-```json
-{
-  "l2Key": "string",
-  "l2KeyYCoordinate": "string",
-  "clientAccountId": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                            | Required | Description |
-| ----------- | -------- | ------------------------------- | -------- | ----------- |
-| body        | body     | [RegisterAccountParam](#schemaregisteraccountparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {
-    "accountId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
 <a id="opIdgetPositionTransactionPage"></a>
 
 ## GET Get Position Transaction Page
@@ -178,10 +27,67 @@ GET /api/v1/private/account/getPositionTransactionPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564809510904923406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "type": "SELL_POSITION",
+                "deltaOpenSize": "-0.001",
+                "deltaOpenValue": "-96.813200",
+                "deltaOpenFee": "0.048406",
+                "deltaFundingFee": "0.000000",
+                "beforeOpenSize": "0.001",
+                "beforeOpenValue": "96.813200",
+                "beforeOpenFee": "-0.048406",
+                "beforeFundingFee": "0",
+                "fillCloseSize": "-0.001",
+                "fillCloseValue": "-96.857100",
+                "fillCloseFee": "-0.048428",
+                "fillOpenSize": "0.000",
+                "fillOpenValue": "0.000000",
+                "fillOpenFee": "0.000000",
+                "fillPrice": "96857.1",
+                "liquidateFee": "0",
+                "realizePnl": "-0.004528",
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "fundingTime": "0",
+                "fundingRate": "",
+                "fundingIndexPrice": "",
+                "fundingOraclePrice": "",
+                "fundingPositionSize": "",
+                "orderId": "564809510842007822",
+                "orderFillTransactionId": "564809510875562254",
+                "collateralTransactionId": "564809510904922382",
+                "forceTradeId": "0",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "892720",
+                "censorTime": "1734661081049",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084271",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734661081049",
+                "updatedTime": "1734661081053"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416266",
+    "responseTime": "1734661416277",
+    "traceId": "a87a52a4e189045b7b7b9948ea7b5c54"
 }
 ```
 
@@ -189,7 +95,7 @@ GET /api/v1/private/account/getPositionTransactionPage
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#positiontransaction) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#PositiontransactionPage) |
 
 <a id="opIdgetPositionTransactionById"></a>
 
@@ -210,10 +116,67 @@ GET /api/v1/private/account/getPositionTransactionById
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564809510904923406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "type": "SELL_POSITION",
+                "deltaOpenSize": "-0.001",
+                "deltaOpenValue": "-96.813200",
+                "deltaOpenFee": "0.048406",
+                "deltaFundingFee": "0.000000",
+                "beforeOpenSize": "0.001",
+                "beforeOpenValue": "96.813200",
+                "beforeOpenFee": "-0.048406",
+                "beforeFundingFee": "0",
+                "fillCloseSize": "-0.001",
+                "fillCloseValue": "-96.857100",
+                "fillCloseFee": "-0.048428",
+                "fillOpenSize": "0.000",
+                "fillOpenValue": "0.000000",
+                "fillOpenFee": "0.000000",
+                "fillPrice": "96857.1",
+                "liquidateFee": "0",
+                "realizePnl": "-0.004528",
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "fundingTime": "0",
+                "fundingRate": "",
+                "fundingIndexPrice": "",
+                "fundingOraclePrice": "",
+                "fundingPositionSize": "",
+                "orderId": "564809510842007822",
+                "orderFillTransactionId": "564809510875562254",
+                "collateralTransactionId": "564809510904922382",
+                "forceTradeId": "0",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "892720",
+                "censorTime": "1734661081049",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084271",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734661081049",
+                "updatedTime": "1734661081053"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416266",
+    "responseTime": "1734661416277",
+    "traceId": "a87a52a4e189045b7b7b9948ea7b5c54"
 }
 ```
 
@@ -248,10 +211,53 @@ GET /api/v1/private/account/getPositionTermPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "termCount": 2,
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "96.813000",
+                "cumOpenFee": "-0.048406",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0",
+                "createdTime": "1734661093450",
+                "updatedTime": "1734661093450",
+                "currentLeverage": "50"
+            },
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "termCount": 1,
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "96.813200",
+                "cumOpenFee": "-0.048406",
+                "cumCloseSize": "-0.001",
+                "cumCloseValue": "-96.857100",
+                "cumCloseFee": "-0.048428",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0",
+                "createdTime": "1734661018663",
+                "updatedTime": "1734661081053",
+                "currentLeverage": "50"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416272",
+    "responseTime": "1734661416281",
+    "traceId": "ad4515e50fa7a57610736753d8f987aa"
 }
 ```
 
@@ -280,74 +286,72 @@ GET /api/v1/private/account/getPositionByContractId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "openSize": "string",
-      "openValue": "string",
-      "openFee": "string",
-      "fundingFee": "string",
-      "longTermCount": 0,
-      "longTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "longTermCreatedTime": "string",
-      "longTermUpdatedTime": "string",
-      "shortTermCount": 0,
-      "shortTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTermCreatedTime": "string",
-      "shortTermUpdatedTime": "string",
-      "longTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "openSize": "0.001",
+            "openValue": "97.444500",
+            "openFee": "-0.017540",
+            "fundingFee": "0.000000",
+            "longTermCount": 3,
+            "longTermStat": {
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "97.444500",
+                "cumOpenFee": "-0.017540",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "longTermCreatedTime": "1734662617992",
+            "longTermUpdatedTime": "1734662617992",
+            "shortTermCount": 0,
+            "shortTermStat": {
+                "cumOpenSize": "0",
+                "cumOpenValue": "0",
+                "cumOpenFee": "0",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "shortTermCreatedTime": "0",
+            "shortTermUpdatedTime": "0",
+            "longTotalStat": {
+                "cumOpenSize": "0.004",
+                "cumOpenValue": "388.464500",
+                "cumOpenFee": "-0.131882",
+                "cumCloseSize": "-0.003",
+                "cumCloseValue": "-291.736700",
+                "cumCloseFee": "-0.083506",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "shortTotalStat": {
+                "cumOpenSize": "0",
+                "cumOpenValue": "0",
+                "cumOpenFee": "0",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "createdTime": "1734661018663",
+            "updatedTime": "1734662617992"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664849770",
+    "responseTime": "1734664849790",
+    "traceId": "17a421d1b23652c5b3836239274b0352"
 }
 ```
 
@@ -383,72 +387,59 @@ GET /api/v1/private/account/getCollateralTransactionPage
 
 ```json
 {
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-        "deltaAmount": "string",
-        "deltaLegacyAmount": "string",
-        "beforeAmount": "string",
-        "beforeLegacyAmount": "string",
-        "fillCloseSize": "string",
-        "fillCloseValue": "string",
-        "fillCloseFee": "string",
-        "fillOpenSize": "string",
-        "fillOpenValue": "string",
-        "fillOpenFee": "string",
-        "fillPrice": "string",
-        "liquidateFee": "string",
-        "realizePnl": "string",
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "fundingTime": "string",
-        "fundingRate": "string",
-        "fundingIndexPrice": "string",
-        "fundingOraclePrice": "string",
-        "fundingPositionSize": "string",
-        "depositId": "string",
-        "withdrawId": "string",
-        "transferInId": "string",
-        "transferOutId": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "orderId": "string",
-        "orderFillTransactionId": "string",
-        "orderAccountId": "string",
-        "positionContractId": "string",
-        "positionTransactionId": "string",
-        "forceWithdrawId": "string",
-        "forceTradeId": "string",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564815957260763406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "orderId": "564815695875932430",
+                "orderSide": "BUY",
+                "fillSize": "0.001",
+                "fillValue": "97.4445",
+                "fillFee": "0.017540",
+                "fillPrice": "97444.5",
+                "liquidateFee": "0",
+                "realizePnl": "-0.017540",
+                "direction": "MAKER",
+                "isPositionTpsl": false,
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "isWithoutMatch": false,
+                "matchSequenceId": "35196430",
+                "matchIndex": 0,
+                "matchTime": "1734662617982",
+                "matchAccountId": "555790606509539863",
+                "matchOrderId": "564815957235597591",
+                "matchFillId": "05d14491-db7d-478a-9d9f-2dc55c3ff3ca",
+                "positionTransactionId": "564815957294318862",
+                "collateralTransactionId": "564815957294317838",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "893031",
+                "censorTime": "1734662617988",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084582",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734662617984",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662681040",
+    "responseTime": "1734662681051",
+    "traceId": "770fcce6222c2d88b65b4ecb36e84c43"
 }
 ```
 
@@ -479,69 +470,67 @@ GET /api/v1/private/account/getCollateralTransactionById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-      "deltaAmount": "string",
-      "deltaLegacyAmount": "string",
-      "beforeAmount": "string",
-      "beforeLegacyAmount": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "depositId": "string",
-      "withdrawId": "string",
-      "transferInId": "string",
-      "transferOutId": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "orderAccountId": "string",
-      "positionContractId": "string",
-      "positionTransactionId": "string",
-      "forceWithdrawId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "563516408265179918",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "type": "DEPOSIT",
+            "deltaAmount": "10.000000",
+            "deltaLegacyAmount": "10.000000",
+            "beforeAmount": "6.000000",
+            "beforeLegacyAmount": "6.000000",
+            "fillCloseSize": "",
+            "fillCloseValue": "",
+            "fillCloseFee": "",
+            "fillOpenSize": "",
+            "fillOpenValue": "",
+            "fillOpenFee": "",
+            "fillPrice": "",
+            "liquidateFee": "",
+            "realizePnl": "",
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "fundingTime": "0",
+            "fundingRate": "",
+            "fundingIndexPrice": "",
+            "fundingOraclePrice": "",
+            "fundingPositionSize": "",
+            "depositId": "563516408235819790",
+            "withdrawId": "0",
+            "transferInId": "0",
+            "transferOutId": "0",
+            "transferReason": "UNKNOWN_TRANSFER_REASON",
+            "orderId": "0",
+            "orderFillTransactionId": "0",
+            "orderAccountId": "0",
+            "positionContractId": "0",
+            "positionTransactionId": "0",
+            "forceWithdrawId": "0",
+            "forceTradeId": "0",
+            "extraType": "",
+            "extraDataJson": "",
+            "censorStatus": "L2_APPROVED",
+            "censorTxId": "830852",
+            "censorTime": "1734352781355",
+            "censorFailCode": "",
+            "censorFailReason": "",
+            "l2TxId": "1022403",
+            "l2RejectTime": "0",
+            "l2RejectCode": "",
+            "l2RejectReason": "",
+            "l2ApprovedTime": "1734353551654",
+            "createdTime": "1734352781355",
+            "updatedTime": "1734353551715"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664486740",
+    "responseTime": "1734664486761",
+    "traceId": "b3086f53c2d4503f6a4790b80f0e534b"
 }
 ```
 
@@ -572,34 +561,32 @@ GET /api/v1/private/account/getCollateralByCoinId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "legacyAmount": "string",
-      "cumDepositAmount": "string",
-      "cumWithdrawAmount": "string",
-      "cumTransferInAmount": "string",
-      "cumTransferOutAmount": "string",
-      "cumPositionBuyAmount": "string",
-      "cumPositionSellAmount": "string",
-      "cumFillFeeAmount": "string",
-      "cumFundingFeeAmount": "string",
-      "cumFillFeeIncomeAmount": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "amount": "-81.943188",
+            "legacyAmount": "15.501312",
+            "cumDepositAmount": "70.000000",
+            "cumWithdrawAmount": "0",
+            "cumTransferInAmount": "0",
+            "cumTransferOutAmount": "-55.000000",
+            "cumPositionBuyAmount": "-388.4645",
+            "cumPositionSellAmount": "291.7367",
+            "cumFillFeeAmount": "-0.215388",
+            "cumFundingFeeAmount": "0",
+            "cumFillFeeIncomeAmount": "0",
+            "createdTime": "1730204434094",
+            "updatedTime": "1734663352066"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664569244",
+    "responseTime": "1734664569260",
+    "traceId": "4b7ff82fb92aa3b10d9fc0367a069270"
 }
 ```
 
@@ -630,10 +617,57 @@ GET /api/v1/private/account/getAccountPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "543429922991899150",
+                "userId": "543429922866069763",
+                "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+                "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+                "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+                "clientAccountId": "main",
+                "isSystemAccount": false,
+                "defaultTradeSetting": {
+                    "isSetFeeRate": true,
+                    "takerFeeRate": "0.000500",
+                    "makerFeeRate": "0.000180",
+                    "isSetFeeDiscount": false,
+                    "takerFeeDiscount": "0",
+                    "makerFeeDiscount": "0",
+                    "isSetMaxLeverage": false,
+                    "maxLeverage": "0"
+                },
+                "contractIdToTradeSetting": {
+                    "10000001": {
+                        "isSetFeeRate": false,
+                        "takerFeeRate": "",
+                        "makerFeeRate": "",
+                        "isSetFeeDiscount": false,
+                        "takerFeeDiscount": "",
+                        "makerFeeDiscount": "",
+                        "isSetMaxLeverage": true,
+                        "maxLeverage": "50"
+                    }
+                },
+                "maxLeverageLimit": "0",
+                "createOrderPerMinuteLimit": 0,
+                "createOrderDelayMillis": 0,
+                "extraType": "",
+                "extraDataJson": "",
+                "status": "NORMAL",
+                "isLiquidating": false,
+                "createdTime": "1730204434094",
+                "updatedTime": "1733993378059"
+            }
+        ],
+        "nextPageOffsetData": "551109015904453258"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416005",
+    "responseTime": "1734661416008",
+    "traceId": "dc6a8442169c8cdb831ceb15c812b7fc"
 }
 ```
 
@@ -661,10 +695,17 @@ GET /api/v1/private/account/getAccountDeleverageLight
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "positionContractIdToLightNumberMap": {
+            "10000001": 3
+        }
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661307929",
+    "responseTime": "1734661307935",
+    "traceId": "202ee8ba15ab633b68a35a8bc9756952"
 }
 ```
 
@@ -692,10 +733,52 @@ GET /api/v1/private/account/getAccountById
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "id": "543429922991899150",
+        "userId": "543429922866069763",
+        "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+        "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+        "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+        "clientAccountId": "main",
+        "isSystemAccount": false,
+        "defaultTradeSetting": {
+            "isSetFeeRate": true,
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "isSetFeeDiscount": false,
+            "takerFeeDiscount": "0",
+            "makerFeeDiscount": "0",
+            "isSetMaxLeverage": false,
+            "maxLeverage": "0"
+        },
+        "contractIdToTradeSetting": {
+            "10000001": {
+                "isSetFeeRate": false,
+                "takerFeeRate": "",
+                "makerFeeRate": "",
+                "isSetFeeDiscount": false,
+                "takerFeeDiscount": "",
+                "makerFeeDiscount": "",
+                "isSetMaxLeverage": true,
+                "maxLeverage": "50"
+            }
+        },
+        "maxLeverageLimit": "0",
+        "createOrderPerMinuteLimit": 0,
+        "createOrderDelayMillis": 0,
+        "extraType": "",
+        "extraDataJson": "",
+        "status": "NORMAL",
+        "isLiquidating": false,
+        "createdTime": "1730204434094",
+        "updatedTime": "1733993378059"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664605752",
+    "responseTime": "1734664605760",
+    "traceId": "c7be70afbf00d7f879d2809e0f042dfe"
 }
 ```
 
@@ -723,10 +806,171 @@ GET /api/v1/private/account/getAccountAsset
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "account": {
+            "id": "543429922991899150",
+            "userId": "543429922866069763",
+            "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+            "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+            "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+            "clientAccountId": "main",
+            "isSystemAccount": false,
+            "defaultTradeSetting": {
+                "isSetFeeRate": true,
+                "takerFeeRate": "0.000500",
+                "makerFeeRate": "0.000180",
+                "isSetFeeDiscount": false,
+                "takerFeeDiscount": "0",
+                "makerFeeDiscount": "0",
+                "isSetMaxLeverage": false,
+                "maxLeverage": "0"
+            },
+            "contractIdToTradeSetting": {
+                "10000001": {
+                    "isSetFeeRate": false,
+                    "takerFeeRate": "",
+                    "makerFeeRate": "",
+                    "isSetFeeDiscount": false,
+                    "takerFeeDiscount": "",
+                    "makerFeeDiscount": "",
+                    "isSetMaxLeverage": true,
+                    "maxLeverage": "50"
+                }
+            },
+            "maxLeverageLimit": "0",
+            "createOrderPerMinuteLimit": 0,
+            "createOrderDelayMillis": 0,
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "NORMAL",
+            "isLiquidating": false,
+            "createdTime": "1730204434094",
+            "updatedTime": "1733993378059"
+        },
+        "collateralList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "amount": "-81.943188",
+                "legacyAmount": "15.501312",
+                "cumDepositAmount": "70.000000",
+                "cumWithdrawAmount": "0",
+                "cumTransferInAmount": "0",
+                "cumTransferOutAmount": "-55.000000",
+                "cumPositionBuyAmount": "-388.4645",
+                "cumPositionSellAmount": "291.7367",
+                "cumFillFeeAmount": "-0.215388",
+                "cumFundingFeeAmount": "0",
+                "cumFillFeeIncomeAmount": "0",
+                "createdTime": "1730204434094",
+                "updatedTime": "1734663352066"
+            }
+        ],
+        "positionList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "openSize": "0.001",
+                "openValue": "97.444500",
+                "openFee": "-0.017540",
+                "fundingFee": "0.000000",
+                "longTermCount": 3,
+                "longTermStat": {
+                    "cumOpenSize": "0.001",
+                    "cumOpenValue": "97.444500",
+                    "cumOpenFee": "-0.017540",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "longTermCreatedTime": "1734662617992",
+                "longTermUpdatedTime": "1734662617992",
+                "shortTermCount": 0,
+                "shortTermStat": {
+                    "cumOpenSize": "0",
+                    "cumOpenValue": "0",
+                    "cumOpenFee": "0",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "shortTermCreatedTime": "0",
+                "shortTermUpdatedTime": "0",
+                "longTotalStat": {
+                    "cumOpenSize": "0.004",
+                    "cumOpenValue": "388.464500",
+                    "cumOpenFee": "-0.131882",
+                    "cumCloseSize": "-0.003",
+                    "cumCloseValue": "-291.736700",
+                    "cumCloseFee": "-0.083506",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "shortTotalStat": {
+                    "cumOpenSize": "0",
+                    "cumOpenValue": "0",
+                    "cumOpenFee": "0",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "createdTime": "1734661018663",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "version": "1021",
+        "positionAssetList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "positionValue": "97.734426609240472316741943359375",
+                "maxLeverage": "50",
+                "initialMarginRequirement": "1.954688532184809446334838867187500000",
+                "starkExRiskRate": "0.00500000012107193470001220703125",
+                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "avgEntryPrice": "97444.5",
+                "liquidatePrice": "82354.9",
+                "bankruptPrice": "81943.1",
+                "worstClosePrice": "81984.2",
+                "unrealizePnl": "0.289926609240472316741943359375",
+                "termRealizePnl": "0.000000",
+                "totalRealizePnl": "0.716700"
+            }
+        ],
+        "collateralAssetModelList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "totalEquity": "15.791238609240472316741943359375",
+                "totalPositionValueAbs": "97.734426609240472316741943359375",
+                "initialMarginRequirement": "1.954688532184809446334838867187500000",
+                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "pendingWithdrawAmount": "0",
+                "pendingTransferOutAmount": "0",
+                "orderFrozenAmount": "0",
+                "availableAmount": "13.836550"
+            }
+        ],
+        "oraclePriceList": []
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664627939",
+    "responseTime": "1734664627957",
+    "traceId": "4a3a5cd027ea6c255c8c944567b634f1"
 }
 ```
 
@@ -760,10 +1004,39 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "timeTag": 1,
+                "snapshotTime": "1734652800000",
+                "totalEquity": "16.000000",
+                "termRealizePnl": "0",
+                "unrealizePnl": "0",
+                "totalRealizePnl": "0"
+            },
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "timeTag": 1,
+                "snapshotTime": "1734566400000",
+                "totalEquity": "16.000000",
+                "termRealizePnl": "0",
+                "unrealizePnl": "0",
+                "totalRealizePnl": "0"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663257066",
+    "responseTime": "1734663257075",
+    "traceId": "f52222cd41b6ff8bcd059a57ecd986a1"
 }
 ```
 
@@ -1370,8 +1643,8 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 | censorStatus | UNRECOGNIZED                  |
 
 
-<a id="positiontransaction"></a>
-### positiontransaction
+<a id="PositiontransactionPage"></a>
+### PositiontransactionPage
 
 | Name           | Type                                       | Required | Constraints | Description                        | Notes                                                                  |
 | -------------- | ------------------------------------------ | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
@@ -1392,69 +1665,3 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 | nextPageOffsetData | string                                | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
 
-<a id="registeraccount"></a>
-### Registeraccount
-
-| Name           | Type                      | Required | Constraints | Description          | Notes                                                                  |
-| -------------- | ------------------------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
-| code           | string                    | false    | none        | Status Code          | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
-| data           | [RegisterAccount](#schemaregisteraccount) | false    | none        | Register Account Response | Response structure for registering an account.                         |
-| errorParam     | object                    | false    | none        | Error Parameters     | Error message parameter information                                     |
-| requestTime    | string(timestamp)         | false    | none        | Server Request Time  | Time at which the server received the request                           |
-| responseTime   | string(timestamp)         | false    | none        | Server Response Time | Time at which the server sent the response                              |
-| traceId        | string                    | false    | none        | Trace ID             | Invocation trace ID                                                  |
-
-
-<a id="schemaregisteraccount"></a>
-### Response structure for registering an account
-
-| Name      | Type          | Required | Constraints | Description | Notes             |
-| --------- | ------------- | -------- | ----------- | ----------- | ----------------- |
-| accountId | string(int64) | false    | none        | Account ID  | Account ID.       |
-
-
-<a id="schemaregisteraccountparam"></a>
-### Request structure for registering an account
-
-| Name             | Type   | Required | Constraints | Description                                                                         | Notes                                                           |
-| ---------------- | ------ | -------- | ----------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| l2Key            | string | false    | none        | L2 Account Key                                                                      | Account key on L2, globally unique. Stark key in starkEx. Bigint for hex string. |
-| l2KeyYCoordinate | string | false    | none        | L2 Key Y Coordinate                                                               | Used only for verifying l2Signature. Not returned to end users. Bigint for hex string. |
-| clientAccountId  | string | false    | none        | Client Account ID                                                                   | Client account ID for idempotency check.                         |
-
-<a id="schemaupdatefeesettingparam"></a>
-### Request structure for updating account trading fee settings
-
-| Name             | Type          | Required | Constraints | Description                                                                                        | Notes                                                                                             |
-| ---------------- | ------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| accountId        | string(int64) | false    | none        | Account ID                                                                                           | Account ID.                                                                                        |
-| contractId       | string(int64) | false    | none        | Contract ID                                                                                       | Contract ID, if 0, will change the default fee settings for the account.                               |
-| isSetFeeRate     | boolean       | false    | none        | Whether Fee Rate Is Set                                                                            | Whether to set a specific fee rate value.                                                                |
-| takerFeeRate     | string        | false    | none        | Taker Fee Rate                                                                                     | Taker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
-| makerFeeRate     | string        | false    | none        | Maker Fee Rate                                                                                     | Maker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
-| isSetFeeDiscount | boolean       | false    | none        | Whether Fee Discount Is Set                                                                       | Whether to set a fee discount.                                                                    |
-| takerFeeDiscount | string        | false    | none        | Taker Fee Discount                                                                                  | Taker fee discount.                                                                         |
-| makerFeeDiscount | string        | false    | none        | Maker Fee Discount                                                                                  | Maker fee discount.                                                                        |
-
-
-<a id="schemaresult<void>"></a>
-### Properties
-
-| Name           | Type     | Required | Constraints | Description          | Notes                                                                  |
-| -------------- | -------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
-| code           | string   | false    | none        | Status Code          | Returns "SUCCESS" onsuccess; otherwise, it indicates failure.          |
-| data           | object   | false    | none        | Response Data        | Correct response data.                                                  |
-| errorParam     | object   | false    | none        | Error Parameters     | Error message parameter information                                     |
-| requestTime    | string(timestamp) | false    | none        | Server Request Time  | Time at which the server received the request                           |
-| responseTime   | string(timestamp) | false    | none        | Server Response Time | Time at which the server sent the response                              |
-| traceId        | string   | false    | none        | Trace ID             | Invocation trace ID                                                  |
-
-
-<a id="schemaupdateleveragesettingparam"></a>
-### Request structure for updating account trading leverage settings
-
-| Name       | Type          | Required | Constraints | Description                                                                    | Notes                                                                                    |
-| ---------- | ------------- | -------- | ----------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| accountId  | string(int64) | false    | none        | Account ID                                                                      | Account ID.                                                                              |
-| contractId | string(int64) | false    | none        | Contract ID                                                                   | Contract ID, if 0, will change the default leverage settings for the account.                     |
-| leverage   | string        | false    | none        | Leverage Multiple                                                                    | Leverage multiple.                                                      |

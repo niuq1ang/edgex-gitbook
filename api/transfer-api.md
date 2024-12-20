@@ -10,18 +10,18 @@ POST /api/v1/private/transfer/createTransferOut
 
 ```json
 {
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "receiverAccountId": "string",
-  "receiverL2Key": "string",
-  "clientTransferId": "string",
-  "transferReason": "UNKNOWN_TRANSFER_REASON",
-  "l2Nonce": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string",
-  "extraType": "string",
-  "extraDataJson": "string"
+    "accountId": "543429922991899150",
+    "coinId": "1000",
+    "amount": "1.000000",
+    "receiverAccountId": "551109015904453258",
+    "receiverL2Key": "0x03eec711e360695bb44b1170057a25340303c1f16893a8def7450e44294405a8",
+    "clientTransferId": "3877531064364166",
+    "transferReason": "USER_TRANSFER",
+    "l2Nonce": "2280110103",
+    "l2ExpireTime": "1735873200000",
+    "l2Signature": "0141279ec45ce1ea37b11cfa4683cfab8443bcbf8da3f066cef3e437862573f9034efe12eee1be3fc715c7b511f69e3ba32ec67a9ac89538fbb73de46fefc5e5",
+    "extraType": "",
+    "extraDataJson": ""
 }
 ```
 
@@ -37,10 +37,15 @@ POST /api/v1/private/transfer/createTransferOut
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "transferOutId": "564819036077031694"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663351997",
+    "responseTime": "1734663352035",
+    "traceId": "33728335fc663ba9230e61d4f4b924df"
 }
 ```
 
@@ -48,7 +53,7 @@ POST /api/v1/private/transfer/createTransferOut
 
 | Status Code | Description | Notes | Schema |
 |---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultcreatetransferout) |
 
 <a id="opIdgetTransferOutById"></a>
 
@@ -69,55 +74,53 @@ GET /api/v1/private/transfer/getTransferOutById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "receiverAccountId": "string",
-      "receiverL2Key": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "l2Nonce": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "receiverTransferInId": "string",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564819036077031694",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "amount": "1.000000",
+            "receiverAccountId": "551109015904453258",
+            "receiverL2Key": "0x3eec711e360695bb44b1170057a25340303c1f16893a8def7450e44294405a8",
+            "clientTransferId": "3877531064364166",
+            "isConditionTransfer": false,
+            "conditionFactRegistryAddress": "",
+            "conditionFactErc20Address": "",
+            "conditionFactAmount": "",
+            "conditionFact": "",
+            "transferReason": "USER_TRANSFER",
+            "l2Nonce": "2280110103",
+            "l2ExpireTime": "1735873200000",
+            "l2Signature": {
+                "r": "0x0141279ec45ce1ea37b11cfa4683cfab8443bcbf8da3f066cef3e437862573f9",
+                "s": "0x034efe12eee1be3fc715c7b511f69e3ba32ec67a9ac89538fbb73de46fefc5e5",
+                "v": ""
+            },
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "SUCCESS_CENSOR_SUCCESS",
+            "receiverTransferInId": "564819036173500554",
+            "collateralTransactionId": "564819036223832334",
+            "censorTxId": "893179",
+            "censorTime": "1734663352062",
+            "censorFailCode": "",
+            "censorFailReason": "",
+            "l2TxId": "1084730",
+            "l2RejectTime": "0",
+            "l2RejectCode": "",
+            "l2RejectReason": "",
+            "l2ApprovedTime": "0",
+            "createdTime": "1734663352031",
+            "updatedTime": "1734663352066"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663607244",
+    "responseTime": "1734663607271",
+    "traceId": "39366eb1153313ba1415851a08762265"
 }
 ```
 
@@ -125,9 +128,8 @@ GET /api/v1/private/transfer/getTransferOutById
 
 | Status Code | Description | Notes | Schema |
 |---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultlisttransferout) |
 
-### Response Data Structure
 
 <a id="opIdgetWithdrawAvailableAmount_1"></a>
 
@@ -148,10 +150,15 @@ GET /api/v1/private/transfer/getTransferOutAvailableAmount
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "availableAmount": "10.964371"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663286946",
+    "responseTime": "1734663286951",
+    "traceId": "957f0396a8e6059b027b99d232f8b113"
 }
 ```
 
@@ -159,7 +166,7 @@ GET /api/v1/private/transfer/getTransferOutAvailableAmount
 
 | Status Code | Description | Notes | Schema |
 |---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultgettransferoutavailableamount) |
 
 <a id="opIdgetTransferInById"></a>
 
@@ -180,167 +187,46 @@ GET /api/v1/private/transfer/getTransferInById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "senderAccountId": "string",
-      "senderL2Key": "string",
-      "senderTransferOutId": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response Codes
-
-| Status Code | Description | Notes | Schema |
-|---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
-
-### Response Data Structure
-
-<a id="opIdgetActiveTransferOut"></a>
-
-## GET Get Paginated Transfer Out Orders
-
-GET /api/v1/private/transfer/getActiveTransferOut
-
-### Request Parameters
-
-| Name | Location | Type | Required | Description |
-|---|---|---|---|---|
-| accountId | query | string | No | Account ID |
-| size | query | string | No | Number of records per page. Must be greater than 0 and less than or equal to 100 |
-| offsetData | query | string | No | Pagination offset. If empty or not provided, it retrieves the first page. |
-| filterCoinIdList | query | string | No | Filter by coin IDs, if empty return all |
-| filterStatusList | query | string | No | Filter by transfer status, if empty return all |
-| filterTransferReasonList | query | string | No | Filter by transfer reason, if empty return all |
-| filterStartCreatedTimeInclusive | query | string | No | Filter by start time (inclusive), if 0 it will return the earliest transfer in time |
-| filterEndCreatedTimeExclusive | query | string | No | Filter by end time (exclusive), if 0 it will return the latest transfer in time |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-### Response Codes
-
-| Status Code | Description | Notes | Schema |
-|---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
-
-<a id="opIdgetActiveTransferIn"></a>
-
-## GET Get Paginated Transfer In Orders
-
-GET /api/v1/private/transfer/getActiveTransferIn
-
-### Request Parameters
-
-| Name | Location | Type | Required | Description |
-|---|---|---|---|---|
-| accountId | query | string | No | Account ID |
-| size | query | string | No | Number of records per page. Must be greater than 0 and less than or equal to 100 |
-| offsetData | query | string | No | Pagination offset. If empty or not provided, it retrieves the first page. |
-| filterCoinIdList | query | string | No | Filter by coin IDs, if empty return all |
-| filterStatusList | query | string | No | Filter by transfer status, if empty return all |
-| filterTransferReasonList | query | string | No | Filter by transfer reason, if empty return all |
-| filterStartCreatedTimeInclusive | query | string | No | Filter by start time (inclusive), if 0 it will return the earliest transfer in time |
-| filterEndCreatedTimeExclusive | query | string | No | Filter by end time (exclusive), if 0 it will return the latest transfer in time |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "amount": "string",
-        "senderAccountId": "string",
-        "senderL2Key": "string",
-        "senderTransferOutId": "string",
-        "clientTransferId": "string",
-        "isConditionTransfer": true,
-        "conditionFactRegistryAddress": "string",
-        "conditionFactErc20Address": "string",
-        "conditionFactAmount": "string",
-        "conditionFact": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_TRANSFER_STATUS",
-        "collateralTransactionId": "string",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564819036173500554",
+            "userId": "543429922866069763",
+            "accountId": "551109015904453258",
+            "coinId": "1000",
+            "amount": "1.000000",
+            "senderAccountId": "543429922991899150",
+            "senderL2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+            "senderTransferOutId": "564819036077031694",
+            "clientTransferId": "543429922991899150:3877531064364166",
+            "isConditionTransfer": false,
+            "conditionFactRegistryAddress": "",
+            "conditionFactErc20Address": "",
+            "conditionFactAmount": "",
+            "conditionFact": "",
+            "transferReason": "USER_TRANSFER",
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "SUCCESS_CENSOR_SUCCESS",
+            "collateralTransactionId": "564819036219637898",
+            "censorTxId": "893179",
+            "censorTime": "1734663352062",
+            "censorFailCode": "",
+            "censorFailReason": "",
+            "l2TxId": "1084730",
+            "l2RejectTime": "0",
+            "l2RejectCode": "",
+            "l2RejectReason": "",
+            "l2ApprovedTime": "0",
+            "createdTime": "1734663352054",
+            "updatedTime": "1734663352065"
+        }
     ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663945432",
+    "responseTime": "1734663945452",
+    "traceId": "eb4cfe0a20f14b62b4fdbbd046255171"
 }
 ```
 
@@ -348,182 +234,35 @@ GET /api/v1/private/transfer/getActiveTransferIn
 
 | Status Code | Description | Notes | Schema |
 |---|---|---|---|
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultlisttransferin) |
 
-### Response Data Structure
 
 # Data Models
 
-<h2 id="tocS_Result<PageData<TransferIn>>">Result<PageData<TransferIn>></h2>
 
-<a id="schemaresult<pagedata<transferin>>"></a>
-<a id="schema_Result<PageData<TransferIn>>"></a>
-<a id="tocSresult<pagedata<transferin>>"></a>
-<a id="tocsresult<pagedata<transferin>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "amount": "string",
-        "senderAccountId": "string",
-        "senderL2Key": "string",
-        "senderTransferOutId": "string",
-        "clientTransferId": "string",
-        "isConditionTransfer": true,
-        "conditionFactRegistryAddress": "string",
-        "conditionFactErc20Address": "string",
-        "conditionFactAmount": "string",
-        "conditionFact": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_TRANSFER_STATUS",
-        "collateralTransactionId": "string",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultpagedatatransferin"></a>
+### Transfer In Response
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [PageDataTransferIn](#schemapagedatatransferin) | false | none | Generic paginated response data |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_PageDataTransferIn">PageDataTransferIn</h2>
 
 <a id="schemapagedatatransferin"></a>
-<a id="schema_PageDataTransferIn"></a>
-<a id="tocSpagedatatransferin"></a>
-<a id="tocspagedatatransferin"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "senderAccountId": "string",
-      "senderL2Key": "string",
-      "senderTransferOutId": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic paginated response data
-
-### Properties
+### Transfer In Data List
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | dataList | [[TransferIn](#schematransferin)] | false | none | Data list |
 | nextPageOffsetData | string | false | none | Offset to retrieve the next page. If no next page data, the value will be an empty string |
 
-<h2 id="tocS_TransferIn">TransferIn</h2>
-
 <a id="schematransferin"></a>
-<a id="schema_TransferIn"></a>
-<a id="tocStransferin"></a>
-<a id="tocstransferin"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "senderAccountId": "string",
-  "senderL2Key": "string",
-  "senderTransferOutId": "string",
-  "clientTransferId": "string",
-  "isConditionTransfer": true,
-  "conditionFactRegistryAddress": "string",
-  "conditionFactErc20Address": "string",
-  "conditionFactAmount": "string",
-  "conditionFact": "string",
-  "transferReason": "UNKNOWN_TRANSFER_REASON",
-  "extraType": "string",
-  "extraDataJson": "string",
-  "status": "UNKNOWN_TRANSFER_STATUS",
-  "collateralTransactionId": "string",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Transfer In Order
-
-### Properties
+### Transfer In
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
@@ -579,197 +318,31 @@ Transfer In Order
 | status | FAILED_L2_REJECT_APPROVED |
 | status | UNRECOGNIZED |
 
-<h2 id="tocS_Result<PageData<TransferOut>>">Result<PageData<TransferOut>></h2>
 
-<a id="schemaresult<pagedata<transferout>>"></a>
-<a id="schema_Result<PageData<TransferOut>>"></a>
-<a id="tocSresult<pagedata<transferout>>"></a>
-<a id="tocsresult<pagedata<transferout>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "amount": "string",
-        "receiverAccountId": "string",
-        "receiverL2Key": "string",
-        "clientTransferId": "string",
-        "isConditionTransfer": true,
-        "conditionFactRegistryAddress": "string",
-        "conditionFactErc20Address": "string",
-        "conditionFactAmount": "string",
-        "conditionFact": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "l2Nonce": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        },
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_TRANSFER_STATUS",
-        "receiverTransferInId": "string",
-        "collateralTransactionId": "string",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultpagedatatransferout"></a>
+### Transfer Out Response
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [PageDataTransferOut](#schemapagedatatransferout) | false | none | Generic paginated response data |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_PageDataTransferOut">PageDataTransferOut</h2>
 
 <a id="schemapagedatatransferout"></a>
-<a id="schema_PageDataTransferOut"></a>
-<a id="tocSpagedatatransferout"></a>
-<a id="tocspagedatatransferout"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "receiverAccountId": "string",
-      "receiverL2Key": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "l2Nonce": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "receiverTransferInId": "string",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic paginated response data
-
-### Properties
+### Transfer Out Data List
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | dataList | [[TransferOut](#schematransferout)] | false | none | Data list |
 | nextPageOffsetData | string | false | none | Offset to retrieve the next page. If no next page data, the value will be an empty string |
 
-<h2 id="tocS_TransferOut">TransferOut</h2>
 
 <a id="schematransferout"></a>
-<a id="schema_TransferOut"></a>
-<a id="tocStransferout"></a>
-<a id="tocstransferout"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "receiverAccountId": "string",
-  "receiverL2Key": "string",
-  "clientTransferId": "string",
-  "isConditionTransfer": true,
-  "conditionFactRegistryAddress": "string",
-  "conditionFactErc20Address": "string",
-  "conditionFactAmount": "string",
-  "conditionFact": "string",
-  "transferReason": "UNKNOWN_TRANSFER_REASON",
-  "l2Nonce": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  },
-  "extraType": "string",
-  "extraDataJson": "string",
-  "status": "UNKNOWN_TRANSFER_STATUS",
-  "receiverTransferInId": "string",
-  "collateralTransactionId": "string",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Transfer Out Order
-
-### Properties
+### Transfer Out Order
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
@@ -828,24 +401,8 @@ Transfer Out Order
 | status | FAILED_L2_REJECT_APPROVED |
 | status | UNRECOGNIZED |
 
-<h2 id="tocS_L2Signature">L2Signature</h2>
-
 <a id="schemal2signature"></a>
-<a id="schema_L2Signature"></a>
-<a id="tocSl2signature"></a>
-<a id="tocsl2signature"></a>
-
-```json
-{
-  "r": "string",
-  "s": "string",
-  "v": "string"
-}
-```
-
-L2 signature information
-
-### Properties
+### L2 signature information
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
@@ -853,189 +410,42 @@ L2 signature information
 | s | string | false | none | bigint for hex str |
 | v | string | false | none | bigint for hex str |
 
-<h2 id="tocS_Result<List<TransferIn>>">Result<List<TransferIn>></h2>
 
-<a id="schemaresult<list<transferin>>"></a>
-<a id="schema_Result<List<TransferIn>>"></a>
-<a id="tocSresult<list<transferin>>"></a>
-<a id="tocsresult<list<transferin>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "senderAccountId": "string",
-      "senderL2Key": "string",
-      "senderTransferOutId": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultlisttransferin"></a>
+### Transfer In Response
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [[TransferIn](#schematransferin)] | false | none | Correct response data |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_Result<GetTransferOutAvailableAmount>">Result<GetTransferOutAvailableAmount></h2>
 
-<a id="schemaresult<gettransferoutavailableamount>"></a>
-<a id="schema_Result<GetTransferOutAvailableAmount>"></a>
-<a id="tocSresult<gettransferoutavailableamount>"></a>
-<a id="tocsresult<gettransferoutavailableamount>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "availableAmount": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultgettransferoutavailableamount"></a>
+### Get Transfer Available Amount Response
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [GetTransferAvailableAmount](#schemagettransferavailableamount) | false | none | Get Transfer Available Amount - Response |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_GetTransferAvailableAmount">GetTransferAvailableAmount</h2>
 
 <a id="schemagettransferavailableamount"></a>
-<a id="schema_GetTransferAvailableAmount"></a>
-<a id="tocSgettransferavailableamount"></a>
-<a id="tocsgettransferavailableamount"></a>
-
-```json
-{
-  "availableAmount": "string"
-}
-```
-
-Get Transfer Available Amount - Response
-
-### Properties
+### Get Transfer Available Amount
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | availableAmount | string(decimal) | false | none | Available amount |
 
-<h2 id="tocS_Result<List<TransferOut>>">Result<List<TransferOut>></h2>
 
-<a id="schemaresult<list<transferout>>"></a>
-<a id="schema_Result<List<TransferOut>>"></a>
-<a id="tocSresult<list<transferout>>"></a>
-<a id="tocsresult<list<transferout>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "receiverAccountId": "string",
-      "receiverL2Key": "string",
-      "clientTransferId": "string",
-      "isConditionTransfer": true,
-      "conditionFactRegistryAddress": "string",
-      "conditionFactErc20Address": "string",
-      "conditionFactAmount": "string",
-      "conditionFact": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "l2Nonce": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_TRANSFER_STATUS",
-      "receiverTransferInId": "string",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
+<a id="schemaresultlisttransferout"></a>
 ### Properties
 
 | Name | Type | Required | Constraints | Description |
@@ -1043,121 +453,35 @@ Get Transfer Available Amount - Response
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [[TransferOut](#schematransferout)] | false | none | Correct response data |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_Result<CreateTransferOut>">Result<CreateTransferOut></h2>
 
-<a id="schemaresult<createtransferout>"></a>
-<a id="schema_Result<CreateTransferOut>"></a>
-<a id="tocSresult<createtransferout>"></a>
-<a id="tocsresult<createtransferout>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "transferOutId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultcreatetransferout"></a>
+### Create Transfer Out Order - Response
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
 | data | [CreateTransferOut](#schemacreatetransferout) | false | none | Create Transfer Out Order - Response |
 | errorParam | object | false | none | Parameter information in error messages |
-| » **additionalProperties** | string | false | none | Parameter information in error messages |
 | requestTime | string(timestamp) | false | none | Server request receiving timestamp |
 | responseTime | string(timestamp) | false | none | Server response returning timestamp |
 | traceId | string | false | none | Call trace ID |
 
-<h2 id="tocS_CreateTransferOut">CreateTransferOut</h2>
 
 <a id="schemacreatetransferout"></a>
-<a id="schema_CreateTransferOut"></a>
-<a id="tocScreatetransferout"></a>
-<a id="tocscreatetransferout"></a>
-
-```json
-{
-  "transferOutId": "string"
-}
-```
-
-Create Transfer Out Order - Response
-
-### Properties
+### Create Transfer Out Order Response Data
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|
 | transferOutId | string(int64) | false | none | Transfer out order ID |
 
-<h2 id="tocS_Result">Result</h2>
 
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-Generic response structure
-
-### Properties
-
-| Name | Type | Required | Constraints | Description |
-|---|---|---|---|---|
-| code | string | false | none | Status code. "SUCCESS" for success, other values indicate failure. |
-| msg | string | false | none | Detailed error message if an error occurs |
-| requestTime | string(int64) | false | none | Server request receiving timestamp |
-| responseTime | string(int64) | false | none | Server response returning timestamp |
-
-<h2 id="tocS_CreateTransferOutParam">CreateTransferOutParam</h2>
 
 <a id="schemacreatetransferoutparam"></a>
-<a id="schema_CreateTransferOutParam"></a>
-<a id="tocScreatetransferoutparam"></a>
-<a id="tocscreatetransferoutparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "receiverAccountId": "string",
-  "receiverL2Key": "string",
-  "clientTransferId": "string",
-  "transferReason": "UNKNOWN_TRANSFER_REASON",
-  "l2Nonce": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string",
-  "extraType": "string",
-  "extraDataJson": "string"
-}
-```
-
-Create Transfer Out Order request parameters
-
-### Properties
+### Create Transfer Out Order request parameters
 
 | Name | Type | Required | Constraints | Description |
 |---|---|---|---|---|

@@ -10,9 +10,9 @@ POST /api/v1/private/order/getMaxCreateOrderSize
 
 ```json
 {
-  "accountId": "string",
-  "contractId": "string",
-  "price": "string"
+  "accountId": "551109015904453258",
+  "contractId": "10000001",
+  "price": "97,463.4"
 }
 ```
 
@@ -28,10 +28,18 @@ POST /api/v1/private/order/getMaxCreateOrderSize
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "maxBuySize": "0.004",
+        "maxSellSize": "0.009",
+        "ask1Price": "97532.1",
+        "bid1Price": "97496.1"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734665285662",
+    "responseTime": "1734665285679",
+    "traceId": "38fc6d0f57f3e64c8c6239fae7d35f84"
 }
 ```
 
@@ -39,7 +47,7 @@ POST /api/v1/private/order/getMaxCreateOrderSize
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#getmaxcreateordersize)|
 
 <a id="opIdcreateOrder"></a>
 
@@ -51,61 +59,33 @@ POST /api/v1/private/order/createOrder
 
 ```json
 {
-  "accountId": "string",
-  "contractId": "string",
-  "side": "UNKNOWN_ORDER_SIDE",
-  "size": "string",
-  "price": "string",
-  "clientOrderId": "string",
-  "type": "UNKNOWN_ORDER_TYPE",
-  "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-  "reduceOnly": true,
-  "triggerPrice": "string",
-  "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-  "expireTime": "string",
-  "sourceKey": "string",
-  "isPositionTpsl": true,
-  "openTpslParentOrderId": "string",
-  "isSetOpenTp": true,
-  "openTp": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": "string"
-  },
-  "isSetOpenSl": true,
-  "openSl": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": "string"
-  },
-  "l2Nonce": "string",
-  "l2Value": "string",
-  "l2Size": "string",
-  "l2LimitFee": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string",
-  "extraType": "string",
-  "extraDataJson": "string"
+    "price": "97393.8",
+    "size": "0.001",
+    "type": "LIMIT",
+    "timeInForce": "GOOD_TIL_CANCEL",
+    "reduceOnly": false,
+    "isPositionTpsl": false,
+    "isSetOpenTp": false,
+    "isSetOpenSl": false,
+    "accountId": "543429922991899150",
+    "contractId": "10000001",
+    "side": "BUY",
+    "triggerPrice": "",
+    "triggerPriceType": "LAST_PRICE",
+    "clientOrderId": "21163368294502694",
+    "expireTime": "1736476772359",
+    "l2Nonce": "808219",
+    "l2Value": "97.3938",
+    "l2Size": "0.001",
+    "l2LimitFee": "0.048697",
+    "l2ExpireTime": "1737254372359",
+    "l2Signature": "0537b3051bb9ffb98bb842ff6cadf69807a8dbf74f94d8c6106cf4f59b1fd2dc01aa2d93420408d60298831ddb82f7b482574ecb0fc285294dfeec732379ec40",
+    "extraType": "",
+    "extraDataJson": "",
+    "symbol": "BTCUSDT",
+    "showEqualValInput": true,
+    "maxSellQTY": 0.009,
+    "maxBuyQTY": 0.007
 }
 ```
 
@@ -121,17 +101,15 @@ POST /api/v1/private/order/createOrder
 
 ```json
 {
-  "code": "string",
-  "data": {
-    "orderId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": {
+        "orderId": "564814927928230158"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662372560",
+    "responseTime": "1734662372575",
+    "traceId": "364c0020d1fe90bbfcca3cf3a9d54759"
 }
 ```
 
@@ -139,7 +117,7 @@ POST /api/v1/private/order/createOrder
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultcreateorder)|
 
 ### Response Data Structure
 
@@ -153,10 +131,10 @@ POST /api/v1/private/order/cancelOrderById
 
 ```json
 {
-  "accountId": "string",
-  "orderIdList": [
-    "string"
-  ]
+    "accountId": "551109015904453258",
+    "orderIdList": [
+        "564827797948727434"
+    ]
 }
 ```
 
@@ -172,20 +150,17 @@ POST /api/v1/private/order/cancelOrderById
 
 ```json
 {
-  "code": "string",
-  "data": {
-    "cancelResultMap": {
-      "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-      "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": {
+        "cancelResultMap": {
+            "564827797948727434": "SUCCESS"
+        }
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734665453034",
+    "responseTime": "1734665453043",
+    "traceId": "5597699fd044ed965bfed23fb3728ba5"
 }
 ```
 
@@ -193,53 +168,8 @@ POST /api/v1/private/order/cancelOrderById
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultcancelorder)|
 
-### Response Data Structure
-
-<a id="opIdcancelOrderByClientOrderId"></a>
-
-## POST Cancel Order by Client Order ID
-
-POST /api/v1/private/order/cancelOrderByClientOrderId
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "string",
-  "clientOrderIdList": [
-    "string"
-  ]
-}
-```
-
-### Request Parameters
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[CancelOrderByClientOrderIdParam](#schemacancelorderbyclientorderidparam)| No |none|
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-### Response
-
-|Status Code|Status Code Description|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
-
-<a id="opIdcancelAllOrder"></a>
 
 ## POST Cancel All Orders under Account
 
@@ -249,22 +179,7 @@ POST /api/v1/private/order/cancelAllOrder
 
 ```json
 {
-  "accountId": "string",
-  "filterCoinIdList": [
-    "string"
-  ],
-  "filterContractIdList": [
-    "string"
-  ],
-  "filterOrderTypeList": [
-    "UNKNOWN_ORDER_TYPE"
-  ],
-  "filterOrderStatusList": [
-    "UNKNOWN_ORDER_STATUS"
-  ],
-  "filterIsPositionTpsl": [
-    true
-  ]
+    "accountId": "551109015904453258"
 }
 ```
 
@@ -280,20 +195,17 @@ POST /api/v1/private/order/cancelAllOrder
 
 ```json
 {
-  "code": "string",
-  "data": {
-    "cancelResultMap": {
-      "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-      "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": {
+        "cancelResultMap": {
+            "564828209955209354": "SUCCESS"
+        }
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734665771719",
+    "responseTime": "1734665771743",
+    "traceId": "c0a1da9b75ad55d64ce0e98f86279c34"
 }
 ```
 
@@ -324,125 +236,123 @@ GET /api/v1/private/order/getOrderById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564829588270612618",
+            "userId": "543429922866069763",
+            "accountId": "551109015904453258",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "side": "BUY",
+            "price": "96260.7",
+            "size": "0.001",
+            "clientOrderId": "9311381563209122",
+            "type": "LIMIT",
+            "timeInForce": "GOOD_TIL_CANCEL",
+            "reduceOnly": false,
+            "triggerPrice": "0",
+            "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+            "expireTime": "1736480267612",
+            "sourceKey": "",
+            "isPositionTpsl": false,
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "openTpslParentOrderId": "0",
+            "isSetOpenTp": false,
+            "openTp": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isSetOpenSl": false,
+            "openSl": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isWithoutMatch": false,
+            "withoutMatchFillSize": "0",
+            "withoutMatchFillValue": "0",
+            "withoutMatchPeerAccountId": "0",
+            "withoutMatchPeerOrderId": "0",
+            "maxLeverage": "50",
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "liquidateFeeRate": "0.01",
+            "marketLimitPrice": "0",
+            "marketLimitValue": "0",
+            "l2Nonce": "3353661024",
+            "l2Value": "96.260700",
+            "l2Size": "0.001",
+            "l2LimitFee": "0.048131",
+            "l2ExpireTime": "1737257867612",
+            "l2Signature": {
+                "r": "0x072f299b86c199e161508ed554889d50476bc96d5a0c320bcd5b7e579b692c06",
+                "s": "0x05b24b988f84bca951b3bb4e69b11e0aa1ce08cca38fea0f3afd94b5e7cd09f8",
+                "v": ""
+            },
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "OPEN",
+            "matchSequenceId": "35229771",
+            "triggerTime": "0",
+            "triggerPriceTime": "0",
+            "triggerPriceValue": "0",
+            "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+            "cumFillSize": "0",
+            "cumFillValue": "0",
+            "cumFillFee": "0",
+            "maxFillPrice": "0",
+            "minFillPrice": "0",
+            "cumLiquidateFee": "0",
+            "cumRealizePnl": "0",
+            "cumMatchSize": "0",
+            "cumMatchValue": "0",
+            "cumMatchFee": "0",
+            "cumFailSize": "0",
+            "cumFailValue": "0",
+            "cumFailFee": "0",
+            "cumApprovedSize": "0",
+            "cumApprovedValue": "0",
+            "cumApprovedFee": "0",
+            "createdTime": "1734665867870",
+            "updatedTime": "1734665867876"
         }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734665901264",
+    "responseTime": "1734665901281",
+    "traceId": "65ca2097b4d9cfb487bd9cef53097040"
 }
 ```
 
@@ -473,125 +383,123 @@ GET /api/v1/private/order/getOrderByClientOrderId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564829588270612618",
+            "userId": "543429922866069763",
+            "accountId": "551109015904453258",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "side": "BUY",
+            "price": "96260.7",
+            "size": "0.001",
+            "clientOrderId": "9311381563209122",
+            "type": "LIMIT",
+            "timeInForce": "GOOD_TIL_CANCEL",
+            "reduceOnly": false,
+            "triggerPrice": "0",
+            "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+            "expireTime": "1736480267612",
+            "sourceKey": "",
+            "isPositionTpsl": false,
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "openTpslParentOrderId": "0",
+            "isSetOpenTp": false,
+            "openTp": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isSetOpenSl": false,
+            "openSl": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isWithoutMatch": false,
+            "withoutMatchFillSize": "0",
+            "withoutMatchFillValue": "0",
+            "withoutMatchPeerAccountId": "0",
+            "withoutMatchPeerOrderId": "0",
+            "maxLeverage": "50",
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "liquidateFeeRate": "0.01",
+            "marketLimitPrice": "0",
+            "marketLimitValue": "0",
+            "l2Nonce": "3353661024",
+            "l2Value": "96.260700",
+            "l2Size": "0.001",
+            "l2LimitFee": "0.048131",
+            "l2ExpireTime": "1737257867612",
+            "l2Signature": {
+                "r": "0x072f299b86c199e161508ed554889d50476bc96d5a0c320bcd5b7e579b692c06",
+                "s": "0x05b24b988f84bca951b3bb4e69b11e0aa1ce08cca38fea0f3afd94b5e7cd09f8",
+                "v": ""
+            },
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "OPEN",
+            "matchSequenceId": "35229771",
+            "triggerTime": "0",
+            "triggerPriceTime": "0",
+            "triggerPriceValue": "0",
+            "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+            "cumFillSize": "0",
+            "cumFillValue": "0",
+            "cumFillFee": "0",
+            "maxFillPrice": "0",
+            "minFillPrice": "0",
+            "cumLiquidateFee": "0",
+            "cumRealizePnl": "0",
+            "cumMatchSize": "0",
+            "cumMatchValue": "0",
+            "cumMatchFee": "0",
+            "cumFailSize": "0",
+            "cumFailValue": "0",
+            "cumFailFee": "0",
+            "cumApprovedSize": "0",
+            "cumApprovedValue": "0",
+            "cumApprovedFee": "0",
+            "createdTime": "1734665867870",
+            "updatedTime": "1734665867876"
         }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734665947238",
+    "responseTime": "1734665947256",
+    "traceId": "64913ab9c62058bc2d9edaeafc3da271"
 }
 ```
 
@@ -601,7 +509,6 @@ GET /api/v1/private/order/getOrderByClientOrderId
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
 
-### Response Data Structure
 
 <a id="opIdgetHistoryOrderPage"></a>
 
@@ -632,10 +539,126 @@ GET /api/v1/private/order/getHistoryOrderPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564815695875932430",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "side": "BUY",
+                "price": "97444.5",
+                "size": "0.001",
+                "clientOrderId": "553364074986685",
+                "type": "LIMIT",
+                "timeInForce": "GOOD_TIL_CANCEL",
+                "reduceOnly": false,
+                "triggerPrice": "0",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "1736476955478",
+                "sourceKey": "",
+                "isPositionTpsl": false,
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "openTpslParentOrderId": "0",
+                "isSetOpenTp": false,
+                "openTp": {
+                    "side": "UNKNOWN_ORDER_SIDE",
+                    "price": "",
+                    "size": "",
+                    "clientOrderId": "",
+                    "triggerPrice": "",
+                    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                    "expireTime": "0",
+                    "l2Nonce": "0",
+                    "l2Value": "",
+                    "l2Size": "",
+                    "l2LimitFee": "",
+                    "l2ExpireTime": "0",
+                    "l2Signature": {
+                        "r": "",
+                        "s": "",
+                        "v": ""
+                    }
+                },
+                "isSetOpenSl": false,
+                "openSl": {
+                    "side": "UNKNOWN_ORDER_SIDE",
+                    "price": "",
+                    "size": "",
+                    "clientOrderId": "",
+                    "triggerPrice": "",
+                    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                    "expireTime": "0",
+                    "l2Nonce": "0",
+                    "l2Value": "",
+                    "l2Size": "",
+                    "l2LimitFee": "",
+                    "l2ExpireTime": "0",
+                    "l2Signature": {
+                        "r": "",
+                        "s": "",
+                        "v": ""
+                    }
+                },
+                "isWithoutMatch": false,
+                "withoutMatchFillSize": "0",
+                "withoutMatchFillValue": "0",
+                "withoutMatchPeerAccountId": "0",
+                "withoutMatchPeerOrderId": "0",
+                "maxLeverage": "50",
+                "takerFeeRate": "0.000500",
+                "makerFeeRate": "0.000180",
+                "liquidateFeeRate": "0.01",
+                "marketLimitPrice": "0",
+                "marketLimitValue": "0",
+                "l2Nonce": "2054491946",
+                "l2Value": "97.444500",
+                "l2Size": "0.001",
+                "l2LimitFee": "0.048723",
+                "l2ExpireTime": "1737254555478",
+                "l2Signature": {
+                    "r": "0x009af59c2963f1650449904fde059a83fed5beb4acdd67ffa22c551c4be977de",
+                    "s": "0x04940a395f2d1b39c0f2b969e47fec478fbfea9ce227bfedd07d407175dcac3e",
+                    "v": ""
+                },
+                "extraType": "",
+                "extraDataJson": "",
+                "status": "FILLED",
+                "matchSequenceId": "35196430",
+                "triggerTime": "0",
+                "triggerPriceTime": "0",
+                "triggerPriceValue": "0",
+                "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+                "cumFillSize": "0.001",
+                "cumFillValue": "97.4445",
+                "cumFillFee": "0.017540",
+                "maxFillPrice": "97444.5",
+                "minFillPrice": "97444.5",
+                "cumLiquidateFee": "0",
+                "cumRealizePnl": "-0.017540",
+                "cumMatchSize": "0.001",
+                "cumMatchValue": "97.4445",
+                "cumMatchFee": "0.017540",
+                "cumFailSize": "0",
+                "cumFailValue": "0",
+                "cumFailFee": "0",
+                "cumApprovedSize": "0",
+                "cumApprovedValue": "0",
+                "cumApprovedFee": "0",
+                "createdTime": "1734662555665",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662697584",
+    "responseTime": "1734662697601",
+    "traceId": "1cd03694d7da308cb13603f34b0836e6"
 }
 ```
 
@@ -673,10 +696,59 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564815957260763406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "orderId": "564815695875932430",
+                "orderSide": "BUY",
+                "fillSize": "0.001",
+                "fillValue": "97.4445",
+                "fillFee": "0.017540",
+                "fillPrice": "97444.5",
+                "liquidateFee": "0",
+                "realizePnl": "-0.017540",
+                "direction": "MAKER",
+                "isPositionTpsl": false,
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "isWithoutMatch": false,
+                "matchSequenceId": "35196430",
+                "matchIndex": 0,
+                "matchTime": "1734662617982",
+                "matchAccountId": "555790606509539863",
+                "matchOrderId": "564815957235597591",
+                "matchFillId": "05d14491-db7d-478a-9d9f-2dc55c3ff3ca",
+                "positionTransactionId": "564815957294318862",
+                "collateralTransactionId": "564815957294317838",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "893031",
+                "censorTime": "1734662617988",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084582",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734662617984",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662681040",
+    "responseTime": "1734662681051",
+    "traceId": "770fcce6222c2d88b65b4ecb36e84c43"
 }
 ```
 
@@ -684,7 +756,7 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionPage
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedataorderfilltransaction)|
 
 <a id="opIdgetHistoryOrderFillTransactionById"></a>
 
@@ -705,10 +777,56 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionById
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564815957260763406",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "orderId": "564815695875932430",
+            "orderSide": "BUY",
+            "fillSize": "0.001",
+            "fillValue": "97.4445",
+            "fillFee": "0.017540",
+            "fillPrice": "97444.5",
+            "liquidateFee": "0",
+            "realizePnl": "-0.017540",
+            "direction": "MAKER",
+            "isPositionTpsl": false,
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "isWithoutMatch": false,
+            "matchSequenceId": "35196430",
+            "matchIndex": 0,
+            "matchTime": "1734662617982",
+            "matchAccountId": "555790606509539863",
+            "matchOrderId": "564815957235597591",
+            "matchFillId": "05d14491-db7d-478a-9d9f-2dc55c3ff3ca",
+            "positionTransactionId": "564815957294318862",
+            "collateralTransactionId": "564815957294317838",
+            "extraType": "",
+            "extraDataJson": "",
+            "censorStatus": "CENSOR_SUCCESS",
+            "censorTxId": "893031",
+            "censorTime": "1734662617988",
+            "censorFailCode": "",
+            "censorFailReason": "",
+            "l2TxId": "1084582",
+            "l2RejectTime": "0",
+            "l2RejectCode": "",
+            "l2RejectReason": "",
+            "l2ApprovedTime": "0",
+            "createdTime": "1734662617984",
+            "updatedTime": "1734662617992"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734666041607",
+    "responseTime": "1734666041619",
+    "traceId": "629acb9f32074715a1ea9befd171c452"
 }
 ```
 
@@ -716,7 +834,7 @@ GET /api/v1/private/order/getHistoryOrderFillTransactionById
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedataorderfilltransaction)|
 
 <a id="opIdgetHistoryOrderById"></a>
 
@@ -737,125 +855,123 @@ GET /api/v1/private/order/getHistoryOrderById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564815695875932430",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "side": "BUY",
+            "price": "97444.5",
+            "size": "0.001",
+            "clientOrderId": "553364074986685",
+            "type": "LIMIT",
+            "timeInForce": "GOOD_TIL_CANCEL",
+            "reduceOnly": false,
+            "triggerPrice": "0",
+            "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+            "expireTime": "1736476955478",
+            "sourceKey": "",
+            "isPositionTpsl": false,
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "openTpslParentOrderId": "0",
+            "isSetOpenTp": false,
+            "openTp": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isSetOpenSl": false,
+            "openSl": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isWithoutMatch": false,
+            "withoutMatchFillSize": "0",
+            "withoutMatchFillValue": "0",
+            "withoutMatchPeerAccountId": "0",
+            "withoutMatchPeerOrderId": "0",
+            "maxLeverage": "50",
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "liquidateFeeRate": "0.01",
+            "marketLimitPrice": "0",
+            "marketLimitValue": "0",
+            "l2Nonce": "2054491946",
+            "l2Value": "97.444500",
+            "l2Size": "0.001",
+            "l2LimitFee": "0.048723",
+            "l2ExpireTime": "1737254555478",
+            "l2Signature": {
+                "r": "0x009af59c2963f1650449904fde059a83fed5beb4acdd67ffa22c551c4be977de",
+                "s": "0x04940a395f2d1b39c0f2b969e47fec478fbfea9ce227bfedd07d407175dcac3e",
+                "v": ""
+            },
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "FILLED",
+            "matchSequenceId": "35196430",
+            "triggerTime": "0",
+            "triggerPriceTime": "0",
+            "triggerPriceValue": "0",
+            "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+            "cumFillSize": "0.001",
+            "cumFillValue": "97.4445",
+            "cumFillFee": "0.017540",
+            "maxFillPrice": "97444.5",
+            "minFillPrice": "97444.5",
+            "cumLiquidateFee": "0",
+            "cumRealizePnl": "-0.017540",
+            "cumMatchSize": "0.001",
+            "cumMatchValue": "97.4445",
+            "cumMatchFee": "0.017540",
+            "cumFailSize": "0",
+            "cumFailValue": "0",
+            "cumFailFee": "0",
+            "cumApprovedSize": "0",
+            "cumApprovedValue": "0",
+            "cumApprovedFee": "0",
+            "createdTime": "1734662555665",
+            "updatedTime": "1734662617992"
         }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734666077826",
+    "responseTime": "1734666077846",
+    "traceId": "5773d3492c5913ba4f8c93071f3e426e"
 }
 ```
 
@@ -863,7 +979,7 @@ GET /api/v1/private/order/getHistoryOrderById
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedataorder)|
 
 ### Response Data Structure
 
@@ -886,125 +1002,123 @@ GET /api/v1/private/order/getHistoryOrderByClientOrderId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "564815695875932430",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "side": "BUY",
+            "price": "97444.5",
+            "size": "0.001",
+            "clientOrderId": "553364074986685",
+            "type": "LIMIT",
+            "timeInForce": "GOOD_TIL_CANCEL",
+            "reduceOnly": false,
+            "triggerPrice": "0",
+            "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+            "expireTime": "1736476955478",
+            "sourceKey": "",
+            "isPositionTpsl": false,
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "openTpslParentOrderId": "0",
+            "isSetOpenTp": false,
+            "openTp": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isSetOpenSl": false,
+            "openSl": {
+                "side": "UNKNOWN_ORDER_SIDE",
+                "price": "",
+                "size": "",
+                "clientOrderId": "",
+                "triggerPrice": "",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "0",
+                "l2Nonce": "0",
+                "l2Value": "",
+                "l2Size": "",
+                "l2LimitFee": "",
+                "l2ExpireTime": "0",
+                "l2Signature": {
+                    "r": "",
+                    "s": "",
+                    "v": ""
+                }
+            },
+            "isWithoutMatch": false,
+            "withoutMatchFillSize": "0",
+            "withoutMatchFillValue": "0",
+            "withoutMatchPeerAccountId": "0",
+            "withoutMatchPeerOrderId": "0",
+            "maxLeverage": "50",
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "liquidateFeeRate": "0.01",
+            "marketLimitPrice": "0",
+            "marketLimitValue": "0",
+            "l2Nonce": "2054491946",
+            "l2Value": "97.444500",
+            "l2Size": "0.001",
+            "l2LimitFee": "0.048723",
+            "l2ExpireTime": "1737254555478",
+            "l2Signature": {
+                "r": "0x009af59c2963f1650449904fde059a83fed5beb4acdd67ffa22c551c4be977de",
+                "s": "0x04940a395f2d1b39c0f2b969e47fec478fbfea9ce227bfedd07d407175dcac3e",
+                "v": ""
+            },
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "FILLED",
+            "matchSequenceId": "35196430",
+            "triggerTime": "0",
+            "triggerPriceTime": "0",
+            "triggerPriceValue": "0",
+            "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+            "cumFillSize": "0.001",
+            "cumFillValue": "97.4445",
+            "cumFillFee": "0.017540",
+            "maxFillPrice": "97444.5",
+            "minFillPrice": "97444.5",
+            "cumLiquidateFee": "0",
+            "cumRealizePnl": "-0.017540",
+            "cumMatchSize": "0.001",
+            "cumMatchValue": "97.4445",
+            "cumMatchFee": "0.017540",
+            "cumFailSize": "0",
+            "cumFailValue": "0",
+            "cumFailFee": "0",
+            "cumApprovedSize": "0",
+            "cumApprovedValue": "0",
+            "cumApprovedFee": "0",
+            "createdTime": "1734662555665",
+            "updatedTime": "1734662617992"
         }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string```json
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734666143318",
+    "responseTime": "1734666143331",
+    "traceId": "e19f71177e8cf0c7f34d45d85064c07c"
 }
 ```
 
@@ -1012,7 +1126,7 @@ GET /api/v1/private/order/getHistoryOrderByClientOrderId
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedataorder)|
 
 ### Response Data Structure
 
@@ -1045,10 +1159,126 @@ GET /api/v1/private/order/getActiveOrderPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564815695875932430",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "side": "BUY",
+                "price": "97444.5",
+                "size": "0.001",
+                "clientOrderId": "553364074986685",
+                "type": "LIMIT",
+                "timeInForce": "GOOD_TIL_CANCEL",
+                "reduceOnly": false,
+                "triggerPrice": "0",
+                "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                "expireTime": "1736476955478",
+                "sourceKey": "",
+                "isPositionTpsl": false,
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "openTpslParentOrderId": "0",
+                "isSetOpenTp": false,
+                "openTp": {
+                    "side": "UNKNOWN_ORDER_SIDE",
+                    "price": "",
+                    "size": "",
+                    "clientOrderId": "",
+                    "triggerPrice": "",
+                    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                    "expireTime": "0",
+                    "l2Nonce": "0",
+                    "l2Value": "",
+                    "l2Size": "",
+                    "l2LimitFee": "",
+                    "l2ExpireTime": "0",
+                    "l2Signature": {
+                        "r": "",
+                        "s": "",
+                        "v": ""
+                    }
+                },
+                "isSetOpenSl": false,
+                "openSl": {
+                    "side": "UNKNOWN_ORDER_SIDE",
+                    "price": "",
+                    "size": "",
+                    "clientOrderId": "",
+                    "triggerPrice": "",
+                    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
+                    "expireTime": "0",
+                    "l2Nonce": "0",
+                    "l2Value": "",
+                    "l2Size": "",
+                    "l2LimitFee": "",
+                    "l2ExpireTime": "0",
+                    "l2Signature": {
+                        "r": "",
+                        "s": "",
+                        "v": ""
+                    }
+                },
+                "isWithoutMatch": false,
+                "withoutMatchFillSize": "0",
+                "withoutMatchFillValue": "0",
+                "withoutMatchPeerAccountId": "0",
+                "withoutMatchPeerOrderId": "0",
+                "maxLeverage": "50",
+                "takerFeeRate": "0.000500",
+                "makerFeeRate": "0.000180",
+                "liquidateFeeRate": "0.01",
+                "marketLimitPrice": "0",
+                "marketLimitValue": "0",
+                "l2Nonce": "2054491946",
+                "l2Value": "97.444500",
+                "l2Size": "0.001",
+                "l2LimitFee": "0.048723",
+                "l2ExpireTime": "1737254555478",
+                "l2Signature": {
+                    "r": "0x009af59c2963f1650449904fde059a83fed5beb4acdd67ffa22c551c4be977de",
+                    "s": "0x04940a395f2d1b39c0f2b969e47fec478fbfea9ce227bfedd07d407175dcac3e",
+                    "v": ""
+                },
+                "extraType": "",
+                "extraDataJson": "",
+                "status": "OPEN",
+                "matchSequenceId": "35195888",
+                "triggerTime": "0",
+                "triggerPriceTime": "0",
+                "triggerPriceValue": "0",
+                "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
+                "cumFillSize": "0",
+                "cumFillValue": "0",
+                "cumFillFee": "0",
+                "maxFillPrice": "0",
+                "minFillPrice": "0",
+                "cumLiquidateFee": "0",
+                "cumRealizePnl": "0",
+                "cumMatchSize": "0",
+                "cumMatchValue": "0",
+                "cumMatchFee": "0",
+                "cumFailSize": "0",
+                "cumFailValue": "0",
+                "cumFailFee": "0",
+                "cumApprovedSize": "0",
+                "cumApprovedValue": "0",
+                "cumApprovedFee": "0",
+                "createdTime": "1734662555665",
+                "updatedTime": "1734662555672"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662566830",
+    "responseTime": "1734662566836",
+    "traceId": "4a97b2e8da4933980f399581dd4a1264"
 }
 ```
 
@@ -1056,75 +1286,12 @@ GET /api/v1/private/order/getActiveOrderPage
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedataorder)|
 
 # Data Models
 
-<h2 id="tocS_Result<List<OrderFillTransaction>>">Result&lt;List&lt;OrderFillTransaction&gt;&gt;</h2>
 
-<a id="schemaresult<list<orderfilltransaction>>"></a>
-<a id="schema_Result<List<OrderFillTransaction>>"></a>
-<a id="tocSresult<list<orderfilltransaction>>"></a>
-<a id="tocsresult<list<orderfilltransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "orderId": "string",
-      "orderSide": "UNKNOWN_ORDER_SIDE",
-      "fillSize": "string",
-      "fillValue": "string",
-      "fillFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "direction": "UNKNOWN_LIQUIDITY_DIRECTION",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "isWithoutMatch": true,
-      "matchSequenceId": "string",
-      "matchIndex": 0,
-      "matchTime": "string",
-      "matchAccountId": "string",
-      "matchOrderId": "string",
-      "matchFillId": "string",
-      "positionTransactionId": "string",
-      "collateralTransactionId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
+<a id="schemaresultlistorderfilltransaction"></a>
 ### Properties
 
 |Name|Type|Required|Constraints|Description|
@@ -1132,67 +1299,13 @@ GET /api/v1/private/order/getActiveOrderPage
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none|Successful response data.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_OrderFillTransaction">OrderFillTransaction</h2>
 
 <a id="schemaorderfilltransaction"></a>
-<a id="schema_OrderFillTransaction"></a>
-<a id="tocSorderfilltransaction"></a>
-<a id="tocsorderfilltransaction"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "orderId": "string",
-  "orderSide": "UNKNOWN_ORDER_SIDE",
-  "fillSize": "string",
-  "fillValue": "string",
-  "fillFee": "string",
-  "fillPrice": "string",
-  "liquidateFee": "string",
-  "realizePnl": "string",
-  "direction": "UNKNOWN_LIQUIDITY_DIRECTION",
-  "isPositionTpsl": true,
-  "isLiquidate": true,
-  "isDeleverage": true,
-  "isWithoutMatch": true,
-  "matchSequenceId": "string",
-  "matchIndex": 0,
-  "matchTime": "string",
-  "matchAccountId": "string",
-  "matchOrderId": "string",
-  "matchFillId": "string",
-  "positionTransactionId": "string",
-  "collateralTransactionId": "string",
-  "extraType": "string",
-  "extraDataJson": "string",
-  "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-
-```
-
-Order fill transaction details
-
-### Properties
+### Order fill transaction details
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -1258,549 +1371,52 @@ Order fill transaction details
 |censorStatus|L2_REJECT_APPROVED|
 |censorStatus|UNRECOGNIZED|
 
-<h2 id="tocS_Result<PageData<OrderFillTransaction>>">Result&lt;PageData&lt;OrderFillTransaction&gt;&gt;</h2>
-
-<a id="schemaresult<pagedata<orderfilltransaction>>"></a>
-<a id="schema_Result<PageData<OrderFillTransaction>>"></a>
-<a id="tocSresult<pagedata<orderfilltransaction>>"></a>
-<a id="tocsresult<pagedata<orderfilltransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "orderId": "string",
-        "orderSide": "UNKNOWN_ORDER_SIDE",
-        "fillSize": "string",
-        "fillValue": "string",
-        "fillFee": "string",
-        "fillPrice": "string",
-        "liquidateFee": "string",
-        "realizePnl": "string",
-        "direction": "UNKNOWN_LIQUIDITY_DIRECTION",
-        "isPositionTpsl": true,
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "isWithoutMatch": true,
-        "matchSequenceId": "string",
-        "matchIndex": 0,
-        "matchTime": "string",
-        "matchAccountId": "string",
-        "matchOrderId": "string",
-        "matchFillId": "string",
-        "positionTransactionId": "string",
-        "collateralTransactionId": "string",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultpagedataorderfilltransaction"></a>
+### Order Fill Transaction Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[PageDataOrderFillTransaction](#schemapagedataorderfilltransaction)|false|none|Generic paginated response.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_PageDataOrderFillTransaction">PageDataOrderFillTransaction</h2>
 
 <a id="schemapagedataorderfilltransaction"></a>
-<a id="schema_PageDataOrderFillTransaction"></a>
-<a id="tocSpagedataorderfilltransaction"></a>
-<a id="tocspagedataorderfilltransaction"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "orderId": "string",
-      "orderSide": "UNKNOWN_ORDER_SIDE",
-      "fillSize": "string",
-      "fillValue": "string",
-      "fillFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "direction": "UNKNOWN_LIQUIDITY_DIRECTION",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "isWithoutMatch": true,
-      "matchSequenceId": "string",
-      "matchIndex": 0,
-      "matchTime": "string",
-      "matchAccountId": "string",
-      "matchOrderId": "string",
-      "matchFillId": "string",
-      "positionTransactionId": "string",
-      "collateralTransactionId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-
-```
-
-Generic paginated response.
-
-### Properties
+### Order Fill Transaction List
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |dataList|[[OrderFillTransaction](#schemaorderfilltransaction)]|false|none|Data list.|
 |nextPageOffsetData|string|false|none|Offset for retrieving the next page. Empty string if no more data available.|
 
-<h2 id="tocS_Result<PageData<Order>>">Result&lt;PageData&lt;Order&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<order>>"></a>
-<a id="schema_Result<PageData<Order>>"></a>
-<a id="tocSresult<pagedata<order>>"></a>
-<a id="tocsresult<pagedata<order>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "type": "UNKNOWN_ORDER_TYPE",
-        "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-        "reduceOnly": true,
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "sourceKey": "string",
-        "isPositionTpsl": true,
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "openTpslParentOrderId": "string",
-        "isSetOpenTp": true,
-        "openTp": {
-          "side": "[",
-          "price": "string",
-          "size": "string",
-          "clientOrderId": "string",
-          "triggerPrice": "string",
-          "triggerPriceType": "[",
-          "expireTime": "string",
-          "l2Nonce": "string",
-          "l2Value": "string",
-          "l2Size": "string",
-          "l2LimitFee": "string",
-          "l2ExpireTime": "string",
-          "l2Signature": {}
-        },
-        "isSetOpenSl": true,
-        "openSl": {
-          "side": "[",
-          "price": "string",
-          "size": "string",
-          "clientOrderId": "string",
-          "triggerPrice": "string",
-          "triggerPriceType": "[",
-          "expireTime": "string",
-          "l2Nonce": "string",
-          "l2Value": "string",
-          "l2Size": "string",
-          "l2LimitFee": "string",
-          "l2ExpireTime": "string",
-          "l2Signature": {}
-        },
-        "isWithoutMatch": true,
-        "withoutMatchFillSize": "string",
-        "withoutMatchFillValue": "string",
-        "withoutMatchPeerAccountId": "string",
-        "withoutMatchPeerOrderId": "string",
-        "maxLeverage": "string",
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "liquidateFeeRate": "string",
-        "marketLimitPrice": "string",
-        "marketLimitValue": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        },
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_ORDER_STATUS",
-        "matchSequenceId": "string",
-        "triggerTime": "string",
-        "triggerPriceTime": "string",
-        "triggerPriceValue": "string",
-        "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-        "cumFillSize": "string",
-        "cumFillValue": "string",
-        "cumFillFee": "string",
-        "maxFillPrice": "string",
-        "minFillPrice": "string",
-        "cumLiquidateFee": "string",
-        "cumRealizePnl": "string",
-        "cumMatchSize": "string",
-        "cumMatchValue": "string",
-        "cumMatchFee": "string",
-        "cumFailSize": "string",
-        "cumFailValue": "string",
-        "cumFailFee": "string",
-        "cumApprovedSize": "string",
-        "cumApprovedValue": "string",
-        "cumApprovedFee": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultpagedataorder"></a>
+### Order Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[PageDataOrder](#schemapagedataorder)|false|none|Generic paginated response.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_PageDataOrder">PageDataOrder</h2>
 
 <a id="schemapagedataorder"></a>
-<a id="schema_PageDataOrder"></a>
-<a id="tocSpagedataorder"></a>
-<a id="tocspagedataorder"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-
-```
-
-Generic paginated response.
-
-### Properties
+### Order List
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |dataList|[[Order](#schemaorder)]|false|none|Data list.|
 |nextPageOffsetData|string|false|none|Offset for retrieving the next page. Empty string if no more data available.|
 
-<h2 id="tocS_Order">Order</h2>
 
 <a id="schemaorder"></a>
-<a id="schema_Order"></a>
-<a id="tocSorder"></a>
-<a id="tocsorder"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "side": "UNKNOWN_ORDER_SIDE",
-  "price": "string",
-  "size": "string",
-  "clientOrderId": "string",
-  "type": "UNKNOWN_ORDER_TYPE",
-  "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-  "reduceOnly": true,
-  "triggerPrice": "string",
-  "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-  "expireTime": "string",
-  "sourceKey": "string",
-  "isPositionTpsl": true,
-  "isLiquidate": true,
-  "isDeleverage": true,
-  "openTpslParentOrderId": "string",
-  "isSetOpenTp": true,
-  "openTp": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": {
-      "r": "string",
-      "s": "string",
-      "v": "string"
-    }
-  },
-  "isSetOpenSl": true,
-  "openSl": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": {
-      "r": "string",
-      "s": "string",
-      "v": "string"
-    }
-  },
-  "isWithoutMatch": true,
-  "withoutMatchFillSize": "string",
-  "withoutMatchFillValue": "string",
-  "withoutMatchPeerAccountId": "string",
-  "withoutMatchPeerOrderId": "string",
-  "maxLeverage": "string",
-  "takerFeeRate": "string",
-  "makerFeeRate": "string",
-  "liquidateFeeRate": "string",
-  "marketLimitPrice": "string",
-  "marketLimitValue": "string",
-  "l2Nonce": "string",
-  "l2Value": "string",
-  "l2Size": "string",
-  "l2LimitFee": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  },
-  "extraType": "string",
-  "extraDataJson": "string",
-  "status": "UNKNOWN_ORDER_STATUS",
-  "matchSequenceId": "string",
-  "triggerTime": "string",
-  "triggerPriceTime": "string",
-  "triggerPriceValue": "string",
-  "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-  "cumFillSize": "string",
-  "cumFillValue": "string",
-  "cumFillFee": "string",
-  "maxFillPrice": "string",
-  "minFillPrice": "string",
-  "cumLiquidateFee": "string",
-  "cumRealizePnl": "string",
-  "cumMatchSize": "string",
-  "cumMatchValue": "string",
-  "cumMatchFee": "string",
-  "cumFailSize": "string",
-  "cumFailValue": "string",
-  "cumFailFee": "string",
-  "cumApprovedSize": "string",
-  "cumApprovedValue": "string",
-  "cumApprovedFee": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-
-```
-
-Perpetual contract order information.
-
-### Properties
+### Perpetual contract order information
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -1922,24 +1538,8 @@ Perpetual contract order information.
 |cancelReason|INTERNAL_FAILED|
 |cancelReason|UNRECOGNIZED|
 
-<h2 id="tocS_L2Signature">L2Signature</h2>
-
 <a id="schemal2signature"></a>
-<a id="schema_L2Signature"></a>
-<a id="tocSl2signature"></a>
-<a id="tocsl2signature"></a>
-
-```json
-{
-  "r": "string",
-  "s": "string",
-  "v": "string"
-}
-```
-
-L2 signature information.
-
-### Properties
+### L2 signature information.
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -1947,39 +1547,9 @@ L2 signature information.
 |s|string|false|none|Big integer as a hex string.|
 |v|string|false|none|Big integer as a hex string.|
 
-<h2 id="tocS_OpenTpSl">OpenTpSl</h2>
 
 <a id="schemaopentpsl"></a>
-<a id="schema_OpenTpSl"></a>
-<a id="tocSopentpsl"></a>
-<a id="tocsopentpsl"></a>
-
-```json
-{
-  "side": "UNKNOWN_ORDER_SIDE",
-  "price": "string",
-  "size": "string",
-  "clientOrderId": "string",
-  "triggerPrice": "string",
-  "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-  "expireTime": "string",
-  "l2Nonce": "string",
-  "l2Value": "string",
-  "l2Size": "string",
-  "l2LimitFee": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  }
-}
-
-```
-
-Opening order take-profit/stop-loss parameters.
-
-### Properties
+### Opening order take-profit/stop-loss parameters
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -2014,182 +1584,22 @@ Opening order take-profit/stop-loss parameters.
 |triggerPriceType|OPEN_INTEREST|
 |triggerPriceType|UNRECOGNIZED|
 
-<h2 id="tocS_Result<List<Order>>">Result&lt;List&lt;Order&gt;&gt;</h2>
 
-<a id="schemaresult<list<order>>"></a>
-<a id="schema_Result<List<Order>>"></a>
-<a id="tocSresult<list<order>>"></a>
-<a id="tocsresult<list<order>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "side": "UNKNOWN_ORDER_SIDE",
-      "price": "string",
-      "size": "string",
-      "clientOrderId": "string",
-      "type": "UNKNOWN_ORDER_TYPE",
-      "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-      "reduceOnly": true,
-      "triggerPrice": "string",
-      "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-      "expireTime": "string",
-      "sourceKey": "string",
-      "isPositionTpsl": true,
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "openTpslParentOrderId": "string",
-      "isSetOpenTp": true,
-      "openTp": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isSetOpenSl": true,
-      "openSl": {
-        "side": "UNKNOWN_ORDER_SIDE",
-        "price": "string",
-        "size": "string",
-        "clientOrderId": "string",
-        "triggerPrice": "string",
-        "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-        "expireTime": "string",
-        "l2Nonce": "string",
-        "l2Value": "string",
-        "l2Size": "string",
-        "l2LimitFee": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        }
-      },
-      "isWithoutMatch": true,
-      "withoutMatchFillSize": "string",
-      "withoutMatchFillValue": "string",
-      "withoutMatchPeerAccountId": "string",
-      "withoutMatchPeerOrderId": "string",
-      "maxLeverage": "string",
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "liquidateFeeRate": "string",
-      "marketLimitPrice": "string",
-      "marketLimitValue": "string",
-      "l2Nonce": "string",
-      "l2Value": "string",
-      "l2Size": "string",
-      "l2LimitFee": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ORDER_STATUS",
-      "matchSequenceId": "string",
-      "triggerTime": "string",
-      "triggerPriceTime": "string",
-      "triggerPriceValue": "string",
-      "cancelReason": "UNKNOWN_ORDER_CANCEL_REASON",
-      "cumFillSize": "string",
-      "cumFillValue": "string",
-      "cumFillFee": "string",
-      "maxFillPrice": "string",
-      "minFillPrice": "string",
-      "cumLiquidateFee": "string",
-      "cumRealizePnl": "string",
-      "cumMatchSize": "string",
-      "cumMatchValue": "string",
-      "cumMatchFee": "string",
-      "cumFailSize": "string",
-      "cumFailValue": "string",
-      "cumFailFee": "string",
-      "cumApprovedSize": "string",
-      "cumApprovedValue": "string",
-      "cumApprovedFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultlistorder"></a>
+### Order List
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[[Order](#schemaorder)]|false|none|Successful response data.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_CancelAllOrderParam">CancelAllOrderParam</h2>
 
 <a id="schemacancelallorderparam"></a>
-<a id="schema_CancelAllOrderParam"></a>
-<a id="tocScancelallorderparam"></a>
-<a id="tocscancelallorderparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "filterCoinIdList": [
-    "string"
-  ],
-  "filterContractIdList": [
-    "string"
-  ],
-  "filterOrderTypeList": [
-    "UNKNOWN_ORDER_TYPE"
-  ],
-  "filterOrderStatusList": [
-    "UNKNOWN_ORDER_STATUS"
-  ],
-  "filterIsPositionTpsl": [
-    true
-  ]
-}
-
-```
-
-Request parameters for canceling all orders under an account.
-
-### Properties
+### Request parameters for canceling all orders under an account
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -2200,69 +1610,13 @@ Request parameters for canceling all orders under an account.
 |filterOrderStatusList|[string]|false|none|Filter to cancel orders of specific statuses. If empty, cancels all statuses.|
 |filterIsPositionTpsl|[boolean]|false|none|Filter to cancel only corresponding position take-profit/stop-loss orders. If empty, cancels all contract orders.|
 
-<h2 id="tocS_Result<CancelOrderByClientOrderId>">Result&lt;CancelOrderByClientOrderId&gt;</h2>
-
-<a id="schemaresult<cancelorderbyclientorderid>"></a>
-<a id="schema_Result<CancelOrderByClientOrderId>"></a>
-<a id="tocSresult<cancelorderbyclientorderid>"></a>
-<a id="tocsresult<cancelorderbyclientorderid>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "cancelResultMap": {
-      "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-      "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
-|data|[CancelOrderByClientOrderId](#schemacancelorderbyclientorderid)|false|none|Response for canceling orders by client order IDs.|
-|errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
-|requestTime|string(timestamp)|false|none|Server request receive time.|
-|responseTime|string(timestamp)|false|none|Server response return time.|
-|traceId|string|false|none|Call trace ID.|
-
-<h2 id="tocS_CancelOrderByClientOrderId">CancelOrderByClientOrderId</h2>
 
 <a id="schemacancelorderbyclientorderid"></a>
-<a id="schema_CancelOrderByClientOrderId"></a>
-<a id="tocScancelorderbyclientorderid"></a>
-<a id="tocscancelorderbyclientorderid"></a>
-
-```json
-{
-  "cancelResultMap": {
-    "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-    "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-  }
-}
-```
-
-Response for canceling orders by client order IDs.
-
-### Properties
+<### Response for canceling orders by client order IDs
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |cancelResultMap|object|false|none|None|
-|» **additionalProperties**|string|false|none|None|
 
 #### Enum Values
 
@@ -2277,94 +1631,28 @@ Response for canceling orders by client order IDs.
 |**additionalProperties**|FAILED_ORDER_UNKNOWN_STATUS|
 |**additionalProperties**|UNRECOGNIZED|
 
-<h2 id="tocS_CancelOrderByClientOrderIdParam">CancelOrderByClientOrderIdParam</h2>
 
-<a id="schemacancelorderbyclientorderidparam"></a>
-<a id="schema_CancelOrderByClientOrderIdParam"></a>
-<a id="tocScancelorderbyclientorderidparam"></a>
-<a id="tocscancelorderbyclientorderidparam"></a>
 
-```json
-{
-  "accountId": "string",
-  "clientOrderIdList": [
-    "string"
-  ]
-}
-```
 
-Request parameters for canceling orders by client ID.
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|accountId|string(int64)|false|none|Account ID.|
-|clientOrderIdList|[string]|true|none|Order client order ID.|
-
-<h2 id="tocS_Result<CancelOrder>">Result&lt;CancelOrder&gt;</h2>
-
-<a id="schemaresult<cancelorder>"></a>
-<a id="schema_Result<CancelOrder>"></a>
-<a id="tocSresult<cancelorder>"></a>
-<a id="tocsresult<cancelorder>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "cancelResultMap": {
-      "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-      "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultcancelorder"></a>
+### Cancel Order Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[CancelOrder](#schemacancelorder)|false|none|Response for canceling orders.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_CancelOrder">CancelOrder</h2>
 
 <a id="schemacancelorder"></a>
-<a id="schema_CancelOrder"></a>
-<a id="tocScancelorder"></a>
-<a id="tocscancelorder"></a>
-
-```json
-{
-  "cancelResultMap": {
-    "property1": "UNKNOWN_ORDER_CANCEL_RESULT",
-    "property2": "UNKNOWN_ORDER_CANCEL_RESULT"
-  }
-}
-```
-
-Response for canceling orders.
-
-### Properties
+### Response for canceling orders
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |cancelResultMap|object|false|none|None|
-|» **additionalProperties**|string|false|none|None|
 
 #### Enum Values
 
@@ -2379,159 +1667,37 @@ Response for canceling orders.
 |**additionalProperties**|FAILED_ORDER_UNKNOWN_STATUS|
 |**additionalProperties**|UNRECOGNIZED|
 
-<h2 id="tocS_CancelOrderByIdParam">CancelOrderByIdParam</h2>
-
 <a id="schemacancelorderbyidparam"></a>
-<a id="schema_CancelOrderByIdParam"></a>
-<a id="tocScancelorderbyidparam"></a>
-<a id="tocscancelorderbyidparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "orderIdList": [
-    "string"
-  ]
-}
-```
-
-Request parameters for canceling an order.
-
-### Properties
+### Request parameters for canceling an order
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |accountId|string(int64)|false|none|Account ID.|
 |orderIdList|[string]|true|none|Order ID.|
 
-<h2 id="tocS_Result<CreateOrder>>">Result&lt;CreateOrder&gt;</h2>
 
-<a id="schemaresult<createorder>"></a>
-<a id="schema_Result<CreateOrder>"></a>
-<a id="tocSresult<createorder>"></a>
-<a id="tocsresult<createorder>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "orderId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultcreateorder"></a>
+###  Creating orders Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[CreateOrder](#schemacreateorder)|false|none|Response for creating orders.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_CreateOrder">CreateOrder</h2>
-
 <a id="schemacreateorder"></a>
-<a id="schema_CreateOrder"></a>
-<a id="tocScreateorder"></a>
-<a id="tocscreateorder"></a>
-
-```json
-{
-  "orderId": "string"
-}
-
-```
-
-Response for creating orders.
-
-### Properties
+### Response for creating orders
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |orderId|string(int64)|false|none|Order ID.|
 
-<h2 id="tocS_CreateOrderParam">CreateOrderParam</h2>
 
 <a id="schemacreateorderparam"></a>
-<a id="schema_CreateOrderParam"></a>
-<a id="tocScreateorderparam"></a>
-<a id="tocscreateorderparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "side": "UNKNOWN_ORDER_SIDE",
-  "size": "string",
-  "price": "string",
-  "clientOrderId": "string",
-  "type": "UNKNOWN_ORDER_TYPE",
-  "timeInForce": "UNKNOWN_TIME_IN_FORCE",
-  "reduceOnly": true,
-  "triggerPrice": "string",
-  "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-  "expireTime": "string",
-  "sourceKey": "string",
-  "isPositionTpsl": true,
-  "openTpslParentOrderId": "string",
-  "isSetOpenTp": true,
-  "openTp": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": "string"
-  },
-  "isSetOpenSl": true,
-  "openSl": {
-    "side": "UNKNOWN_ORDER_SIDE",
-    "price": "string",
-    "size": "string",
-    "clientOrderId": "string",
-    "triggerPrice": "string",
-    "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-    "expireTime": "string",
-    "l2Nonce": "string",
-    "l2Value": "string",
-    "l2Size": "string",
-    "l2LimitFee": "string",
-    "l2ExpireTime": "string",
-    "l2Signature": "string"
-  },
-  "l2Nonce": "string",
-  "l2Value": "string",
-  "l2Size": "string",
-  "l2LimitFee": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string",
-  "extraType": "string",
-  "extraDataJson": "string"
-}
-```
-
-Request parameters for creating an order.
-
-### Properties
+### Request parameters for creating an order
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -2593,35 +1759,9 @@ Request parameters for creating an order.
 |triggerPriceType|OPEN_INTEREST|
 |triggerPriceType|UNRECOGNIZED|
 
-<h2 id="tocS_OpenTpSlParam">OpenTpSlParam</h2>
 
 <a id="schemaopentpslparam"></a>
-<a id="schema_OpenTpSlParam"></a>
-<a id="tocSopentpslparam"></a>
-<a id="tocsopentpslparam"></a>
-
-```json
-{
-  "side": "UNKNOWN_ORDER_SIDE",
-  "price": "string",
-  "size": "string",
-  "clientOrderId": "string",
-  "triggerPrice": "string",
-  "triggerPriceType": "UNKNOWN_PRICE_TYPE",
-  "expireTime": "string",
-  "l2Nonce": "string",
-  "l2Value": "string",
-  "l2Size": "string",
-  "l2LimitFee": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string"
-}
-
-```
-
-Take-profit/stop-loss parameters for opening order.
-
-### Properties
+### Take-profit/stop-loss parameters for opening order.
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -2656,65 +1796,22 @@ Take-profit/stop-loss parameters for opening order.
 |triggerPriceType|OPEN_INTEREST|
 |triggerPriceType|UNRECOGNIZED|
 
-<h2 id="tocS_Result<GetMaxCreateOrderSize>>">Result&lt;GetMaxCreateOrderSize&gt;</h2>
 
 <a id="schemaresult<getmaxcreateordersize>"></a>
-<a id="schema_Result<GetMaxCreateOrderSize>"></a>
-<a id="tocSresult<getmaxcreateordersize>"></a>
-<a id="tocsresult<getmaxcreateordersize>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "maxBuySize": "string",
-    "maxSellSize": "string",
-    "ask1Price": "string",
-    "bid1Price": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+### Getting the maximum order size Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
 |data|[GetMaxCreateOrderSize](#schemagetmaxcreateordersize)|false|none|Response for getting the maximum order size.|
 |errorParam|object|false|none|Parameter information in error messages.|
-|» **additionalProperties**|string|false|none|Parameter information in error messages.|
 |requestTime|string(timestamp)|false|none|Server request receive time.|
 |responseTime|string(timestamp)|false|none|Server response return time.|
 |traceId|string|false|none|Call trace ID.|
 
-<h2 id="tocS_GetMaxCreateOrderSize">GetMaxCreateOrderSize</h2>
 
 <a id="schemagetmaxcreateordersize"></a>
-<a id="schema_GetMaxCreateOrderSize"></a>
-<a id="tocSgetmaxcreateordersize"></a>
-<a id="tocsgetmaxcreateordersize"></a>
-
-```json
-{
-  "maxBuySize": "string",
-  "maxSellSize": "string",
-  "ask1Price": "string",
-  "bid1Price": "string"
-}
-
-```
-
-Response for getting the maximum order size.
-
-### Properties
+### Getting the maximum order size Data
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -2723,52 +1820,9 @@ Response for getting the maximum order size.
 |ask1Price|string(decimal)|false|none|Best ask price.|
 |bid1Price|string(decimal)|false|none|Best bid price.|
 
-<h2 id="tocS_Result">Result</h2>
-
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-
-```
-
-Generic response structure.
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|code|string|false|none|Status code. "SUCCESS" for success, otherwise failure.|
-|msg|string|false|none|Detailed error message when an error occurs.|
-|requestTime|string(int64)|false|none|Server request receive time.|
-|responseTime|string(int64)|false|none|Server response return time.|
-
-<h2 id="tocS_GetMaxCreateOrderSizeParam">GetMaxCreateOrderSizeParam</h2>
 
 <a id="schemagetmaxcreateordersizeparam"></a>
-<a id="schema_GetMaxCreateOrderSizeParam"></a>
-<a id="tocSgetmaxcreateordersizeparam"></a>
-<a id="tocsgetmaxcreateordersizeparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "price": "string"
-}
-```
-
-Request parameters for getting the maximum order size.
-
-### Properties
+### Request parameters for getting the maximum order size
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|

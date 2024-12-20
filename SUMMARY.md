@@ -30,7 +30,7 @@
   * [Privacy Policy](about/privacy-policy.md)
 * [API Doc](api/README.md)
   * [Public API](api/README.md)
-    * [Meta Data API](api/meta-data-api.md)
+    * [Meta Data API](api/metadata-api.md)
     * [Quote API](api/quote-api.md)
     * [Funding API](api/funding-api.md)
   * [Private API](api/README.md)
