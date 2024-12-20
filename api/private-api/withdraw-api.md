@@ -48,7 +48,7 @@ POST /api/v1/private/withdraw/createWithdraw
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultcreatewithdraw)|
 
 <a id="opIdgetWithdrawById"></a>
 
@@ -123,7 +123,7 @@ GET /api/v1/private/withdraw/getWithdrawById
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultlistwithdraw)|
 
 ### Response Data Structure
 
@@ -200,7 +200,7 @@ GET /api/v1/private/withdraw/getWithdrawByClientWithdrawId
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultlistwithdraw)|
 
 ### Response Data Structure
 
@@ -234,7 +234,7 @@ GET /api/v1/private/withdraw/getWithdrawAvailableAmount
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultgetwithdrawavailableamount)|
 
 <a id="opIdgetActiveWithdraw"></a>
 
@@ -317,143 +317,27 @@ GET /api/v1/private/withdraw/getActiveWithdraw
 
 |Status Code|Status Code Description|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresultpagedatawithdraw)|
 
 ### Response Data Structure
 
 # Data Models
 
-<h2 id="tocS_Result<PageData<Withdraw>>">Result<PageData<Withdraw>></h2>
-
-<a id="schemaresult<pagedata<withdraw>>"></a>
-<a id="schema_Result<PageData<Withdraw>>"></a>
-<a id="tocSresult<pagedata<withdraw>>"></a>
-<a id="tocsresult<pagedata<withdraw>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "amount": "string",
-        "ethAddress": "string",
-        "erc20Address": "string",
-        "clientWithdrawId": "string",
-        "riskSignature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        },
-        "l2Nonce": "string",
-        "l2ExpireTime": "string",
-        "l2Signature": {
-          "r": "string",
-          "s": "string",
-          "v": "string"
-        },
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_WITHDRAW_STATUS",
-        "collateralTransactionId": "string",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultpagedatawithdraw"></a>
+### Withdrawal Response
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
 |data|[PageDataWithdraw](#schemapagedatawithdraw)|false|none||Generic pagination response|
 |errorParam|object|false|none||Parameter information in the error message|
-|» **additionalProperties**|string|false|none||Parameter information in the error message|
 |requestTime|string(timestamp)|false|none||Server request receiving time|
 |responseTime|string(timestamp)|false|none||Server response return time|
 |traceId|string|false|none||Call traceId|
 
-<h2 id="tocS_PageDataWithdraw">PageDataWithdraw</h2>
 
 <a id="schemapagedatawithdraw"></a>
-<a id="schema_PageDataWithdraw"></a>
-<a id="tocSpagedatawithdraw"></a>
-<a id="tocspagedatawithdraw"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "ethAddress": "string",
-      "erc20Address": "string",
-      "clientWithdrawId": "string",
-      "riskSignature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "l2Nonce": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_WITHDRAW_STATUS",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-
-```
-
-Generic pagination response
-
-### Properties
+### Withdrawal Data List
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
@@ -463,54 +347,7 @@ Generic pagination response
 <h2 id="tocS_Withdraw">Withdraw</h2>
 
 <a id="schemawithdraw"></a>
-<a id="schema_Withdraw"></a>
-<a id="tocSwithdraw"></a>
-<a id="tocswithdraw"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "ethAddress": "string",
-  "erc20Address": "string",
-  "clientWithdrawId": "string",
-  "riskSignature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  },
-  "l2Nonce": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  },
-  "extraType": "string",
-  "extraDataJson": "string",
-  "status": "UNKNOWN_WITHDRAW_STATUS",
-  "collateralTransactionId": "string",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-
-```
-
-Withdrawal Order
-
-### Properties
+### Withdrawal Order
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
@@ -555,25 +392,9 @@ Withdrawal Order
 |status|FAILED_L2_REJECT_APPROVED|
 |status|UNRECOGNIZED|
 
-<h2 id="tocS_L2Signature">L2Signature</h2>
 
 <a id="schemal2signature"></a>
-<a id="schema_L2Signature"></a>
-<a id="tocSl2signature"></a>
-<a id="tocsl2signature"></a>
-
-```json
-{
-  "r": "string",
-  "s": "string",
-  "v": "string"
-}
-
-```
-
-L2 signature information
-
-### Properties
+### L2 signature information
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
@@ -581,250 +402,63 @@ L2 signature information
 |s|string|false|none||bigint for hex str|
 |v|string|false|none||bigint for hex str|
 
-<h2 id="tocS_Result<GetWithdrawAvailableAmount>">Result<GetWithdrawAvailableAmount></h2>
 
-<a id="schemaresult<getwithdrawavailableamount>"></a>
-<a id="schema_Result<GetWithdrawAvailableAmount>"></a>
-<a id="tocSresult<getwithdrawavailableamount>"></a>
-<a id="tocsresult<getwithdrawavailableamount>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "availableAmount": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultgetwithdrawavailableamount"></a>
+### Get available withdrawal amount Response
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
 |data|[GetWithdrawAvailableAmount](#schemagetwithdrawavailableamount)|false|none||Get available withdrawal amount - response|
 |errorParam|object|false|none||Parameter information in the error message|
-|» **additionalProperties**|string|false|none||Parameter information in the error message|
 |requestTime|string(timestamp)|false|none||Server request receiving time|
 |responseTime|string(timestamp)|false|none||Server response return time|
 |traceId|string|false|none||Call traceId|
 
-<h2 id="tocS_GetWithdrawAvailableAmount">GetWithdrawAvailableAmount</h2>
 
 <a id="schemagetwithdrawavailableamount"></a>
-<a id="schema_GetWithdrawAvailableAmount"></a>
-<a id="tocSgetwithdrawavailableamount"></a>
-<a id="tocsgetwithdrawavailableamount"></a>
-
-```json
-{
-  "availableAmount": "string"
-}
-
-```
-
-Get available withdrawal amount - response
-
-### Properties
+### Get available withdrawal amount Data
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |availableAmount|string(decimal)|false|none||Available amount|
 
-<h2 id="tocS_Result<List<Withdraw>>">Result<List<Withdraw>></h2>
 
-<a id="schemaresult<list<withdraw>>"></a>
-<a id="schema_Result<List<Withdraw>>"></a>
-<a id="tocSresult<list<withdraw>>"></a>
-<a id="tocsresult<list<withdraw>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "ethAddress": "string",
-      "erc20Address": "string",
-      "clientWithdrawId": "string",
-      "riskSignature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "l2Nonce": "string",
-      "l2ExpireTime": "string",
-      "l2Signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_WITHDRAW_STATUS",
-      "collateralTransactionId": "string",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultlistwithdraw"></a>
+### Withdraw List Response
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
 |data|[[Withdraw](#schemawithdraw)]|false|none||Correct response data|
 |errorParam|object|false|none||Parameter information in the error message|
-|» **additionalProperties**|string|false|none||Parameter information in the error message|
 |requestTime|string(timestamp)|false|none||Server request receiving time|
 |responseTime|string(timestamp)|false|none||Server response return time|
 |traceId|string|false|none||Call traceId|
 
-<h2 id="tocS_Result<CreateWithdraw>">Result<CreateWithdraw></h2>
 
-<a id="schemaresult<createwithdraw>"></a>
-<a id="schema_Result<CreateWithdraw>"></a>
-<a id="tocSresult<createwithdraw>"></a>
-<a id="tocsresult<createwithdraw>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "withdrawId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="schemaresultcreatewithdraw"></a>
+### Create withdrawal order Response
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
 |data|[CreateWithdraw](#schemacreatewithdraw)|false|none||Create withdrawal order - response|
 |errorParam|object|false|none||Parameter information in the error message|
-|» **additionalProperties**|string|false|none||Parameter information in the error message|
 |requestTime|string(timestamp)|false|none||Server request receiving time|
 |responseTime|string(timestamp)|false|none||Server response return time|
 |traceId|string|false|none||Call traceId|
 
-<h2 id="tocS_CreateWithdraw">CreateWithdraw</h2>
 
 <a id="schemacreatewithdraw"></a>
-<a id="schema_CreateWithdraw"></a>
-<a id="tocScreatewithdraw"></a>
-<a id="tocscreatewithdraw"></a>
-
-```json
-{
-  "withdrawId": "string"
-}
-
-```
-
-Create withdrawal order - response
-
-### Properties
+<### Create withdrawal order response
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
 |withdrawId|string(int64)|false|none||Withdrawal order ID|
 
-<h2 id="tocS_Result">Result</h2>
-
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-
-```
-
-Generic return structure
-
-### Properties
-
-|Name|Type|Required|Constraints|Alias|Description|
-|---|---|---|---|---|---|
-|code|string|false|none||Status code. "SUCCESS" if successful, otherwise it's a failure|
-|msg|string|false|none||Detailed error message when an error occurs|
-|requestTime|string(int64)|false|none||Server request receiving time|
-|responseTime|string(int64)|false|none||Server response return time|
-
-<h2 id="tocS_CreateWithdrawParam">CreateWithdrawParam</h2>
-
 <a id="schemacreatewithdrawparam"></a>
-<a id="schema_CreateWithdrawParam"></a>
-<a id="tocScreatewithdrawparam"></a>
-<a id="tocscreatewithdrawparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "ethAddress": "string",
-  "erc20Address": "string",
-  "clientWithdrawId": "string",
-  "riskSignature": "string",
-  "l2Nonce": "string",
-  "l2ExpireTime": "string",
-  "l2Signature": "string",
-  "extraType": "string",
-  "extraDataJson": "string"
-}
-
-```
-
-Create withdrawal order - request
-
-### Properties
+### Create withdrawal order request
 
 |Name|Type|Required|Constraints|Alias|Description|
 |---|---|---|---|---|---|
