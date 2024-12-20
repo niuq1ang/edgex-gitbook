@@ -1,156 +1,5 @@
 # AccountPrivateApi
 
-<a id="opIdupdateLeverageSetting"></a>
-
-## POST Update Account Trading Leverage Settings
-
-POST /api/v1/private/account/updateLeverageSetting
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "leverage": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                                    | Required | Description |
-| ----------- | -------- | --------------------------------------- | -------- | ----------- |
-| body        | body     | [UpdateLeverageSettingParam](#schemaupdateleveragesettingparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {},
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
-<a id="opIdupdateFeeSetting"></a>
-
-## POST Update Account Trading Fee Settings
-
-POST /api/v1/private/account/updateFeeSetting
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "isSetFeeRate": true,
-  "takerFeeRate": "string",
-  "makerFeeRate": "string",
-  "isSetFeeDiscount": true,
-  "takerFeeDiscount": "string",
-  "makerFeeDiscount": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                                | Required | Description |
-| ----------- | -------- | ----------------------------------- | -------- | ----------- |
-| body        | body     | [UpdateFeeSettingParam](#schemaupdatefeesettingparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {},
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
-<a id="opIdregisterAccount"></a>
-
-## POST Register Account
-
-POST /api/v1/private/account/registerAccount
-
-> Body Request Parameters
-
-```json
-{
-  "l2Key": "string",
-  "l2KeyYCoordinate": "string",
-  "clientAccountId": "string"
-}
-```
-
-### Request Parameters
-
-| Name        | Location | Type                            | Required | Description |
-| ----------- | -------- | ------------------------------- | -------- | ----------- |
-| body        | body     | [RegisterAccountParam](#schemaregisteraccountparam) | No       | none        |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "data": {
-    "accountId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Description                                                                  | Description        | Data Model |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | Inline     |
-
-### Response Data Structure
-
 <a id="opIdgetPositionTransactionPage"></a>
 
 ## GET Get Position Transaction Page
@@ -178,10 +27,67 @@ GET /api/v1/private/account/getPositionTransactionPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564809510904923406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "type": "SELL_POSITION",
+                "deltaOpenSize": "-0.001",
+                "deltaOpenValue": "-96.813200",
+                "deltaOpenFee": "0.048406",
+                "deltaFundingFee": "0.000000",
+                "beforeOpenSize": "0.001",
+                "beforeOpenValue": "96.813200",
+                "beforeOpenFee": "-0.048406",
+                "beforeFundingFee": "0",
+                "fillCloseSize": "-0.001",
+                "fillCloseValue": "-96.857100",
+                "fillCloseFee": "-0.048428",
+                "fillOpenSize": "0.000",
+                "fillOpenValue": "0.000000",
+                "fillOpenFee": "0.000000",
+                "fillPrice": "96857.1",
+                "liquidateFee": "0",
+                "realizePnl": "-0.004528",
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "fundingTime": "0",
+                "fundingRate": "",
+                "fundingIndexPrice": "",
+                "fundingOraclePrice": "",
+                "fundingPositionSize": "",
+                "orderId": "564809510842007822",
+                "orderFillTransactionId": "564809510875562254",
+                "collateralTransactionId": "564809510904922382",
+                "forceTradeId": "0",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "892720",
+                "censorTime": "1734661081049",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084271",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734661081049",
+                "updatedTime": "1734661081053"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416266",
+    "responseTime": "1734661416277",
+    "traceId": "a87a52a4e189045b7b7b9948ea7b5c54"
 }
 ```
 
@@ -189,7 +95,7 @@ GET /api/v1/private/account/getPositionTransactionPage
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#PositiontransactionPage) |
 
 <a id="opIdgetPositionTransactionById"></a>
 
@@ -210,10 +116,67 @@ GET /api/v1/private/account/getPositionTransactionById
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564809510904923406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "type": "SELL_POSITION",
+                "deltaOpenSize": "-0.001",
+                "deltaOpenValue": "-96.813200",
+                "deltaOpenFee": "0.048406",
+                "deltaFundingFee": "0.000000",
+                "beforeOpenSize": "0.001",
+                "beforeOpenValue": "96.813200",
+                "beforeOpenFee": "-0.048406",
+                "beforeFundingFee": "0",
+                "fillCloseSize": "-0.001",
+                "fillCloseValue": "-96.857100",
+                "fillCloseFee": "-0.048428",
+                "fillOpenSize": "0.000",
+                "fillOpenValue": "0.000000",
+                "fillOpenFee": "0.000000",
+                "fillPrice": "96857.1",
+                "liquidateFee": "0",
+                "realizePnl": "-0.004528",
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "fundingTime": "0",
+                "fundingRate": "",
+                "fundingIndexPrice": "",
+                "fundingOraclePrice": "",
+                "fundingPositionSize": "",
+                "orderId": "564809510842007822",
+                "orderFillTransactionId": "564809510875562254",
+                "collateralTransactionId": "564809510904922382",
+                "forceTradeId": "0",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "892720",
+                "censorTime": "1734661081049",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084271",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734661081049",
+                "updatedTime": "1734661081053"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416266",
+    "responseTime": "1734661416277",
+    "traceId": "a87a52a4e189045b7b7b9948ea7b5c54"
 }
 ```
 
@@ -221,7 +184,7 @@ GET /api/v1/private/account/getPositionTransactionById
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#positiontransaction) |
 
 <a id="opIdgetPositionTermPage"></a>
 
@@ -248,10 +211,53 @@ GET /api/v1/private/account/getPositionTermPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "termCount": 2,
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "96.813000",
+                "cumOpenFee": "-0.048406",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0",
+                "createdTime": "1734661093450",
+                "updatedTime": "1734661093450",
+                "currentLeverage": "50"
+            },
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "termCount": 1,
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "96.813200",
+                "cumOpenFee": "-0.048406",
+                "cumCloseSize": "-0.001",
+                "cumCloseValue": "-96.857100",
+                "cumCloseFee": "-0.048428",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0",
+                "createdTime": "1734661018663",
+                "updatedTime": "1734661081053",
+                "currentLeverage": "50"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416272",
+    "responseTime": "1734661416281",
+    "traceId": "ad4515e50fa7a57610736753d8f987aa"
 }
 ```
 
@@ -259,7 +265,7 @@ GET /api/v1/private/account/getPositionTermPage
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#positionterm) |
 
 <a id="opIdgetCollateralByCoinId"></a>
 
@@ -280,74 +286,72 @@ GET /api/v1/private/account/getPositionByContractId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "openSize": "string",
-      "openValue": "string",
-      "openFee": "string",
-      "fundingFee": "string",
-      "longTermCount": 0,
-      "longTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "longTermCreatedTime": "string",
-      "longTermUpdatedTime": "string",
-      "shortTermCount": 0,
-      "shortTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTermCreatedTime": "string",
-      "shortTermUpdatedTime": "string",
-      "longTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "contractId": "10000001",
+            "openSize": "0.001",
+            "openValue": "97.444500",
+            "openFee": "-0.017540",
+            "fundingFee": "0.000000",
+            "longTermCount": 3,
+            "longTermStat": {
+                "cumOpenSize": "0.001",
+                "cumOpenValue": "97.444500",
+                "cumOpenFee": "-0.017540",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "longTermCreatedTime": "1734662617992",
+            "longTermUpdatedTime": "1734662617992",
+            "shortTermCount": 0,
+            "shortTermStat": {
+                "cumOpenSize": "0",
+                "cumOpenValue": "0",
+                "cumOpenFee": "0",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "shortTermCreatedTime": "0",
+            "shortTermUpdatedTime": "0",
+            "longTotalStat": {
+                "cumOpenSize": "0.004",
+                "cumOpenValue": "388.464500",
+                "cumOpenFee": "-0.131882",
+                "cumCloseSize": "-0.003",
+                "cumCloseValue": "-291.736700",
+                "cumCloseFee": "-0.083506",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "shortTotalStat": {
+                "cumOpenSize": "0",
+                "cumOpenValue": "0",
+                "cumOpenFee": "0",
+                "cumCloseSize": "0",
+                "cumCloseValue": "0",
+                "cumCloseFee": "0",
+                "cumFundingFee": "0",
+                "cumLiquidateFee": "0"
+            },
+            "createdTime": "1734661018663",
+            "updatedTime": "1734662617992"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664849770",
+    "responseTime": "1734664849790",
+    "traceId": "17a421d1b23652c5b3836239274b0352"
 }
 ```
 
@@ -383,72 +387,59 @@ GET /api/v1/private/account/getCollateralTransactionPage
 
 ```json
 {
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-        "deltaAmount": "string",
-        "deltaLegacyAmount": "string",
-        "beforeAmount": "string",
-        "beforeLegacyAmount": "string",
-        "fillCloseSize": "string",
-        "fillCloseValue": "string",
-        "fillCloseFee": "string",
-        "fillOpenSize": "string",
-        "fillOpenValue": "string",
-        "fillOpenFee": "string",
-        "fillPrice": "string",
-        "liquidateFee": "string",
-        "realizePnl": "string",
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "fundingTime": "string",
-        "fundingRate": "string",
-        "fundingIndexPrice": "string",
-        "fundingOraclePrice": "string",
-        "fundingPositionSize": "string",
-        "depositId": "string",
-        "withdrawId": "string",
-        "transferInId": "string",
-        "transferOutId": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "orderId": "string",
-        "orderFillTransactionId": "string",
-        "orderAccountId": "string",
-        "positionContractId": "string",
-        "positionTransactionId": "string",
-        "forceWithdrawId": "string",
-        "forceTradeId": "string",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "564815957260763406",
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "orderId": "564815695875932430",
+                "orderSide": "BUY",
+                "fillSize": "0.001",
+                "fillValue": "97.4445",
+                "fillFee": "0.017540",
+                "fillPrice": "97444.5",
+                "liquidateFee": "0",
+                "realizePnl": "-0.017540",
+                "direction": "MAKER",
+                "isPositionTpsl": false,
+                "isLiquidate": false,
+                "isDeleverage": false,
+                "isWithoutMatch": false,
+                "matchSequenceId": "35196430",
+                "matchIndex": 0,
+                "matchTime": "1734662617982",
+                "matchAccountId": "555790606509539863",
+                "matchOrderId": "564815957235597591",
+                "matchFillId": "05d14491-db7d-478a-9d9f-2dc55c3ff3ca",
+                "positionTransactionId": "564815957294318862",
+                "collateralTransactionId": "564815957294317838",
+                "extraType": "",
+                "extraDataJson": "",
+                "censorStatus": "CENSOR_SUCCESS",
+                "censorTxId": "893031",
+                "censorTime": "1734662617988",
+                "censorFailCode": "",
+                "censorFailReason": "",
+                "l2TxId": "1084582",
+                "l2RejectTime": "0",
+                "l2RejectCode": "",
+                "l2RejectReason": "",
+                "l2ApprovedTime": "0",
+                "createdTime": "1734662617984",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734662681040",
+    "responseTime": "1734662681051",
+    "traceId": "770fcce6222c2d88b65b4ecb36e84c43"
 }
 ```
 
@@ -479,69 +470,67 @@ GET /api/v1/private/account/getCollateralTransactionById
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-      "deltaAmount": "string",
-      "deltaLegacyAmount": "string",
-      "beforeAmount": "string",
-      "beforeLegacyAmount": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "depositId": "string",
-      "withdrawId": "string",
-      "transferInId": "string",
-      "transferOutId": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "orderAccountId": "string",
-      "positionContractId": "string",
-      "positionTransactionId": "string",
-      "forceWithdrawId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "id": "563516408265179918",
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "type": "DEPOSIT",
+            "deltaAmount": "10.000000",
+            "deltaLegacyAmount": "10.000000",
+            "beforeAmount": "6.000000",
+            "beforeLegacyAmount": "6.000000",
+            "fillCloseSize": "",
+            "fillCloseValue": "",
+            "fillCloseFee": "",
+            "fillOpenSize": "",
+            "fillOpenValue": "",
+            "fillOpenFee": "",
+            "fillPrice": "",
+            "liquidateFee": "",
+            "realizePnl": "",
+            "isLiquidate": false,
+            "isDeleverage": false,
+            "fundingTime": "0",
+            "fundingRate": "",
+            "fundingIndexPrice": "",
+            "fundingOraclePrice": "",
+            "fundingPositionSize": "",
+            "depositId": "563516408235819790",
+            "withdrawId": "0",
+            "transferInId": "0",
+            "transferOutId": "0",
+            "transferReason": "UNKNOWN_TRANSFER_REASON",
+            "orderId": "0",
+            "orderFillTransactionId": "0",
+            "orderAccountId": "0",
+            "positionContractId": "0",
+            "positionTransactionId": "0",
+            "forceWithdrawId": "0",
+            "forceTradeId": "0",
+            "extraType": "",
+            "extraDataJson": "",
+            "censorStatus": "L2_APPROVED",
+            "censorTxId": "830852",
+            "censorTime": "1734352781355",
+            "censorFailCode": "",
+            "censorFailReason": "",
+            "l2TxId": "1022403",
+            "l2RejectTime": "0",
+            "l2RejectCode": "",
+            "l2RejectReason": "",
+            "l2ApprovedTime": "1734353551654",
+            "createdTime": "1734352781355",
+            "updatedTime": "1734353551715"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664486740",
+    "responseTime": "1734664486761",
+    "traceId": "b3086f53c2d4503f6a4790b80f0e534b"
 }
 ```
 
@@ -572,34 +561,32 @@ GET /api/v1/private/account/getCollateralByCoinId
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "legacyAmount": "string",
-      "cumDepositAmount": "string",
-      "cumWithdrawAmount": "string",
-      "cumTransferInAmount": "string",
-      "cumTransferOutAmount": "string",
-      "cumPositionBuyAmount": "string",
-      "cumPositionSellAmount": "string",
-      "cumFillFeeAmount": "string",
-      "cumFundingFeeAmount": "string",
-      "cumFillFeeIncomeAmount": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "userId": "543429922866069763",
+            "accountId": "543429922991899150",
+            "coinId": "1000",
+            "amount": "-81.943188",
+            "legacyAmount": "15.501312",
+            "cumDepositAmount": "70.000000",
+            "cumWithdrawAmount": "0",
+            "cumTransferInAmount": "0",
+            "cumTransferOutAmount": "-55.000000",
+            "cumPositionBuyAmount": "-388.4645",
+            "cumPositionSellAmount": "291.7367",
+            "cumFillFeeAmount": "-0.215388",
+            "cumFundingFeeAmount": "0",
+            "cumFillFeeIncomeAmount": "0",
+            "createdTime": "1730204434094",
+            "updatedTime": "1734663352066"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664569244",
+    "responseTime": "1734664569260",
+    "traceId": "4b7ff82fb92aa3b10d9fc0367a069270"
 }
 ```
 
@@ -630,10 +617,57 @@ GET /api/v1/private/account/getAccountPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "id": "543429922991899150",
+                "userId": "543429922866069763",
+                "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+                "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+                "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+                "clientAccountId": "main",
+                "isSystemAccount": false,
+                "defaultTradeSetting": {
+                    "isSetFeeRate": true,
+                    "takerFeeRate": "0.000500",
+                    "makerFeeRate": "0.000180",
+                    "isSetFeeDiscount": false,
+                    "takerFeeDiscount": "0",
+                    "makerFeeDiscount": "0",
+                    "isSetMaxLeverage": false,
+                    "maxLeverage": "0"
+                },
+                "contractIdToTradeSetting": {
+                    "10000001": {
+                        "isSetFeeRate": false,
+                        "takerFeeRate": "",
+                        "makerFeeRate": "",
+                        "isSetFeeDiscount": false,
+                        "takerFeeDiscount": "",
+                        "makerFeeDiscount": "",
+                        "isSetMaxLeverage": true,
+                        "maxLeverage": "50"
+                    }
+                },
+                "maxLeverageLimit": "0",
+                "createOrderPerMinuteLimit": 0,
+                "createOrderDelayMillis": 0,
+                "extraType": "",
+                "extraDataJson": "",
+                "status": "NORMAL",
+                "isLiquidating": false,
+                "createdTime": "1730204434094",
+                "updatedTime": "1733993378059"
+            }
+        ],
+        "nextPageOffsetData": "551109015904453258"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661416005",
+    "responseTime": "1734661416008",
+    "traceId": "dc6a8442169c8cdb831ceb15c812b7fc"
 }
 ```
 
@@ -641,7 +675,7 @@ GET /api/v1/private/account/getAccountPage
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#account) |
 
 <a id="opIdgetAccountDeleverageLight"></a>
 
@@ -661,10 +695,17 @@ GET /api/v1/private/account/getAccountDeleverageLight
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "positionContractIdToLightNumberMap": {
+            "10000001": 3
+        }
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734661307929",
+    "responseTime": "1734661307935",
+    "traceId": "202ee8ba15ab633b68a35a8bc9756952"
 }
 ```
 
@@ -672,7 +713,7 @@ GET /api/v1/private/account/getAccountDeleverageLight
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#getaccountdeleveragelight) |
 
 <a id="opIdgetAccountById"></a>
 
@@ -692,10 +733,52 @@ GET /api/v1/private/account/getAccountById
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "id": "543429922991899150",
+        "userId": "543429922866069763",
+        "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+        "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+        "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+        "clientAccountId": "main",
+        "isSystemAccount": false,
+        "defaultTradeSetting": {
+            "isSetFeeRate": true,
+            "takerFeeRate": "0.000500",
+            "makerFeeRate": "0.000180",
+            "isSetFeeDiscount": false,
+            "takerFeeDiscount": "0",
+            "makerFeeDiscount": "0",
+            "isSetMaxLeverage": false,
+            "maxLeverage": "0"
+        },
+        "contractIdToTradeSetting": {
+            "10000001": {
+                "isSetFeeRate": false,
+                "takerFeeRate": "",
+                "makerFeeRate": "",
+                "isSetFeeDiscount": false,
+                "takerFeeDiscount": "",
+                "makerFeeDiscount": "",
+                "isSetMaxLeverage": true,
+                "maxLeverage": "50"
+            }
+        },
+        "maxLeverageLimit": "0",
+        "createOrderPerMinuteLimit": 0,
+        "createOrderDelayMillis": 0,
+        "extraType": "",
+        "extraDataJson": "",
+        "status": "NORMAL",
+        "isLiquidating": false,
+        "createdTime": "1730204434094",
+        "updatedTime": "1733993378059"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664605752",
+    "responseTime": "1734664605760",
+    "traceId": "c7be70afbf00d7f879d2809e0f042dfe"
 }
 ```
 
@@ -703,11 +786,11 @@ GET /api/v1/private/account/getAccountById
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#account) |
 
 <a id="opIdgetAccountAsset"></a>
 
-## GET Get Account Asset
+## GET Account Asset
 
 GET /api/v1/private/account/getAccountAsset
 
@@ -723,10 +806,171 @@ GET /api/v1/private/account/getAccountAsset
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "account": {
+            "id": "543429922991899150",
+            "userId": "543429922866069763",
+            "ethAddress": "0x1fB51aa234287C3CA1F957eA9AD0E148Bb814b7A",
+            "l2Key": "0x5580341e2c99823a0a35356b8ac84e372dd38fd1f4b50f607b931ec8038c211",
+            "l2KeyYCoordinate": "0x6ea3dd81a7fc864893c8c6f674e4a4510c369f939bdc0259a0980dfde882c2d",
+            "clientAccountId": "main",
+            "isSystemAccount": false,
+            "defaultTradeSetting": {
+                "isSetFeeRate": true,
+                "takerFeeRate": "0.000500",
+                "makerFeeRate": "0.000180",
+                "isSetFeeDiscount": false,
+                "takerFeeDiscount": "0",
+                "makerFeeDiscount": "0",
+                "isSetMaxLeverage": false,
+                "maxLeverage": "0"
+            },
+            "contractIdToTradeSetting": {
+                "10000001": {
+                    "isSetFeeRate": false,
+                    "takerFeeRate": "",
+                    "makerFeeRate": "",
+                    "isSetFeeDiscount": false,
+                    "takerFeeDiscount": "",
+                    "makerFeeDiscount": "",
+                    "isSetMaxLeverage": true,
+                    "maxLeverage": "50"
+                }
+            },
+            "maxLeverageLimit": "0",
+            "createOrderPerMinuteLimit": 0,
+            "createOrderDelayMillis": 0,
+            "extraType": "",
+            "extraDataJson": "",
+            "status": "NORMAL",
+            "isLiquidating": false,
+            "createdTime": "1730204434094",
+            "updatedTime": "1733993378059"
+        },
+        "collateralList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "amount": "-81.943188",
+                "legacyAmount": "15.501312",
+                "cumDepositAmount": "70.000000",
+                "cumWithdrawAmount": "0",
+                "cumTransferInAmount": "0",
+                "cumTransferOutAmount": "-55.000000",
+                "cumPositionBuyAmount": "-388.4645",
+                "cumPositionSellAmount": "291.7367",
+                "cumFillFeeAmount": "-0.215388",
+                "cumFundingFeeAmount": "0",
+                "cumFillFeeIncomeAmount": "0",
+                "createdTime": "1730204434094",
+                "updatedTime": "1734663352066"
+            }
+        ],
+        "positionList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "openSize": "0.001",
+                "openValue": "97.444500",
+                "openFee": "-0.017540",
+                "fundingFee": "0.000000",
+                "longTermCount": 3,
+                "longTermStat": {
+                    "cumOpenSize": "0.001",
+                    "cumOpenValue": "97.444500",
+                    "cumOpenFee": "-0.017540",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "longTermCreatedTime": "1734662617992",
+                "longTermUpdatedTime": "1734662617992",
+                "shortTermCount": 0,
+                "shortTermStat": {
+                    "cumOpenSize": "0",
+                    "cumOpenValue": "0",
+                    "cumOpenFee": "0",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "shortTermCreatedTime": "0",
+                "shortTermUpdatedTime": "0",
+                "longTotalStat": {
+                    "cumOpenSize": "0.004",
+                    "cumOpenValue": "388.464500",
+                    "cumOpenFee": "-0.131882",
+                    "cumCloseSize": "-0.003",
+                    "cumCloseValue": "-291.736700",
+                    "cumCloseFee": "-0.083506",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "shortTotalStat": {
+                    "cumOpenSize": "0",
+                    "cumOpenValue": "0",
+                    "cumOpenFee": "0",
+                    "cumCloseSize": "0",
+                    "cumCloseValue": "0",
+                    "cumCloseFee": "0",
+                    "cumFundingFee": "0",
+                    "cumLiquidateFee": "0"
+                },
+                "createdTime": "1734661018663",
+                "updatedTime": "1734662617992"
+            }
+        ],
+        "version": "1021",
+        "positionAssetList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "contractId": "10000001",
+                "positionValue": "97.734426609240472316741943359375",
+                "maxLeverage": "50",
+                "initialMarginRequirement": "1.954688532184809446334838867187500000",
+                "starkExRiskRate": "0.00500000012107193470001220703125",
+                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "avgEntryPrice": "97444.5",
+                "liquidatePrice": "82354.9",
+                "bankruptPrice": "81943.1",
+                "worstClosePrice": "81984.2",
+                "unrealizePnl": "0.289926609240472316741943359375",
+                "termRealizePnl": "0.000000",
+                "totalRealizePnl": "0.716700"
+            }
+        ],
+        "collateralAssetModelList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "totalEquity": "15.791238609240472316741943359375",
+                "totalPositionValueAbs": "97.734426609240472316741943359375",
+                "initialMarginRequirement": "1.954688532184809446334838867187500000",
+                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "pendingWithdrawAmount": "0",
+                "pendingTransferOutAmount": "0",
+                "orderFrozenAmount": "0",
+                "availableAmount": "13.836550"
+            }
+        ],
+        "oraclePriceList": []
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734664627939",
+    "responseTime": "1734664627957",
+    "traceId": "4a3a5cd027ea6c255c8c944567b634f1"
 }
 ```
 
@@ -734,7 +978,7 @@ GET /api/v1/private/account/getAccountAsset
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ---------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#accountassetsnapshot) |
 
 <a id="opIdgetAccountAssetSnapshotPage"></a>
 
@@ -760,10 +1004,39 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "timeTag": 1,
+                "snapshotTime": "1734652800000",
+                "totalEquity": "16.000000",
+                "termRealizePnl": "0",
+                "unrealizePnl": "0",
+                "totalRealizePnl": "0"
+            },
+            {
+                "userId": "543429922866069763",
+                "accountId": "543429922991899150",
+                "coinId": "1000",
+                "timeTag": 1,
+                "snapshotTime": "1734566400000",
+                "totalEquity": "16.000000",
+                "termRealizePnl": "0",
+                "unrealizePnl": "0",
+                "totalRealizePnl": "0"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734663257066",
+    "responseTime": "1734663257075",
+    "traceId": "f52222cd41b6ff8bcd059a57ecd986a1"
 }
 ```
 
@@ -771,46 +1044,12 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 
 | Status Code | Status Code Description                                                                  | Description        | Data Model                                        |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------- |
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result&lt;PageData&lt;AccountAssetSnapshot&gt;&gt;](#schemaresult<pagedata<accountassetsnapshot>>) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                                  | default response | [Result](#accountassetsnapshot>>) |
 
 # Data Models
 
-<h2 id="tocS_Result<PageData<AccountAssetSnapshot>>">Result&lt;PageData&lt;AccountAssetSnapshot&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<accountassetsnapshot>>"></a>
-<a id="schema_Result<PageData<AccountAssetSnapshot>>"></a>
-<a id="tocSresult<pagedata<accountassetsnapshot>>"></a>
-<a id="tocsresult<pagedata<accountassetsnapshot>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "timeTag": 0,
-        "snapshotTime": "string",
-        "totalEquity": "string",
-        "termRealizePnl": "string",
-        "unrealizePnl": "string",
-        "totalRealizePnl": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
+<a id="accountassetsnapshot"></a>
 ### Properties
 
 | Name           | Type                               | Required | Constraints | Description              | Notes                                                                    |
@@ -823,65 +1062,16 @@ GET /api/v1/private/account/getAccountAssetSnapshotPage
 | responseTime   | string(timestamp)                  | false    | none        | Server Response Time    | Time at which the server sent the response                                |
 | traceId        | string                             | false    | none        | Trace ID                | Invocation trace ID                                                     |
 
-<h2 id="tocS_PageDataAccountAssetSnapshot">PageDataAccountAssetSnapshot</h2>
-
 <a id="schemapagedataaccountassetsnapshot"></a>
-<a id="schema_PageDataAccountAssetSnapshot"></a>
-<a id="tocSpagedataaccountassetsnapshot"></a>
-<a id="tocspagedataaccountassetsnapshot"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "timeTag": 0,
-      "snapshotTime": "string",
-      "totalEquity": "string",
-      "termRealizePnl": "string",
-      "unrealizePnl": "string",
-      "totalRealizePnl": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic Paginated Response
-
-### Properties
+### Generic Paginated Response
 
 | Name               | Type                               | Required | Constraints | Description                 | Notes                                                               |
 | ------------------ | ---------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
 | dataList           | [[AccountAssetSnapshot](#schemaaccountassetsnapshot)] | false    | none        | Data List                  |                                                                     |
 | nextPageOffsetData | string                             | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_AccountAssetSnapshot">AccountAssetSnapshot</h2>
-
 <a id="schemaaccountassetsnapshot"></a>
-<a id="schema_AccountAssetSnapshot"></a>
-<a id="tocSaccountassetsnapshot"></a>
-<a id="tocsaccountassetsnapshot"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "timeTag": 0,
-  "snapshotTime": "string",
-  "totalEquity": "string",
-  "termRealizePnl": "string",
-  "unrealizePnl": "string",
-  "totalRealizePnl": "string"
-}
-```
-
-Account historical asset snapshot information.
-
-### Properties
+### Account historical asset snapshot information
 
 | Name             | Type            | Required | Constraints | Description                         | Notes                                                                     |
 | ---------------- | --------------- | -------- | ----------- | ----------------------------------- | ------------------------------------------------------------------------- |
@@ -895,427 +1085,21 @@ Account historical asset snapshot information.
 | unrealizePnl     | string          | false    | none        | Unrealized PnL                      | Unrealized PnL                                                            |
 | totalRealizePnl  | string          | false    | none        | Total Realized PnL                 | Total realized PnL of the position                                          |
 
-<h2 id="tocS_Result<GetAccountAsset>">Result&lt;GetAccountAsset&gt;</h2>
-
 <a id="schemaresult<getaccountasset>"></a>
-<a id="schema_Result<GetAccountAsset>"></a>
-<a id="tocSresult<getaccountasset>"></a>
-<a id="tocsresult<getaccountasset>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "account": {
-      "id": "string",
-      "userId": "string",
-      "ethAddress": "string",
-      "l2Key": "string",
-      "l2KeyYCoordinate": "string",
-      "clientAccountId": "string",
-      "isSystemAccount": true,
-      "defaultTradeSetting": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      },
-      "contractIdToTradeSetting": {
-        "property1": {
-          "isSetFeeRate": true,
-          "takerFeeRate": "string",
-          "makerFeeRate": "string",
-          "isSetFeeDiscount": true,
-          "takerFeeDiscount": "string",
-          "makerFeeDiscount": "string",
-          "isSetMaxLeverage": true,
-          "maxLeverage": "string"
-        },
-        "property2": {
-          "isSetFeeRate": true,
-          "takerFeeRate": "string",
-          "makerFeeRate": "string",
-          "isSetFeeDiscount": true,
-          "takerFeeDiscount": "string",
-          "makerFeeDiscount": "string",
-          "isSetMaxLeverage": true,
-          "maxLeverage": "string"
-        }
-      },
-      "maxLeverageLimit": "string",
-      "createOrderPerMinuteLimit": 0,
-      "createOrderDelayMillis": 0,
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ACCOUNT_STATUS",
-      "isLiquidating": true,
-      "createdTime": "string",
-      "updatedTime": "string"
-    },
-    "collateralList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "amount": "string",
-        "legacyAmount": "string",
-        "cumDepositAmount": "string",
-        "cumWithdrawAmount": "string",
-        "cumTransferInAmount": "string",
-        "cumTransferOutAmount": "string",
-        "cumPositionBuyAmount": "string",
-        "cumPositionSellAmount": "string",
-        "cumFillFeeAmount": "string",
-        "cumFundingFeeAmount": "string",
-        "cumFillFeeIncomeAmount": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "positionList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "openSize": "string",
-        "openValue": "string",
-        "openFee": "string",
-        "fundingFee": "string",
-        "longTermCount": 0,
-        "longTermStat": {
-          "cumOpenSize": "string",
-          "cumOpenValue": "string",
-          "cumOpenFee": "string",
-          "cumCloseSize": "string",
-          "cumCloseValue": "string",
-          "cumCloseFee": "string",
-          "cumFundingFee": "string",
-          "cumLiquidateFee": "string"
-        },
-        "longTermCreatedTime": "string",
-        "longTermUpdatedTime": "string",
-        "shortTermCount": 0,
-        "shortTermStat": {
-          "cumOpenSize": "string",
-          "cumOpenValue": "string",
-          "cumOpenFee": "string",
-          "cumCloseSize": "string",
-          "cumCloseValue": "string",
-          "cumCloseFee": "string",
-          "cumFundingFee": "string",
-          "cumLiquidateFee": "string"
-        },
-        "shortTermCreatedTime": "string",
-        "shortTermUpdatedTime": "string",
-        "longTotalStat": {
-          "cumOpenSize": "string",
-          "cumOpenValue": "string",
-          "cumOpenFee": "string",
-          "cumCloseSize": "string",
-          "cumCloseValue": "string",
-          "cumCloseFee": "string",
-          "cumFundingFee": "string",
-          "cumLiquidateFee": "string"
-        },
-        "shortTotalStat": {
-          "cumOpenSize": "string",
-          "cumOpenValue": "string",
-          "cumOpenFee": "string",
-          "cumCloseSize": "string",
-          "cumCloseValue": "string",
-          "cumCloseFee": "string",
-          "cumFundingFee": "string",
-          "cumLiquidateFee": "string"
-        },
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "version": "string",
-    "positionAssetList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "positionValue": "string",
-        "maxLeverage": "string",
-        "initialMarginRequirement": "string",
-        "starkExRiskRate": "string",
-        "starkExRiskValue": "string",
-        "avgEntryPrice": "string",
-        "liquidatePrice": "string",
-        "bankruptPrice": "string",
-        "worstClosePrice": "string",
-        "unrealizePnl": "string",
-        "termRealizePnl": "string",
-        "totalRealizePnl": "string"
-      }
-    ],
-    "collateralAssetModelList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "totalEquity": "string",
-        "totalPositionValueAbs": "string",
-        "initialMarginRequirement": "string",
-        "starkExRiskValue": "string",
-        "pendingWithdrawAmount": "string",
-        "pendingTransferOutAmount": "string",
-        "orderFrozenAmount": "string",
-        "availableAmount": "string"
-      }
-    ],
-    "oraclePriceList": [
-      {
-        "contractId": "string",
-        "priceType": "UNKNOWN_PRICE_TYPE",
-        "priceValue": "string",
-        "createdTime": "string",
-        "oraclePriceSignature": [
-          {
-            "contractId": null,
-            "signer": null,
-            "price": null,
-            "externalAssetId": null,
-            "signature": null,
-            "timestamp": null
-          }
-        ]
-      }
-    ]
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+### getaccountasset
 
 | Name           | Type                            | Required | Constraints | Description              | Notes                                                                  |
 | -------------- | ------------------------------- | -------- | ----------- | ------------------------ | ---------------------------------------------------------------------- |
 | code           | string                          | false    | none        | Status Code              | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [GetAccountAsset](#schemagetaccountasset) | false    | none        | Get Account Asset Response | Response structure for fetching account asset data.                       |
 | errorParam     | object                          | false    | none        | Error Parameters         | Error message parameter information                                     |
-| » **additionalProperties** | string                               | false    | none        | Error Parameters         | Error message parameter information                                     |
 | requestTime    | string(timestamp)               | false    | none        | Server Request Time     | Time at which the server received the request                           |
 | responseTime   | string(timestamp)               | false    | none        | Server Response Time    | Time at which the server sent the response                              |
 | traceId        | string                          | false    | none        | Trace ID                | Invocation trace ID                                                  |
 
-<h2 id="tocS_GetAccountAsset">GetAccountAsset</h2>
 
 <a id="schemagetaccountasset"></a>
-<a id="schema_GetAccountAsset"></a>
-<a id="tocSgetaccountasset"></a>
-<a id="tocsgetaccountasset"></a>
-
-```json
-{
-  "account": {
-    "id": "string",
-    "userId": "string",
-    "ethAddress": "string",
-    "l2Key": "string",
-    "l2KeyYCoordinate": "string",
-    "clientAccountId": "string",
-    "isSystemAccount": true,
-    "defaultTradeSetting": {
-      "isSetFeeRate": true,
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "isSetFeeDiscount": true,
-      "takerFeeDiscount": "string",
-      "makerFeeDiscount": "string",
-      "isSetMaxLeverage": true,
-      "maxLeverage": "string"
-    },
-    "contractIdToTradeSetting": {
-      "property1": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      },
-      "property2": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      }
-    },
-    "maxLeverageLimit": "string",
-    "createOrderPerMinuteLimit": 0,
-    "createOrderDelayMillis": 0,
-    "extraType": "string",
-    "extraDataJson": "string",
-    "status": "UNKNOWN_ACCOUNT_STATUS",
-    "isLiquidating": true,
-    "createdTime": "string",
-    "updatedTime": "string"
-  },
-  "collateralList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "legacyAmount": "string",
-      "cumDepositAmount": "string",
-      "cumWithdrawAmount": "string",
-      "cumTransferInAmount": "string",
-      "cumTransferOutAmount": "string",
-      "cumPositionBuyAmount": "string",
-      "cumPositionSellAmount": "string",
-      "cumFillFeeAmount": "string",
-      "cumFundingFeeAmount": "string",
-      "cumFillFeeIncomeAmount": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "positionList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "openSize": "string",
-      "openValue": "string",
-      "openFee": "string",
-      "fundingFee": "string",
-      "longTermCount": 0,
-      "longTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "longTermCreatedTime": "string",
-      "longTermUpdatedTime": "string",
-      "shortTermCount": 0,
-      "shortTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTermCreatedTime": "string",
-      "shortTermUpdatedTime": "string",
-      "longTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "version": "string",
-  "positionAssetList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "positionValue": "string",
-      "maxLeverage": "string",
-      "initialMarginRequirement": "string",
-      "starkExRiskRate": "string",
-      "starkExRiskValue": "string",
-      "avgEntryPrice": "string",
-      "liquidatePrice": "string",
-      "bankruptPrice": "string",
-      "worstClosePrice": "string",
-      "unrealizePnl": "string",
-      "termRealizePnl": "string",
-      "totalRealizePnl": "string"
-    }
-  ],
-  "collateralAssetModelList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "totalEquity": "string",
-      "totalPositionValueAbs": "string",
-      "initialMarginRequirement": "string",
-      "starkExRiskValue": "string",
-      "pendingWithdrawAmount": "string",
-      "pendingTransferOutAmount": "string",
-      "orderFrozenAmount": "string",
-      "availableAmount": "string"
-    }
-  ],
-  "oraclePriceList": [
-    {
-      "contractId": "string",
-      "priceType": "UNKNOWN_PRICE_TYPE",
-      "priceValue": "string",
-      "createdTime": "string",
-       "oraclePriceSignature": [
-        {
-            "contractId": "string",
-            "signer": "string",
-            "price": "string",
-            "externalAssetId": "string",
-            "signature": {
-                "r": "string",
-                "s": "string",
-                "v": "string"
-            },
-            "timestamp": "string"
-        }
-    ]
-    }
-  ]
-}
-```
-
-Response structure for fetching account asset data.
-
-### Properties
+### Response structure for fetching account asset data
 
 | Name                  | Type                                | Required | Constraints | Description                                                                                      | Notes                                                                                          |
 | --------------------- | ----------------------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
@@ -1327,39 +1111,8 @@ Response structure for fetching account asset data.
 | collateralAssetModelList | [[CollateralAsset](#schemacollateralasset)] | false    | none        | Account-Level Asset Information List                                                               | List of account-level asset information.                                                          |
 | oraclePriceList       | [[IndexPrice](#schemaindexprice)]   | false    | none        | Oracle Price List                                                  | List of all oracle prices used to calculate assets (only those used).                                                          |
 
-<h2 id="tocS_IndexPrice">IndexPrice</h2>
-
 <a id="schemaindexprice"></a>
-<a id="schema_IndexPrice"></a>
-<a id="tocSindexprice"></a>
-<a id="tocsindexprice"></a>
-
-```json
-{
-  "contractId": "string",
-  "priceType": "UNKNOWN_PRICE_TYPE",
-  "priceValue": "string",
-  "createdTime": "string",
-  "oraclePriceSignature": [
-    {
-      "contractId": "string",
-      "signer": "string",
-      "price": "string",
-      "externalAssetId": "string",
-      "signature": {
-        "r": "string",
-        "s": "string",
-        "v": "string"
-      },
-      "timestamp": "string"
-    }
-  ]
-}
-```
-
-Price information
-
-### Properties
+### Price information
 
 | Name                  | Type                  | Required | Constraints | Description                        | Notes                                                                            |
 | --------------------- | --------------------- | -------- | ----------- | ---------------------------------- | -------------------------------------------------------------------------------- |
@@ -1382,31 +1135,8 @@ Price information
 | priceType | OPEN_INTEREST             |
 | priceType | UNRECOGNIZED              |
 
-<h2 id="tocS_OraclePriceSignature">OraclePriceSignature</h2>
-
 <a id="schemaoraclepricesignature"></a>
-<a id="schema_OraclePriceSignature"></a>
-<a id="tocSoraclepricesignature"></a>
-<a id="tocsoraclepricesignature"></a>
-
-```json
-{
-  "contractId": "string",
-  "signer": "string",
-  "price": "string",
-  "externalAssetId": "string",
-  "signature": {
-    "r": "string",
-    "s": "string",
-    "v": "string"
-  },
-  "timestamp": "string"
-}
-```
-
-Oracle price signature information.
-
-### Properties
+### Oracle price signature information
 
 | Name             | Type                    | Required | Constraints | Description                                                              | Notes                                                                                                    |
 | ---------------- | ----------------------- | -------- | ----------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
@@ -1417,24 +1147,8 @@ Oracle price signature information.
 | signature        | [L2Signature](#schemal2signature) | false    | none        | L2 Signature Information                                            | L2 signature information                                                                               |
 | timestamp        | string(int64)           | false    | none        | Signature Creation Time                                                | The time the signature was created.                                                                     |
 
-<h2 id="tocS_L2Signature">L2Signature</h2>
-
 <a id="schemal2signature"></a>
-<a id="schema_L2Signature"></a>
-<a id="tocSl2signature"></a>
-<a id="tocsl2signature"></a>
-
-```json
-{
-  "r": "string",
-  "s": "string",
-  "v": "string"
-}
-```
-
-L2 signature information.
-
-### Properties
+### L2 signature information
 
 | Name | Type   | Required | Constraints | Description      | Notes                  |
 | ---- | ------ | -------- | ----------- | ---------------- | ---------------------- |
@@ -1442,32 +1156,8 @@ L2 signature information.
 | s    | string | false    | none        | S Value          | Bigint for hex string |
 | v    | string | false    | none        | V Value          | Bigint for hex string |
 
-<h2 id="tocS_CollateralAsset">CollateralAsset</h2>
-
 <a id="schemacollateralasset"></a>
-<a id="schema_CollateralAsset"></a>
-<a id="tocScollateralasset"></a>
-<a id="tocscollateralasset"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "totalEquity": "string",
-  "totalPositionValueAbs": "string",
-  "initialMarginRequirement": "string",
-  "starkExRiskValue": "string",
-  "pendingWithdrawAmount": "string",
-  "pendingTransferOutAmount": "string",
-  "orderFrozenAmount": "string",
-  "availableAmount": "string"
-}
-```
-
-Collateral asset information.
-
-### Properties
+### Collateral asset information
 
 | Name                    | Type          | Required | Constraints | Description                                                                      | Notes                                                                              |
 | ----------------------- | ------------- | -------- | ----------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -1483,37 +1173,8 @@ Collateral asset information.
 | orderFrozenAmount       | string        | false    | none        | Order Frozen Amount                                                             | The amount of collateral frozen by orders.                                            |
 | availableAmount         | string        | false    | none        | Available Amount                                                                | The amount of collateral available for use.                                           |
 
-<h2 id="tocS_PositionAsset">PositionAsset</h2>
-
 <a id="schemapositionasset"></a>
-<a id="schema_PositionAsset"></a>
-<a id="tocSpositionasset"></a>
-<a id="tocspositionasset"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "positionValue": "string",
-  "maxLeverage": "string",
-  "initialMarginRequirement": "string",
-  "starkExRiskRate": "string",
-  "starkExRiskValue": "string",
-  "avgEntryPrice": "string",
-  "liquidatePrice": "string",
-  "bankruptPrice": "string",
-  "worstClosePrice": "string",
-  "unrealizePnl": "string",
-  "termRealizePnl": "string",
-  "totalRealizePnl": "string"
-}
-```
-
-Asset information related to a position
-
-### Properties
+### Asset information related to a position
 
 | Name                    | Type          | Required | Constraints | Description                            | Notes                                                                          |
 | ----------------------- | ------------- | -------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------ |
@@ -1534,77 +1195,8 @@ Asset information related to a position
 | termRealizePnl          | string        | false    | none        | Term Realized PnL                    | Realized PnL for the term.                                            |
 | totalRealizePnl        | string        | false    | none        | Total Realized PnL                   | Total realized PnL of the position.                                         |
 
-<h2 id="tocS_Position">Position</h2>
-
 <a id="schemaposition"></a>
-<a id="schema_Position"></a>
-<a id="tocSposition"></a>
-<a id="tocsposition"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "openSize": "string",
-  "openValue": "string",
-  "openFee": "string",
-  "fundingFee": "string",
-  "longTermCount": 0,
-  "longTermStat": {
-    "cumOpenSize": "string",
-    "cumOpenValue": "string",
-    "cumOpenFee": "string",
-    "cumCloseSize": "string",
-    "cumCloseValue": "string",
-    "cumCloseFee": "string",
-    "cumFundingFee": "string",
-    "cumLiquidateFee": "string"
-  },
-  "longTermCreatedTime": "string",
-  "longTermUpdatedTime": "string",
-  "shortTermCount": 0,
-  "shortTermStat": {
-    "cumOpenSize": "string",
-    "cumOpenValue": "string",
-    "cumOpenFee": "string",
-    "cumCloseSize": "string",
-    "cumCloseValue": "string",
-    "cumCloseFee": "string",
-    "cumFundingFee": "string",
-    "cumLiquidateFee": "string"
-  },
-  "shortTermCreatedTime": "string",
-  "shortTermUpdatedTime": "string",
-  "longTotalStat": {
-    "cumOpenSize": "string",
-    "cumOpenValue": "string",
-    "cumOpenFee": "string",
-    "cumCloseSize": "string",
-    "cumCloseValue": "string",
-    "cumCloseFee": "string",
-    "cumFundingFee": "string",
-    "cumLiquidateFee": "string"
-  },
-  "shortTotalStat": {
-    "cumOpenSize": "string",
-    "cumOpenValue": "string",
-    "cumOpenFee": "string",
-    "cumCloseSize": "string",
-    "cumCloseValue": "string",
-    "cumCloseFee": "string",
-    "cumFundingFee": "string",
-    "cumLiquidateFee": "string"
-  },
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Perpetual contract position information
-
-### Properties
+### Perpetual contract position information
 
 | Name                | Type          | Required | Constraints | Description                                                         | Notes                                                                                      |
 | ------------------- | ------------- | -------- | ----------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -1629,29 +1221,9 @@ Perpetual contract position information
 | createdTime         | string(int64) | false    | none        | Creation Time                                                         | Creation time.                                                                             |
 | updatedTime         | string(int64) | false    | none        | Update Time                                                        | Update time.                                                                            |
 
-<h2 id="tocS_PositionStat">PositionStat</h2>
 
 <a id="schemapositionstat"></a>
-<a id="schema_PositionStat"></a>
-<a id="tocSpositionstat"></a>
-<a id="tocspositionstat"></a>
-
-```json
-{
-  "cumOpenSize": "string",
-  "cumOpenValue": "string",
-  "cumOpenFee": "string",
-  "cumCloseSize": "string",
-  "cumCloseValue": "string",
-  "cumCloseFee": "string",
-  "cumFundingFee": "string",
-  "cumLiquidateFee": "string"
-}
-```
-
-Cumulative statistics for a position
-
-### Properties
+### Cumulative statistics for a position
 
 | Name            | Type   | Required | Constraints | Description              | Notes                                                               |
 | --------------- | ------ | -------- | ----------- | ------------------------ | ------------------------------------------------------------------- |
@@ -1664,37 +1236,8 @@ Cumulative statistics for a position
 | cumFundingFee   | string | false    | none        | Cumulative Funding Fee  | Cumulative funding fees settled.                                      |
 | cumLiquidateFee | string | false    | none        | Cumulative Liquidate Fee| Cumulative liquidation fees.                                          |
 
-<h2 id="tocS_Collateral">Collateral</h2>
-
 <a id="schemacollateral"></a>
-<a id="schema_Collateral"></a>
-<a id="tocScollateral"></a>
-<a id="tocscollateral"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "amount": "string",
-  "legacyAmount": "string",
-  "cumDepositAmount": "string",
-  "cumWithdrawAmount": "string",
-  "cumTransferInAmount": "string",
-  "cumTransferOutAmount": "string",
-  "cumPositionBuyAmount": "string",
-  "cumPositionSellAmount": "string",
-  "cumFillFeeAmount": "string",
-  "cumFundingFeeAmount": "string",
-  "cumFillFeeIncomeAmount": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Collateral information
-
-### Properties
+### Collateral information
 
 | Name                  | Type            | Required | Constraints | Description                                   | Notes                                                                    |
 | --------------------- | --------------- | -------- | ----------- | --------------------------------------------- | ------------------------------------------------------------------------ |
@@ -1715,69 +1258,8 @@ Collateral information
 | createdTime           | string(int64)   | false    | none        | Creation Time                                 | Creation time.                                                               |
 | updatedTime           | string(int64)   | false    | none        | Update Time                                    | Update time.                                                                  |
 
-<h2 id="tocS_Account">Account</h2>
-
 <a id="schemaaccount"></a>
-<a id="schema_Account"></a>
-<a id="tocSaccount"></a>
-<a id="tocsaccount"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "ethAddress": "string",
-  "l2Key": "string",
-  "l2KeyYCoordinate": "string",
-  "clientAccountId": "string",
-  "isSystemAccount": true,
-  "defaultTradeSetting": {
-    "isSetFeeRate": true,
-    "takerFeeRate": "string",
-    "makerFeeRate": "string",
-    "isSetFeeDiscount": true,
-    "takerFeeDiscount": "string",
-    "makerFeeDiscount": "string",
-    "isSetMaxLeverage": true,
-    "maxLeverage": "string"
-  },
-  "contractIdToTradeSetting": {
-    "property1": {
-      "isSetFeeRate": true,
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "isSetFeeDiscount": true,
-      "takerFeeDiscount": "string",
-      "makerFeeDiscount": "string",
-      "isSetMaxLeverage": true,
-      "maxLeverage": "string"
-    },
-    "property2": {
-      "isSetFeeRate": true,
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "isSetFeeDiscount": true,
-      "takerFeeDiscount": "string",
-      "makerFeeDiscount": "string",
-      "isSetMaxLeverage": true,
-      "maxLeverage": "string"
-    }
-  },
-  "maxLeverageLimit": "string",
-  "createOrderPerMinuteLimit": 0,
-  "createOrderDelayMillis": 0,
-  "extraType": "string",
-  "extraDataJson": "string",
-  "status": "UNKNOWN_ACCOUNT_STATUS",
-  "isLiquidating": true,
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Account information data.
-
-### Properties
+### Account information data
 
 | Name                    | Type                | Required | Constraints | Description                                                                                                                                  | Notes                                                                                     |
 | ----------------------- | ------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -1812,29 +1294,8 @@ Account information data.
 | status   | INVALID               |
 | status   | UNRECOGNIZED          |
 
-<h2 id="tocS_TradeSetting">TradeSetting</h2>
-
 <a id="schematradesetting"></a>
-<a id="schema_TradeSetting"></a>
-<a id="tocStradesetting"></a>
-<a id="tocstradesetting"></a>
-
-```json
-{
-  "isSetFeeRate": true,
-  "takerFeeRate": "string",
-  "makerFeeRate": "string",
-  "isSetFeeDiscount": true,
-  "takerFeeDiscount": "string",
-  "makerFeeDiscount": "string",
-  "isSetMaxLeverage": true,
-  "maxLeverage": "string"
-}
-```
-
-Trade settings. Trade setting calculation priority: Account contract trade settings -> Account default trade settings -> Contract configuration trade settings. Note: Only one of `is_set_fee_rate` and `is_set_fee_discount` can be true.
-
-### Properties
+### Trade settings
 
 | Name              | Type            | Required | Constraints | Description                                                                                    | Notes                                                                                          |
 | ----------------- | --------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -1847,517 +1308,89 @@ Trade settings. Trade setting calculation priority: Account contract trade setti
 | isSetMaxLeverage  | boolean         | false    | none        | Whether Maximum Leverage is Set                                                                  | Whether to set maximum trading leverage.                                                      |
 | maxLeverage       | string(decimal) | false    | none        | Maximum Leverage                                                                             | Maximum trading leverage.                                                                          |
 
-<h2 id="tocS_Result<Account>">Result&lt;Account&gt;</h2>
 
 <a id="schemaresult<account>"></a>
-<a id="schema_Result<Account>"></a>
-<a id="tocSresult<account>"></a>
-<a id="tocsresult<account>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "id": "string",
-    "userId": "string",
-    "ethAddress": "string",
-    "l2Key": "string",
-    "l2KeyYCoordinate": "string",
-    "clientAccountId": "string",
-    "isSystemAccount": true,
-    "defaultTradeSetting": {
-      "isSetFeeRate": true,
-      "takerFeeRate": "string",
-      "makerFeeRate": "string",
-      "isSetFeeDiscount": true,
-      "takerFeeDiscount": "string",
-      "makerFeeDiscount": "string",
-      "isSetMaxLeverage": true,
-      "maxLeverage": "string"
-    },
-    "contractIdToTradeSetting": {
-      "property1": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      },
-      "property2": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      }
-    },
-    "maxLeverageLimit": "string",
-    "createOrderPerMinuteLimit": 0,
-    "createOrderDelayMillis": 0,
-    "extraType": "string",
-    "extraDataJson": "string",
-    "status": "UNKNOWN_ACCOUNT_STATUS",
-    "isLiquidating": true,
-    "createdTime": "string",
-    "updatedTime": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+### account
 
 | Name           | Type                                 | Required | Constraints | Description                | Notes                                                                    |
 | -------------- | ------------------------------------ | -------- | ----------- | -------------------------- | ------------------------------------------------------------------------ |
 | code           | string                               | false    | none        | Status Code                | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
 | data           | [Account](#schemaaccount)            | false    | none        | Account Information      | Account information data.                                                 |
 | errorParam     | object                               | false    | none        | Error Parameters           | Error message parameter information                                       |
-| » **additionalProperties** | string                               | false    | none        | Error Parameters           | Error message parameter information                                       |
 | requestTime    | string(timestamp)                    | false    | none        | Server Request Time       | Time at which the server received the request                             |
 | responseTime   | string(timestamp)                    | false    | none        | Server Response Time      | Time at which the server sent the response                                |
 | traceId        | string                               | false    | none        | Trace ID                  | Invocation trace ID                                                     |
 
-<h2 id="tocS_Result<GetAccountDeleverageLight>">Result&lt;GetAccountDeleverageLight&gt;</h2>
 
-<a id="schemaresult<getaccountdeleveragelight>"></a>
-<a id="schema_Result<GetAccountDeleverageLight>"></a>
-<a id="tocSresult<getaccountdeleveragelight>"></a>
-<a id="tocsresult<getaccountdeleveragelight>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "positionContractIdToLightNumberMap": {
-      "property1": 0,
-      "property2": 0
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="getaccountdeleveragelight"></a>
+### getaccountdeleveragelight
 
 | Name           | Type                                   | Required | Constraints | Description                        | Notes                                                                  |
 | -------------- | -------------------------------------- | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
 | code           | string                                 | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [GetAccountDeleverageLight](#schemagetaccountdeleveragelight) | false    | none        | Get Account Deleverage Light Response  | Response structure for fetching deleverage light information.         |
 | errorParam     | object                                 | false    | none        | Error Parameters                   | Error message parameter information                                     |
-| » **additionalProperties** | string                                 | false    | none        | Error Parameters                   | Error message parameter information                                     |
 | requestTime    | string(timestamp)                      | false    | none        | Server Request Time               | Time at which the server received the request                           |
 | responseTime   | string(timestamp)                      | false    | none        | Server Response Time              | Time at which the server sent the response                              |
 | traceId        | string                                 | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
-<h2 id="tocS_GetAccountDeleverageLight">GetAccountDeleverageLight</h2>
-
 <a id="schemagetaccountdeleveragelight"></a>
-<a id="schema_GetAccountDeleverageLight"></a>
-<a id="tocSgetaccountdeleveragelight"></a>
-<a id="tocsgetaccountdeleveragelight"></a>
-
-```json
-{
-  "positionContractIdToLightNumberMap": {
-    "property1": 0,
-    "property2": 0
-  }
-}
-```
-
-Response structure for fetching deleverage light information.
-
-### Properties
+### Response structure for fetching deleverage light information.
 
 | Name                         | Type   | Required | Constraints | Description                                                                          | Notes                                                                         |
 | ---------------------------- | ------ | -------- | ----------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | positionContractIdToLightNumberMap | object | false    | none        | Map from Position Contract ID to Light Number                                   | Maps position contract ID to light number. `light_number` ranges from 1-5, which represent 1-5 lights. |
-| » **additionalProperties**           | integer(int32) | false    | none        | Map from Position Contract ID to Light Number  | Maps position contract ID to light number. `light_number` ranges from 1-5, which represent 1-5 lights. |
 
-<h2 id="tocS_Result<PageData<Account>>">Result&lt;PageData&lt;Account&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<account>>"></a>
-<a id="schema_Result<PageData<Account>>"></a>
-<a id="tocSresult<pagedata<account>>"></a>
-<a id="tocsresult<pagedata<account>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "ethAddress": "string",
-        "l2Key": "string",
-        "l2KeyYCoordinate": "string",
-        "clientAccountId": "string",
-        "isSystemAccount": true,
-        "defaultTradeSetting": {
-          "isSetFeeRate": true,
-          "takerFeeRate": "string",
-          "makerFeeRate": "string",
-          "isSetFeeDiscount": true,
-          "takerFeeDiscount": "string",
-          "makerFeeDiscount": "string",
-          "isSetMaxLeverage": true,
-          "maxLeverage": "string"
-        },
-        "contractIdToTradeSetting": {
-          "property1": {
-            "isSetFeeRate": null,
-            "takerFeeRate": null,
-            "makerFeeRate": null,
-            "isSetFeeDiscount": null,
-            "takerFeeDiscount": null,
-            "makerFeeDiscount": null,
-            "isSetMaxLeverage": null,
-            "maxLeverage": null
-          },
-          "property2": {
-            "isSetFeeRate": null,
-            "takerFeeRate": null,
-            "makerFeeRate": null,
-            "isSetFeeDiscount": null,
-            "takerFeeDiscount": null,
-            "makerFeeDiscount": null,
-            "isSetMaxLeverage": null,
-            "maxLeverage": null
-          }
-        },
-        "maxLeverageLimit": "string",
-        "createOrderPerMinuteLimit": 0,
-        "createOrderDelayMillis": 0,
-        "extraType": "string",
-        "extraDataJson": "string",
-        "status": "UNKNOWN_ACCOUNT_STATUS",
-        "isLiquidating": true,
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="account"></a>
+### account
 
 | Name           | Type                               | Required | Constraints | Description              | Notes                                                                    |
 | -------------- | ---------------------------------- | -------- | ----------- | ------------------------ | ------------------------------------------------------------------------ |
 | code           | string                             | false    | none        | Status Code              | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
 | data           | [PageDataAccount](#schemapagedataaccount)   | false    | none        | Generic Paginated Response | Generic paginated response.                                                                     |
 | errorParam     | object                             | false    | none        | Error Parameters         | Error message parameter information                                       |
-| » **additionalProperties** | string                               | false    | none        | Error Parameters         | Error message parameter information                                       |
 | requestTime    | string(timestamp)                  | false    | none        | Server Request Time     | Time at which the server received the request                             |
 | responseTime   | string(timestamp)                  | false    | none        | Server Response Time    | Time at which the server sent the response                                |
 | traceId        | string                             | false    | none        | Trace ID                | Invocation trace ID                                                  |
 
-<h2 id="tocS_PageDataAccount">PageDataAccount</h2>
 
 <a id="schemapagedataaccount"></a>
-<a id="schema_PageDataAccount"></a>
-<a id="tocSpagedataaccount"></a>
-<a id="tocspagedataaccount"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "ethAddress": "string",
-      "l2Key": "string",
-      "l2KeyYCoordinate": "string",
-      "clientAccountId": "string",
-      "isSystemAccount": true,
-      "defaultTradeSetting": {
-        "isSetFeeRate": true,
-        "takerFeeRate": "string",
-        "makerFeeRate": "string",
-        "isSetFeeDiscount": true,
-        "takerFeeDiscount": "string",
-        "makerFeeDiscount": "string",
-        "isSetMaxLeverage": true,
-        "maxLeverage": "string"
-      },
-      "contractIdToTradeSetting": {
-        "property1": {
-          "isSetFeeRate": true,
-          "takerFeeRate": "string",
-          "makerFeeRate": "string",
-          "isSetFeeDiscount": true,
-          "takerFeeDiscount": "string",
-          "makerFeeDiscount": "string",
-          "isSetMaxLeverage": true,
-          "maxLeverage": "string"
-        },
-        "property2": {
-          "isSetFeeRate": true,
-          "takerFeeRate": "string",
-          "makerFeeRate": "string",
-          "isSetFeeDiscount": true,
-          "takerFeeDiscount": "string",
-          "makerFeeDiscount": "string",
-          "isSetMaxLeverage": true,
-          "maxLeverage": "string"
-        }
-      },
-      "maxLeverageLimit": "string",
-      "createOrderPerMinuteLimit": 0,
-      "createOrderDelayMillis": 0,
-      "extraType": "string",
-      "extraDataJson": "string",
-      "status": "UNKNOWN_ACCOUNT_STATUS",
-      "isLiquidating": true,
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic Paginated Response
-
-### Properties
+### Generic Paginated Response
 
 | Name               | Type                     | Required | Constraints | Description                 | Notes                                                               |
 | ------------------ | ------------------------ | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
 | dataList           | [[Account](#schemaaccount)]       | false    | none        | Data List                  | List of account data.                                                               |
 | nextPageOffsetData | string                   | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<List<Collateral>>">Result&lt;List&lt;Collateral&gt;&gt;</h2>
-
-<a id="schemaresult<list<collateral>>"></a>
-<a id="schema_Result<List<Collateral>>"></a>
-<a id="tocSresult<list<collateral>>"></a>
-<a id="tocsresult<list<collateral>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "amount": "string",
-      "legacyAmount": "string",
-      "cumDepositAmount": "string",
-      "cumWithdrawAmount": "string",
-      "cumTransferInAmount": "string",
-      "cumTransferOutAmount": "string",
-      "cumPositionBuyAmount": "string",
-      "cumPositionSellAmount": "string",
-      "cumFillFeeAmount": "string",
-      "cumFundingFeeAmount": "string",
-      "cumFillFeeIncomeAmount": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="collateral"></a>
+### collateral
 
 | Name           | Type                      | Required | Constraints | Description        | Notes                                                                  |
 | -------------- | ------------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
 | code           | string                    | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [[Collateral](#schemacollateral)] | false    | none        | Response Data     | Correct response data.                                                  |
 | errorParam     | object                    | false    | none        | Error Parameters   | Error message parameter information                                     |
-| » **additionalProperties** | string                    | false    | none        | Error Parameters   | Error message parameter information                                     |
 | requestTime    | string(timestamp)         | false    | none        | Server Request Time | Time at which the server received the request                           |
 | responseTime   | string(timestamp)         | false    | none        | Server Response Time| Time at which the server sent the response                              |
 | traceId        | string                    | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_Result<List<CollateralTransaction>>">Result&lt;List&lt;CollateralTransaction&gt;&gt;</h2>
 
-<a id="schemaresult<list<collateraltransaction>>"></a>
-<a id="schema_Result<List<CollateralTransaction>>"></a>
-<a id="tocSresult<list<collateraltransaction>>"></a>
-<a id="tocsresult<list<collateraltransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-      "deltaAmount": "string",
-      "deltaLegacyAmount": "string",
-      "beforeAmount": "string",
-      "beforeLegacyAmount": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "depositId": "string",
-      "withdrawId": "string",
-      "transferInId": "string",
-      "transferOutId": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "orderAccountId": "string",
-      "positionContractId": "string",
-      "positionTransactionId": "string",
-      "forceWithdrawId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="collateraltransaction"></a>
+### collateraltransaction
 
 | Name           | Type                            | Required | Constraints | Description        | Notes                                                                  |
 | -------------- | ------------------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
 | code           | string                          | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [[CollateralTransaction](#schemacollateraltransaction)] | false    | none        | Response Data     | Correct response data.                                                  |
 | errorParam     | object                          | false    | none        | Error Parameters   | Error message parameter information                                     |
-| » **additionalProperties** | string                          | false    | none        | Error Parameters   | Error message parameter information                                     |
 | requestTime    | string(timestamp)               | false    | none        | Server Request Time | Time at which the server received the request                           |
 | responseTime   | string(timestamp)               | false    | none        | Server Response Time| Time at which the server sent the response                              |
 | traceId        | string                          | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_CollateralTransaction">CollateralTransaction</h2>
 
 <a id="schemacollateraltransaction"></a>
-<a id="schema_CollateralTransaction"></a>
-<a id="tocScollateraltransaction"></a>
-<a id="tocscollateraltransaction"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-  "deltaAmount": "string",
-  "deltaLegacyAmount": "string",
-  "beforeAmount": "string",
-  "beforeLegacyAmount": "string",
-  "fillCloseSize": "string",
-  "fillCloseValue": "string",
-  "fillCloseFee": "string",
-  "fillOpenSize": "string",
-  "fillOpenValue": "string",
-  "fillOpenFee": "string",
-  "fillPrice": "string",
-  "liquidateFee": "string",
-  "realizePnl": "string",
-  "isLiquidate": true,
-  "isDeleverage": true,
-  "fundingTime": "string",
-  "fundingRate": "string",
-  "fundingIndexPrice": "string",
-  "fundingOraclePrice": "string",
-  "fundingPositionSize": "string",
-  "depositId": "string",
-  "withdrawId": "string",
-  "transferInId": "string",
-  "transferOutId": "string",
-  "transferReason": "UNKNOWN_TRANSFER_REASON",
-  "orderId": "string",
-  "orderFillTransactionId": "string",
-  "orderAccountId": "string",
-  "positionContractId": "string",
-  "positionTransactionId": "string",
-  "forceWithdrawId": "string",
-  "forceTradeId": "string",
-  "extraType": "string",
-  "extraDataJson": "string",
-  "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Collateral transaction details.
-
-### Properties
+### Collateral transaction details
 
 | Name                    | Type            | Required | Constraints | Description                                                                                    | Notes                                                                                             |
 | ----------------------- | --------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -2443,308 +1476,42 @@ Collateral transaction details.
 | censorStatus   | L2_REJECT_APPROVED             |
 | censorStatus   | UNRECOGNIZED                   |
 
-<h2 id="tocS_Result<PageData<CollateralTransaction>>">Result&lt;PageData&lt;CollateralTransaction&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<collateraltransaction>>"></a>
-<a id="schema_Result<PageData<CollateralTransaction>>"></a>
-<a id="tocSresult<pagedata<collateraltransaction>>"></a>
-<a id="tocsresult<pagedata<collateraltransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-        "deltaAmount": "string",
-        "deltaLegacyAmount": "string",
-        "beforeAmount": "string",
-        "beforeLegacyAmount": "string",
-        "fillCloseSize": "string",
-        "fillCloseValue": "string",
-        "fillCloseFee": "string",
-        "fillOpenSize": "string",
-        "fillOpenValue": "string",
-        "fillOpenFee": "string",
-        "fillPrice": "string",
-        "liquidateFee": "string",
-        "realizePnl": "string",
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "fundingTime": "string",
-        "fundingRate": "string",
-        "fundingIndexPrice": "string",
-        "fundingOraclePrice": "string",
-        "fundingPositionSize": "string",
-        "depositId": "string",
-        "withdrawId": "string",
-        "transferInId": "string",
-        "transferOutId": "string",
-        "transferReason": "UNKNOWN_TRANSFER_REASON",
-        "orderId": "string",
-        "orderFillTransactionId": "string",
-        "orderAccountId": "string",
-        "positionContractId": "string",
-        "positionTransactionId": "string",
-        "forceWithdrawId": "string",
-        "forceTradeId": "string",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="collateraltransaction>"></a>
+### collateraltransaction
 
 | Name           | Type                                     | Required | Constraints | Description                        | Notes                                                                  |
 | -------------- | ---------------------------------------- | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
 | code           | string                                   | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [PageDataCollateralTransaction](#schemapagedatacollateraltransaction) | false    | none        | Generic Paginated Response | Generic paginated response.                                                              |
 | errorParam     | object                                   | false    | none        | Error Parameters                   | Error message parameter information                                     |
-| » **additionalProperties** | string                                   | false    | none        | Error Parameters                   | Error message parameter information                                     |
 | requestTime    | string(timestamp)                        | false    | none        | Server Request Time               | Time at which the server received the request                           |
 | responseTime   | string(timestamp)                        | false    | none        | Server Response Time              | Time at which the server sent the response                              |
 | traceId        | string                                   | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
-<h2 id="tocS_PageDataCollateralTransaction">PageDataCollateralTransaction</h2>
 
 <a id="schemapagedatacollateraltransaction"></a>
-<a id="schema_PageDataCollateralTransaction"></a>
-<a id="tocSpagedatacollateraltransaction"></a>
-<a id="tocspagedatacollateraltransaction"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "type": "UNKNOWN_COLLATERAL_TRANSACTION_TYPE",
-      "deltaAmount": "string",
-      "deltaLegacyAmount": "string",
-      "beforeAmount": "string",
-      "beforeLegacyAmount": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "depositId": "string",
-      "withdrawId": "string",
-      "transferInId": "string",
-      "transferOutId": "string",
-      "transferReason": "UNKNOWN_TRANSFER_REASON",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "orderAccountId": "string",
-      "positionContractId": "string",
-      "positionTransactionId": "string",
-      "forceWithdrawId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic Paginated Response
-
-### Properties
+### Generic Paginated Response
 
 | Name               | Type                             | Required | Constraints | Description                 | Notes                                                               |
 | ------------------ | -------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
 | dataList           | [[CollateralTransaction](#schemacollateraltransaction)] | false    | none        | Data List                  | List of collateral transaction data.                                               |
 | nextPageOffsetData | string                           | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<List<Position>>">Result&lt;List&lt;Position&gt;&gt;</h2>
 
-<a id="schemaresult<list<position>>"></a>
-<a id="schema_Result<List<Position>>"></a>
-<a id="tocSresult<list<position>>"></a>
-<a id="tocsresult<list<position>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "openSize": "string",
-      "openValue": "string",
-      "openFee": "string",
-      "fundingFee": "string",
-      "longTermCount": 0,
-      "longTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "longTermCreatedTime": "string",
-      "longTermUpdatedTime": "string",
-      "shortTermCount": 0,
-      "shortTermStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTermCreatedTime": "string",
-      "shortTermUpdatedTime": "string",
-      "longTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "shortTotalStat": {
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string"
-      },
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+### position
 
 | Name           | Type                   | Required | Constraints | Description        | Notes                                                                  |
 | -------------- | ---------------------- | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
 | code           | string                 | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [[Position](#schemaposition)] | false    | none        | Response Data     | Correct response data.                                                  |
 | errorParam     | object                 | false    | none        | Error Parameters   | Error message parameter information                                     |
-| » **additionalProperties** | string                 | false    | none        | Error Parameters   | Error message parameter information                                     |
 | requestTime    | string(timestamp)      | false    | none        | Server Request Time | Time at which the server received the request                           |
 | responseTime   | string(timestamp)      | false    | none        | Server Response Time| Time at which the server sent the response                              |
 | traceId        | string                 | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_Result<PageData<PositionTerm>>">Result&lt;PageData&lt;PositionTerm&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<positionterm>>"></a>
-<a id="schema_Result<PageData<PositionTerm>>"></a>
-<a id="tocSresult<pagedata<positionterm>>"></a>
-<a id="tocsresult<pagedata<positionterm>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "termCount": 0,
-        "cumOpenSize": "string",
-        "cumOpenValue": "string",
-        "cumOpenFee": "string",
-        "cumCloseSize": "string",
-        "cumCloseValue": "string",
-        "cumCloseFee": "string",
-        "cumFundingFee": "string",
-        "cumLiquidateFee": "string",
-        "createdTime": "string",
-        "updatedTime": "string",
-        "currentLeverage": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
+<a id="positionterm"></a>
 ### Properties
 
 | Name           | Type                                   | Required | Constraints | Description                | Notes                                                                    |
@@ -2752,84 +1519,22 @@ Generic Paginated Response
 | code           | string                                 | false    | none        | Status Code                | Returns "SUCCESS" on success; otherwise, it indicates failure.            |
 | data           | [PageDataPositionTerm](#schemapagedatapositionterm)  | false    | none        | Generic Paginated Response | Generic paginated response.                                                              |
 | errorParam     | object                                 | false    | none        | Error Parameters           | Error message parameter information                                       |
-| » **additionalProperties** | string                                 | false    | none        | Error Parameters           | Error message parameter information                                       |
 | requestTime    | string(timestamp)                      | false    | none        | Server Request Time       | Time at which the server received the request                           |
 | responseTime   | string(timestamp)                      | false    | none        | Server Response Time      | Time at which the server sent the response                              |
 | traceId        | string                                 | false    | none        | Trace ID                  | Invocation trace ID                                                     |
 
-<h2 id="tocS_PageDataPositionTerm">PageDataPositionTerm</h2>
 
 <a id="schemapagedatapositionterm"></a>
-<a id="schema_PageDataPositionTerm"></a>
-<a id="tocSpagedatapositionterm"></a>
-<a id="tocspagedatapositionterm"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId":"string",
-      "termCount": 0,
-      "cumOpenSize": "string",
-      "cumOpenValue": "string",
-      "cumOpenFee": "string",
-      "cumCloseSize": "string",
-      "cumCloseValue": "string",
-      "cumCloseFee": "string",
-      "cumFundingFee": "string",
-      "cumLiquidateFee": "string",
-      "createdTime": "string",
-      "updatedTime": "string",
-      "currentLeverage": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic Paginated Response
-
-### Properties
+### Generic Paginated Response
 
 | Name               | Type                           | Required | Constraints | Description                 | Notes                                                               |
 | ------------------ | ------------------------------ | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
 | dataList           | [[PositionTerm](#schemapositionterm)] | false    | none        | Data List                  | List of position term data.                                                    |
 | nextPageOffsetData | string                         | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_PositionTerm">PositionTerm</h2>
 
 <a id="schemapositionterm"></a>
-<a id="schema_PositionTerm"></a>
-<a id="tocSpositionterm"></a>
-<a id="tocspositionterm"></a>
-
-```json
-{
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "termCount": 0,
-  "cumOpenSize": "string",
-  "cumOpenValue": "string",
-  "cumOpenFee": "string",
-  "cumCloseSize": "string",
-  "cumCloseValue": "string",
-  "cumCloseFee": "string",
-  "cumFundingFee": "string",
-  "cumLiquidateFee": "string",
-  "createdTime": "string",
-  "updatedTime": "string",
-  "currentLeverage": "string"
-}
-```
-
-Position term information.
-
-### Properties
+### Position term information
 
 | Name            | Type          | Required | Constraints | Description                         | Notes                                                                        |
 | --------------- | ------------- | -------- | ----------- | ----------------------------------- | ---------------------------------------------------------------------------- |
@@ -2850,153 +1555,22 @@ Position term information.
 | updatedTime     | string(int64) | false    | none        | Update Time                        | Update time.                                                                      |
 | currentLeverage | string        | false    | none        | Leverage at Close             | Leverage multiple at the time of close position.                                                      |
 
-<h2 id="tocS_Result<List<PositionTransaction>>">Result&lt;List&lt;PositionTransaction&gt;&gt;</h2>
 
-<a id="schemaresult<list<positiontransaction>>"></a>
-<a id="schema_Result<List<PositionTransaction>>"></a>
-<a id="tocSresult<list<positiontransaction>>"></a>
-<a id="tocsresult<list<positiontransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "type": "UNKNOWN_POSITION_TRANSACTION_TYPE",
-      "deltaOpenSize": "string",
-      "deltaOpenValue": "string",
-      "deltaOpenFee": "string",
-      "deltaFundingFee": "string",
-      "beforeOpenSize": "string",
-      "beforeOpenValue": "string",
-      "beforeOpenFee": "string",
-      "beforeFundingFee": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "collateralTransactionId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="positiontransaction"></a>
+### positiontransaction
 
 | Name           | Type                                 | Required | Constraints | Description        | Notes                                                                  |
 | -------------- | ------------------------------------ | -------- | ----------- | ------------------ | ---------------------------------------------------------------------- |
 | code           | string                               | false    | none        | Status Code        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [[PositionTransaction](#schemapositiontransaction)] | false    | none        | Response Data     | Correct response data.                                                  |
 | errorParam     | object                               | false    | none        | Error Parameters   | Error message parameter information                                     |
-| » **additionalProperties** | string                               | false    | none        | Error Parameters   | Error message parameter information                                     |
 | requestTime    | string(timestamp)                    | false    | none        | Server Request Time | Time at which the server received the request                           |
 | responseTime   | string(timestamp)                    | false    | none        | Server Response Time| Time at which the server sent the response                              |
 | traceId        | string                               | false    | none        | Trace ID           | Invocation trace ID                                                  |
 
-<h2 id="tocS_PositionTransaction">PositionTransaction</h2>
 
 <a id="schemapositiontransaction"></a>
-<a id="schema_PositionTransaction"></a>
-<a id="tocSpositiontransaction"></a>
-<a id="tocspositiontransaction"></a>
-
-```json
-{
-  "id": "string",
-  "userId": "string",
-  "accountId": "string",
-  "coinId": "string",
-  "contractId": "string",
-  "type": "UNKNOWN_POSITION_TRANSACTION_TYPE",
-  "deltaOpenSize": "string",
-  "deltaOpenValue": "string",
-  "deltaOpenFee": "string",
-  "deltaFundingFee": "string",
-  "beforeOpenSize": "string",
-  "beforeOpenValue": "string",
-  "beforeOpenFee": "string",
-  "beforeFundingFee": "string",
-  "fillCloseSize": "string",
-  "fillCloseValue": "string",
-  "fillCloseFee": "string",
-  "fillOpenSize": "string",
-  "fillOpenValue": "string",
-  "fillOpenFee": "string",
-  "fillPrice": "string",
-  "liquidateFee": "string",
-  "realizePnl": "string",
-  "isLiquidate": true,
-  "isDeleverage": true,
-  "fundingTime": "string",
-  "fundingRate": "string",
-  "fundingIndexPrice": "string",
-  "fundingOraclePrice": "string",
-  "fundingPositionSize": "string",
-  "orderId": "string",
-  "orderFillTransactionId": "string",
-  "collateralTransactionId": "string",
-  "forceTradeId": "string",
-  "extraType": "string",
-  "extraDataJson": "string",
-  "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-  "censorTxId": "string",
-  "censorTime": "string",
-  "censorFailCode": "string",
-  "censorFailReason": "string",
-  "l2TxId": "string",
-  "l2RejectTime": "string",
-  "l2RejectCode": "string",
-  "l2RejectReason": "string",
-  "l2ApprovedTime": "string",
-  "createdTime": "string",
-  "updatedTime": "string"
-}
-```
-
-Perpetual contract position transaction details.
-
-### Properties
+### Perpetual contract position transaction details
 
 | Name                    | Type          | Required | Constraints | Description                                                                              | Notes                                                                                            |
 | ----------------------- | ------------- | -------- | ----------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -3068,364 +1642,26 @@ Perpetual contract position transaction details.
 | censorStatus | L2_REJECT_APPROVED            |
 | censorStatus | UNRECOGNIZED                  |
 
-<h2 id="tocS_Result<PageData<PositionTransaction>>">Result&lt;PageData&lt;PositionTransaction&gt;&gt;</h2>
 
-<a id="schemaresult<pagedata<positiontransaction>>"></a>
-<a id="schema_Result<PageData<PositionTransaction>>"></a>
-<a id="tocSresult<pagedata<positiontransaction>>"></a>
-<a id="tocsresult<pagedata<positiontransaction>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "id": "string",
-        "userId": "string",
-        "accountId": "string",
-        "coinId": "string",
-        "contractId": "string",
-        "type": "UNKNOWN_POSITION_TRANSACTION_TYPE",
-        "deltaOpenSize": "string",
-        "deltaOpenValue": "string",
-        "deltaOpenFee": "string",
-        "deltaFundingFee": "string",
-        "beforeOpenSize": "string",
-        "beforeOpenValue": "string",
-        "beforeOpenFee": "string",
-        "beforeFundingFee": "string",
-        "fillCloseSize": "string",
-        "fillCloseValue": "string",
-        "fillCloseFee": "string",
-        "fillOpenSize": "string",
-        "fillOpenValue": "string",
-        "fillOpenFee": "string",
-        "fillPrice": "string",
-        "liquidateFee": "string",
-        "realizePnl": "string",
-        "isLiquidate": true,
-        "isDeleverage": true,
-        "fundingTime": "string",
-        "fundingRate": "string",
-        "fundingIndexPrice": "string",
-        "fundingOraclePrice": "string",
-        "fundingPositionSize": "string",
-        "orderId": "string",
-        "orderFillTransactionId": "string",
-        "collateralTransactionId": "string",
-        "forceTradeId": "string",
-        "extraType": "string",
-        "extraDataJson": "string",
-        "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-        "censorTxId": "string",
-        "censorTime": "string",
-        "censorFailCode": "string",
-        "censorFailReason": "string",
-        "l2TxId": "string",
-        "l2RejectTime": "string",
-        "l2RejectCode": "string",
-        "l2RejectReason": "string",
-        "l2ApprovedTime": "string",
-        "createdTime": "string",
-        "updatedTime": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="PositiontransactionPage"></a>
+### PositiontransactionPage
 
 | Name           | Type                                       | Required | Constraints | Description                        | Notes                                                                  |
 | -------------- | ------------------------------------------ | -------- | ----------- | ---------------------------------- | ---------------------------------------------------------------------- |
 | code           | string                                     | false    | none        | Status Code                        | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
 | data           | [PageDataPositionTransaction](#schemapagedatapositiontransaction) | false    | none        | Generic Paginated Response         | Generic paginated response.                                                              |
 | errorParam     | object                                     | false    | none        | Error Parameters                   | Error message parameter information                                     |
-| » **additionalProperties** | string                                     | false    | none        | Error Parameters                   | Error message parameter information                                     |
 | requestTime    | string(timestamp)                          | false    | none        | Server Request Time               | Time at which the server received the request                           |
 | responseTime   | string(timestamp)                          | false    | none        | Server Response Time              | Time at which the server sent the response                              |
 | traceId        | string                                     | false    | none        | Trace ID                          | Invocation trace ID                                                  |
 
-<h2 id="tocS_PageDataPositionTransaction">PageDataPositionTransaction</h2>
 
 <a id="schemapagedatapositiontransaction"></a>
-<a id="schema_PageDataPositionTransaction"></a>
-<a id="tocSpagedatapositiontransaction"></a>
-<a id="tocspagedatapositiontransaction"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "id": "string",
-      "userId": "string",
-      "accountId": "string",
-      "coinId": "string",
-      "contractId": "string",
-      "type": "UNKNOWN_POSITION_TRANSACTION_TYPE",
-      "deltaOpenSize": "string",
-      "deltaOpenValue": "string",
-      "deltaOpenFee": "string",
-      "deltaFundingFee": "string",
-      "beforeOpenSize": "string",
-      "beforeOpenValue": "string",
-      "beforeOpenFee": "string",
-      "beforeFundingFee": "string",
-      "fillCloseSize": "string",
-      "fillCloseValue": "string",
-      "fillCloseFee": "string",
-      "fillOpenSize": "string",
-      "fillOpenValue": "string",
-      "fillOpenFee": "string",
-      "fillPrice": "string",
-      "liquidateFee": "string",
-      "realizePnl": "string",
-      "isLiquidate": true,
-      "isDeleverage": true,
-      "fundingTime": "string",
-      "fundingRate": "string",
-      "fundingIndexPrice": "string",
-      "fundingOraclePrice": "string",
-      "fundingPositionSize": "string",
-      "orderId": "string",
-      "orderFillTransactionId": "string",
-      "collateralTransactionId": "string",
-      "forceTradeId": "string",
-      "extraType": "string",
-      "extraDataJson": "string",
-      "censorStatus": "UNKNOWN_TRANSACTION_STATUS",
-      "censorTxId": "string",
-      "censorTime": "string",
-      "censorFailCode": "string",
-      "censorFailReason": "string",
-      "l2TxId": "string",
-      "l2RejectTime": "string",
-      "l2RejectCode": "string",
-      "l2RejectReason": "string",
-      "l2ApprovedTime": "string",
-      "createdTime": "string",
-      "updatedTime": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic Paginated Response
-
-### Properties
+### Generic Paginated Response
 
 | Name               | Type                                  | Required | Constraints | Description                 | Notes                                                               |
 | ------------------ | ------------------------------------- | -------- | ----------- | --------------------------- | ------------------------------------------------------------------- |
 | dataList           | [[PositionTransaction](#schemapositiontransaction)] | false    | none        | Data List                  | List of position transaction data.                                          |
 | nextPageOffsetData | string                                | false    | none        | Next Page Offset        | Offset for retrieving the next page. If no next page data, empty string. |
 
-<h2 id="tocS_Result<RegisterAccount>">Result&lt;RegisterAccount&gt;</h2>
 
-<a id="schemaresult<registeraccount>"></a>
-<a id="schema_Result<RegisterAccount>"></a>
-<a id="tocSresult<registeraccount>"></a>
-<a id="tocsresult<registeraccount>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "accountId": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
-
-| Name           | Type                      | Required | Constraints | Description          | Notes                                                                  |
-| -------------- | ------------------------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
-| code           | string                    | false    | none        | Status Code          | Returns "SUCCESS" on success; otherwise, it indicates failure.          |
-| data           | [RegisterAccount](#schemaregisteraccount) | false    | none        | Register Account Response | Response structure for registering an account.                         |
-| errorParam     | object                    | false    | none        | Error Parameters     | Error message parameter information                                     |
-| » **additionalProperties** | string                    | false    | none        | Error Parameters     | Error message parameter information                                     |
-| requestTime    | string(timestamp)         | false    | none        | Server Request Time  | Time at which the server received the request                           |
-| responseTime   | string(timestamp)         | false    | none        | Server Response Time | Time at which the server sent the response                              |
-| traceId        | string                    | false    | none        | Trace ID             | Invocation trace ID                                                  |
-
-<h2 id="tocS_RegisterAccount">RegisterAccount</h2>
-
-<a id="schemaregisteraccount"></a>
-<a id="schema_RegisterAccount"></a>
-<a id="tocSregisteraccount"></a>
-<a id="tocsregisteraccount"></a>
-
-```json
-{
-  "accountId": "string"
-}
-```
-
-Response structure for registering an account.
-
-### Properties
-
-| Name      | Type          | Required | Constraints | Description | Notes             |
-| --------- | ------------- | -------- | ----------- | ----------- | ----------------- |
-| accountId | string(int64) | false    | none        | Account ID  | Account ID.       |
-
-<h2 id="tocS_RegisterAccountParam">RegisterAccountParam</h2>
-
-<a id="schemaregisteraccountparam"></a>
-<a id="schema_RegisterAccountParam"></a>
-<a id="tocSregisteraccountparam"></a>
-<a id="tocsregisteraccountparam"></a>
-
-```json
-{
-  "l2Key": "string",
-  "l2KeyYCoordinate": "string",
-  "clientAccountId": "string"
-}
-```
-
-Request structure for registering an account.
-
-### Properties
-
-| Name             | Type   | Required | Constraints | Description                                                                         | Notes                                                           |
-| ---------------- | ------ | -------- | ----------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| l2Key            | string | false    | none        | L2 Account Key                                                                      | Account key on L2, globally unique. Stark key in starkEx. Bigint for hex string. |
-| l2KeyYCoordinate | string | false    | none        | L2 Key Y Coordinate                                                               | Used only for verifying l2Signature. Not returned to end users. Bigint for hex string. |
-| clientAccountId  | string | false    | none        | Client Account ID                                                                   | Client account ID for idempotency check.                         |
-
-<h2 id="tocS_UpdateFeeSettingParam">UpdateFeeSettingParam</h2>
-
-<a id="schemaupdatefeesettingparam"></a>
-<a id="schema_UpdateFeeSettingParam"></a>
-<a id="tocSupdatefeesettingparam"></a>
-<a id="tocsupdatefeesettingparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "isSetFeeRate": true,
-  "takerFeeRate": "string",
-  "makerFeeRate": "string",
-  "isSetFeeDiscount": true,
-  "takerFeeDiscount": "string",
-  "makerFeeDiscount": "string"
-}
-```
-
-Request structure for updating account trading fee settings.
-
-### Properties
-
-| Name             | Type          | Required | Constraints | Description                                                                                        | Notes                                                                                             |
-| ---------------- | ------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| accountId        | string(int64) | false    | none        | Account ID                                                                                           | Account ID.                                                                                        |
-| contractId       | string(int64) | false    | none        | Contract ID                                                                                       | Contract ID, if 0, will change the default fee settings for the account.                               |
-| isSetFeeRate     | boolean       | false    | none        | Whether Fee Rate Is Set                                                                            | Whether to set a specific fee rate value.                                                                |
-| takerFeeRate     | string        | false    | none        | Taker Fee Rate                                                                                     | Taker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
-| makerFeeRate     | string        | false    | none        | Maker Fee Rate                                                                                     | Maker fee rate, range [0, 1), valid only when is_set_fee_rate=true.                                 |
-| isSetFeeDiscount | boolean       | false    | none        | Whether Fee Discount Is Set                                                                       | Whether to set a fee discount.                                                                    |
-| takerFeeDiscount | string        | false    | none        | Taker Fee Discount                                                                                  | Taker fee discount.                                                                         |
-| makerFeeDiscount | string        | false    | none        | Maker Fee Discount                                                                                  | Maker fee discount.                                                                        |
-
-<h2 id="tocS_Result">Result</h2>
-
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-Generic response structure.
-
-### Properties
-
-| Name         | Type    | Required | Constraints | Description                                       | Notes                                                               |
-| ------------ | ------- | -------- | ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
-| code         | string  | false    | none        | Status Code                                       | Returns "SUCCESS" on success; otherwise, it indicates failure.        |
-| msg          | string  | false    | none        | Detailed Error Message                            | Detailed error message when an error occurs.                            |
-| requestTime  | string(int64) | false    | none        | Server Request Time                             | Time at which the server received the request.                             |
-| responseTime | string(int64) | false    | none        | Server Response Time                            | Time at which the server sent the response.                            |
-
-<h2 id="tocS_Result<Void>">Result&lt;Void&gt;</h2>
-
-<a id="schemaresult<void>"></a>
-<a id="schema_Result<Void>"></a>
-<a id="tocSresult<void>"></a>
-<a id="tocsresult<void>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {},
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
-
-| Name           | Type     | Required | Constraints | Description          | Notes                                                                  |
-| -------------- | -------- | -------- | ----------- | -------------------- | ---------------------------------------------------------------------- |
-| code           | string   | false    | none        | Status Code          | Returns "SUCCESS" onsuccess; otherwise, it indicates failure.          |
-| data           | object   | false    | none        | Response Data        | Correct response data.                                                  |
-| errorParam     | object   | false    | none        | Error Parameters     | Error message parameter information                                     |
-| » **additionalProperties** | string   | false    | none        | Error Parameters     | Error message parameter information                                     |
-| requestTime    | string(timestamp) | false    | none        | Server Request Time  | Time at which the server received the request                           |
-| responseTime   | string(timestamp) | false    | none        | Server Response Time | Time at which the server sent the response                              |
-| traceId        | string   | false    | none        | Trace ID             | Invocation trace ID                                                  |
-
-<h2 id="tocS_UpdateLeverageSettingParam">UpdateLeverageSettingParam</h2>
-
-<a id="schemaupdateleveragesettingparam"></a>
-<a id="schema_UpdateLeverageSettingParam"></a>
-<a id="tocSupdateleveragesettingparam"></a>
-<a id="tocsupdateleveragesettingparam"></a>
-
-```json
-{
-  "accountId": "string",
-  "contractId": "string",
-  "leverage": "string"
-}
-```
-
-Request structure for updating account trading leverage settings.
-
-### Properties
-
-| Name       | Type          | Required | Constraints | Description                                                                    | Notes                                                                                    |
-| ---------- | ------------- | -------- | ----------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| accountId  | string(int64) | false    | none        | Account ID                                                                      | Account ID.                                                                              |
-| contractId | string(int64) | false    | none        | Contract ID                                                                   | Contract ID, if 0, will change the default leverage settings for the account.                     |
-| leverage   | string        | false    | none        | Leverage Multiple                                                                    | Leverage multiple.                                                      |

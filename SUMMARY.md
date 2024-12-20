@@ -23,7 +23,7 @@
   * [Liquidation Logic](trading/liquidation-logic.md)
 * [API Doc](api/README.md)
   * [Public API](api/public-api/README.md)
-    * [Meta Data API](api/public-api/meta-data-api.md)
+    * [Meta Data API](api/public-api/metadata-api.md)
     * [Quote API](api/public-api/quote-api.md)
     * [Funding API](api/public-api/funding-api.md)
   * [Private API](api/private-api/README.md)

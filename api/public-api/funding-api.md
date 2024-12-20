@@ -18,10 +18,36 @@ GET /api/v1/public/funding/getLatestFundingRate
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "contractId": "10000001",
+            "fundingTime": "1734595200000",
+            "fundingTimestamp": "1734597720000",
+            "oraclePrice": "101559.9220921285450458526611328125",
+            "indexPrice": "101522.558968500",
+            "fundingRate": "-0.00005537",
+            "isSettlement": false,
+            "forecastFundingRate": "-0.00012293",
+            "previousFundingRate": "0.00000567",
+            "previousFundingTimestamp": "1734595140000",
+            "premiumIndex": "-0.00036207",
+            "avgPremiumIndex": "-0.00032293",
+            "premiumIndexTimestamp": "1734597720000",
+            "impactMarginNotional": "100",
+            "impactAskPrice": "101485.8",
+            "impactBidPrice": "101484.7",
+            "interestRate": "0.0003",
+            "predictedFundingRate": "0.00005000",
+            "fundingRateIntervalMin": "240",
+            "starkExFundingIndex": "101559.9220921285450458526611328125"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734597737870",
+    "responseTime": "1734597737873",
+    "traceId": "5e27ebfb0ae79f51bbd347d2bf3585f9"
 }
 ```
 
@@ -29,7 +55,7 @@ GET /api/v1/public/funding/getLatestFundingRate
 
 |Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemapagedatafundingrate>)|
 
 <a id="opIdgetFundingRatePage"></a>
 
@@ -54,10 +80,39 @@ GET /api/v1/public/funding/getFundingRatePage
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "contractId": "10000001",
+                "fundingTime": "1733702400000",
+                "fundingTimestamp": "1733702400000",
+                "oraclePrice": "101120.888977311551570892333984375",
+                "indexPrice": "101121.681521500",
+                "fundingRate": "0.00005000",
+                "isSettlement": true,
+                "forecastFundingRate": "",
+                "previousFundingRate": "0.00005000",
+                "previousFundingTimestamp": "1733702340000",
+                "premiumIndex": "0.00022566",
+                "avgPremiumIndex": "0.00017953",
+                "premiumIndexTimestamp": "1733702400000",
+                "impactMarginNotional": "500",
+                "impactAskPrice": "101269.6",
+                "impactBidPrice": "101269.1",
+                "interestRate": "0.0003",
+                "predictedFundingRate": "0.00005000",
+                "fundingRateIntervalMin": "240",
+                "starkExFundingIndex": "101120.888977311551570892333984375"
+            }
+        ],
+        "nextPageOffsetData": "0880A08A97B532"
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734597585432",
+    "responseTime": "1734597586672",
+    "traceId": "02465a59be5d19088ba7e4b5c6b94f6d"
 }
 ```
 
@@ -65,153 +120,46 @@ GET /api/v1/public/funding/getFundingRatePage
 
 |Status Code|Status Code Description|Description|Data Model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#schemaresult)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|default response|[Result](#pagedatafundingrate>)|
 
 # Data Models
 
-<h2 id="tocS_Result<PageData<FundingRate>>">Result<PageData<FundingRate>></h2>
-
-<a id="schemaresult<pagedata<fundingrate>>"></a>
-<a id="schema_Result<PageData<FundingRate>>"></a>
-<a id="tocSresult<pagedata<fundingrate>>"></a>
-<a id="tocsresult<pagedata<fundingrate>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "contractId": "string",
-        "fundingTime": "string",
-        "fundingTimestamp": "string",
-        "oraclePrice": "string",
-        "indexPrice": "string",
-        "fundingRate": "string",
-        "isSettlement": true,
-        "forecastFundingRate": "string",
-        "previousFundingRate": "string",
-        "previousFundingTimestamp": "string",
-        "premiumIndex": "string",
-        "avgPremiumIndex": "string",
-        "premiumIndexTimestamp": "string",
-        "impactMarginNotional": "string",
-        "impactAskPrice": "string",
-        "impactBidPrice": "string",
-        "interestRate": "string",
-        "predictedFundingRate": "string",
-        "fundingRateIntervalMin": "string",
-        "starkExFundingIndex": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
+<a id="pagedatafundingrate"></a>
+### Funding Rate page data Response
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |code|string|false|none|Status code. "SUCCESS" for success, otherwise indicates failure|
 |data|[PageDataFundingRate](#schemapagedatafundingrate)|false|none|General pagination response|
 |errorParam|object|false|none|Parameter information in the error message|
-|» **additionalProperties**|string|false|none|Parameter information in the error message|
 |requestTime|string(timestamp)|false|none|Server request reception time|
 |responseTime|string(timestamp)|false|none|Server response time|
 |traceId|string|false|none|Call trace ID|
 
-<h2 id="tocS_PageDataFundingRate">PageDataFundingRate</h2>
 
 <a id="schemapagedatafundingrate"></a>
-<a id="schema_PageDataFundingRate"></a>
-<a id="tocSpagedatafundingrate"></a>
-<a id="tocspagedatafundingrate"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "contractId": "string",
-      "fundingTime": "string",
-      "fundingTimestamp": "string",
-      "oraclePrice": "string",
-      "indexPrice": "string",
-      "fundingRate": "string",
-      "isSettlement": true,
-      "forecastFundingRate": "string",
-      "previousFundingRate": "string",
-      "previousFundingTimestamp": "string",
-      "premiumIndex": "string",
-      "avgPremiumIndex": "string",
-      "premiumIndexTimestamp": "string",
-      "impactMarginNotional": "string",
-      "impactAskPrice": "string",
-      "impactBidPrice": "string",
-      "interestRate": "string",
-      "predictedFundingRate": "string",
-      "fundingRateIntervalMin": "string",
-      "starkExFundingIndex": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-
-```
-
-General pagination response
-
-### Properties
+### Funding rate pagination
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
 |dataList|[[FundingRate](#schemafundingrate)]|false|none|Data list|
 |nextPageOffsetData|string|false|none|Offset data to retrieve the next page. Empty string if there is no next page|
 
-<h2 id="tocS_FundingRate">FundingRate</h2>
+<a id="listfundingrate"></a>
+### Funding rate List Response
+
+|Name|Type|Required|Constraints|Description|
+|---|---|---|---|---|
+|code|string|false|none|Status code. "SUCCESS" for success, otherwise indicates failure|
+|data|[[FundingRate](#schemafundingrate)]|false|none|Successful response data|
+|errorParam|object|false|none|Parameter information in the error message|
+|requestTime|string(timestamp)|false|none|Server request reception time|
+|responseTime|string(timestamp)|false|none|Server response time|
+|traceId|string|false|none|Call trace ID|
+
 
 <a id="schemafundingrate"></a>
-<a id="schema_FundingRate"></a>
-<a id="tocSfundingrate"></a>
-<a id="tocsfundingrate"></a>
-
-```json
-{
-  "contractId": "string",
-  "fundingTime": "string",
-  "fundingTimestamp": "string",
-  "oraclePrice": "string",
-  "indexPrice": "string",
-  "fundingRate": "string",
-  "isSettlement": true,
-  "forecastFundingRate": "string",
-  "previousFundingRate": "string",
-  "previousFundingTimestamp": "string",
-  "premiumIndex": "string",
-  "avgPremiumIndex": "string",
-  "premiumIndexTimestamp": "string",
-  "impactMarginNotional": "string",
-  "impactAskPrice": "string",
-  "impactBidPrice": "string",
-  "interestRate": "string",
-  "predictedFundingRate": "string",
-  "fundingRateIntervalMin": "string",
-  "starkExFundingIndex": "string"
-}
-
-```
-
-Funding rate
-
-### Properties
+### Funding Rate
 
 |Name|Type|Required|Constraints|Description|
 |---|---|---|---|---|
@@ -236,87 +184,4 @@ Funding rate
 |fundingRateIntervalMin|string(int64)|false|none|Funding rate time interval in minutes|
 |starkExFundingIndex|string|false|none|StarkEx funding index|
 
-<h2 id="tocS_Result<List<FundingRate>>">Result<List<FundingRate>></h2>
 
-<a id="schemaresult<list<fundingrate>>"></a>
-<a id="schema_Result<List<FundingRate>>"></a>
-<a id="tocSresult<list<fundingrate>>"></a>
-<a id="tocsresult<list<fundingrate>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "fundingTime": "string",
-      "fundingTimestamp": "string",
-      "oraclePrice": "string",
-      "indexPrice": "string",
-      "fundingRate": "string",
-      "isSettlement": true,
-      "forecastFundingRate": "string",
-      "previousFundingRate": "string",
-      "previousFundingTimestamp": "string",
-      "premiumIndex": "string",
-      "avgPremiumIndex": "string",
-      "premiumIndexTimestamp": "string",
-      "impactMarginNotional": "string",
-      "impactAskPrice": "string",
-      "impactBidPrice": "string",
-      "interestRate": "string",
-      "predictedFundingRate": "string",
-      "fundingRateIntervalMin": "string",
-      "starkExFundingIndex": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|code|string|false|none|Status code. "SUCCESS" for success, otherwise indicates failure|
-|data|[[FundingRate](#schemafundingrate)]|false|none|Successful response data|
-|errorParam|object|false|none|Parameter information in the error message|
-|» **additionalProperties**|string|false|none|Parameter information in the error message|
-|requestTime|string(timestamp)|false|none|Server request reception time|
-|responseTime|string(timestamp)|false|none|Server response time|
-|traceId|string|false|none|Call trace ID|
-
-<h2 id="tocS_Result">Result</h2>
-
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-
-```
-
-General response structure
-
-### Properties
-
-|Name|Type|Required|Constraints|Description|
-|---|---|---|---|---|
-|code|string|false|none|Status code. "SUCCESS" for success, otherwise indicates failure|
-|msg|string|false|none|Detailed error message when an error occurs|
-|requestTime|string(int64)|false|none|Server request reception time|
-|responseTime|string(int64)|false|none|Server response time|

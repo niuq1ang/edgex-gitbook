@@ -18,10 +18,20 @@ GET /api/v1/public/quote/getTicketSummary
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "tickerSummary": {
+            "period": "LAST_DAY_1",
+            "trades": "31450",
+            "value": "201048203.7979",
+            "openInterest": "13.565"
+        }
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734596957000",
+    "responseTime": "1734596957003",
+    "traceId": "574a8b43497ebd0bca55d0b257d034fa"
 }
 ```
 
@@ -29,7 +39,7 @@ GET /api/v1/public/quote/getTicketSummary
 
 | Status Code | Status Code Meaning     | Description       | Data Model      |
 |-------------|-------------------------|-------------------|-----------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#gettickersummarymodel) |
 
 <a id="opIdgetTicker"></a>
 
@@ -49,40 +59,38 @@ GET /api/v1/public/quote/getTicker
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "contractName": "string",
-      "priceChange": "string",
-      "priceChangePercent": "string",
-      "trades": "string",
-      "size": "string",
-      "value": "string",
-      "high": "string",
-      "low": "string",
-      "open": "string",
-      "close": "string",
-      "highTime": "string",
-      "lowTime": "string",
-      "startTime": "string",
-      "endTime": "string",
-      "lastPrice": "string",
-      "indexPrice": "string",
-      "oraclePrice": "string",
-      "openInterest": "string",
-      "fundingRate": "string",
-      "fundingTime": "string",
-      "nextFundingTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    "code": "SUCCESS",
+    "data": [
+        {
+            "contractId": "10000001",
+            "contractName": "BTCUSDT",
+            "priceChange": "-2270.5",
+            "priceChangePercent": "-0.021849",
+            "trades": "79372",
+            "size": "499.487",
+            "value": "50821443.7464",
+            "high": "105331.5",
+            "low": "98755.0",
+            "open": "103913.2",
+            "close": "101642.7",
+            "highTime": "1734524115631",
+            "lowTime": "1734575388228",
+            "startTime": "1734510600000",
+            "endTime": "1734597000000",
+            "lastPrice": "101642.7",
+            "indexPrice": "101676.380723500",
+            "oraclePrice": "101636.3750002346932888031005859375",
+            "openInterest": "0.105",
+            "fundingRate": "-0.00012236",
+            "fundingTime": "1734595200000",
+            "nextFundingTime": "1734609600000"
+        }
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734597508246",
+    "responseTime": "1734597508250",
+    "traceId": "a49014b0ad76a121193d4717294f85fc"
 }
 ```
 
@@ -90,43 +98,8 @@ GET /api/v1/public/quote/getTicker
 
 | Status Code | Status Code Meaning     | Description       | Data Model |
 |-------------|-------------------------|-------------------|------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultlistticker) |
 
-### Response Data Structure
-
-<a id="opIdgetStatDayTrade"></a>
-
-## GET Get Daily Trading Statistics
-
-GET /api/v1/public/quote/getStatDayTrade
-
-### Request Parameters
-
-| Name                    | Location | Type   | Required | Description                                 |
-|-------------------------|----------|--------|----------|---------------------------------------------|
-| startDayTimeInclusive   | query    | string | No       | Filter to get trade statistics from the specified start time |
-| endDayTimeExclusive     | query    | string | No       | Filter to get daily trade statistics up to the specified end time |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Meaning     | Description       | Data Model      |
-|-------------|-------------------------|-------------------|-----------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
-
-<a id="opIdgetMultiContractKline"></a>
 
 ## GET Query Multi-Contract Quantitative K-Line
 
@@ -143,52 +116,58 @@ GET /api/v1/public/quote/getMultiContractKline
 | filterBeginKlineTimeInclusive | query    | string | No       | Query start time (if 0, means from current time). Returns in descending order by time |
 | filterEndKlineTimeExclusive   | query    | string | No       | Query end time                           |
 
+> Request Example
+```text
+https://pro.edgex.exchange/api/v1/public/quote/getMultiContractKline?contractIdList=10000001&klineType=HOUR_1&filterBeginKlineTimeInclusive=1733416860000&filterEndKlineTimeExclusive=1734601200000&priceType=LAST_PRICE
+```
+
+
+
 > Response Example
 
 > 200 Response
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "klineList": [
+    "code": "SUCCESS",
+    "data": [
         {
-          "klineId": "string",
-          "contractId": "string",
-          "contractName": "string",
-          "klineType": "UNKNOWN_KLINE_TYPE",
-          "klineTime": "string",
-          "priceType": "UNKNOWN_PRICE_TYPE",
-          "trades": "string",
-          "size": "string",
-          "value": "string",
-          "high": "string",
-          "low": "string",
-          "open": "string",
-          "close": "string",
-          "makerBuySize": "string",
-          "makerBuyValue": "string"
+            "contractId": "10000001",
+            "klineList": [
+                {
+                    "klineId": "687194849731486048",
+                    "contractId": "10000001",
+                    "contractName": "BTCUSDT",
+                    "klineType": "HOUR_1",
+                    "klineTime": "1734595200000",
+                    "priceType": "LAST_PRICE",
+                    "trades": "3123",
+                    "size": "7.947",
+                    "value": "807240.1268",
+                    "high": "101798.4",
+                    "low": "101326.3",
+                    "open": "101603.8",
+                    "close": "101605.6",
+                    "makerBuySize": "5.222",
+                    "makerBuyValue": "530431.6634"
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734601896988",
+    "responseTime": "1734601897009",
+    "traceId": "7edd9609a0c5976c1cb58bdee3d08088"
 }
+
 ```
 
 ### Response
 
 | Status Code | Status Code Meaning     | Description       | Data Model |
 |-------------|-------------------------|-------------------|------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultlistcontractkline) |
 
 ### Response Data Structure
 
@@ -210,16 +189,45 @@ GET /api/v1/public/quote/getKline
 | filterBeginKlineTimeInclusive | query    | string | No       | Query start time (if 0, means from current time). Returns in descending order by time |
 | filterEndKlineTimeExclusive   | query    | string | No       | Query end time                           |
 
+> Request Example
+```
+https://pro.edgex.exchange/api/v1/public/quote/getKline?contractId=10000002&klineType=HOUR_1&filterBeginKlineTimeInclusive=1733416860000&filterEndKlineTimeExclusive=1734601200000&priceType=LAST_PRICE
+```
+
 > Response Example
 
 > 200 Response
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "dataList": [
+            {
+                "klineId": "687194918450962784",
+                "contractId": "10000002",
+                "contractName": "ETHUSDT",
+                "klineType": "HOUR_1",
+                "klineTime": "1734595200000",
+                "priceType": "LAST_PRICE",
+                "trades": "3142",
+                "size": "111.96",
+                "value": "412199.6286",
+                "high": "3694.59",
+                "low": "3667.42",
+                "open": "3694.57",
+                "close": "3670.42",
+                "makerBuySize": "52.21",
+                "makerBuyValue": "192147.4907"
+            }
+        ],
+        "nextPageOffsetData": ""
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734601267556",
+    "responseTime": "1734601267581",
+    "traceId": "72cfd2eeb27fc602aa64990ad84cd8dd"
 }
 ```
 
@@ -227,7 +235,7 @@ GET /api/v1/public/quote/getKline
 
 | Status Code | Status Code Meaning     | Description       | Data Model      |
 |-------------|-------------------------|-------------------|-----------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultpagedatakline) |
 
 <a id="opIdgetExchangeLongShortRatio"></a>
 
@@ -249,10 +257,34 @@ GET /api/v1/public/quote/getExchangeLongShortRatio
 
 ```json
 {
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
+    "code": "SUCCESS",
+    "data": {
+        "exchangeLongShortRatioList": [
+            {
+                "range": "30m",
+                "contractId": "10000001",
+                "exchange": "_total_",
+                "buyRatio": "50.9900",
+                "sellRatio": "49.0100",
+                "buyVolUsd": "567855766.2701",
+                "sellVolUsd": "545892952.7900",
+                "createdTime": "1734597018839",
+                "updatedTime": "1734597018839"
+            }
+        ],
+        "allRangeList": [
+            "30m",
+            "1h",
+            "4h",
+            "12h",
+            "24h"
+        ]
+    },
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734597836994",
+    "responseTime": "1734597837001",
+    "traceId": "60af97ec1357f9d00da50bada9e4364c"
 }
 ```
 
@@ -260,7 +292,7 @@ GET /api/v1/public/quote/getExchangeLongShortRatio
 
 | Status Code | Status Code Meaning     | Description       | Data Model      |
 |-------------|-------------------------|-------------------|-----------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#gettickersummarymodel) |
 
 <a id="opIdgetDepth"></a>
 
@@ -281,36 +313,50 @@ GET /api/v1/public/quote/getDepth
 
 ```json
 {
-  "code": "string",
-  "data": [
-    {
-      "startVersion": "string",
-      "endVersion": "string",
-      "level": 0,
-      "contractId": "string",
-      "contractName": "string",
-      "asks": [
+    "code": "SUCCESS",
+    "data": [
         {
-          "price": "string",
-          "size": "string"
+            "startVersion": "201223746",
+            "endVersion": "201223747",
+            "level": 15,
+            "contractId": "10000001",
+            "contractName": "BTCUSDT",
+            "asks": [
+                {
+                    "price": "101695.9",
+                    "size": "0.579"
+                },
+                {
+                    "price": "101696.0",
+                    "size": "0.923"
+                },
+                {
+                    "price": "101703.0",
+                    "size": "0.129"
+                }
+            ],
+            "bids": [
+                {
+                    "price": "101695.5",
+                    "size": "1.710"
+                },
+                {
+                    "price": "101694.1",
+                    "size": "0.189"
+                },
+                {
+                    "price": "101692.9",
+                    "size": "0.223"
+                }
+            ],
+            "depthType": "SNAPSHOT"
         }
-      ],
-      "bids": [
-        {
-          "price": "string",
-          "size": "string"
-        }
-      ],
-      "depthType": "UNKNOWN_DEPTH_TYPE"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
+    ],
+    "msg": null,
+    "errorParam": null,
+    "requestTime": "1734598036434",
+    "responseTime": "1734598036435",
+    "traceId": "99b69f04bac0df6e37961f249b9545e4"
 }
 ```
 
@@ -318,194 +364,26 @@ GET /api/v1/public/quote/getDepth
 
 | Status Code | Status Code Meaning     | Description       | Data Model |
 |-------------|-------------------------|-------------------|------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | Inline |
+| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresultlistdepth) |
 
 ### Response Data Structure
 
-<a id="opIdgetAccurateOpenInterest"></a>
-
-## GET Get Accurate Open Interest
-
-GET /api/v1/public/quote/getAccurateOpenInterest
-
-### Request Parameters
-
-| Name           | Location | Type   | Required | Description           |
-|----------------|----------|--------|----------|-----------------------|
-| contractIdList | query    | string | No       | Collection of Contract IDs |
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-### Response
-
-| Status Code | Status Code Meaning     | Description       | Data Model      |
-|-------------|-------------------------|-------------------|-----------------|
-| 200         | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | default response | [Result](#schemaresult) |
-
 # Data Models
 
-<h2 id="tocS_Result<List<OpenInterest>>">Result<List<OpenInterest>></h2>
-
-<a id="schemaresult<list<openinterest>>"></a>
-<a id="schema_Result<List<OpenInterest>>"></a>
-<a id="tocSresult<list<openinterest>>"></a>
-<a id="tocsresult<list<openinterest>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "timestamp": "string",
-      "size": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
-
-| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
-|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
-| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
-| data        | [[OpenInterest](#schemaopeninterest)] | false    | none        |              |  Correct response data                          |
-| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
-| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
-| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
-| traceId     | string                 | false    | none        |              | Call trace ID                              |
-
-<h2 id="tocS_OpenInterest">OpenInterest</h2>
-
-<a id="schemaopeninterest"></a>
-<a id="schema_OpenInterest"></a>
-<a id="tocSopeninterest"></a>
-<a id="tocsopeninterest"></a>
-
-```json
-{
-  "contractId": "string",
-  "timestamp": "string",
-  "size": "string"
-}
-```
-
-Open Interest
-
-### Properties
-
-| Name        | Type                | Required | Constraints | Chinese Name | Description        |
-|-------------|---------------------|----------|-------------|--------------|--------------------|
-| contractId  | string(int64)        | false    | none        |              | Contract ID        |
-| timestamp   | string              | false    | none        |              | Statistical timestamp|
-| size        | string(int64)        | false    | none        |              | Open Interest      |
-
-<h2 id="tocS_Result<List<Depth>>">Result<List<Depth>></h2>
-
-<a id="schemaresult<list<depth>>"></a>
-<a id="schema_Result<List<Depth>>"></a>
-<a id="tocSresult<list<depth>>"></a>
-<a id="tocsresult<list<depth>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "startVersion": "string",
-      "endVersion": "string",
-      "level": 0,
-      "contractId": "string",
-      "contractName": "string",
-      "asks": [
-        {
-          "price": "string",
-          "size": "string"
-        }
-      ],
-      "bids": [
-        {
-          "price": "string",
-          "size": "string"
-        }
-      ],
-      "depthType": "UNKNOWN_DEPTH_TYPE"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultlistdepth"></a>
+### Depth List Response
 
 | Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
 |-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
 | code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
 | data        | [[Depth](#schemadepth)] | false    | none        |              | Correct response data                           |
 | errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
 | requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
 | responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
 | traceId     | string                 | false    | none        |              | Call trace ID                              |
 
-<h2 id="tocS_Depth">Depth</h2>
-
 <a id="schemadepth"></a>
-<a id="schema_Depth"></a>
-<a id="tocSdepth"></a>
-<a id="tocsdepth"></a>
-
-```json
-{
-  "startVersion": "string",
-  "endVersion": "string",
-  "level": 0,
-  "contractId": "string",
-  "contractName": "string",
-  "asks": [
-    {
-      "price": "string",
-      "size": "string"
-    }
-  ],
-  "bids": [
-    {
-      "price": "string",
-      "size": "string"
-    }
-  ],
-  "depthType": "UNKNOWN_DEPTH_TYPE"
-}
-```
-
-Depth
-
-### Properties
+### Depth
 
 | Name        | Type                | Required | Constraints | Chinese Name | Description          |
 |-------------|---------------------|----------|-------------|--------------|----------------------|
@@ -527,154 +405,41 @@ Depth
 | depthType | CHANGED             |
 | depthType | UNRECOGNIZED       |
 
-<h2 id="tocS_BookOrder">BookOrder</h2>
 
 <a id="schemabookorder"></a>
-<a id="schema_BookOrder"></a>
-<a id="tocSbookorder"></a>
-<a id="tocsbookorder"></a>
-
-```json
-{
-  "price": "string",
-  "size": "string"
-}
-```
-
-Order Book Information
-
-### Properties
+### Order Book Information
 
 | Name  | Type           | Required | Constraints | Chinese Name | Description |
 |-------|----------------|----------|-------------|--------------|-------------|
 | price | string(decimal)| false    | none        |              | Price       |
 | size  | string(decimal)| false    | none        |              | Quantity    |
 
-<h2 id="tocS_Result<PageData<Kline>>">Result<PageData<Kline>></h2>
 
-<a id="schemaresult<pagedata<kline>>"></a>
-<a id="schema_Result<PageData<Kline>>"></a>
-<a id="tocSresult<pagedata<kline>>"></a>
-<a id="tocsresult<pagedata<kline>>"></a>
+<a id="schemaresultpagedatakline"></a>
 
-```json
-{
-  "code": "string",
-  "data": {
-    "dataList": [
-      {
-        "klineId": "string",
-        "contractId": "string",
-        "contractName": "string",
-        "klineType": "UNKNOWN_KLINE_TYPE",
-        "klineTime": "string",
-        "priceType": "UNKNOWN_PRICE_TYPE",
-        "trades": "string",
-        "size": "string",
-        "value": "string",
-        "high": "string",
-        "low": "string",
-        "open": "string",
-        "close": "string",
-        "makerBuySize": "string",
-        "makerBuyValue": "string"
-      }
-    ],
-    "nextPageOffsetData": "string"
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+### Kline Page Data Response
 
 | Name        | Type                 | Required | Constraints | Chinese Name | Description                                  |
 |-------------|----------------------|----------|-------------|--------------|----------------------------------------------|
 | code        | string               | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
 | data        | [PageDataKline](#schemapagedatakline) | false    | none        |              | Generic paginated response                       |
 | errorParam  | object               | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string            | false    | none        |              | Parameter information in error messages |
 | requestTime | string(timestamp)    | false    | none        |              | Server request reception time              |
 | responseTime| string(timestamp)    | false    | none        |              | Server response return time                  |
 | traceId     | string               | false    | none        |              | Call trace ID                              |
 
-<h2 id="tocS_PageDataKline">PageDataKline</h2>
 
 <a id="schemapagedatakline"></a>
-<a id="schema_PageDataKline"></a>
-<a id="tocSpagedatakline"></a>
-<a id="tocspagedatakline"></a>
-
-```json
-{
-  "dataList": [
-    {
-      "klineId": "string",
-      "contractId": "string",
-      "contractName": "string",
-      "klineType": "UNKNOWN_KLINE_TYPE",
-      "klineTime": "string",
-      "priceType": "UNKNOWN_PRICE_TYPE",
-      "trades": "string",
-      "size": "string",
-      "value": "string",
-      "high": "string",
-      "low": "string",
-      "open": "string",
-      "close": "string",
-      "makerBuySize": "string",
-      "makerBuyValue": "string"
-    }
-  ],
-  "nextPageOffsetData": "string"
-}
-```
-
-Generic paginated response
-
-### Properties
+### Kline List
 
 | Name               | Type             | Required | Constraints | Chinese Name | Description                          |
 |--------------------|------------------|----------|-------------|--------------|--------------------------------------|
 | dataList           | [[Kline](#schemakline)]| false    | none        |              | Data list                            |
 | nextPageOffsetData | string           | false    | none        |              | Offset for the next page. If there is no next page, it's an empty string |
 
-<h2 id="tocS_Kline">Kline</h2>
 
 <a id="schemakline"></a>
-<a id="schema_Kline"></a>
-<a id="tocSkline"></a>
-<a id="tocskline"></a>
-
-```json
-{
-  "klineId": "string",
-  "contractId": "string",
-  "contractName": "string",
-  "klineType": "UNKNOWN_KLINE_TYPE",
-  "klineTime": "string",
-  "priceType": "UNKNOWN_PRICE_TYPE",
-  "trades": "string",
-  "size": "string",
-  "value": "string",
-  "high": "string",
-  "low": "string",
-  "open": "string",
-  "close": "string",
-  "makerBuySize": "string",
-  "makerBuyValue": "string"
-}
-```
-
-K-Line
-
-### Properties
+### K-Line
 
 | Name        | Type                | Required | Constraints | Chinese Name | Description            |
 |-------------|---------------------|----------|-------------|--------------|------------------------|
@@ -722,265 +487,44 @@ K-Line
 | priceType | OPEN_INTEREST        |
 | priceType | UNRECOGNIZED       |
 
-<h2 id="tocS_Result<List<ContractKline>>">Result<List<ContractKline>></h2>
 
-<a id="schemaresult<list<contractkline>>"></a>
-<a id="schema_Result<List<ContractKline>>"></a>
-<a id="tocSresult<list<contractkline>>"></a>
-<a id="tocsresult<list<contractkline>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "klineList": [
-        {
-          "klineId": "string",
-          "contractId": "string",
-          "contractName": "string",
-          "klineType": "UNKNOWN_KLINE_TYPE",
-          "klineTime": "string",
-          "priceType": "UNKNOWN_PRICE_TYPE",
-          "trades": "string",
-          "size": "string",
-          "value": "string",
-          "high": "string",
-          "low": "string",
-          "open": "string",
-          "close": "string",
-          "makerBuySize": "string",
-          "makerBuyValue": "string"
-        }
-      ]
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultlistcontractkline"></a>
+### Contract Kline Response
 
 | Name        | Type                  | Required | Constraints | Chinese Name | Description                                   |
 |-------------|-----------------------|----------|-------------|--------------|-----------------------------------------------|
 | code        | string                | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
 | data        | [[ContractMultiKline](#schemacontractmultikline)]| false    | none        |              | Correct response data                           |
 | errorParam  | object                | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string             | false    | none        |              | Parameter information in error messages |
 | requestTime | string(timestamp)     | false    | none        |              | Server request reception time              |
 | responseTime| string(timestamp)     | false    | none        |              | Server response return time                  |
 | traceId     | string                | false    | none        |              | Call trace ID                              |
 
-<h2 id="tocS_ContractMultiKline">ContractMultiKline</h2>
 
 <a id="schemacontractmultikline"></a>
-<a id="schema_ContractMultiKline"></a>
-<a id="tocScontractmultikline"></a>
-<a id="tocscontractmultikline"></a>
-
-```json
-{
-  "contractId": "string",
-  "klineList": [
-    {
-      "klineId": "string",
-      "contractId": "string",
-      "contractName": "string",
-      "klineType": "UNKNOWN_KLINE_TYPE",
-      "klineTime": "string",
-      "priceType": "UNKNOWN_PRICE_TYPE",
-      "trades": "string",
-      "size": "string",
-      "value": "string",
-      "high": "string",
-      "low": "string",
-      "open": "string",
-      "close": "string",
-       "makerBuySize": "string",
-      "makerBuyValue": "string"
-    }
-  ]
-}
-```
-
-Multiple K-Lines for a Contract
-
-### Properties
+### Multiple K-Lines for a Contract
 
 | Name        | Type                | Required | Constraints | Chinese Name | Description               |
 |-------------|---------------------|----------|-------------|--------------|---------------------------|
 | contractId  | string(int64)        | false    | none        |              | Perpetual contract ID     |
 | klineList   | [[Kline](#schemakline)]  | false    | none        |              | Collection of kline data |
 
-<h2 id="tocS_Result<List<StatDayTrade>>">Result<List<StatDayTrade>></h2>
 
-<a id="schemaresult<list<statdaytrade>>"></a>
-<a id="schema_Result<List<StatDayTrade>>"></a>
-<a id="tocSresult<list<statdaytrade>>"></a>
-<a id="tocsresult<list<statdaytrade>>"></a>
 
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "dayTime": "string",
-      "totalTrades": "string",
-      "totalValue": "string",
-      "createTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
-
-| Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
-|-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
-| code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
-| data        | [[StatDayTrade](#schemastatdaytrade)]| false    | none        |              | Correct response data                           |
-| errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
-| requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
-| responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
-| traceId     | string                 | false    | none        |              | Call trace ID                              |
-
-<h2 id="tocS_StatDayTrade">StatDayTrade</h2>
-
-<a id="schemastatdaytrade"></a>
-<a id="schema_StatDayTrade"></a>
-<a id="tocSstatdaytrade"></a>
-<a id="tocsstatdaytrade"></a>
-
-```json
-{
-  "dayTime": "string",
-  "totalTrades": "string",
-  "totalValue": "string",
-  "createTime": "string"
-}
-```
-
-Daily Trading Information
-
-### Properties
-
-| Name        | Type                | Required | Constraints | Chinese Name | Description        |
-|-------------|---------------------|----------|-------------|--------------|--------------------|
-| dayTime     | string(int64)        | false    | none        |              | Date             |
-| totalTrades | string(int64)        | false    | none        |              | Total number of trades  |
-| totalValue  | string              | false    | none        |              | Total trading value   |
-| createTime  | string(int64)        | false    | none        |              | Creation time     |
-
-<h2 id="tocS_Result<List<Ticker>>">Result<List<Ticker>></h2>
-
-<a id="schemaresult<list<ticker>>"></a>
-<a id="schema_Result<List<Ticker>>"></a>
-<a id="tocSresult<list<ticker>>"></a>
-<a id="tocsresult<list<ticker>>"></a>
-
-```json
-{
-  "code": "string",
-  "data": [
-    {
-      "contractId": "string",
-      "contractName": "string",
-      "priceChange": "string",
-      "priceChangePercent": "string",
-      "trades": "string",
-      "size": "string",
-      "value": "string",
-      "high": "string",
-      "low": "string",
-      "open": "string",
-      "close": "string",
-      "highTime": "```json
-      "lowTime": "string",
-      "startTime": "string",
-      "endTime": "string",
-      "lastPrice": "string",
-      "indexPrice": "string",
-      "oraclePrice": "string",
-      "openInterest": "string",
-      "fundingRate": "string",
-      "fundingTime": "string",
-      "nextFundingTime": "string"
-    }
-  ],
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="schemaresultlistticker"></a>
+### Ticker List Response
 
 | Name        | Type                   | Required | Constraints | Chinese Name | Description                                   |
 |-------------|------------------------|----------|-------------|--------------|-----------------------------------------------|
 | code        | string                 | false    | none        |              | Status code. "SUCCESS" for success, others for failures  |
 | data        | [[Ticker](#schematicker)] | false    | none        |              | Correct response data                           |
 | errorParam  | object                 | false    | none        |              | Parameter information in error messages           |
-| » **additionalProperties** | string              | false    | none        |              | Parameter information in error messages |
 | requestTime | string(timestamp)      | false    | none        |              | Server request reception time              |
 | responseTime| string(timestamp)      | false    | none        |              | Server response return time                  |
 | traceId     | string                 | false    | none        |              | Call trace ID                              |
 
-<h2 id="tocS_Ticker">Ticker</h2>
-
 <a id="schematicker"></a>
-<a id="schema_Ticker"></a>
-<a id="tocSticker"></a>
-<a id="tocsticker"></a>
-
-```json
-{
-  "contractId": "string",
-  "contractName": "string",
-  "priceChange": "string",
-  "priceChangePercent": "string",
-  "trades": "string",
-  "size": "string",
-  "value": "string",
-  "high": "string",
-  "low": "string",
-  "open": "string",
-  "close": "string",
-  "highTime": "string",
-  "lowTime": "string",
-  "startTime": "string",
-  "endTime": "string",
-  "lastPrice": "string",
-  "indexPrice": "string",
-  "oraclePrice": "string",
-  "openInterest": "string",
-  "fundingRate": "string",
-  "fundingTime": "string",
-  "nextFundingTime": "string"
-}
-```
-
-24-Hour Quotes
-
-### Properties
+### 24-Hour Quotes
 
 | Name            | Type           | Required | Constraints | Chinese Name | Description                    |
 |-----------------|----------------|----------|-------------|--------------|--------------------------------|
@@ -1007,91 +551,30 @@ Daily Trading Information
 | fundingTime     | string(int64)   | false    | none        |              | Funding rate settlement time   |
 | nextFundingTime | string(int64)   | false    | none        |              | Next funding rate settlement time|
 
-<h2 id="tocS_Result<GetTickerSummaryModel>">Result<GetTickerSummaryModel></h2>
 
-<a id="schemaresult<gettickersummarymodel>"></a>
-<a id="schema_Result<GetTickerSummaryModel>"></a>
-<a id="tocSresult<gettickersummarymodel>"></a>
-<a id="tocsresult<gettickersummarymodel>"></a>
-
-```json
-{
-  "code": "string",
-  "data": {
-    "tickerSummary": {
-      "period": "UNKNOWN_PERIOD",
-      "trades": "string",
-      "value": "string",
-      "openInterest": "string"
-    }
-  },
-  "errorParam": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "requestTime": "string",
-  "responseTime": "string",
-  "traceId": "string"
-}
-```
-
-### Properties
+<a id="gettickersummarymodel"></a>
+### Get Ticker Summary Response
 
 | Name        | Type                      | Required | Constraints | Chinese Name | Description                               |
 |-------------|---------------------------|----------|-------------|--------------|-------------------------------------------|
 | code        | string                    | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
 | data        | [GetTickerSummary](#schemagettickersummary)  | false    | none        |              | Get quote summary response                |
 | errorParam  | object                    | false    | none        |              | Parameter information in error messages         |
-| » **additionalProperties** | string               | false    | none        |              | Parameter information in error messages|
 | requestTime | string(timestamp)         | false    | none        |              | Server request reception time            |
 | responseTime| string(timestamp)         | false    | none        |              | Server response return time                |
 | traceId     | string                    | false    | none        |              | Call trace ID                           |
 
-<h2 id="tocS_GetTickerSummary">GetTickerSummary</h2>
 
 <a id="schemagettickersummary"></a>
-<a id="schema_GetTickerSummary"></a>
-<a id="tocSgettickersummary"></a>
-<a id="tocsgettickersummary"></a>
-
-```json
-{
-  "tickerSummary": {
-    "period": "UNKNOWN_PERIOD",
-    "trades": "string",
-    "value": "string",
-    "openInterest": "string"
-  }
-}
-```
-
-Get Quote Summary Response
-
-### Properties
+### Ticker Summary List
 
 | Name          | Type                 | Required | Constraints | Chinese Name | Description      |
 |---------------|----------------------|----------|-------------|--------------|------------------|
 | tickerSummary | [TickerSummary](#schematickersummary) | false    | none        |              | Quote summary  |
 
-<h2 id="tocS_TickerSummary">TickerSummary</h2>
 
 <a id="schematickersummary"></a>
-<a id="schema_TickerSummary"></a>
-<a id="tocStickersummary"></a>
-<a id="tocstickersummary"></a>
-
-```json
-{
-  "period": "UNKNOWN_PERIOD",
-  "trades": "string",
-  "value": "string",
-  "openInterest": "string"
-}
-```
-
-Quote Summary
-
-### Properties
+### Ticker Summary
 
 | Name         | Type   | Required | Constraints | Chinese Name | Description              |
 |--------------|--------|----------|-------------|--------------|--------------------------|
@@ -1110,29 +593,4 @@ Quote Summary
 | period   | LAST_DAY_30       |
 | period   | UNRECOGNIZED     |
 
-<h2 id="tocS_Result">Result</h2>
 
-<a id="schemaresult"></a>
-<a id="schema_Result"></a>
-<a id="tocSresult"></a>
-<a id="tocsresult"></a>
-
-```json
-{
-  "code": "string",
-  "msg": "string",
-  "requestTime": "string",
-  "responseTime": "string"
-}
-```
-
-Generic Response Structure
-
-### Properties
-
-| Name         | Type             | Required | Constraints | Chinese Name | Description                          |
-|--------------|------------------|----------|-------------|--------------|--------------------------------------|
-| code         | string           | false    | none        |              | Status code. "SUCCESS" for success, others for failures |
-| msg          | string           | false    | none        |              | Detailed error message when an error occurs |
-| requestTime  | string(int64)     | false    | none        |              | Server request reception time          |
-| responseTime | string(int64)    | false    | none        |              | Server response return time              |
