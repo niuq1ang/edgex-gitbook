@@ -12,7 +12,7 @@ edgeX is an Ethereum layer-2 blockchain tailored to provide high-performance inf
 
 **High-Performance Trading Infrastructure and Modules**&#x20;
 
-edgeX is evolving from its current Perp app rrollup into a high-performance financial chain that offers enhanced customizability and composability. This infrastructure will support the permissionless launch of various markets and DeFi products, utilizing a Proof of Demand mechanism backed by decentralized governance and edgeX’s ready-to-deploy trading modules.
+edgeX is evolving from its perp app rollup into a high-performance financial chain that offers enhanced customizability and composability. This infrastructure will support the permissionless launch of various markets and DeFi products, utilizing a Proof of Demand mechanism backed by decentralized governance and edgeX’s ready-to-deploy trading modules.
 
 
 
