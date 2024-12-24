@@ -1,3 +1,6 @@
+> **Warning:** This is a beta version and actively under development. Please open a ticket on [Discord](https://discord.com/invite/edgex) if you encounter any problems.
+
+
 # User Authentication
 
 ## Domain
@@ -28,7 +31,7 @@ No authentication is required for public interfaces.
 
 ## Generate L2 signature
 
-<figure><img src="../.gitbook/assets/private_key.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
+<figure><img src=".gitbook/assets/20241224-111630.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
 
 
 
