@@ -31,7 +31,7 @@ No authentication is required for public interfaces.
 
 ## Generate L2 signature
 
-<figure><img src="../.gitbook/assets/20241224-111630.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/20241224-113633.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
 
 
 ## Get your account ID
