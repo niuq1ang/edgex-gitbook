@@ -1,42 +1,10 @@
 > **Warning:** This is a beta version and actively under development. Please open a ticket on [Discord](https://discord.com/invite/edgex) if you encounter any problems.
 
 
-# User Authentication
-
-## Domain
-
-```text
-https://pro.edgex.exchange
-```
-
-## Private API Auth Header
-
-| Name               | Location | Type    | Required | Description              |
-| ------------------ | -------- | ------- | -------- | ------------------------ |
-| x-edgex-api-key    | header   | string  | must     | None                     |
-| x-edgex-passphrase | header   | string  | must     | None                     |
-| x-edgex-signature  | header   | string  | must     | None                     |
-| x-edgex-timestamp  | header   | number  | must     | None                     |
-
-> Login to [edgeX](https://pro.edgex.exchange/trade/BTCUSDT), copy the 4 request headers, and **Request The Administrator** to configure the user list to access the API interface.
-
-<figure><img src="../.gitbook/assets/20241224-112821.png" alt=""><figcaption><p><strong>How To GET Your Request Header</strong></p></figcaption></figure>
-
 ## Public API
 
 ```text
 No authentication is required for public interfaces.
-```
-
-
-## Generate L2 signature
-
-<figure><img src="../.gitbook/assets/20241224-113633.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
-
-
-## Get your account ID
-```text
-Head to Account Management, you can find your account ID there.
 ```
 
 

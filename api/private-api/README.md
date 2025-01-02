@@ -88,7 +88,7 @@ import org.web3j.utils.Numeric;
     public static void main(String[] args) {
         String privateKeyHex = "0463ac809cc7d7c1baf*********************baff9fc6e3d8e5b160ea3fc";
 
-        // 确保私钥是去掉 "0x" 前缀的十六进制字符串
+        // Ensure that the private key is a hexadecimal string without the "0x" prefix.
         if (privateKeyHex.startsWith("0x")) {
             privateKeyHex = privateKeyHex.substring(2);
         }
@@ -126,4 +126,4 @@ import org.web3j.utils.Numeric;
 
 ## Signing Key
 
-<figure><img src="../../.gitbook/assets/Snipaste_2025-01-02_10-59-04.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/20250102-134437.png" alt=""><figcaption><p><strong>How To GET Your L2 Private Key</strong></p></figcaption></figure>
