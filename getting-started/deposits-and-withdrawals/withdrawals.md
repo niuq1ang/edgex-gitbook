@@ -2,7 +2,7 @@
 
 **Ethereum Withdrawals:**
 
-For maximum security, all transactions are batched, verified rigorously, and then settled on Ethereum L1. The process could take up to 12 hours.
+For maximum security, all transactions are batched, verified rigorously, and then settled on Ethereum L1. The process could take up to 14 hours.
 
 
 
