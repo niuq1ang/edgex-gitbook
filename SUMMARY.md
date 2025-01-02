@@ -21,7 +21,7 @@
   * [Order Types](trading/order-types.md)
   * [Take Profit & Stop Loss](trading/take-profit-and-stop-loss.md)
   * [Liquidation Logic](trading/liquidation-logic.md)
-* [API Doc](api/README.md)
+* [API Docs](api/README.md)
   * [Authentication](api/authentication.md)
   * [Sign](api/sign.md) 
   * [Public API](api/public-api/README.md)
