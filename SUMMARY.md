@@ -22,6 +22,8 @@
   * [Take Profit & Stop Loss](trading/take-profit-and-stop-loss.md)
   * [Liquidation Logic](trading/liquidation-logic.md)
 * [API Doc](api/README.md)
+  * [Authentication](api/authentication.md)
+  * [Sign](api/sign.md) 
   * [Public API](api/public-api/README.md)
     * [Meta Data API](api/public-api/metadata-api.md)
     * [Quote API](api/public-api/quote-api.md)
