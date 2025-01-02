@@ -29,8 +29,6 @@
   * [Private API](api/private-api/README.md)
     * [Account API](api/private-api/account-api.md)
     * [Order API](api/private-api/order-api.md)
-    * [Deposit API](api/private-api/deposit-api.md)
-    * [Withdraw API](api/private-api/withdraw-api.md)
     * [Transfer API](api/private-api/transfer-api.md)
     * [Asset API](api/private-api/asset-api.md)
   * [Websocket API](api/websocket-api.md)
