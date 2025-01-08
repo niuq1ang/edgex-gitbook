@@ -12,7 +12,11 @@ To sign messages on Layer 2, you need to obtain your L2 private key. This key is
 
 > The signature algorithm used is **Ecdsa** (Elliptic Curve Digital Signature Algorithm). This algorithm ensures that signatures are secure and verifiable.
 
-> The normal private api validation would not use the pedersen hash since it requires more cpu consumption, the private api hash uses sha3 as its hashing function.
+### There are currently two types of content that require signatures:
+
+**Private API Request Body Signature:** This is used for authentication. We do not want the hash computation to consume excessive CPU resources. Therefore, this will use SHA3 to hash the request body string before signing.
+
+**L2Signature for Operations (e.g., Order, Transfer, Withdraw):** This will use Pedersen hash for signing. However, this hash computation will consume significantly more CPU resources.
 
 > [Python Signature Demo](https://github.com/starkware-libs/starkex-resources/blob/master/crypto/starkware/crypto/signature/signature_test.py#L62)
 
