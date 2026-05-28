@@ -1,7 +1,5 @@
 # Account Private API
 
-**Field naming note**: Some response fields use `riskValue` and `riskRate` to describe position and collateral risk metrics. Keep these names as-is when parsing server responses. When in doubt, trust the actual response payload and SDK behavior.
-
 ## When to Use This Page
 
 Use account endpoints after authentication succeeds and you need to read balances, positions, collateral state, leverage-related settings, or account transaction history.
