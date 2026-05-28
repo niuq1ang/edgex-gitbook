@@ -39,8 +39,8 @@ The following headers **must** be included in requests to private REST API endpo
 
 - `X-edgeX-Api-Key` (string, required): Your API Key obtained from the EdgeX platform
 - `X-edgeX-Passphrase` (string, required): Your API Passphrase set during API key creation
-- `X-edgeX-Api-Timestamp` (string, required): Request timestamp in milliseconds
-- `X-edgeX-Api-Signature` (string, required): HMAC-SHA256 signature of the request
+- `X-edgeX-Timestamp` (string, required): Request timestamp in milliseconds
+- `X-edgeX-Signature` (string, required): HMAC-SHA256 signature of the request
 
 ### Authentication Scope
 
@@ -313,8 +313,8 @@ func MakeAuthenticatedRequest(method, path string, params map[string]string) (*h
     // 7. Add authentication headers
     req.Header.Set("X-edgeX-Api-Key", apiKey)
     req.Header.Set("X-edgeX-Passphrase", apiPassphrase)
-    req.Header.Set("X-edgeX-Api-Signature", signature)
-    req.Header.Set("X-edgeX-Api-Timestamp", timestamp)
+    req.Header.Set("X-edgeX-Signature", signature)
+    req.Header.Set("X-edgeX-Timestamp", timestamp)
     req.Header.Set("Accept", "application/json")
     
     return req, nil
@@ -425,8 +425,8 @@ curl --location --request GET \
   "https://<api-domain>${REQUEST_URI}?${REQUEST_BODY}" \
   --header "X-edgeX-Api-Key: ${API_KEY}" \
   --header "X-edgeX-Passphrase: ${API_PASSPHRASE}" \
-  --header "X-edgeX-Api-Signature: ${SIGNATURE}" \
-  --header "X-edgeX-Api-Timestamp: ${TIMESTAMP}" \
+  --header "X-edgeX-Signature: ${SIGNATURE}" \
+  --header "X-edgeX-Timestamp: ${TIMESTAMP}" \
   --header "Accept: application/json"
 ```
 

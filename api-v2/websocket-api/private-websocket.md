@@ -27,10 +27,10 @@ The following headers **must** be included in the private WebSocket handshake re
 
 - `X-edgeX-Api-Key` (string, required): Your API Key obtained from the EdgeX platform
 - `X-edgeX-Passphrase` (string, required): Your API Passphrase set during API key creation
-- `X-edgeX-Api-Timestamp` (string, required): Request timestamp in milliseconds
-- `X-edgeX-Api-Signature` (string, required): HMAC-SHA256 signature of the request
+- `X-edgeX-Timestamp` (string, required): Request timestamp in milliseconds
+- `X-edgeX-Signature` (string, required): HMAC-SHA256 signature of the request
 
-Private WebSocket uses the same HMAC credential set and HMAC-SHA256 signing flow as private REST APIs. This page does not repeat the signing algorithm. Use the [Authentication Guide](../authentication.md) to generate `X-edgeX-Api-Signature`.
+Private WebSocket uses the same HMAC credential set and HMAC-SHA256 signing flow as private REST APIs. This page does not repeat the signing algorithm. Use the [Authentication Guide](../authentication.md) to generate `X-edgeX-Signature`.
 
 ### Minimal Connection Request
 
@@ -38,8 +38,8 @@ Private WebSocket uses the same HMAC credential set and HMAC-SHA256 signing flow
 GET /api/v1/private/ws?accountId=724625476626153743&timestamp=1705720068228
 X-edgeX-Api-Key: your-api-key
 X-edgeX-Passphrase: your-api-passphrase
-X-edgeX-Api-Signature: <signature generated as described in the Authentication Guide>
-X-edgeX-Api-Timestamp: 1705720068228
+X-edgeX-Signature: <signature generated as described in the Authentication Guide>
+X-edgeX-Timestamp: 1705720068228
 ```
 
 ## Heartbeat
