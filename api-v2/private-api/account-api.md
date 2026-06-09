@@ -1,7 +1,5 @@
 # Account Private API
 
-**Field naming note**: Some response fields still use historical names such as `starkExRiskValue` and `starkExRiskRate`. Keep these names as-is when parsing server responses; they are legacy backend field names, not a recommendation to use the V1 StarkEx signing model. When in doubt, trust the actual response payload and SDK behavior over older terminology.
-
 ## When to Use This Page
 
 Use account endpoints after authentication succeeds and you need to read balances, positions, collateral state, leverage-related settings, or account transaction history.
@@ -9,7 +7,7 @@ Use account endpoints after authentication succeeds and you need to read balance
 ## Minimal Call
 
 ```bash
-curl -X GET "https://<api-domain>/api/v2/private/account/getAccountAsset?accountId=123456"   -H "X-edgeX-Api-Key: your_api_key"   -H "X-edgeX-Passphrase: your_api_passphrase"   -H "X-edgeX-Api-Timestamp: 1234567890123"   -H "X-edgeX-Api-Signature: calculated_signature"
+curl -X GET "https://<api-domain>/api/v2/private/account/getAccountAsset?accountId=123456"   -H "X-edgeX-Api-Key: your_api_key"   -H "X-edgeX-Passphrase: your_api_passphrase"   -H "X-edgeX-Timestamp: 1234567890123"   -H "X-edgeX-Signature: calculated_signature"
 ```
 
 ## Common Notes
@@ -956,8 +954,8 @@ GET /api/v2/private/account/getAccountAsset
                 "positionValue": "97.734426609240472316741943359375",
                 "maxLeverage": "50",
                 "initialMarginRequirement": "1.954688532184809446334838867187500000",
-                "starkExRiskRate": "0.00500000012107193470001220703125",
-                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "riskRate": "0.00500000012107193470001220703125",
+                "riskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
                 "avgEntryPrice": "97444.5",
                 "liquidatePrice": "82354.9",
                 "bankruptPrice": "81943.1",
@@ -975,7 +973,7 @@ GET /api/v2/private/account/getAccountAsset
                 "totalEquity": "15.791238609240472316741943359375",
                 "totalPositionValueAbs": "97.734426609240472316741943359375",
                 "initialMarginRequirement": "1.954688532184809446334838867187500000",
-                "starkExRiskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
+                "riskValue": "0.48867214487909847796080764492643311314168386161327362060546875",
                 "pendingWithdrawAmount": "0",
                 "pendingTransferOutAmount": "0",
                 "orderFrozenAmount": "0",
@@ -1191,7 +1189,7 @@ GET /api/v2/private/account/getAccountAssetSnapshotPage
 |totalEquity|string|Total Collateral Value|
 |totalPositionValueAbs|string|Sum of Absolute Position Values|
 |initialMarginRequirement|string|Initial Margin Requirement|
-|starkExRiskValue|string|Total StarkEx Risk Value|
+|riskValue|string|Total Risk Value|
 |pendingWithdrawAmount|string|Pending Withdrawal Amount|
 |pendingTransferOutAmount|string|Pending Transfer Out Amount|
 |orderFrozenAmount|string|Order Frozen Amount|
@@ -1209,8 +1207,8 @@ GET /api/v2/private/account/getAccountAssetSnapshotPage
 |positionValue|string|Position Value|
 |maxLeverage|string|Maximum Leverage|
 |initialMarginRequirement|string|Initial Margin Requirement|
-|starkExRiskRate|string|StarkEx Risk Rate|
-|starkExRiskValue|string|StarkEx Risk Value|
+|riskRate|string|Risk Rate|
+|riskValue|string|Risk Value|
 |avgEntryPrice|string|Average Entry Price|
 |liquidatePrice|string|Liquidation Price|
 |bankruptPrice|string|Bankruptcy Price|

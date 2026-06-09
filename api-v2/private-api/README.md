@@ -8,8 +8,8 @@ All private REST API endpoints require authentication via HTTP headers:
 
 - `X-edgeX-Api-Key`: Your API key
 - `X-edgeX-Passphrase`: Your API passphrase
-- `X-edgeX-Api-Timestamp`: Request timestamp in milliseconds
-- `X-edgeX-Api-Signature`: HMAC-SHA256 request signature
+- `X-edgeX-Timestamp`: Request timestamp in milliseconds
+- `X-edgeX-Signature`: HMAC-SHA256 request signature
 
 For detailed authentication rules, please refer to the [Authentication Documentation](../authentication.md).
 
@@ -51,8 +51,8 @@ For L2 signature implementation details, refer to the [L2 Signature Documentatio
 curl -X GET "https://<api-domain>/api/v2/private/account/getAccountAsset?accountId=123456" \
   -H "X-edgeX-Api-Key: your_api_key" \
   -H "X-edgeX-Passphrase: your_api_passphrase" \
-  -H "X-edgeX-Api-Timestamp: 1234567890123" \
-  -H "X-edgeX-Api-Signature: calculated_signature"
+  -H "X-edgeX-Timestamp: 1234567890123" \
+  -H "X-edgeX-Signature: calculated_signature"
 ```
 
 ## Response Format

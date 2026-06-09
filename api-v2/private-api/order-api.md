@@ -14,7 +14,7 @@ Use order endpoints when you need to create, cancel, or query orders. This page 
 ## Minimal Create Order Example
 
 ```bash
-curl -X POST "https://<api-domain>/api/v2/private/order/createOrder"   -H "Content-Type: application/json"   -H "X-edgeX-Api-Key: your_api_key"   -H "X-edgeX-Passphrase: your_api_passphrase"   -H "X-edgeX-Api-Timestamp: 1234567890123"   -H "X-edgeX-Api-Signature: calculated_signature"   -d '{
+curl -X POST "https://<api-domain>/api/v2/private/order/createOrder"   -H "Content-Type: application/json"   -H "X-edgeX-Api-Key: your_api_key"   -H "X-edgeX-Passphrase: your_api_passphrase"   -H "X-edgeX-Timestamp: 1234567890123"   -H "X-edgeX-Signature: calculated_signature"   -d '{
     "accountId": "123456",
     "contractId": "10000001",
     "side": "BUY",
@@ -43,8 +43,6 @@ curl -X POST "https://<api-domain>/api/v2/private/order/createOrder"   -H "Conte
 ## POST Get Maximum Order Creation Size
 
 POST /api/v2/private/order/getMaxCreateOrderSize
-
-**Note**: This endpoint requires L2 signature authentication.
 
 > Body Request Parameters
 
@@ -114,7 +112,7 @@ POST /api/v2/private/order/createOrder
 
 Before calling `createOrder`, make sure you have:
 
-1. A valid private REST signature (`X-edgeX-Api-Key`, `X-edgeX-Passphrase`, `X-edgeX-Api-Timestamp`, `X-edgeX-Api-Signature`)
+1. A valid private REST signature (`X-edgeX-Api-Key`, `X-edgeX-Passphrase`, `X-edgeX-Timestamp`, `X-edgeX-Signature`)
 2. A valid EIP-712 L2 signature payload (`l2Nonce`, `l2Value`, `l2Size`, `l2LimitFee`, `l2ExpireTime`, `l2Signature`)
 3. Required business fields such as `accountId`, `contractId`, `side`, `size`, `type`, and `clientOrderId`
 
