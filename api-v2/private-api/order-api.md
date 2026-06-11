@@ -221,8 +221,6 @@ For signature construction details, see [Authentication](../authentication.md) a
 
 POST /api/v2/private/order/cancelOrderById
 
-**Note**: This endpoint requires L2 signature authentication.
-
 > Body Request Parameters
 
 ```json
@@ -280,8 +278,6 @@ POST /api/v2/private/order/cancelOrderById
 ## POST Cancel Order by Client Order ID
 
 POST /api/v2/private/order/cancelOrderByClientOrderId
-
-**Note**: This endpoint requires L2 signature authentication. This is a new endpoint in V2 API.
 
 > Body Request Parameters
 
@@ -342,8 +338,6 @@ POST /api/v2/private/order/cancelOrderByClientOrderId
 ## POST Cancel All Orders
 
 POST /api/v2/private/order/cancelAllOrder
-
-**Note**: This endpoint requires L2 signature authentication.
 
 Cancels all active orders under the account with optional filtering.
 
@@ -701,97 +695,6 @@ Retrieves historical orders with pagination and filtering.
 |requestTime|string(timestamp)|Server request receive time|
 |responseTime|string(timestamp)|Server response return time|
 |traceId|string|Call trace ID|
-
-<a id="opIdgetHistoryOrderPagePost"></a>
-
-## POST Get Historical Orders (Paginated)
-
-POST /api/v2/private/order/getHistoryOrderPage
-
-**Note**: This is a new POST version of the GET endpoint in V2 API, allowing for more complex filtering via request body.
-
-Retrieves historical orders with pagination and filtering.
-
-> Body Request Parameters
-
-```json
-{
-  "accountId": "543429922991899150",
-  "size": 100,
-  "offsetData": "",
-  "filterCoinIdList": [],
-  "filterContractIdList": ["10000001"],
-  "filterTypeList": [],
-  "filterStatusList": ["FILLED"],
-  "filterIsLiquidateList": [],
-  "filterIsDeleverageList": [],
-  "filterIsPositionTpslList": [],
-  "filterStartCreatedTimeInclusive": "0",
-  "filterEndCreatedTimeExclusive": "0",
-  "filterOrderIdList": []
-}
-```
-
-### Request Parameters
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|body|object|No|none|
-|» accountId|string(int64)|Yes|Account ID|
-|» size|integer|No|Number of items to fetch. Must be > 0 and <= 100. Default: 100|
-|» offsetData|string|No|Pagination offset. If empty, retrieves the first page.|
-|» filterCoinIdList|array[string]|No|Filter by collateral coin IDs. If empty, fetches for all coins.|
-|» filterContractIdList|array[string]|No|Filter by contract IDs. If empty, fetches for all contracts.|
-|» filterTypeList|array[string]|No|Filter by order types. If empty, fetches all types.|
-|» filterStatusList|array[string]|No|Filter by order status. If empty, fetches all statuses.|
-|» filterIsLiquidateList|array[boolean]|No|Filter by liquidation orders. If empty, fetches all orders.|
-|» filterIsDeleverageList|array[boolean]|No|Filter by deleverage orders. If empty, fetches all orders.|
-|» filterIsPositionTpslList|array[boolean]|No|Filter by position TP/SL orders. If empty, fetches all orders.|
-|» filterStartCreatedTimeInclusive|string(int64)|No|Filter orders created after this time (inclusive). If 0 or empty, from earliest.|
-|» filterEndCreatedTimeExclusive|string(int64)|No|Filter orders created before this time (exclusive). If 0 or empty, to latest.|
-|» filterOrderIdList|array[string]|No|Filter by specific order IDs. If empty, fetches all orders.|
-
-> Response Example
-
-> 200 Response
-
-```json
-{
-  "code": "SUCCESS",
-  "data": {
-    "dataList": [
-      {
-        "id": "564815695875932430",
-        "userId": "543429922866069763",
-        "accountId": "543429922991899150",
-        "coinId": "1000",
-        "contractId": "10000001",
-        "side": "BUY",
-        "price": "97444.5",
-        "size": "0.001",
-        "clientOrderId": "553364074986685",
-        "type": "LIMIT",
-        "status": "FILLED",
-        "cumFillSize": "0.001",
-        "cumFillValue": "97.4445",
-        "cumFillFee": "0.017540",
-        "createdTime": "1734662555665",
-        "updatedTime": "1734662617992"
-      }
-    ],
-    "nextPageOffsetData": ""
-  },
-  "msg": null,
-  "errorParam": null,
-  "requestTime": "1734662697584",
-  "responseTime": "1734662697601",
-  "traceId": "1cd03694d7da308cb13603f34b0836e6"
-}
-```
-
-### Response Parameters
-
-Same structure as GET version of this endpoint.
 
 <a id="opIdgetHistoryOrderFillTransactionPage"></a>
 

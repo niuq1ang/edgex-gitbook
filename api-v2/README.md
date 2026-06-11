@@ -59,11 +59,13 @@ Private API endpoints and private WebSocket connections require authentication. 
 Use the following production access domains when integrating with EdgeX:
 
 - **HTTP REST production domain**: `https://edgex-prod-v2.edgex.exchange`
+- **Asset API production domain**: `https://spot.edgex.exchange`
 - **WebSocket production domain**: `wss://edgex-quote-prod-v2.edgex.exchange`
 
 All examples in this documentation use placeholders to keep endpoint examples consistent:
 
-- Replace `<api-domain>` with `edgex-prod-v2.edgex.exchange`
+- Replace `<api-domain>` with `edgex-prod-v2.edgex.exchange` for all REST APIs except Asset API
+- Replace Asset API requests with `spot.edgex.exchange`
 - Replace `<ws-domain>` with `edgex-quote-prod-v2.edgex.exchange`
 - Internal, non-production, and test-only domains are not part of the public documentation
 
@@ -71,7 +73,8 @@ All examples in this documentation use placeholders to keep endpoint examples co
 
 ### Request Format
 
-- **HTTP REST base URL**: `https://<api-domain>`
+- **HTTP REST base URL**: `https://<api-domain>` for all REST APIs except Asset API
+- **Asset API base URL**: `https://spot.edgex.exchange`
 - **WebSocket base URL**: `wss://<ws-domain>`
 - **Content-Type**: `application/json`
 - **Character Encoding**: UTF-8

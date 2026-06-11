@@ -1742,6 +1742,68 @@ Update leverage setting for trading account.
 - Contract-specific leverage overrides account default leverage
 - Setting contractId=0 updates the default leverage for all contracts
 
+<a id="opIdsetMarginMode"></a>
+
+## POST Set Margin Mode
+
+POST /api/v2/private/account/setMarginMode
+
+Switch the margin mode for a contract position between cross margin and isolated margin.
+
+### Request Parameters
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|accountId|string(int64)|Yes|Account ID|
+|contractId|string(int64)|Yes|Contract ID|
+|marginMode|string|Yes|Margin mode. `0` = cross margin, `1` = isolated margin|
+|l2Nonce|string(int64)|Yes|L2 signature nonce|
+|l2ExpireTime|string(int64)|Yes|L2 signature expiration timestamp in milliseconds|
+|signer|string|Yes|Signer address used for the L2 signature|
+|l2Signature|string|Yes|EIP-712 L2 signature as a `0x`-prefixed 132-character hex string|
+
+> Request Example
+
+```json
+{
+  "accountId": "543429922991899150",
+  "contractId": "10000001",
+  "marginMode": "1",
+  "l2Nonce": "123456",
+  "l2ExpireTime": "1719212400000",
+  "signer": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+  "l2Signature": "0x1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+}
+```
+
+> Response Example
+
+> 200 Response
+
+```json
+{
+  "code": "SUCCESS",
+  "data": null,
+  "msg": null,
+  "errorParam": null,
+  "requestTime": "1734661416266",
+  "responseTime": "1734661416277",
+  "traceId": "a87a52a4e189045b7b7b9948ea7b5c54"
+}
+```
+
+### Response
+
+| Status Code | Status Code Description | Description | Data Model |
+| ----------- | ----------------------- | ----------- | ---------- |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Success | [Result](#resultvoid) |
+
+**Notes:**
+- This endpoint requires both standard private REST authentication and an additional EIP-712 L2 signature.
+- The L2 typed-data payload used by the Python SDK signs `accountId`, `assetId` (`contractId`), `marginMode`, `nonce`, and `signer`.
+- The Python SDK uses the `trading private key` for `setMarginMode`, not the wallet private key.
+- Only `0` and `1` are accepted for `marginMode`; other values return `GATEWAY_PARAM_INVALID`.
+
 <a id="opIdgetPositionOrders"></a>
 
 ## GET Get Position Orders
