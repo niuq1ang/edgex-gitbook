@@ -16,6 +16,14 @@ Although this page belongs to the V2 private API section, the asset endpoints cu
 
 The legacy `/api/v2/private/assets/...` endpoints are no longer the SDK path.
 
+## Domain Note
+
+Requests on this page use the Asset API production domain:
+
+`https://spot.edgex.exchange`
+
+Do not combine these unified-asset paths with the default REST production domain `https://edgex-prod-v2.edgex.exchange`.
+
 ## Common Notes
 
 - These endpoints use the same private REST authentication described in [Authentication](../authentication.md).

@@ -530,7 +530,7 @@ func SignLimitOrder(
 
 ### Using EdgeX Golang SDK
 
-The SDK handles all signature generation automatically. Replace `<api-domain>` with `edgex-prod-v2.edgex.exchange` when connecting to the production HTTP API:
+The SDK handles all signature generation automatically. Replace `<api-domain>` with `edgex-prod-v2.edgex.exchange` for standard REST APIs, and use `https://spot.edgex.exchange` for Asset API calls:
 
 ```go
 package main

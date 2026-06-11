@@ -5,11 +5,13 @@ EdgeX provides two WebSocket connections for real-time data streaming.
 ## Production Access Domains
 
 - **HTTP REST production domain**: `https://edgex-prod-v2.edgex.exchange`
+- **Asset API production domain**: `https://spot.edgex.exchange`
 - **WebSocket production domain**: `wss://edgex-quote-prod-v2.edgex.exchange`
 
 Use placeholders in examples for consistency:
 
-- `<api-domain>` -> `edgex-prod-v2.edgex.exchange`
+- `<api-domain>` -> `edgex-prod-v2.edgex.exchange` for all REST APIs except Asset API
+- Asset API requests -> `spot.edgex.exchange`
 - `<ws-domain>` -> `edgex-quote-prod-v2.edgex.exchange`
 
 Internal or non-production domains are not included in this public documentation.
