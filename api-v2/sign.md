@@ -81,6 +81,220 @@ OrderBase {
 
 ---
 
+## Set Margin Mode Signature
+
+`setMarginMode` uses a dedicated EIP-712 payload. It is signed with the **trading private key** and then submitted together with the normal private REST authentication headers.
+
+### EIP-712 Type Definition
+
+```go
+Types: {
+    EIP712Domain: [
+        { name: "name",              type: "string" },
+        { name: "version",           type: "string" },
+        { name: "chainId",           type: "uint256" },
+        { name: "verifyingContract", type: "address" }
+    ],
+    SetMarginPreferenceParams: [
+        { name: "accountId",  type: "uint64" },
+        { name: "assetId",    type: "uint64" },
+        { name: "marginMode", type: "uint8" },
+        { name: "nonce",      type: "uint256" },
+        { name: "signer",     type: "address" }
+    ]
+}
+```
+
+### Parameters Calculation
+
+#### 1. accountId and assetId
+
+```go
+accountID := client.GetAccountID()
+assetID := contractID // The REST request field is contractId; the typed-data field is assetId
+```
+
+#### 2. marginMode
+
+```go
+marginMode := strings.TrimSpace(params.MarginMode)
+marginModeUint, err := strconv.ParseUint(marginMode, 10, 8)
+if err != nil {
+    return nil, fmt.Errorf("invalid marginMode: %w", err)
+}
+```
+
+Only `0` and `1` are accepted by the backend.
+
+#### 3. Nonce Calculation
+
+Nonce is derived from `clientOrderId` in the SDK flow. If it is empty, the SDK generates one first:
+
+```go
+clientOrderID := strings.TrimSpace(params.ClientOrderID)
+if clientOrderID == "" {
+    clientOrderID = internal.GetRandomClientId()
+}
+nonce := internal.CalcNonce(clientOrderID)
+```
+
+#### 4. L2 Expire Time
+
+The Go SDK rounds up to the next full hour first, then adds 14 days:
+
+```go
+func calcSetMarginModeL2ExpireTime(now time.Time) string {
+    nowMillis := now.UnixMilli()
+    nextHourMillis := ((nowMillis + 3600000 - 1) / 3600000) * 3600000
+    return strconv.FormatInt(nextHourMillis+14*24*60*60*1000, 10)
+}
+```
+
+#### 5. Signer Address
+
+```go
+tradingSigner, err := c.ResolveSignerAddress()
+if err != nil {
+    return nil, fmt.Errorf("trading private key is required for v2 EIP-712 margin mode signing: %w", err)
+}
+if !common.IsHexAddress(tradingSigner) {
+    return nil, fmt.Errorf("invalid signer address: %s", tradingSigner)
+}
+tradingSigner = common.HexToAddress(tradingSigner).Hex()
+```
+
+### Complete Golang Example
+
+```go
+package main
+
+import (
+    "fmt"
+    "strconv"
+    "strings"
+    "time"
+
+    "github.com/edgex-Tech/edgex-golang-sdk/sdk/internal"
+    "github.com/edgex-Tech/edgex-golang-sdk/sdk/metadata"
+    "github.com/ethereum/go-ethereum/common"
+)
+
+func calcSetMarginModeL2ExpireTime(now time.Time) string {
+    nowMillis := now.UnixMilli()
+    nextHourMillis := ((nowMillis + 3600000 - 1) / 3600000) * 3600000
+    return strconv.FormatInt(nextHourMillis+14*24*60*60*1000, 10)
+}
+
+func SignSetMarginMode(
+    signerPrivateKey string,
+    accountID int64,
+    params SetMarginModeParams,
+    md *metadata.MetaData,
+) (internal.TypedData, map[string]any, error) {
+    if md == nil || md.Global == nil {
+        return internal.TypedData{}, nil, fmt.Errorf("metadata.global is required")
+    }
+
+    chainID := strings.TrimSpace(md.Global.NativeChainId)
+    if chainID == "" {
+        chainID = strings.TrimSpace(md.Global.ChainId)
+    }
+    if chainID == "" {
+        return internal.TypedData{}, nil, fmt.Errorf("metadata.global.nativeChainId/chainId is required")
+    }
+    verifyingContract := strings.TrimSpace(md.Global.ContractAddress)
+    if verifyingContract == "" {
+        return internal.TypedData{}, nil, fmt.Errorf("metadata.global.contractAddress is required")
+    }
+
+    clientOrderID := strings.TrimSpace(params.ClientOrderID)
+    if clientOrderID == "" {
+        clientOrderID = internal.GetRandomClientId()
+    }
+    l2Nonce := internal.CalcNonce(clientOrderID)
+    l2ExpireTime := calcSetMarginModeL2ExpireTime(time.Now())
+
+    marginMode := strings.TrimSpace(params.MarginMode)
+    marginModeUint, err := strconv.ParseUint(marginMode, 10, 8)
+    if err != nil {
+        return internal.TypedData{}, nil, fmt.Errorf("invalid marginMode: %w", err)
+    }
+
+    tradingSigner, err := ResolveSignerAddressFromPrivateKey(signerPrivateKey)
+    if err != nil {
+        return internal.TypedData{}, nil, fmt.Errorf("trading private key is required for v2 EIP-712 margin mode signing: %w", err)
+    }
+    if !common.IsHexAddress(tradingSigner) {
+        return internal.TypedData{}, nil, fmt.Errorf("invalid signer address: %s", tradingSigner)
+    }
+    tradingSigner = common.HexToAddress(tradingSigner).Hex()
+
+    domain, err := internal.NewTypedDataDomain("EdgeX", "1", chainID, verifyingContract)
+    if err != nil {
+        return internal.TypedData{}, nil, fmt.Errorf("failed to build EIP-712 domain: %w", err)
+    }
+
+    typedData := internal.TypedData{
+        Types: internal.TypedDataTypes{
+            "EIP712Domain": {
+                {Name: "name", Type: "string"},
+                {Name: "version", Type: "string"},
+                {Name: "chainId", Type: "uint256"},
+                {Name: "verifyingContract", Type: "address"},
+            },
+            "SetMarginPreferenceParams": {
+                {Name: "accountId", Type: "uint64"},
+                {Name: "assetId", Type: "uint64"},
+                {Name: "marginMode", Type: "uint8"},
+                {Name: "nonce", Type: "uint256"},
+                {Name: "signer", Type: "address"},
+            },
+        },
+        PrimaryType: "SetMarginPreferenceParams",
+        Domain:      domain,
+        Message: internal.TypedDataMessage{
+            "accountId":  strconv.FormatInt(accountID, 10),
+            "assetId":    strings.TrimSpace(params.ContractID),
+            "marginMode": strconv.FormatUint(marginModeUint, 10),
+            "nonce":      strconv.FormatInt(l2Nonce, 10),
+            "signer":     tradingSigner,
+        },
+    }
+
+    l2Signature, err := internal.SignTypedDataWithPrivateKey(signerPrivateKey, typedData)
+    if err != nil {
+        return internal.TypedData{}, nil, fmt.Errorf("failed to sign margin mode payload: %w", err)
+    }
+
+    requestBody := map[string]any{
+        "accountId":    strconv.FormatInt(accountID, 10),
+        "contractId":   strings.TrimSpace(params.ContractID),
+        "marginMode":   marginMode,
+        "l2Nonce":      strconv.FormatInt(l2Nonce, 10),
+        "l2ExpireTime": l2ExpireTime,
+        "signer":       tradingSigner,
+        "l2Signature":  l2Signature,
+    }
+    return typedData, requestBody, nil
+}
+```
+
+### REST Request Example
+
+```json
+{
+  "accountId": "543429922991899150",
+  "contractId": "10000001",
+  "marginMode": "1",
+  "l2Nonce": "123456",
+  "l2ExpireTime": "1719212400000",
+  "signer": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+  "l2Signature": "0x..."
+}
+```
+
+---
+
 ## Order Signature (Limit Orders)
 
 ### EIP-712 Type Definition
@@ -367,88 +581,155 @@ func main() {
 
 ## Withdrawal Signature
 
-### EIP-712 Type Definition
+The current V2 SDK withdrawal path uses the unified-asset API. It no longer builds a fixed local `WithdrawParams` payload like the legacy asset flow.
 
-```go
-Types: {
-    EIP712Domain: [...],  // Same as order
-    OrderBase: [...],     // Same as order
-    WithdrawParams: [
-        { name: "base",              type: "OrderBase" },
-        { name: "amount",            type: "uint256" },
-        { name: "assetIdCollateral", type: "uint64" },
-        { name: "ethAddress",        type: "address" }
-    ]
+### Current Unified-Asset Flow
+
+Unified-asset withdraw uses this sequence:
+
+1. Build the withdraw `attempt`.
+2. Call `getFeeByAssetFlow`.
+3. Update `attempt.fee` and `attempt.amount` to the net amount.
+4. Call `getEIP712Data`.
+5. Sign the returned EIP-712 typed data with the **wallet private key**.
+6. Submit the signed request through `submitAssetFlow`.
+
+### Key Differences From Order / setMarginMode
+
+- The typed-data schema is returned by the server from `getEIP712Data`; it is not hard-coded in the SDK.
+- The signature key is the **wallet private key**.
+- The submitted field name is `userSignature`.
+- The submitted signature is `0x`-prefixed.
+
+### Unified Attempt Example
+
+```json
+{
+  "userAddress": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+  "privyAddress": "0x0000000000000000000000000000000000000000",
+  "source": "spot",
+  "sourceAccount": "12345",
+  "tokenAddress": "0x98d2919b9A214E6Fa5384AC81E6864bA686Ad74c",
+  "amount": "1000",
+  "fee": "0",
+  "destination": "chain-3343",
+  "destinationAccount": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+  "clientWithdrawId": "849849126827855872",
+  "expireTime": 123456
 }
 ```
 
-### Parameters
+After `getFeeByAssetFlow`, the SDK mutates the same payload before signing, for example:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `amount` | uint256 | Withdrawal amount in base units (amount × resolution) |
-| `assetIdCollateral` | uint64 | Coin ID from `metadata.coinList.coinId` |
-| `ethAddress` | address | Destination Ethereum address (0x-prefixed) |
+```json
+{
+  "amount": "990",
+  "fee": "10"
+}
+```
 
-### Golang Example
+### EIP-712 Response Shape
 
-```go
-func SignWithdrawal(
-    signerPrivateKey string,
-    accountID int64,
-    signerAddress string,
-    coin Coin,
-    metadata Global,
-    ethAddress string,
-    amount decimal.Decimal,
-    clientOrderID string,
-) (string, error) {
-    
-    // Calculate amount with resolution
-    resolution, _ := decimal.NewFromString(coin.StarkExResolution)
-    amountScaled := amount.Mul(resolution).BigInt()
-    
-    // Calculate nonce and expiration
-    nonce := CalcNonce(clientOrderID)
-    expirationTimestamp := time.Now().Unix() + (30 * 24 * 60 * 60) // 30 days
-    
-    // Build domain
-    typedDomain, _ := internal.NewTypedDataDomain(
-        "EdgeX", "1",
-        metadata.NativeChainId,
-        metadata.ContractAddress,
-    )
-    
-    // Build typed data
-    typedData := internal.TypedData{
-        Types: internal.TypedDataTypes{
-            "EIP712Domain": [...],
-            "OrderBase":    [...],
-            "WithdrawParams": []internal.TypedDataType{
-                {Name: "base", Type: "OrderBase"},
-                {Name: "amount", Type: "uint256"},
-                {Name: "assetIdCollateral", Type: "uint64"},
-                {Name: "ethAddress", Type: "address"},
-            },
-        },
-        PrimaryType: "WithdrawParams",
-        Domain:      typedDomain,
-        Message: internal.TypedDataMessage{
-            "base": map[string]interface{}{
-                "nonce":               strconv.FormatInt(nonce, 10),
-                "signer":              signerAddress,
-                "accountId":           strconv.FormatInt(accountID, 10),
-                "expirationTimestamp": strconv.FormatInt(expirationTimestamp, 10),
-            },
-            "amount":            amountScaled.String(),
-            "assetIdCollateral": coin.CoinId,
-            "ethAddress":        ethAddress,
-        },
+The SDK signs the typed data returned by `getEIP712Data`. A typical response shape is:
+
+```json
+{
+  "types": {
+    "AssetFlowAttempt": {
+      "fields": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ]
     }
-    
-    return internal.SignTypedDataWithPrivateKey(signerPrivateKey, typedData)
+  },
+  "primaryType": "AssetFlowAttempt",
+  "domain": {
+    "name": "EdgeX",
+    "version": "1"
+  },
+  "messageJson": "{\"amount\":\"990\"}"
 }
 ```
+
+The SDK normalizes this server response into an EIP-712 typed-data object and then signs it directly.
+
+### Complete Golang Example
+
+The SDK already encapsulates the full withdraw signing flow:
+
+```go
+package main
+
+import (
+    "context"
+    "log"
+
+    "github.com/edgex-Tech/edgex-golang-sdk/sdk"
+    "github.com/edgex-Tech/edgex-golang-sdk/sdk/unified_asset"
+)
+
+func main() {
+    client, err := sdk.NewClient(&sdk.Config{
+        BaseURL:        "https://<api-domain>",
+        AccountID:      12345,
+        APIKey:         "your-api-key",
+        APIPassphrase:  "your-api-passphrase",
+        APISecret:      "your-api-secret",
+        WalletPriKey:   "your-wallet-private-key",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    result, err := client.CreateWithdraw(context.Background(), unified_asset.CreateWithdrawParams{
+        AmountRaw:   "1000",
+        UserAddress: "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+        TokenAddress:"0x98d2919b9A214E6Fa5384AC81E6864bA686Ad74c",
+        ChainID:     3343,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    log.Printf("withdraw result: %#v", result)
+}
+```
+
+Internally, the SDK performs:
+
+1. `GetFeeByAssetFlow`
+2. `GetEIP712Data`
+3. `SignTypedDataWithWalletKey`
+4. `SubmitAssetFlow`
+
+### Submit Request Example
+
+```json
+{
+  "attempt": {
+    "userAddress": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+    "privyAddress": "0x0000000000000000000000000000000000000000",
+    "source": "spot",
+    "sourceAccount": "12345",
+    "tokenAddress": "0x98d2919b9A214E6Fa5384AC81E6864bA686Ad74c",
+    "amount": "990",
+    "fee": "10",
+    "destination": "chain-3343",
+    "destinationAccount": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
+    "clientWithdrawId": "849849126827855872",
+    "expireTime": 123456
+  },
+  "userSignature": "0x...",
+  "extraData": "",
+  "privyIdentityToken": ""
+}
+```
+
+### Deposit Data Note
+
+`getDepositData` is part of the unified-asset API group, but the current SDK path only retrieves deposit transaction data. It does not generate a signature in this step.
 
 ---
 
@@ -734,4 +1015,3 @@ amountBigInt := new(big.Int)
 - **Go-Ethereum EIP-712 Implementation**: https://pkg.go.dev/github.com/ethereum/go-ethereum/signer/core/apitypes
 - **EdgeX Golang SDK**: https://github.com/edgex-Tech/edgex-golang-sdk
 - **EdgeX API Documentation**: https://docs.edgex.exchange
-

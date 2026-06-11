@@ -392,6 +392,74 @@ The response structure is the same as `ticker.all.1s`, but `content.data` contai
 }
 ```
 
+### Kline
+
+#### Use Case
+
+Use this stream for candlestick charts of a specific market and price type.
+
+#### Channel
+
+`kline.{priceType}.{contractId}.{interval}`
+
+Supported examples include:
+
+- `kline.LAST_PRICE.10000001.MINUTE_1`
+- `kline.ORACLE_PRICE.10000001.HOUR_1`
+
+#### Request Example
+
+```json
+{
+  "type": "subscribe",
+  "channel": "kline.LAST_PRICE.10000001.MINUTE_1"
+}
+```
+
+#### Response Model
+
+`content.data` is an array of kline objects.
+
+| Field | Type | Description |
+|------|------|-------------|
+| `contractId` | integer | Contract identifier |
+| `priceType` | string | Price source. Common values include `LAST_PRICE`, `ORACLE_PRICE`, `INDEX_PRICE`, `ASK1_PRICE`, `BID1_PRICE` |
+| `interval` | string | Kline interval |
+| `openPrice` | string | Opening price of the candle |
+| `closePrice` | string | Closing price of the candle |
+| `highPrice` | string | Highest price of the candle |
+| `lowPrice` | string | Lowest price of the candle |
+| `volume` | string | Traded volume during the interval |
+| `startTime` | integer | Candle start timestamp in milliseconds |
+| `endTime` | integer | Candle end timestamp in milliseconds |
+
+#### Response Example
+
+```json
+{
+  "type": "quote-event",
+  "channel": "kline.LAST_PRICE.10000001.MINUTE_1",
+  "content": {
+    "dataType": "Snapshot",
+    "channel": "kline.LAST_PRICE.10000001.MINUTE_1",
+    "data": [
+      {
+        "contractId": 10000001,
+        "priceType": "LAST_PRICE",
+        "interval": "MINUTE_1",
+        "openPrice": "43000.0",
+        "closePrice": "43010.5",
+        "highPrice": "43025.0",
+        "lowPrice": "42995.5",
+        "volume": "125.7",
+        "startTime": 1693208160000,
+        "endTime": 1693208219999
+      }
+    ]
+  }
+}
+```
+
 ### Order Book
 
 #### Use Case
@@ -563,4 +631,3 @@ Use this stream to display funding information for one market or all markets.
   }
 }
 ```
-

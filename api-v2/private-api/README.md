@@ -29,7 +29,7 @@ Create, cancel, and query orders.
 
 ### [Asset API](./asset-api.md)
 
-Manage deposits, withdrawals, and asset-related queries.
+Manage unified asset deposits, withdrawals, and asset-flow queries.
 
 ### [Transfer API](./transfer-api.md)
 
@@ -41,7 +41,7 @@ The V2 platform includes private API capabilities beyond the pages currently exp
 
 ## L2 Signature Requirements
 
-Certain private operations require **EIP-712 L2 signatures** in addition to HTTP authentication, including order creation, withdrawals, and transfer-out operations.
+Certain private operations require **EIP-712 L2 signatures** in addition to HTTP authentication, including order creation, `setMarginMode`, withdrawals, and transfer-out operations.
 
 For L2 signature implementation details, refer to the [L2 Signature Documentation](../sign.md).
 
@@ -74,7 +74,8 @@ All private API responses follow the standard format:
 ## Base URL
 
 - **HTTP REST base URL**: `https://<api-domain>`
-- Private REST path prefix: `/api/v2/private/...`
+- Most private REST paths use `/api/v2/private/...`
+- Unified asset paths currently use `/api/v1/private/unified-asset/...`
 
 Replace `<api-domain>` with the production HTTP API domain provided by EdgeX. Internal or non-production domains are not included in this public documentation.
 
