@@ -22,10 +22,7 @@ Access real-time and historical market data:
 - **Get Depth** - Order book depth (buy/sell orders)
 - **Get K-line** - Historical K-line (candlestick) data
 - **Get Ticker** - 24-hour market statistics
-- **Get Ticker Summary** - Aggregated market overview
 - **Get Multi-Contract K-line** - K-line data for multiple contracts
-- **Get Accurate Open Interest** - Contract open interest
-- **Get Exchange Long/Short Ratio** - Long/short position ratio
 - **Get Market Status** - Market open/close status (for stocks)
 
 ### [Funding Rate API](./funding-api.md)

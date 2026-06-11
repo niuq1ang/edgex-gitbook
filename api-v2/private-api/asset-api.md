@@ -51,7 +51,7 @@ Most unified-asset endpoints use an `attempt` object.
 {
   "userAddress": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
   "privyAddress": "0x0000000000000000000000000000000000000000",
-  "source": "chain-33431",
+  "source": "chain-3343",
   "sourceAccount": "0xFCAd0B19bB29D4674531d6f115237E16AfCE377c",
   "tokenAddress": "0x98d2919b9A214E6Fa5384AC81E6864bA686Ad74c",
   "amount": "1000",
@@ -67,13 +67,13 @@ Most unified-asset endpoints use an `attempt` object.
 |---|---|---|---|
 |userAddress|string|Yes|Wallet address of the user.|
 |privyAddress|string|No|Privy wallet address. SDK default is `0x0000000000000000000000000000000000000000`.|
-|source|string|Yes|Asset source. Observed SDK values include `spot`, `perpv2`, and `chain-<chainId>`.|
+|source|string|Yes|Asset source. For withdraw use `spot` or `perpv2` , and deposit uses `chain-<chainId>`.|
 |sourceAccount|string|Yes|Source account identifier. For spot/perpv2 withdraw this is usually the EdgeX account ID; for chain deposit this is usually the user wallet address.|
-|tokenAddress|string|Yes|Token contract address. Native token flows use `0x0000000000000000000000000000000000000000`.|
-|amount|string|Yes|Raw amount string. For withdraw flow, SDK first sends the gross amount, then replaces it with net amount after fee calculation.|
+|tokenAddress|string|Yes|Token contract address. Native token flows use `0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE`.|
+|amount|string|Yes|Raw amount string.|
 |fee|string|Yes|Fee string. Initial request commonly uses `0`, then withdraw flow updates it from `getFeeByAssetFlow`.|
-|destination|string|Yes|Destination identifier. Withdraw uses `chain-<chainId>`; deposit uses `spot`.|
-|destinationAccount|string|Yes|Destination account identifier. Withdraw usually uses the same wallet address as `userAddress`; deposit usually uses the spot account ID.|
+|destination|string|Yes|Destination identifier. Withdraw uses `chain-<chainId>`; deposit uses `spot` or `perpv2`.|
+|destinationAccount|string|Yes|Destination account identifier. Withdraw usually uses the same wallet address as `userAddress`; deposit usually uses the spot/perpv2 account ID.|
 |clientWithdrawId|string|Withdraw only|Client-defined withdraw ID used for idempotency.|
 |expireTime|integer|Withdraw only|Unix timestamp in seconds.|
 

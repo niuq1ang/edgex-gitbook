@@ -727,10 +727,6 @@ Internally, the SDK performs:
 }
 ```
 
-### Deposit Data Note
-
-`getDepositData` is part of the unified-asset API group, but the current SDK path only retrieves deposit transaction data. It does not generate a signature in this step.
-
 ---
 
 ## Transfer Signature
@@ -1013,5 +1009,6 @@ amountBigInt := new(big.Int)
 
 - **EIP-712 Specification**: https://eips.ethereum.org/EIPS/eip-712
 - **Go-Ethereum EIP-712 Implementation**: https://pkg.go.dev/github.com/ethereum/go-ethereum/signer/core/apitypes
+- **EdgeX Python SDK**: https://github.com/edgex-Tech/edgex-python-sdk
 - **EdgeX Golang SDK**: https://github.com/edgex-Tech/edgex-golang-sdk
-- **EdgeX API Documentation**: https://docs.edgex.exchange
+- **EdgeX API Documentation**: https://edgex-1.gitbook.io/edgeX-documentation
